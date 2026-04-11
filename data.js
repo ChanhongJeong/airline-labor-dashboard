@@ -110,24 +110,78 @@ window.DASHBOARD_DATA = {
         "사회보험 가입 여부"
       ],
       "holidays": [
-        { "name": "元日 (신정)", "date": "1/1" },
-        { "name": "成人の日 (성인의 날)", "date": "1월 2째 월요일" },
-        { "name": "建国記念の日 (건국기념일)", "date": "2/11" },
-        { "name": "天皇誕生日 (천황탄생일)", "date": "2/23" },
-        { "name": "春分の日 (춘분의 날)", "date": "3/20~21경 (매년 관보) · 2026: 3/20 (금)" },
-        { "name": "昭和の日 (쇼와의 날)", "date": "4/29" },
-        { "name": "憲法記念日 (헌법기념일)", "date": "5/3" },
-        { "name": "みどりの日 (녹색의 날)", "date": "5/4" },
-        { "name": "こどもの日 (어린이의 날)", "date": "5/5" },
-        { "name": "海の日 (바다의 날)", "date": "7월 3째 월요일" },
-        { "name": "山の日 (산의 날)", "date": "8/11" },
-        { "name": "敬老の日 (경로의 날)", "date": "9월 3째 월요일" },
-        { "name": "秋分の日 (추분의 날)", "date": "9/22~23경 (매년 관보) · 2026: 9/23 (수)" },
-        { "name": "スポーツの日 (체육의 날)", "date": "10월 2째 월요일" },
-        { "name": "文化の日 (문화의 날)", "date": "11/3" },
-        { "name": "勤労感謝の日 (근로감사의 날)", "date": "11/23" },
-        { "name": "振替休日 (대체휴일)", "date": "공휴일이 일요일일 경우 다음 평일" },
-        { "name": "国民の休日 (국민의 휴일)", "date": "평일이 2개 공휴일 사이에 낀 경우 자동 휴일 (예: 5/4)" }
+        {
+          "name": "元日 (신정)",
+          "date": "1/1"
+        },
+        {
+          "name": "成人の日 (성인의 날)",
+          "date": "1월 2째 월요일"
+        },
+        {
+          "name": "建国記念の日 (건국기념일)",
+          "date": "2/11"
+        },
+        {
+          "name": "天皇誕生日 (천황탄생일)",
+          "date": "2/23"
+        },
+        {
+          "name": "春分の日 (춘분의 날)",
+          "date": "3/20~21경 (매년 관보) · 2026: 3/20 (금)"
+        },
+        {
+          "name": "昭和の日 (쇼와의 날)",
+          "date": "4/29"
+        },
+        {
+          "name": "憲法記念日 (헌법기념일)",
+          "date": "5/3"
+        },
+        {
+          "name": "みどりの日 (녹색의 날)",
+          "date": "5/4"
+        },
+        {
+          "name": "こどもの日 (어린이의 날)",
+          "date": "5/5"
+        },
+        {
+          "name": "海の日 (바다의 날)",
+          "date": "7월 3째 월요일"
+        },
+        {
+          "name": "山の日 (산의 날)",
+          "date": "8/11"
+        },
+        {
+          "name": "敬老の日 (경로의 날)",
+          "date": "9월 3째 월요일"
+        },
+        {
+          "name": "秋分の日 (추분의 날)",
+          "date": "9/22~23경 (매년 관보) · 2026: 9/23 (수)"
+        },
+        {
+          "name": "スポーツの日 (체육의 날)",
+          "date": "10월 2째 월요일"
+        },
+        {
+          "name": "文化の日 (문화의 날)",
+          "date": "11/3"
+        },
+        {
+          "name": "勤労感謝の日 (근로감사의 날)",
+          "date": "11/23"
+        },
+        {
+          "name": "振替休日 (대체휴일)",
+          "date": "공휴일이 일요일일 경우 다음 평일"
+        },
+        {
+          "name": "国民の休日 (국민의 휴일)",
+          "date": "평일이 2개 공휴일 사이에 낀 경우 자동 휴일 (예: 5/4)"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (단기 관광/상용). 업무 체류는 취업비자(기술·인문지식·국제업무 등) 필요.",
       "fixedTermContract": {
@@ -191,7 +245,24 @@ window.DASHBOARD_DATA = {
           "name": "최저임금 포털",
           "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "근속 6개월 10일 → 1.5년 11일 → 2.5년 12일 → ... → 6.5년+ 20일 (최대 20일)",
+        "grantRule": "주 5일·풀타임 기준. 파트타임은 비례 지급 (노동기준법 제39조)",
+        "compensation": {
+          "required": false,
+          "formula": "원칙 없음. 퇴직 시 미사용분 금전 환산은 사용자 재량 (관행상 지급)",
+          "note": "근로 중 금전 환산은 법적으로 권장 안 됨 — 연차는 휴식권이라는 취지"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "1년 (소멸시효 2년)",
+          "detail": "당해 연도 미사용분은 다음 연도까지 사용 가능. 2년 후 소멸 (노동기준법 제115조 소멸시효)"
+        },
+        "consent": "자동 이월 (별도 동의서 불필요)",
+        "specialObligation": "⚠️ 연 5일 이상 취득 의무 (2019~, 働き方改革) — 사용자가 시계(時季) 지정해서라도 5일 사용시켜야 함. 미이행 시 근로자 1인당 최대 30만엔 벌금",
+        "tip": "실무상 유급휴가 소진 관리가 엄격. 연 5일 의무 취득 체크 + 이월분 소멸 전 통보 필수"
+      }
     },
     {
       "code": "CN",
@@ -289,14 +360,38 @@ window.DASHBOARD_DATA = {
         "법령상 필수 기타 사항"
       ],
       "holidays": [
-        { "name": "元旦 (신정)", "date": "1/1 · 2026: 1/1 (목) · 1일 법정" },
-        { "name": "春节 (춘절)", "date": "음력 12/30 ~ 1/3 · <strong>2026: 2/16(월)~2/22(일) 7일 연휴</strong> (법정 3일 + 조정)" },
-        { "name": "清明节 (청명절)", "date": "양력 4/4~5 · <strong>2026: 4/4(토)~4/6(월) 3일 연휴</strong>" },
-        { "name": "劳动节 (노동절)", "date": "5/1 · <strong>2026: 5/1(금)~5/5(화) 5일 연휴</strong> (법정 1일 + 조정)" },
-        { "name": "端午节 (단오절)", "date": "음력 5/5 · <strong>2026: 6/19(금)~6/21(일) 3일 연휴</strong>" },
-        { "name": "中秋节 (중추절)", "date": "음력 8/15 · <strong>2026: 9/25(금)~9/27(일) 3일 연휴</strong>" },
-        { "name": "国庆节 (국경절)", "date": "10/1~3 · <strong>2026: 10/1(목)~10/8(목) 8일 연휴</strong> (법정 3일 + 조정, 중추절과 합산)" },
-        { "name": "※ 2026년 중추절(9/25)과 국경절(10/1)이 근접 → 국무원 조정으로 총 15일 내외 장기 연휴 가능성. 매년 12월 국무원 발표", "date": "—" }
+        {
+          "name": "元旦 (신정)",
+          "date": "1/1 · 2026: 1/1 (목) · 1일 법정"
+        },
+        {
+          "name": "春节 (춘절)",
+          "date": "음력 12/30 ~ 1/3 · <strong>2026: 2/16(월)~2/22(일) 7일 연휴</strong> (법정 3일 + 조정)"
+        },
+        {
+          "name": "清明节 (청명절)",
+          "date": "양력 4/4~5 · <strong>2026: 4/4(토)~4/6(월) 3일 연휴</strong>"
+        },
+        {
+          "name": "劳动节 (노동절)",
+          "date": "5/1 · <strong>2026: 5/1(금)~5/5(화) 5일 연휴</strong> (법정 1일 + 조정)"
+        },
+        {
+          "name": "端午节 (단오절)",
+          "date": "음력 5/5 · <strong>2026: 6/19(금)~6/21(일) 3일 연휴</strong>"
+        },
+        {
+          "name": "中秋节 (중추절)",
+          "date": "음력 8/15 · <strong>2026: 9/25(금)~9/27(일) 3일 연휴</strong>"
+        },
+        {
+          "name": "国庆节 (국경절)",
+          "date": "10/1~3 · <strong>2026: 10/1(목)~10/8(목) 8일 연휴</strong> (법정 3일 + 조정, 중추절과 합산)"
+        },
+        {
+          "name": "※ 2026년 중추절(9/25)과 국경절(10/1)이 근접 → 국무원 조정으로 총 15일 내외 장기 연휴 가능성. 매년 12월 국무원 발표",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>15일 무비자</strong> (2024~ 시범, 관광·상용). 업무 취업은 <strong>Z비자</strong>, 상주는 <strong>R비자</strong> 필요.",
       "fixedTermContract": {
@@ -356,7 +451,24 @@ window.DASHBOARD_DATA = {
           "name": "국가통계국",
           "url": "http://www.stats.gov.cn/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1~10년 근속 5일 / 10~20년 10일 / 20년+ 15일 (연차휴가조례 2008)",
+        "grantRule": "근속 1년 이상 필수. 연차휴가조례(年休条例) + 실시규정(实施办法)",
+        "compensation": {
+          "required": true,
+          "formula": "사용자 업무 필요로 미사용 시 일급 × 300% (평상 일급 100% + 추가 200%) 지급 의무",
+          "note": "근로자 자발적 포기는 서면 확인 시 보상 의무 없음. 국유기업·외자기업 분쟁 빈발"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "1년 (원칙 당해 연도 소진, 업무 필요 시 1년 이월 가능)",
+          "detail": "사용자 사유로 이월 시에만 허용. 근로자 자발 이월은 제한"
+        },
+        "consent": "이월 시 근로자 서면 동의 필수 (분쟁 예방용)",
+        "specialObligation": "서면 연차 계획(年休计划) 수립 의무. 노동감찰 시 자주 점검",
+        "tip": "300% 지급 의무를 피하려면 연말까지 소진 or 서면 포기서 확보. 외국인도 동일 적용"
+      }
     },
     {
       "code": "TW",
@@ -455,16 +567,46 @@ window.DASHBOARD_DATA = {
         "근로자 교육·훈련"
       ],
       "holidays": [
-        { "name": "中華民國開國紀念日 (건국기념일·신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "農曆除夕 (춘절 전날)", "date": "음력 12/30 · <strong>2026: 2/16 (월)</strong>" },
-        { "name": "春節 (춘절)", "date": "음력 1/1~1/3 · <strong>2026: 2/17(화)~2/19(목)</strong>" },
-        { "name": "和平紀念日 (228 평화기념일)", "date": "2/28 · 2026: 2/28 (토)" },
-        { "name": "兒童節·民族掃墓節 (어린이날·청명절)", "date": "4/4~4/5 · <strong>2026: 4/4(토)~4/6(월)</strong>" },
-        { "name": "勞動節 (노동절·근로자만)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "端午節 (단오절)", "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong>" },
-        { "name": "中秋節 (중추절)", "date": "음력 8/15 · <strong>2026: 9/25 (금)</strong>" },
-        { "name": "國慶日 (국경일·쌍십절)", "date": "10/10 · 2026: 10/10 (토) → 대체휴일 가능" },
-        { "name": "※ 2026년 춘절: 2/16(섣달그믐)~2/22(일) 연휴 조정 가능. 매년 行政院 人事行政總處 발표", "date": "—" }
+        {
+          "name": "中華民國開國紀念日 (건국기념일·신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "農曆除夕 (춘절 전날)",
+          "date": "음력 12/30 · <strong>2026: 2/16 (월)</strong>"
+        },
+        {
+          "name": "春節 (춘절)",
+          "date": "음력 1/1~1/3 · <strong>2026: 2/17(화)~2/19(목)</strong>"
+        },
+        {
+          "name": "和平紀念日 (228 평화기념일)",
+          "date": "2/28 · 2026: 2/28 (토)"
+        },
+        {
+          "name": "兒童節·民族掃墓節 (어린이날·청명절)",
+          "date": "4/4~4/5 · <strong>2026: 4/4(토)~4/6(월)</strong>"
+        },
+        {
+          "name": "勞動節 (노동절·근로자만)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "端午節 (단오절)",
+          "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong>"
+        },
+        {
+          "name": "中秋節 (중추절)",
+          "date": "음력 8/15 · <strong>2026: 9/25 (금)</strong>"
+        },
+        {
+          "name": "國慶日 (국경일·쌍십절)",
+          "date": "10/10 · 2026: 10/10 (토) → 대체휴일 가능"
+        },
+        {
+          "name": "※ 2026년 춘절: 2/16(섣달그믐)~2/22(일) 연휴 조정 가능. 매년 行政院 人事行政總處 발표",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (관광/상용). 업무 체류는 취업허가+거류증 필요.",
       "fixedTermContract": {
@@ -524,7 +666,24 @@ window.DASHBOARD_DATA = {
           "name": "주계총처",
           "url": "https://www.stat.gov.tw/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "6개월 3일 / 1년 7일 / 2년 10일 / 3년 14일 / 5년 15일 / 10년+ 매년 +1일 (최대 30일) — 노동기준법 §38 (2017 개정)",
+        "grantRule": "계속 근로 6개월 이상. 파트타임 비례 지급",
+        "compensation": {
+          "required": true,
+          "formula": "미사용분 × 일급 환산. 사용자 사유 미사용이든 연도 종료 시점이든 동일 지급 의무",
+          "note": "2017 개정 후 '근로자 자발 미사용도 연말 환산 의무' 명확화"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "1년 (합의 시 1회)",
+          "detail": "사용자·근로자 합의 시 다음 연도 말까지 이월 가능. 2년차도 미사용 시 무조건 금전 환산"
+        },
+        "consent": "이월 시 서면 합의 필수 (노동부 권고)",
+        "specialObligation": "사용자는 근로자에게 매년 연차 일수·기간 서면 통지 의무 (§38 V)",
+        "tip": "대만은 연차 환산 의무가 가장 엄격. 주재원 포함 전원 적용. 2년 이월은 합의서로 명시 권장"
+      }
     },
     {
       "code": "HK",
@@ -620,24 +779,78 @@ window.DASHBOARD_DATA = {
         "병가 조건"
       ],
       "holidays": [
-        { "name": "元旦 (신정)", "date": "1/1 · 2026: 1/1 (목) · 법정" },
-        { "name": "農曆年初一 (음력설)", "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong> · 법정" },
-        { "name": "農曆年初二", "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong> · 법정" },
-        { "name": "農曆年初三", "date": "음력 1/3 · <strong>2026: 2/19 (목)</strong> · 법정" },
-        { "name": "清明節 (청명절)", "date": "4/4~5 · <strong>2026: 4/5 (일) → 4/6 (월) 대체</strong> · 법정" },
-        { "name": "耶穌受難節 (Good Friday)", "date": "3~4월 · <strong>2026: 4/3 (금)</strong> · 공중가기(Public Holiday), 법정 아님" },
-        { "name": "耶穌受難節翌日 (Holy Saturday)", "date": "<strong>2026: 4/4 (토)</strong> · 공중가기, 법정 아님" },
-        { "name": "復活節星期一 (Easter Monday)", "date": "<strong>2026: 4/6 (월)</strong> · 공중가기, 법정 아님" },
-        { "name": "勞動節 (노동절)", "date": "5/1 · 2026: 5/1 (금) · 법정" },
-        { "name": "佛誕 (석가탄신일)", "date": "음력 4/8 · <strong>2026: 5/24 (일) → 5/25 (월) 대체</strong> · 법정 (2022~)" },
-        { "name": "端午節 (단오절)", "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong> · 법정" },
-        { "name": "香港特別行政區成立紀念日", "date": "7/1 · 2026: 7/1 (수) · 법정" },
-        { "name": "中秋節翌日 (중추절 익일)", "date": "음력 8/16 · <strong>2026: 9/26 (토)</strong> · 법정" },
-        { "name": "國慶日 (국경일)", "date": "10/1 · 2026: 10/1 (목) · 법정" },
-        { "name": "重陽節 (중양절)", "date": "음력 9/9 · <strong>2026: 10/18 (일) → 10/19 (월) 대체</strong> · 법정" },
-        { "name": "冬至 또는 聖誕節 (동지 또는 크리스마스)", "date": "2026: <strong>12/22 (화) 동지</strong> 또는 <strong>12/25 (금) 크리스마스</strong> · 법정 (고용주 선택)" },
-        { "name": "聖誕節後第一個周日 (Boxing Day)", "date": "12/26 · <strong>2026: 12/26 (토)</strong> · 공중가기" },
-        { "name": "※ 공휴일 일요일 겹치면 다음 평일 대체. 2030년까지 법정가기 13→17일 단계적 확대", "date": "—" }
+        {
+          "name": "元旦 (신정)",
+          "date": "1/1 · 2026: 1/1 (목) · 법정"
+        },
+        {
+          "name": "農曆年初一 (음력설)",
+          "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong> · 법정"
+        },
+        {
+          "name": "農曆年初二",
+          "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong> · 법정"
+        },
+        {
+          "name": "農曆年初三",
+          "date": "음력 1/3 · <strong>2026: 2/19 (목)</strong> · 법정"
+        },
+        {
+          "name": "清明節 (청명절)",
+          "date": "4/4~5 · <strong>2026: 4/5 (일) → 4/6 (월) 대체</strong> · 법정"
+        },
+        {
+          "name": "耶穌受難節 (Good Friday)",
+          "date": "3~4월 · <strong>2026: 4/3 (금)</strong> · 공중가기(Public Holiday), 법정 아님"
+        },
+        {
+          "name": "耶穌受難節翌日 (Holy Saturday)",
+          "date": "<strong>2026: 4/4 (토)</strong> · 공중가기, 법정 아님"
+        },
+        {
+          "name": "復活節星期一 (Easter Monday)",
+          "date": "<strong>2026: 4/6 (월)</strong> · 공중가기, 법정 아님"
+        },
+        {
+          "name": "勞動節 (노동절)",
+          "date": "5/1 · 2026: 5/1 (금) · 법정"
+        },
+        {
+          "name": "佛誕 (석가탄신일)",
+          "date": "음력 4/8 · <strong>2026: 5/24 (일) → 5/25 (월) 대체</strong> · 법정 (2022~)"
+        },
+        {
+          "name": "端午節 (단오절)",
+          "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong> · 법정"
+        },
+        {
+          "name": "香港特別行政區成立紀念日",
+          "date": "7/1 · 2026: 7/1 (수) · 법정"
+        },
+        {
+          "name": "中秋節翌日 (중추절 익일)",
+          "date": "음력 8/16 · <strong>2026: 9/26 (토)</strong> · 법정"
+        },
+        {
+          "name": "國慶日 (국경일)",
+          "date": "10/1 · 2026: 10/1 (목) · 법정"
+        },
+        {
+          "name": "重陽節 (중양절)",
+          "date": "음력 9/9 · <strong>2026: 10/18 (일) → 10/19 (월) 대체</strong> · 법정"
+        },
+        {
+          "name": "冬至 또는 聖誕節 (동지 또는 크리스마스)",
+          "date": "2026: <strong>12/22 (화) 동지</strong> 또는 <strong>12/25 (금) 크리스마스</strong> · 법정 (고용주 선택)"
+        },
+        {
+          "name": "聖誕節後第一個周日 (Boxing Day)",
+          "date": "12/26 · <strong>2026: 12/26 (토)</strong> · 공중가기"
+        },
+        {
+          "name": "※ 공휴일 일요일 겹치면 다음 평일 대체. 2030년까지 법정가기 13→17일 단계적 확대",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 GEP(일반고용정책) 비자 필요.",
       "fixedTermContract": {
@@ -697,7 +910,24 @@ window.DASHBOARD_DATA = {
           "name": "정부통계처",
           "url": "https://www.censtatd.gov.hk/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1~2년 7일 / 3년 8일 / 4년 9일 / 5년 10일 / 6년 11일 / 7년 12일 / 8년 13일 / 9년+ 14일 — 고용조례 §41AA",
+        "grantRule": "Continuous Contract(4주 18h 이상) 근로자만. 1년 이상 근속 시 발생",
+        "compensation": {
+          "required": "퇴직 시만",
+          "formula": "퇴직 시 미사용분 × 일급 환산 지급 의무 (§41F). 근로 중에는 금전 환산 법적 의무 없음",
+          "note": "계약상 추가 연차(beyond 법정)는 계약 규정 따름"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법적 제한 없음",
+          "detail": "계약·사내 규정 자유. 대부분 기업은 12개월 이내 소진 관행"
+        },
+        "consent": "법정 의무 없음. 계약·핸드북 자유",
+        "specialObligation": "연차 7일 이상 중 연속 3일 이상 사용 보장 의무 (§41AA 7일+)",
+        "tip": "실무상 Employee Handbook에 이월 한도·환산 방식 명시 필수. 퇴직 시 일급 = 최근 12개월 평균"
+      }
     },
     {
       "code": "MO",
@@ -793,26 +1023,86 @@ window.DASHBOARD_DATA = {
         "계약기간 (유기계약인 경우)"
       ],
       "holidays": [
-        { "name": "元旦 (신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "農曆新年初一 (음력설)", "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>" },
-        { "name": "農曆新年初二", "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong>" },
-        { "name": "農曆新年初三", "date": "음력 1/3 · <strong>2026: 2/19 (목)</strong>" },
-        { "name": "耶穌受難日 (Good Friday)", "date": "<strong>2026: 4/3 (금)</strong>" },
-        { "name": "復活節前日 (Holy Saturday)", "date": "<strong>2026: 4/4 (토)</strong>" },
-        { "name": "清明節 (청명절)", "date": "4/4~5 · <strong>2026: 4/5 (일)</strong>" },
-        { "name": "勞動節 (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "佛誕 (석가탄신일)", "date": "음력 4/8 · <strong>2026: 5/24 (일)</strong>" },
-        { "name": "端午節 (단오절)", "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong>" },
-        { "name": "中華人民共和國成立紀念日", "date": "10/1 · 2026: 10/1 (목)" },
-        { "name": "國慶日翌日", "date": "10/2 · 2026: 10/2 (금)" },
-        { "name": "中秋節翌日 (중추절 익일)", "date": "음력 8/16 · <strong>2026: 9/26 (토)</strong>" },
-        { "name": "重陽節 (중양절)", "date": "음력 9/9 · <strong>2026: 10/18 (일)</strong>" },
-        { "name": "追思節 (All Souls' Day)", "date": "11/2 · 2026: 11/2 (월)" },
-        { "name": "聖母無原罪瞻禮", "date": "12/8 · 2026: 12/8 (화)" },
-        { "name": "澳門特別行政區成立紀念日", "date": "12/20 · 2026: 12/20 (일)" },
-        { "name": "冬至 (동지)", "date": "12/22 경 · 2026: 12/22 (화)" },
-        { "name": "聖誕節前夕 (크리스마스 이브)", "date": "12/24 · 2026: 12/24 (목)" },
-        { "name": "聖誕節 (크리스마스)", "date": "12/25 · 2026: 12/25 (금)" }
+        {
+          "name": "元旦 (신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "農曆新年初一 (음력설)",
+          "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>"
+        },
+        {
+          "name": "農曆新年初二",
+          "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong>"
+        },
+        {
+          "name": "農曆新年初三",
+          "date": "음력 1/3 · <strong>2026: 2/19 (목)</strong>"
+        },
+        {
+          "name": "耶穌受難日 (Good Friday)",
+          "date": "<strong>2026: 4/3 (금)</strong>"
+        },
+        {
+          "name": "復活節前日 (Holy Saturday)",
+          "date": "<strong>2026: 4/4 (토)</strong>"
+        },
+        {
+          "name": "清明節 (청명절)",
+          "date": "4/4~5 · <strong>2026: 4/5 (일)</strong>"
+        },
+        {
+          "name": "勞動節 (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "佛誕 (석가탄신일)",
+          "date": "음력 4/8 · <strong>2026: 5/24 (일)</strong>"
+        },
+        {
+          "name": "端午節 (단오절)",
+          "date": "음력 5/5 · <strong>2026: 6/19 (금)</strong>"
+        },
+        {
+          "name": "中華人民共和國成立紀念日",
+          "date": "10/1 · 2026: 10/1 (목)"
+        },
+        {
+          "name": "國慶日翌日",
+          "date": "10/2 · 2026: 10/2 (금)"
+        },
+        {
+          "name": "中秋節翌日 (중추절 익일)",
+          "date": "음력 8/16 · <strong>2026: 9/26 (토)</strong>"
+        },
+        {
+          "name": "重陽節 (중양절)",
+          "date": "음력 9/9 · <strong>2026: 10/18 (일)</strong>"
+        },
+        {
+          "name": "追思節 (All Souls' Day)",
+          "date": "11/2 · 2026: 11/2 (월)"
+        },
+        {
+          "name": "聖母無原罪瞻禮",
+          "date": "12/8 · 2026: 12/8 (화)"
+        },
+        {
+          "name": "澳門特別行政區成立紀念日",
+          "date": "12/20 · 2026: 12/20 (일)"
+        },
+        {
+          "name": "冬至 (동지)",
+          "date": "12/22 경 · 2026: 12/22 (화)"
+        },
+        {
+          "name": "聖誕節前夕 (크리스마스 이브)",
+          "date": "12/24 · 2026: 12/24 (목)"
+        },
+        {
+          "name": "聖誕節 (크리스마스)",
+          "date": "12/25 · 2026: 12/25 (금)"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 노동허가 필요.",
       "fixedTermContract": {
@@ -872,7 +1162,24 @@ window.DASHBOARD_DATA = {
           "name": "통계조사국",
           "url": "https://www.dsec.gov.mo/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1년 근속 이상 연 6일 (근속 연수와 무관 일정) — 노동관계법 §44",
+        "grantRule": "1년 근속 완료 시 발생. 첫 해 근무 중에는 무급",
+        "compensation": {
+          "required": true,
+          "formula": "사용자 사유 미사용: 일급 × 3배 (기본 1일 휴가 + 2일분 추가). 근로자 자발 미사용은 다음 연도 이월 또는 퇴직 시 환산",
+          "note": "Law 7/2008 §46 — 3배 보상은 마카오 특유"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "1년",
+          "detail": "당해 연도 미사용분은 다음 연도 3/31까지 사용 가능"
+        },
+        "consent": "법정 동의서 의무 없음. 사내 규정",
+        "specialObligation": "공휴일·주휴일·병가는 연차와 별개 계산",
+        "tip": "6일은 근속 무관 고정이라 관리 단순. 사용자 사유 미사용 시 3배 지급 의무 주의"
+      }
     },
     {
       "code": "VN",
@@ -971,13 +1278,34 @@ window.DASHBOARD_DATA = {
         "교육·양성·숙련도 향상"
       ],
       "holidays": [
-        { "name": "Tết Dương Lịch (양력 신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Tết Nguyên Đán (음력설)", "date": "음력 12/30 ~ 1/4 · <strong>2026: 2/16(월)~2/20(금) 공식 5일</strong> (정부 조정 시 2/14~2/22 9일 연휴 가능)" },
-        { "name": "Giỗ Tổ Hùng Vương (훙왕 제)", "date": "음력 3/10 · <strong>2026: 4/26 (일) → 4/27 (월) 대체휴일</strong>" },
-        { "name": "Ngày Giải Phóng Miền Nam (남부 해방·통일기념일)", "date": "4/30 · 2026: 4/30 (목)" },
-        { "name": "Ngày Quốc Tế Lao Động (국제노동절)", "date": "5/1 · 2026: 5/1 (금) → <strong>4/30~5/3 4일 연휴</strong>" },
-        { "name": "Ngày Quốc Khánh (건국기념일)", "date": "9/2 + 인접 1일 (2021~) · <strong>2026: 9/2(수)~9/3(목) 2일</strong>" },
-        { "name": "※ 외국인 근로자 추가 1일: 본국 건국일 또는 설날 (노동법 제112조 2항) · 한국인은 관행상 설날 또는 개천절 활용", "date": "—" }
+        {
+          "name": "Tết Dương Lịch (양력 신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Tết Nguyên Đán (음력설)",
+          "date": "음력 12/30 ~ 1/4 · <strong>2026: 2/16(월)~2/20(금) 공식 5일</strong> (정부 조정 시 2/14~2/22 9일 연휴 가능)"
+        },
+        {
+          "name": "Giỗ Tổ Hùng Vương (훙왕 제)",
+          "date": "음력 3/10 · <strong>2026: 4/26 (일) → 4/27 (월) 대체휴일</strong>"
+        },
+        {
+          "name": "Ngày Giải Phóng Miền Nam (남부 해방·통일기념일)",
+          "date": "4/30 · 2026: 4/30 (목)"
+        },
+        {
+          "name": "Ngày Quốc Tế Lao Động (국제노동절)",
+          "date": "5/1 · 2026: 5/1 (금) → <strong>4/30~5/3 4일 연휴</strong>"
+        },
+        {
+          "name": "Ngày Quốc Khánh (건국기념일)",
+          "date": "9/2 + 인접 1일 (2021~) · <strong>2026: 9/2(수)~9/3(목) 2일</strong>"
+        },
+        {
+          "name": "※ 외국인 근로자 추가 1일: 본국 건국일 또는 설날 (노동법 제112조 2항) · 한국인은 관행상 설날 또는 개천절 활용",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (2023~). 초과 시 e-Visa 90일 가능. 업무는 <strong>LD/DT 비자</strong> 필요.",
       "fixedTermContract": {
@@ -1037,7 +1365,24 @@ window.DASHBOARD_DATA = {
           "name": "통계총국 (GSO)",
           "url": "https://www.gso.gov.vn/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1년 근속 연 12일 (일반) / 14일 (위험·유해) / 16일 (특수 위험) — 노동법 2019 §113. 근속 5년마다 +1일 (§114)",
+        "grantRule": "12개월 근속 필수. 미만 근속은 월 비례",
+        "compensation": {
+          "required": true,
+          "formula": "퇴직·해고 시 미사용분 × 일급 환산 지급 의무 (§113 III). 근로 중 환산은 사용자-근로자 합의 시 가능",
+          "note": "근속 1년 미만자도 월 비례로 사용 or 환산"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "3개월 (다음 연도 3/31까지)",
+          "detail": "법 명시는 없으나 관행상 다음 연도 1분기까지 사용 가능. 이후 자동 환산 또는 소멸"
+        },
+        "consent": "이월·환산 시 서면 합의 권장 (노동감찰 대비)",
+        "specialObligation": "왕복 이동 1일 이상 소요 시 교통일 연차 추가 지급 (§113 VI) — 주재원 귀국 시 활용 가능",
+        "tip": "⚠️ 한국인은 장기 주재 시 왕복 이동일 +교통일 추가 적용 가능. 계약서 명시 권장"
+      }
     },
     {
       "code": "PH",
@@ -1134,29 +1479,98 @@ window.DASHBOARD_DATA = {
         "사회보험 가입"
       ],
       "holidays": [
-        { "name": "[Regular] New Year's Day (신정)", "date": "1/1 (고정) · 일급 200%" },
-        { "name": "[Special Non-Working] Chinese New Year (음력설)", "date": "음력 1/1 · 2026: 2/17(화) · 일급 130%" },
-        { "name": "[Special Non-Working] EDSA People Power Revolution 기념일", "date": "2/25 (연도별 Proclamation, 2026: 2/25 수)" },
-        { "name": "🔶 [Regular] Maundy Thursday (성목요일)", "date": "부활절 3일 전 · <strong>2026: 4/2 (목)</strong> · 2027: 3/25 · 2028: 4/13" },
-        { "name": "🔶 [Regular] Good Friday (성금요일)", "date": "부활절 2일 전 · <strong>2026: 4/3 (금)</strong> · 2027: 3/26 · 2028: 4/14" },
-        { "name": "🔶 [Special Non-Working] Black Saturday", "date": "부활절 전날 · <strong>2026: 4/4 (토)</strong> · 2027: 3/27 · 2028: 4/15" },
-        { "name": "🔶 [Regular] Araw ng Kagitingan (용사의 날·Day of Valor)", "date": "4/9 (고정) · <strong>2026: 4/9 (목)</strong>" },
-        { "name": "[Regular] Labor Day (노동절)", "date": "5/1 (고정) · 2026: 5/1 (금)" },
-        { "name": "[Regular] Independence Day (독립기념일)", "date": "6/12 (고정) · 2026: 6/12 (금)" },
-        { "name": "[Regular] Eid'l Fitr (이드 알 피트르)", "date": "이슬람력 · 2026: 3/20~21경 (Proclamation)" },
-        { "name": "[Regular] Eid'l Adha (이드 알 아드하)", "date": "이슬람력 · 2026: 5/27경 (Proclamation)" },
-        { "name": "[Special Non-Working] Ninoy Aquino Day", "date": "8/21 (고정) · 2026: 8/21 (금)" },
-        { "name": "[Regular] National Heroes Day (국가영웅의 날)", "date": "8월 마지막 월요일 · 2026: 8/31" },
-        { "name": "[Special Non-Working] All Saints' Day", "date": "11/1 (고정) · 2026: 11/1 (일)" },
-        { "name": "[Special Non-Working] All Souls' Day", "date": "11/2 (고정) · 2026: 11/2 (월)" },
-        { "name": "[Regular] Bonifacio Day", "date": "11/30 (고정) · 2026: 11/30 (월)" },
-        { "name": "[Special Non-Working] Feast of Immaculate Conception", "date": "12/8 (고정) · 2026: 12/8 (화)" },
-        { "name": "[Special Non-Working] Christmas Eve", "date": "12/24 (고정) · 2026: 12/24 (목)" },
-        { "name": "[Regular] Christmas Day (크리스마스)", "date": "12/25 (고정) · 2026: 12/25 (금)" },
-        { "name": "[Regular] Rizal Day (제신의 날)", "date": "12/30 (고정) · 2026: 12/30 (수)" },
-        { "name": "[Special Non-Working] Last Day of the Year", "date": "12/31 (고정) · 2026: 12/31 (목)" },
-        { "name": "🔶 4월 집중 공휴일 요약", "date": "<strong>4/2(성목)·4/3(성금)·4/4(성토)·4/9(용사의 날)</strong> — 총 4일 (2026). 성목~일 사이 Holy Week 4연휴 + Araw ng Kagitingan 별도. 항공·관광 수요 급증 → 비행편·승무 스케줄 조정 필수" },
-        { "name": "※ 매년 대통령실 Proclamation으로 연도별 공표. Regular Holiday 근무: 일급 × 200% / Special Non-Working 근무: 일급 × 130%. 이슬람 공휴일은 MILF·NCMF 권고 후 확정", "date": "—" }
+        {
+          "name": "[Regular] New Year's Day (신정)",
+          "date": "1/1 (고정) · 일급 200%"
+        },
+        {
+          "name": "[Special Non-Working] Chinese New Year (음력설)",
+          "date": "음력 1/1 · 2026: 2/17(화) · 일급 130%"
+        },
+        {
+          "name": "[Special Non-Working] EDSA People Power Revolution 기념일",
+          "date": "2/25 (연도별 Proclamation, 2026: 2/25 수)"
+        },
+        {
+          "name": "🔶 [Regular] Maundy Thursday (성목요일)",
+          "date": "부활절 3일 전 · <strong>2026: 4/2 (목)</strong> · 2027: 3/25 · 2028: 4/13"
+        },
+        {
+          "name": "🔶 [Regular] Good Friday (성금요일)",
+          "date": "부활절 2일 전 · <strong>2026: 4/3 (금)</strong> · 2027: 3/26 · 2028: 4/14"
+        },
+        {
+          "name": "🔶 [Special Non-Working] Black Saturday",
+          "date": "부활절 전날 · <strong>2026: 4/4 (토)</strong> · 2027: 3/27 · 2028: 4/15"
+        },
+        {
+          "name": "🔶 [Regular] Araw ng Kagitingan (용사의 날·Day of Valor)",
+          "date": "4/9 (고정) · <strong>2026: 4/9 (목)</strong>"
+        },
+        {
+          "name": "[Regular] Labor Day (노동절)",
+          "date": "5/1 (고정) · 2026: 5/1 (금)"
+        },
+        {
+          "name": "[Regular] Independence Day (독립기념일)",
+          "date": "6/12 (고정) · 2026: 6/12 (금)"
+        },
+        {
+          "name": "[Regular] Eid'l Fitr (이드 알 피트르)",
+          "date": "이슬람력 · 2026: 3/20~21경 (Proclamation)"
+        },
+        {
+          "name": "[Regular] Eid'l Adha (이드 알 아드하)",
+          "date": "이슬람력 · 2026: 5/27경 (Proclamation)"
+        },
+        {
+          "name": "[Special Non-Working] Ninoy Aquino Day",
+          "date": "8/21 (고정) · 2026: 8/21 (금)"
+        },
+        {
+          "name": "[Regular] National Heroes Day (국가영웅의 날)",
+          "date": "8월 마지막 월요일 · 2026: 8/31"
+        },
+        {
+          "name": "[Special Non-Working] All Saints' Day",
+          "date": "11/1 (고정) · 2026: 11/1 (일)"
+        },
+        {
+          "name": "[Special Non-Working] All Souls' Day",
+          "date": "11/2 (고정) · 2026: 11/2 (월)"
+        },
+        {
+          "name": "[Regular] Bonifacio Day",
+          "date": "11/30 (고정) · 2026: 11/30 (월)"
+        },
+        {
+          "name": "[Special Non-Working] Feast of Immaculate Conception",
+          "date": "12/8 (고정) · 2026: 12/8 (화)"
+        },
+        {
+          "name": "[Special Non-Working] Christmas Eve",
+          "date": "12/24 (고정) · 2026: 12/24 (목)"
+        },
+        {
+          "name": "[Regular] Christmas Day (크리스마스)",
+          "date": "12/25 (고정) · 2026: 12/25 (금)"
+        },
+        {
+          "name": "[Regular] Rizal Day (제신의 날)",
+          "date": "12/30 (고정) · 2026: 12/30 (수)"
+        },
+        {
+          "name": "[Special Non-Working] Last Day of the Year",
+          "date": "12/31 (고정) · 2026: 12/31 (목)"
+        },
+        {
+          "name": "🔶 4월 집중 공휴일 요약",
+          "date": "<strong>4/2(성목)·4/3(성금)·4/4(성토)·4/9(용사의 날)</strong> — 총 4일 (2026). 성목~일 사이 Holy Week 4연휴 + Araw ng Kagitingan 별도. 항공·관광 수요 급증 → 비행편·승무 스케줄 조정 필수"
+        },
+        {
+          "name": "※ 매년 대통령실 Proclamation으로 연도별 공표. Regular Holiday 근무: 일급 × 200% / Special Non-Working 근무: 일급 × 130%. 이슬람 공휴일은 MILF·NCMF 권고 후 확정",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 29일 추가 연장 가능. 업무는 9(g) 취업비자 + AEP.",
       "fixedTermContract": {
@@ -1220,7 +1634,24 @@ window.DASHBOARD_DATA = {
           "name": "최저임금위원회",
           "url": "https://nwpc.dole.gov.ph/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "Service Incentive Leave (SIL) 연 5일 (1년 근속 완료 시) — Labor Code §95",
+        "grantRule": "1년 근속 요건. 5인 미만 소규모 사업장·관리직 제외. 단체협약·사내 규정으로 추가 연차(Vacation Leave) 관행",
+        "compensation": {
+          "required": true,
+          "formula": "해당 연도 미사용 SIL은 일급 × 100% 환산 지급 의무. 사용 또는 환산 중 근로자 선택",
+          "note": "추가 Vacation Leave는 계약 따름. DOLE D.O. 명확"
+        },
+        "carryover": {
+          "allowed": false,
+          "maxYears": "—",
+          "detail": "SIL은 당해 연도 소진 또는 환산. 이월 개념 없음"
+        },
+        "consent": "이월 없음 → 동의서 불필요",
+        "specialObligation": "13th Month Pay와는 별개 계산. 주요 해외 주재원은 추가 VL 15~20일 관행",
+        "tip": "SIL 5일은 최소 한도. 실무상 국제 표준 맞추려면 계약으로 15~20일 추가 부여"
+      }
     },
     {
       "code": "TH",
@@ -1317,25 +1748,82 @@ window.DASHBOARD_DATA = {
         "해지 조건·예고기간"
       ],
       "holidays": [
-        { "name": "New Year's Day (신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Makha Bucha Day (마카부차)", "date": "음력 3월 보름 · <strong>2026: 3/3 (화)</strong>" },
-        { "name": "Chakri Day (차크리 왕조의 날)", "date": "4/6 · 2026: 4/6 (월)" },
-        { "name": "Songkran Festival (송크란 태국 신년)", "date": "4/13, 4/14, 4/15 · <strong>2026: 4/13(월)~4/15(수)</strong>" },
-        { "name": "National Labour Day (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "Coronation Day (Rama X 대관식의 날)", "date": "5/4 · 2026: 5/4 (월)" },
-        { "name": "Royal Ploughing Ceremony", "date": "5월 상순 (이동·공공부문만) · 2026: 5/6~5/13 중 발표" },
-        { "name": "Visakha Bucha Day (석가탄신일)", "date": "음력 6월 보름 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>" },
-        { "name": "H.M. Queen Suthida's Birthday", "date": "6/3 · 2026: 6/3 (수)" },
-        { "name": "Asanha Bucha Day (아산하부차)", "date": "음력 8월 보름 · <strong>2026: 7/29 (수)</strong>" },
-        { "name": "Khao Phansa Day (불교 사순절 시작)", "date": "음력 8월 보름 다음날 · <strong>2026: 7/30 (목)</strong>" },
-        { "name": "H.M. King Vajiralongkorn's Birthday (국왕 탄신일)", "date": "7/28 · 2026: 7/28 (화)" },
-        { "name": "H.M. Queen Sirikit's Birthday / Mother's Day", "date": "8/12 · 2026: 8/12 (수)" },
-        { "name": "King Bhumibol Memorial Day (푸미폰 국왕 기일)", "date": "10/13 · 2026: 10/13 (화)" },
-        { "name": "Chulalongkorn Day (쭐랄롱꼰 대왕의 날)", "date": "10/23 · 2026: 10/23 (금)" },
-        { "name": "King Bhumibol's Birthday / Father's Day", "date": "12/5 · 2026: 12/5 (토) → 12/7 (월) 대체" },
-        { "name": "Constitution Day (헌법의 날)", "date": "12/10 · 2026: 12/10 (목)" },
-        { "name": "New Year's Eve", "date": "12/31 · 2026: 12/31 (목)" },
-        { "name": "※ 매년 총리실 공고. 은행·정부·민간 리스트 상이. 주말 겹침 시 대체휴일 가능", "date": "—" }
+        {
+          "name": "New Year's Day (신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Makha Bucha Day (마카부차)",
+          "date": "음력 3월 보름 · <strong>2026: 3/3 (화)</strong>"
+        },
+        {
+          "name": "Chakri Day (차크리 왕조의 날)",
+          "date": "4/6 · 2026: 4/6 (월)"
+        },
+        {
+          "name": "Songkran Festival (송크란 태국 신년)",
+          "date": "4/13, 4/14, 4/15 · <strong>2026: 4/13(월)~4/15(수)</strong>"
+        },
+        {
+          "name": "National Labour Day (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "Coronation Day (Rama X 대관식의 날)",
+          "date": "5/4 · 2026: 5/4 (월)"
+        },
+        {
+          "name": "Royal Ploughing Ceremony",
+          "date": "5월 상순 (이동·공공부문만) · 2026: 5/6~5/13 중 발표"
+        },
+        {
+          "name": "Visakha Bucha Day (석가탄신일)",
+          "date": "음력 6월 보름 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>"
+        },
+        {
+          "name": "H.M. Queen Suthida's Birthday",
+          "date": "6/3 · 2026: 6/3 (수)"
+        },
+        {
+          "name": "Asanha Bucha Day (아산하부차)",
+          "date": "음력 8월 보름 · <strong>2026: 7/29 (수)</strong>"
+        },
+        {
+          "name": "Khao Phansa Day (불교 사순절 시작)",
+          "date": "음력 8월 보름 다음날 · <strong>2026: 7/30 (목)</strong>"
+        },
+        {
+          "name": "H.M. King Vajiralongkorn's Birthday (국왕 탄신일)",
+          "date": "7/28 · 2026: 7/28 (화)"
+        },
+        {
+          "name": "H.M. Queen Sirikit's Birthday / Mother's Day",
+          "date": "8/12 · 2026: 8/12 (수)"
+        },
+        {
+          "name": "King Bhumibol Memorial Day (푸미폰 국왕 기일)",
+          "date": "10/13 · 2026: 10/13 (화)"
+        },
+        {
+          "name": "Chulalongkorn Day (쭐랄롱꼰 대왕의 날)",
+          "date": "10/23 · 2026: 10/23 (금)"
+        },
+        {
+          "name": "King Bhumibol's Birthday / Father's Day",
+          "date": "12/5 · 2026: 12/5 (토) → 12/7 (월) 대체"
+        },
+        {
+          "name": "Constitution Day (헌법의 날)",
+          "date": "12/10 · 2026: 12/10 (목)"
+        },
+        {
+          "name": "New Year's Eve",
+          "date": "12/31 · 2026: 12/31 (목)"
+        },
+        {
+          "name": "※ 매년 총리실 공고. 은행·정부·민간 리스트 상이. 주말 겹침 시 대체휴일 가능",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (2024.7 개정). 업무는 Non-B 비자 + Work Permit 필수.",
       "fixedTermContract": {
@@ -1395,7 +1883,24 @@ window.DASHBOARD_DATA = {
           "name": "NSO 통계청",
           "url": "http://www.nso.go.th/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1년 근속 연 6일 (법정 최저) — Labor Protection Act §30",
+        "grantRule": "1년 근속 필수. 이후 근속 증가에 따른 가산은 사용자 재량 (관행 10~15일)",
+        "compensation": {
+          "required": true,
+          "formula": "해당 연도 미사용분 × 일급 환산 지급 의무 — LPA §67. 근로자 자발 미사용도 환산 의무",
+          "note": "주요 기업은 15~20일 제공 관행"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "1년 (사용자-근로자 합의 시)",
+          "detail": "법 명시 없음. 관행상 다음 연도까지 사용 가능"
+        },
+        "consent": "이월 시 서면 합의 권장",
+        "specialObligation": "주재원 관행: 본국 왕복 항공권과 연계된 추가 연차 7~10일 계약 명시 일반",
+        "tip": "6일은 너무 적어 실무 관행과 괴리. 20일 전후 부여가 표준"
+      }
     },
     {
       "code": "MY",
@@ -1494,22 +1999,70 @@ window.DASHBOARD_DATA = {
         "수습기간"
       ],
       "holidays": [
-        { "name": "New Year's Day (신정)", "date": "1/1 · 2026: 1/1 (목) · 주별 차등" },
-        { "name": "Thaipusam (힌두)", "date": "<strong>2026: 2/1 (일) → 2/2 (월) 대체</strong> · KL·Selangor·Penang 등" },
-        { "name": "Federal Territory Day", "date": "2/1 · 2026: 2/1 (일) → 2/2 (월) · KL·Labuan·Putrajaya" },
-        { "name": "Chinese New Year (춘절)", "date": "음력 1/1~1/2 · <strong>2026: 2/17(화)~2/18(수)</strong>" },
-        { "name": "Hari Raya Aidilfitri (이드 알 피트르)", "date": "이슬람력 · <strong>2026: 3/20(금)~3/21(토)</strong> · 2일" },
-        { "name": "Labour Day (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "Wesak Day (석가탄신일)", "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>" },
-        { "name": "Agong's Birthday (국왕 생신)", "date": "6월 1째 월요일 · <strong>2026: 6/1 (월)</strong>" },
-        { "name": "Hari Raya Aidiladha (이드 알 아드하)", "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>" },
-        { "name": "Awal Muharram (이슬람 신년)", "date": "이슬람력 · <strong>2026: 6/16 (화)</strong>" },
-        { "name": "Merdeka Day (독립기념일)", "date": "8/31 · 2026: 8/31 (월)" },
-        { "name": "Maulidur Rasul (예언자 탄생일)", "date": "이슬람력 · <strong>2026: 8/25 (화)</strong>" },
-        { "name": "Malaysia Day (말레이시아의 날)", "date": "9/16 · 2026: 9/16 (수)" },
-        { "name": "Deepavali (디파발리·힌두)", "date": "힌두력 · <strong>2026: 11/8 (일) → 11/9 (월) 대체</strong>" },
-        { "name": "Christmas Day (크리스마스)", "date": "12/25 · 2026: 12/25 (금)" },
-        { "name": "※ Employment Act 제60D조 11일 필수 + 주별 추가. KL 총 17~18일. 일요일 겹침 시 월요일 대체", "date": "—" }
+        {
+          "name": "New Year's Day (신정)",
+          "date": "1/1 · 2026: 1/1 (목) · 주별 차등"
+        },
+        {
+          "name": "Thaipusam (힌두)",
+          "date": "<strong>2026: 2/1 (일) → 2/2 (월) 대체</strong> · KL·Selangor·Penang 등"
+        },
+        {
+          "name": "Federal Territory Day",
+          "date": "2/1 · 2026: 2/1 (일) → 2/2 (월) · KL·Labuan·Putrajaya"
+        },
+        {
+          "name": "Chinese New Year (춘절)",
+          "date": "음력 1/1~1/2 · <strong>2026: 2/17(화)~2/18(수)</strong>"
+        },
+        {
+          "name": "Hari Raya Aidilfitri (이드 알 피트르)",
+          "date": "이슬람력 · <strong>2026: 3/20(금)~3/21(토)</strong> · 2일"
+        },
+        {
+          "name": "Labour Day (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "Wesak Day (석가탄신일)",
+          "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>"
+        },
+        {
+          "name": "Agong's Birthday (국왕 생신)",
+          "date": "6월 1째 월요일 · <strong>2026: 6/1 (월)</strong>"
+        },
+        {
+          "name": "Hari Raya Aidiladha (이드 알 아드하)",
+          "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>"
+        },
+        {
+          "name": "Awal Muharram (이슬람 신년)",
+          "date": "이슬람력 · <strong>2026: 6/16 (화)</strong>"
+        },
+        {
+          "name": "Merdeka Day (독립기념일)",
+          "date": "8/31 · 2026: 8/31 (월)"
+        },
+        {
+          "name": "Maulidur Rasul (예언자 탄생일)",
+          "date": "이슬람력 · <strong>2026: 8/25 (화)</strong>"
+        },
+        {
+          "name": "Malaysia Day (말레이시아의 날)",
+          "date": "9/16 · 2026: 9/16 (수)"
+        },
+        {
+          "name": "Deepavali (디파발리·힌두)",
+          "date": "힌두력 · <strong>2026: 11/8 (일) → 11/9 (월) 대체</strong>"
+        },
+        {
+          "name": "Christmas Day (크리스마스)",
+          "date": "12/25 · 2026: 12/25 (금)"
+        },
+        {
+          "name": "※ Employment Act 제60D조 11일 필수 + 주별 추가. KL 총 17~18일. 일요일 겹침 시 월요일 대체",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP(Employment Pass) 필수.",
       "fixedTermContract": {
@@ -1573,7 +2126,24 @@ window.DASHBOARD_DATA = {
           "name": "JTKSM 노동부",
           "url": "https://jtksm.mohr.gov.my/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1~2년 8일 / 2~5년 12일 / 5년+ 16일 — Employment Act §60E (2022 개정 후 전 근로자 적용)",
+        "grantRule": "12개월 근속 필수. 월 미달 근속은 비례 지급",
+        "compensation": {
+          "required": "퇴직 시 의무",
+          "formula": "퇴직 시 미사용분 × 일급 환산 (§60E(3)). 근로 중 환산은 관행",
+          "note": "2022 EA 개정으로 Employment Act 적용 범위 확대 (월급 RM 4,000 이상도 포함)"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 명시 없음 (통상 1년)",
+          "detail": "계약·사내 규정 자유. Employee Handbook 명시 필요"
+        },
+        "consent": "법정 동의서 없음",
+        "specialObligation": "연차 사용 시 사용자 사전 승인 필요 (§60E(1))",
+        "tip": "사내 핸드북에 이월 한도 1년 + 초과분 자동 환산 명시 권장"
+      }
     },
     {
       "code": "SG",
@@ -1676,18 +2246,54 @@ window.DASHBOARD_DATA = {
         "근무지"
       ],
       "holidays": [
-        { "name": "New Year's Day (신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Chinese New Year Day 1 (음력설)", "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>" },
-        { "name": "Chinese New Year Day 2", "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong>" },
-        { "name": "Hari Raya Puasa (이드 알 피트르)", "date": "이슬람력 · <strong>2026: 3/20 (금)</strong>" },
-        { "name": "Good Friday", "date": "<strong>2026: 4/3 (금)</strong>" },
-        { "name": "Labour Day (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "Hari Raya Haji (이드 알 아드하)", "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>" },
-        { "name": "Vesak Day (석가탄신일)", "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>" },
-        { "name": "National Day (국경일)", "date": "8/9 · 2026: 8/9 (일) → 8/10 (월) 대체" },
-        { "name": "Deepavali (디파발리·힌두)", "date": "힌두력 · <strong>2026: 11/8 (일) → 11/9 (월) 대체</strong>" },
-        { "name": "Christmas Day (크리스마스)", "date": "12/25 · 2026: 12/25 (금)" },
-        { "name": "※ Employment Act §88 법정 11일. 공휴일 일요일 겹치면 다음 월요일 대체휴일", "date": "—" }
+        {
+          "name": "New Year's Day (신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Chinese New Year Day 1 (음력설)",
+          "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>"
+        },
+        {
+          "name": "Chinese New Year Day 2",
+          "date": "음력 1/2 · <strong>2026: 2/18 (수)</strong>"
+        },
+        {
+          "name": "Hari Raya Puasa (이드 알 피트르)",
+          "date": "이슬람력 · <strong>2026: 3/20 (금)</strong>"
+        },
+        {
+          "name": "Good Friday",
+          "date": "<strong>2026: 4/3 (금)</strong>"
+        },
+        {
+          "name": "Labour Day (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "Hari Raya Haji (이드 알 아드하)",
+          "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>"
+        },
+        {
+          "name": "Vesak Day (석가탄신일)",
+          "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>"
+        },
+        {
+          "name": "National Day (국경일)",
+          "date": "8/9 · 2026: 8/9 (일) → 8/10 (월) 대체"
+        },
+        {
+          "name": "Deepavali (디파발리·힌두)",
+          "date": "힌두력 · <strong>2026: 11/8 (일) → 11/9 (월) 대체</strong>"
+        },
+        {
+          "name": "Christmas Day (크리스마스)",
+          "date": "12/25 · 2026: 12/25 (금)"
+        },
+        {
+          "name": "※ Employment Act §88 법정 11일. 공휴일 일요일 겹치면 다음 월요일 대체휴일",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP/SP/WP 비자 필요.",
       "fixedTermContract": {
@@ -1747,7 +2353,24 @@ window.DASHBOARD_DATA = {
           "name": "SingStat",
           "url": "https://www.singstat.gov.sg/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "1년 7일 / 2년 8일 / 3년 9일 / ... / 8년+ 14일 — Employment Act §43",
+        "grantRule": "3개월 근속 시부터 비례 발생. 1년 근속 완료 시 전액",
+        "compensation": {
+          "required": "퇴직 시만",
+          "formula": "퇴직 시 미사용분 × 일급 환산 지급 의무. 근로 중 환산은 사용자 재량",
+          "note": "추가 연차(beyond 법정)는 KET·계약 규정 따름"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 제한 없음 (통상 12개월)",
+          "detail": "계약·사내 규정 자유. 대다수 기업 '12개월 이월 후 소멸'"
+        },
+        "consent": "법정 의무 없음",
+        "specialObligation": "1년 미만 근속자도 3개월+ 시 월 비례 지급 발생",
+        "tip": "싱가포르는 외국인 비중 높아 이월 정책이 계약 경쟁력 요소. 핸드북 명시 필수"
+      }
     },
     {
       "code": "ID",
@@ -1844,23 +2467,74 @@ window.DASHBOARD_DATA = {
         "단체협약(PKB) 준거 명시"
       ],
       "holidays": [
-        { "name": "Tahun Baru Masehi (신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Isra Mi'raj Nabi Muhammad", "date": "이슬람력 · <strong>2026: 1/16 (금)</strong>" },
-        { "name": "Tahun Baru Imlek (음력설)", "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>" },
-        { "name": "Hari Suci Nyepi (발리 힌두 신년)", "date": "사카력 신년 · <strong>2026: 3/19 (목)</strong>" },
-        { "name": "Hari Raya Idul Fitri (이드 알 피트르)", "date": "이슬람력 · <strong>2026: 3/20(금)~3/21(토)</strong> · 2일" },
-        { "name": "Wafat Isa Al Masih (Good Friday)", "date": "<strong>2026: 4/3 (금)</strong>" },
-        { "name": "Hari Paskah (Easter Sunday)", "date": "<strong>2026: 4/5 (일)</strong>" },
-        { "name": "Hari Buruh (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "Kenaikan Isa Al Masih (Ascension)", "date": "<strong>2026: 5/14 (목)</strong>" },
-        { "name": "Hari Raya Idul Adha (이드 알 아드하)", "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>" },
-        { "name": "Hari Raya Waisak (석가탄신일)", "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>" },
-        { "name": "Hari Lahir Pancasila (판차실라의 날)", "date": "6/1 · 2026: 6/1 (월)" },
-        { "name": "Tahun Baru Islam / 1 Muharram (이슬람 신년)", "date": "이슬람력 · <strong>2026: 6/16 (화)</strong>" },
-        { "name": "Hari Kemerdekaan (독립기념일)", "date": "8/17 · 2026: 8/17 (월)" },
-        { "name": "Maulid Nabi Muhammad (예언자 탄생일)", "date": "이슬람력 · <strong>2026: 8/25 (화)</strong>" },
-        { "name": "Hari Raya Natal (크리스마스)", "date": "12/25 · 2026: 12/25 (금)" },
-        { "name": "※ Cuti Bersama (공동 연차) 평균 4~8일 추가 — SKB 3 Menteri 매년 발표. Idul Fitri 전후 대체휴일이 가장 길어 (2026: 3/19~3/23 5일 예상)", "date": "—" }
+        {
+          "name": "Tahun Baru Masehi (신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Isra Mi'raj Nabi Muhammad",
+          "date": "이슬람력 · <strong>2026: 1/16 (금)</strong>"
+        },
+        {
+          "name": "Tahun Baru Imlek (음력설)",
+          "date": "음력 1/1 · <strong>2026: 2/17 (화)</strong>"
+        },
+        {
+          "name": "Hari Suci Nyepi (발리 힌두 신년)",
+          "date": "사카력 신년 · <strong>2026: 3/19 (목)</strong>"
+        },
+        {
+          "name": "Hari Raya Idul Fitri (이드 알 피트르)",
+          "date": "이슬람력 · <strong>2026: 3/20(금)~3/21(토)</strong> · 2일"
+        },
+        {
+          "name": "Wafat Isa Al Masih (Good Friday)",
+          "date": "<strong>2026: 4/3 (금)</strong>"
+        },
+        {
+          "name": "Hari Paskah (Easter Sunday)",
+          "date": "<strong>2026: 4/5 (일)</strong>"
+        },
+        {
+          "name": "Hari Buruh (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "Kenaikan Isa Al Masih (Ascension)",
+          "date": "<strong>2026: 5/14 (목)</strong>"
+        },
+        {
+          "name": "Hari Raya Idul Adha (이드 알 아드하)",
+          "date": "이슬람력 · <strong>2026: 5/27 (수)</strong>"
+        },
+        {
+          "name": "Hari Raya Waisak (석가탄신일)",
+          "date": "불교력 · <strong>2026: 5/31 (일) → 6/1 (월) 대체</strong>"
+        },
+        {
+          "name": "Hari Lahir Pancasila (판차실라의 날)",
+          "date": "6/1 · 2026: 6/1 (월)"
+        },
+        {
+          "name": "Tahun Baru Islam / 1 Muharram (이슬람 신년)",
+          "date": "이슬람력 · <strong>2026: 6/16 (화)</strong>"
+        },
+        {
+          "name": "Hari Kemerdekaan (독립기념일)",
+          "date": "8/17 · 2026: 8/17 (월)"
+        },
+        {
+          "name": "Maulid Nabi Muhammad (예언자 탄생일)",
+          "date": "이슬람력 · <strong>2026: 8/25 (화)</strong>"
+        },
+        {
+          "name": "Hari Raya Natal (크리스마스)",
+          "date": "12/25 · 2026: 12/25 (금)"
+        },
+        {
+          "name": "※ Cuti Bersama (공동 연차) 평균 4~8일 추가 — SKB 3 Menteri 매년 발표. Idul Fitri 전후 대체휴일이 가장 길어 (2026: 3/19~3/23 5일 예상)",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong> (관광) 또는 VOA. 업무는 KITAS/KITAP 필요.",
       "fixedTermContract": {
@@ -1920,7 +2594,24 @@ window.DASHBOARD_DATA = {
           "name": "BPS 통계청",
           "url": "https://www.bps.go.id/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "12개월 근속 12일 (매년 리셋) — Cipta Kerja 옴니버스법 §79",
+        "grantRule": "12개월 근속 필수. 6년 근속 시 '장기 휴식(istirahat panjang)' 2개월 (일부 기업·단체협약)",
+        "compensation": {
+          "required": "퇴직 시 의무",
+          "formula": "퇴직 시 미사용분 × 일급 환산 (권리대체수당 uang penggantian hak). 근로 중 환산은 법 명시 없음",
+          "note": "단체협약(PKB)으로 근로 중 환산 가능하게 규정 가능"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 명시 없음 (관행 당해 연도 소진)",
+          "detail": "사내 규정·단체협약 자유. 옴니버스법 후 간소화"
+        },
+        "consent": "법정 의무 없음",
+        "specialObligation": "종교 휴일(Idul Fitri 등) 전후 집중 사용 관행 — 사용자 거부 어려움",
+        "tip": "THR(13월 급여)와 함께 Idul Fitri 전후 1~2주 연차 사용이 표준 — 스케줄 사전 협의 필수"
+      }
     },
     {
       "code": "MN",
@@ -2017,14 +2708,38 @@ window.DASHBOARD_DATA = {
         "근로조건"
       ],
       "holidays": [
-        { "name": "Шинэ жил (양력 신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Цагаан сар (차간사르·음력설)", "date": "음력 1/1~1/3 · <strong>2026: 2/17(화)~2/19(목) 3일</strong>" },
-        { "name": "Олон улсын эмэгтэйчүүдийн баяр (세계 여성의 날)", "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체" },
-        { "name": "Хүүхдийн баяр (어린이 날)", "date": "6/1 · 2026: 6/1 (월)" },
-        { "name": "Их Монгол улсын үндэсний их баяр Наадам", "date": "7/11~7/15 · <strong>2026: 7/11(토)~7/15(수) 5일</strong>" },
-        { "name": "Их Эзэн Чингис хааны мэндэлсэн өдөр (칭기즈칸 탄신일)", "date": "음력 10월 1일 · <strong>2026: 11/10 (화)</strong>" },
-        { "name": "Бүгд Найрамдах Улс тунхагласны баяр (공화국 선포일)", "date": "11/26 · 2026: 11/26 (목)" },
-        { "name": "Үндэсний эрх чөлөө, тусгаар тогтнолоо сэргээсэн өдөр (독립 회복의 날)", "date": "12/29 · 2026: 12/29 (화)" }
+        {
+          "name": "Шинэ жил (양력 신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Цагаан сар (차간사르·음력설)",
+          "date": "음력 1/1~1/3 · <strong>2026: 2/17(화)~2/19(목) 3일</strong>"
+        },
+        {
+          "name": "Олон улсын эмэгтэйчүүдийн баяр (세계 여성의 날)",
+          "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체"
+        },
+        {
+          "name": "Хүүхдийн баяр (어린이 날)",
+          "date": "6/1 · 2026: 6/1 (월)"
+        },
+        {
+          "name": "Их Монгол улсын үндэсний их баяр Наадам",
+          "date": "7/11~7/15 · <strong>2026: 7/11(토)~7/15(수) 5일</strong>"
+        },
+        {
+          "name": "Их Эзэн Чингис хааны мэндэлсэн өдөр (칭기즈칸 탄신일)",
+          "date": "음력 10월 1일 · <strong>2026: 11/10 (화)</strong>"
+        },
+        {
+          "name": "Бүгд Найрамдах Улс тунхагласны баяр (공화국 선포일)",
+          "date": "11/26 · 2026: 11/26 (목)"
+        },
+        {
+          "name": "Үндэсний эрх чөлөө, тусгаар тогтнолоо сэргээсэн өдөр (독립 회복의 날)",
+          "date": "12/29 · 2026: 12/29 (화)"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 HG 취업비자 필요.",
       "fixedTermContract": {
@@ -2084,7 +2799,24 @@ window.DASHBOARD_DATA = {
           "name": "NSO 통계청",
           "url": "https://www.nso.mn/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "기본 15일 — 노동법 2021 §95. 근속 가산: 6~10년 +1, 11~15년 +2, 16~20년 +3, 21~25년 +4, 26~30년 +5, 31년+ +6",
+        "grantRule": "연간 15일 기본. 특수·위험 직군은 추가 3~18일",
+        "compensation": {
+          "required": true,
+          "formula": "사용자 사유 미사용 시 일급 × 2배 (통상 휴가급 + 추가 급여) 지급 의무",
+          "note": "노동법 2021 개정 후 근로자 보호 강화"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 명시 없음 (통상 1년)",
+          "detail": "관행·사내 규정 자유. 광업 사업장은 교대 근무로 집중 사용 일반"
+        },
+        "consent": "이월 시 서면 합의 권장",
+        "specialObligation": "Naadam(7/11~15) 집중 사용 관행. 광업·원격지 근무는 교대 연차 방식",
+        "tip": "원격지 사업장 주재원은 교대 근무로 연 1~2회 장기 연차 사용 관행 — 계약 명시"
+      }
     },
     {
       "code": "RU",
@@ -2184,15 +2916,42 @@ window.DASHBOARD_DATA = {
         "수습조건 (해당 시)"
       ],
       "holidays": [
-        { "name": "Новогодние каникулы (신정 연휴)", "date": "1/1~1/8 · <strong>2026: 1/1(목)~1/8(목) 8일</strong>" },
-        { "name": "Рождество Христово (정교 크리스마스)", "date": "1/7 · 2026: 1/7 (수)" },
-        { "name": "День защитника Отечества (조국수호자의 날)", "date": "2/23 · 2026: 2/23 (월)" },
-        { "name": "Международный женский день (세계 여성의 날)", "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체" },
-        { "name": "Праздник Весны и Труда (봄과 노동의 날)", "date": "5/1 · 2026: 5/1 (금) → 5/1~5/3 3일 연휴" },
-        { "name": "День Победы (전승기념일)", "date": "5/9 · 2026: 5/9 (토) → 5/11 (월) 대체 가능" },
-        { "name": "День России (러시아의 날)", "date": "6/12 · 2026: 6/12 (금)" },
-        { "name": "День народного единства (국민통합의 날)", "date": "11/4 · 2026: 11/4 (수)" },
-        { "name": "※ 노동법 제112조 법정 14일. 토·일 겹치면 자동 이동. 매년 정부령(Правительственное постановление)으로 연휴 추가 조정", "date": "—" }
+        {
+          "name": "Новогодние каникулы (신정 연휴)",
+          "date": "1/1~1/8 · <strong>2026: 1/1(목)~1/8(목) 8일</strong>"
+        },
+        {
+          "name": "Рождество Христово (정교 크리스마스)",
+          "date": "1/7 · 2026: 1/7 (수)"
+        },
+        {
+          "name": "День защитника Отечества (조국수호자의 날)",
+          "date": "2/23 · 2026: 2/23 (월)"
+        },
+        {
+          "name": "Международный женский день (세계 여성의 날)",
+          "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체"
+        },
+        {
+          "name": "Праздник Весны и Труда (봄과 노동의 날)",
+          "date": "5/1 · 2026: 5/1 (금) → 5/1~5/3 3일 연휴"
+        },
+        {
+          "name": "День Победы (전승기념일)",
+          "date": "5/9 · 2026: 5/9 (토) → 5/11 (월) 대체 가능"
+        },
+        {
+          "name": "День России (러시아의 날)",
+          "date": "6/12 · 2026: 6/12 (금)"
+        },
+        {
+          "name": "День народного единства (국민통합의 날)",
+          "date": "11/4 · 2026: 11/4 (수)"
+        },
+        {
+          "name": "※ 노동법 제112조 법정 14일. 토·일 겹치면 자동 이동. 매년 정부령(Правительственное постановление)으로 연휴 추가 조정",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (관광, 180일 중 90일 한도). 취업 금지, 업무 시 취업비자 필요.",
       "fixedTermContract": {
@@ -2252,7 +3011,24 @@ window.DASHBOARD_DATA = {
           "name": "Росстат 연방통계청",
           "url": "https://rosstat.gov.ru/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "기본 28일 — 노동법 §115. 극북·위험 직군 추가 (24~52일까지)",
+        "grantRule": "6개월 근속 시 전액 발생. 연 2회 분할 사용 가능 (1회 14일 이상)",
+        "compensation": {
+          "required": "퇴직 시 의무 + 28일 초과분만",
+          "formula": "퇴직 시 전 미사용분 × 일급 환산 의무. 근로 중 환산은 28일 초과분만 허용 (§126)",
+          "note": "⚠️ 28일 기본 연차는 근로 중 금전 환산 금지 — 건강권 보호"
+        },
+        "carryover": {
+          "allowed": "제한적",
+          "maxYears": "1년 (원칙 당해 연도 소진)",
+          "detail": "사용자는 근로자가 사용하도록 보장할 의무. 2년 연속 미사용 금지 (§124)"
+        },
+        "consent": "이월 시 근로자 서면 동의 필수",
+        "specialObligation": "⚠️ 2년 연속 미사용 시 노동감독원(GIT) 벌금. 사용자가 사용 시점 '연간 스케줄' 수립 의무",
+        "tip": "러시아는 '연차 미사용 = 불법' 원칙 강함. HR이 연차 스케줄 엄격 관리 필수. 주재원도 동일"
+      }
     },
     {
       "code": "LA",
@@ -2349,20 +3125,62 @@ window.DASHBOARD_DATA = {
         "사회보험"
       ],
       "holidays": [
-        { "name": "International New Year (양력 신정)", "date": "1/1 · 2026: 1/1 (목)" },
-        { "name": "Pathet Lao Day (빠텟 라오 창당기념일)", "date": "1/6 (일부 지역) · 2026: 1/6 (화)" },
-        { "name": "Army Day (인민군 창군일)", "date": "1/20 (공공만) · 2026: 1/20 (화)" },
-        { "name": "International Women's Day (세계 여성의 날)", "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체" },
-        { "name": "Lao People's Party Foundation Day", "date": "3/22 (공공만) · 2026: 3/22 (일)" },
-        { "name": "Lao New Year / Pi Mai (라오 신년·송크란)", "date": "4/14~4/16 · <strong>2026: 4/14(화)~4/16(목) 3일</strong>" },
-        { "name": "International Labour Day (노동절)", "date": "5/1 · 2026: 5/1 (금)" },
-        { "name": "International Children's Day (어린이 날)", "date": "6/1 · 2026: 6/1 (월)" },
-        { "name": "Lao Women's Union Day", "date": "7/20 (일부 지역) · 2026: 7/20 (월)" },
-        { "name": "Boun Khao Phansa (사순절 시작)", "date": "음력 8월 보름 · <strong>2026: 7/30 (목)</strong>" },
-        { "name": "Boun Ok Phansa (사순절 종료)", "date": "음력 11월 보름 · <strong>2026: 10/25 (일)</strong>" },
-        { "name": "Boun That Luang (그 루앙 축제)", "date": "음력 12월 보름 · <strong>2026: 11/23 (월)</strong>" },
-        { "name": "Lao National Day (건국기념일)", "date": "12/2 · 2026: 12/2 (수)" },
-        { "name": "※ 노동법 제51조 공식 11일 법정 + 지역별 1~2일 추가", "date": "—" }
+        {
+          "name": "International New Year (양력 신정)",
+          "date": "1/1 · 2026: 1/1 (목)"
+        },
+        {
+          "name": "Pathet Lao Day (빠텟 라오 창당기념일)",
+          "date": "1/6 (일부 지역) · 2026: 1/6 (화)"
+        },
+        {
+          "name": "Army Day (인민군 창군일)",
+          "date": "1/20 (공공만) · 2026: 1/20 (화)"
+        },
+        {
+          "name": "International Women's Day (세계 여성의 날)",
+          "date": "3/8 · 2026: 3/8 (일) → 3/9 (월) 대체"
+        },
+        {
+          "name": "Lao People's Party Foundation Day",
+          "date": "3/22 (공공만) · 2026: 3/22 (일)"
+        },
+        {
+          "name": "Lao New Year / Pi Mai (라오 신년·송크란)",
+          "date": "4/14~4/16 · <strong>2026: 4/14(화)~4/16(목) 3일</strong>"
+        },
+        {
+          "name": "International Labour Day (노동절)",
+          "date": "5/1 · 2026: 5/1 (금)"
+        },
+        {
+          "name": "International Children's Day (어린이 날)",
+          "date": "6/1 · 2026: 6/1 (월)"
+        },
+        {
+          "name": "Lao Women's Union Day",
+          "date": "7/20 (일부 지역) · 2026: 7/20 (월)"
+        },
+        {
+          "name": "Boun Khao Phansa (사순절 시작)",
+          "date": "음력 8월 보름 · <strong>2026: 7/30 (목)</strong>"
+        },
+        {
+          "name": "Boun Ok Phansa (사순절 종료)",
+          "date": "음력 11월 보름 · <strong>2026: 10/25 (일)</strong>"
+        },
+        {
+          "name": "Boun That Luang (그 루앙 축제)",
+          "date": "음력 12월 보름 · <strong>2026: 11/23 (월)</strong>"
+        },
+        {
+          "name": "Lao National Day (건국기념일)",
+          "date": "12/2 · 2026: 12/2 (수)"
+        },
+        {
+          "name": "※ 노동법 제51조 공식 11일 법정 + 지역별 1~2일 추가",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 업무는 비즈니스 비자 + 노동허가.",
       "fixedTermContract": {
@@ -2422,7 +3240,24 @@ window.DASHBOARD_DATA = {
           "name": "LSB 통계청",
           "url": "https://www.lsb.gov.la/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "연 15일 — Labor Law 2013 §49",
+        "grantRule": "1년 근속 이상. 1년 미만 비례 지급",
+        "compensation": {
+          "required": "퇴직 시 관행",
+          "formula": "퇴직 시 미사용분 × 일급 환산 (관행). 법 명시 불분명",
+          "note": "분쟁 예방 위해 계약서 명시 권장"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 명시 없음",
+          "detail": "계약·사내 규정 자유"
+        },
+        "consent": "법정 의무 없음",
+        "specialObligation": "Pi Mai(4월) 집중 사용 관행",
+        "tip": "15일은 동남아 평균 수준. 주재원은 본국 왕복 교통일 추가 계약 권장"
+      }
     },
     {
       "code": "MP",
@@ -2519,23 +3354,74 @@ window.DASHBOARD_DATA = {
         "연방법·CNMI법 준거"
       ],
       "holidays": [
-        { "name": "New Year's Day (신정)", "date": "1/1 · 2026: 1/1 (목) · 연방+지방" },
-        { "name": "Commonwealth Day (CNMI 자치령의 날)", "date": "1/9 · 2026: 1/9 (금) · 지방" },
-        { "name": "Martin Luther King Jr. Day (MLK Day)", "date": "1월 3째 월요일 · <strong>2026: 1/19 (월)</strong> · 연방" },
-        { "name": "Presidents' Day", "date": "2월 3째 월요일 · <strong>2026: 2/16 (월)</strong> · 연방" },
-        { "name": "Commonwealth Covenant Day", "date": "3/24 · 2026: 3/24 (화) · 지방" },
-        { "name": "Good Friday", "date": "이동 · <strong>2026: 4/3 (금)</strong> · 지방 (기독교)" },
-        { "name": "Memorial Day", "date": "5월 마지막 월요일 · <strong>2026: 5/25 (월)</strong> · 연방" },
-        { "name": "Juneteenth", "date": "6/19 · 2026: 6/19 (금) · 연방 (2021~)" },
-        { "name": "Independence Day (미국 독립기념일)", "date": "7/4 · 2026: 7/4 (토) → 7/3 (금) 대체 · 연방" },
-        { "name": "Labor Day", "date": "9월 1째 월요일 · <strong>2026: 9/7 (월)</strong> · 연방" },
-        { "name": "Columbus Day / Indigenous Peoples' Day", "date": "10월 2째 월요일 · <strong>2026: 10/12 (월)</strong> · 연방" },
-        { "name": "CNMI Citizenship Day (시민권의 날)", "date": "11/4 · 2026: 11/4 (수) · 지방" },
-        { "name": "Veterans Day (재향군인의 날)", "date": "11/11 · 2026: 11/11 (수) · 연방" },
-        { "name": "Thanksgiving Day (추수감사절)", "date": "11월 4째 목요일 · <strong>2026: 11/26 (목)</strong> · 연방" },
-        { "name": "Constitution Day (CNMI 헌법 제정일)", "date": "12/8 · 2026: 12/8 (화) · 지방" },
-        { "name": "Christmas Day (크리스마스)", "date": "12/25 · 2026: 12/25 (금) · 연방+지방" },
-        { "name": "※ 미 연방 공휴일 11일 + CNMI 지방 공휴일 5~6일 = 총 16~17일. 연방 공휴일 주말 겹침 시 가장 가까운 평일로 대체", "date": "—" }
+        {
+          "name": "New Year's Day (신정)",
+          "date": "1/1 · 2026: 1/1 (목) · 연방+지방"
+        },
+        {
+          "name": "Commonwealth Day (CNMI 자치령의 날)",
+          "date": "1/9 · 2026: 1/9 (금) · 지방"
+        },
+        {
+          "name": "Martin Luther King Jr. Day (MLK Day)",
+          "date": "1월 3째 월요일 · <strong>2026: 1/19 (월)</strong> · 연방"
+        },
+        {
+          "name": "Presidents' Day",
+          "date": "2월 3째 월요일 · <strong>2026: 2/16 (월)</strong> · 연방"
+        },
+        {
+          "name": "Commonwealth Covenant Day",
+          "date": "3/24 · 2026: 3/24 (화) · 지방"
+        },
+        {
+          "name": "Good Friday",
+          "date": "이동 · <strong>2026: 4/3 (금)</strong> · 지방 (기독교)"
+        },
+        {
+          "name": "Memorial Day",
+          "date": "5월 마지막 월요일 · <strong>2026: 5/25 (월)</strong> · 연방"
+        },
+        {
+          "name": "Juneteenth",
+          "date": "6/19 · 2026: 6/19 (금) · 연방 (2021~)"
+        },
+        {
+          "name": "Independence Day (미국 독립기념일)",
+          "date": "7/4 · 2026: 7/4 (토) → 7/3 (금) 대체 · 연방"
+        },
+        {
+          "name": "Labor Day",
+          "date": "9월 1째 월요일 · <strong>2026: 9/7 (월)</strong> · 연방"
+        },
+        {
+          "name": "Columbus Day / Indigenous Peoples' Day",
+          "date": "10월 2째 월요일 · <strong>2026: 10/12 (월)</strong> · 연방"
+        },
+        {
+          "name": "CNMI Citizenship Day (시민권의 날)",
+          "date": "11/4 · 2026: 11/4 (수) · 지방"
+        },
+        {
+          "name": "Veterans Day (재향군인의 날)",
+          "date": "11/11 · 2026: 11/11 (수) · 연방"
+        },
+        {
+          "name": "Thanksgiving Day (추수감사절)",
+          "date": "11월 4째 목요일 · <strong>2026: 11/26 (목)</strong> · 연방"
+        },
+        {
+          "name": "Constitution Day (CNMI 헌법 제정일)",
+          "date": "12/8 · 2026: 12/8 (화) · 지방"
+        },
+        {
+          "name": "Christmas Day (크리스마스)",
+          "date": "12/25 · 2026: 12/25 (금) · 연방+지방"
+        },
+        {
+          "name": "※ 미 연방 공휴일 11일 + CNMI 지방 공휴일 5~6일 = 총 16~17일. 연방 공휴일 주말 겹침 시 가장 가까운 평일로 대체",
+          "date": "—"
+        }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (Guam-CNMI VWP). 업무는 CW-1 또는 H-2B 비자 필요.",
       "fixedTermContract": {
@@ -2599,7 +3485,24 @@ window.DASHBOARD_DATA = {
           "name": "CNMI 노동부",
           "url": "https://marianaslabor.net/"
         }
-      ]
+      ],
+      "annualLeave": {
+        "statutory": "❌ 미 연방법상 법정 연차 없음 (FLSA 적용 안 됨). CNMI 지방법도 없음 — 계약·사내 규정 자유",
+        "grantRule": "사용자 재량. 관행 10~15일 (미국 본토 평균 수준)",
+        "compensation": {
+          "required": false,
+          "formula": "법적 의무 없음. 계약·Employee Handbook 따름",
+          "note": "일부 주는 퇴직 시 미사용 Vacation 환산을 'wages'로 간주 — 연방은 아님"
+        },
+        "carryover": {
+          "allowed": true,
+          "maxYears": "법 제한 없음 (계약 자유)",
+          "detail": "사용자 Use-it-or-lose-it 정책도 연방법상 허용"
+        },
+        "consent": "없음",
+        "specialObligation": "미국식 PTO(Paid Time Off) 통합 관행 — 연차·병가·개인 사유 구분 없이 통합",
+        "tip": "CNMI 주재원은 본사 퇴직금·연차 유지가 핵심. 현지 계약상 연차는 파견 혜택 플러스 개념"
+      }
     }
   ]
 };

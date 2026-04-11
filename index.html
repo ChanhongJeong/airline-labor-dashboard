@@ -686,6 +686,7 @@ function render() {
         <li><strong style="color:var(--jju-orange-dark);">취업규칙:</strong> ${c.workRules.mandatory ? '✅ <strong>' + c.workRules.threshold + '</strong> 의무' : '❌ 법정 의무 없음'}</li>
         <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
         <li><strong style="color:var(--jju-orange-dark);">13월 급여:</strong> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};font-weight:700;">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
+        <li><strong style="color:var(--jju-orange-dark);">🏖️ 연차:</strong> <span style="font-size:11.5px;">${c.annualLeave.statutory.length > 55 ? c.annualLeave.statutory.substring(0, 55) + '...' : c.annualLeave.statutory}</span></li>
         <li><strong style="color:#C0392B;">🇰🇷 한국인 주의:</strong> <span style="font-size:11.5px;">${c.koreanWorkerNotes.socialInsurance.length > 60 ? c.koreanWorkerNotes.socialInsurance.substring(0, 60) + '...' : c.koreanWorkerNotes.socialInsurance}</span></li>
       </ul>
 
@@ -914,6 +915,46 @@ function openModal(code) {
       </div>
 
       <div class="modal-section">
+        <div class="modal-section-title">🏖️ 연차 휴가 (Annual Leave)</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:130px;">법정 일수<br><span style="font-size:10px;color:#999;">Statutory Days</span></td>
+              <td><div class="p-formula" style="font-size:12px;line-height:1.6;">${c.annualLeave.statutory}</div>${c.annualLeave.grantRule ? `<div class="p-note">${c.annualLeave.grantRule}</div>` : ''}</td>
+            </tr>
+            <tr>
+              <td>미사용 보상<br><span style="font-size:10px;color:#999;">Unused Compensation</span></td>
+              <td>
+                <div class="p-formula" style="color:${c.annualLeave.compensation.required === true || c.annualLeave.compensation.required === '퇴직 시 의무' || c.annualLeave.compensation.required === '퇴직 시만' || c.annualLeave.compensation.required === '퇴직 시만' || c.annualLeave.compensation.required === '퇴직 시 의무 + 28일 초과분만' ? '#C0392B' : '#555'};">${c.annualLeave.compensation.required === true ? '✅ 법적 의무' : c.annualLeave.compensation.required === false ? '❌ 법적 의무 없음' : '⚠️ ' + c.annualLeave.compensation.required}</div>
+                <div class="p-note" style="margin-top:4px;"><strong>산식:</strong> ${c.annualLeave.compensation.formula}</div>
+                ${c.annualLeave.compensation.note ? `<div class="p-note" style="margin-top:2px;">${c.annualLeave.compensation.note}</div>` : ''}
+              </td>
+            </tr>
+            <tr>
+              <td>이월 규정<br><span style="font-size:10px;color:#999;">Carryover</span></td>
+              <td>
+                <div class="p-formula">${c.annualLeave.carryover.allowed === true ? '✅ 가능' : c.annualLeave.carryover.allowed === false ? '❌ 불가 (당해 연도 소진)' : '⚠️ ' + c.annualLeave.carryover.allowed} · 최대 <strong>${c.annualLeave.carryover.maxYears}</strong></div>
+                ${c.annualLeave.carryover.detail ? `<div class="p-note" style="margin-top:2px;">${c.annualLeave.carryover.detail}</div>` : ''}
+              </td>
+            </tr>
+            <tr>
+              <td>이월 동의서<br><span style="font-size:10px;color:#999;">Consent</span></td>
+              <td><div class="p-formula" style="font-size:12px;">${c.annualLeave.consent}</div></td>
+            </tr>
+            ${c.annualLeave.specialObligation ? `
+            <tr>
+              <td>특이 의무<br><span style="font-size:10px;color:#999;">Special</span></td>
+              <td><div class="p-note" style="font-size:12px;color:#444;">${c.annualLeave.specialObligation}</div></td>
+            </tr>` : ''}
+            <tr>
+              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Tip</span></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-section">
         <div class="modal-section-title">✈️ 본사 주재원 파견 컴플라이언스</div>
         <table class="premium-table">
           <tbody>
@@ -1007,6 +1048,7 @@ function exportCSV() {
     '13월급여_의무여부', '13월급여_계산식', '13월급여_시기', '13월급여_비고',
     '한국인_사회보험', '한국인_퇴직금', '한국인_세금', '한국인_비자기타',
     '주재원_현지신고소득', '주재원_세금신고', '주재원_취업비자', '주재원_실무팁',
+    '연차_법정일수', '연차_발생규칙', '연차_미사용보상의무', '연차_보상산식', '연차_이월가능', '연차_이월한도', '연차_이월동의서', '연차_특이의무', '연차_실무팁',
     '근로계약필수항목',
     '수습기간', '해고절차', '퇴직금', '사회보험', '외국인고용',
     '비자', '공식링크'
@@ -1029,6 +1071,14 @@ function exportCSV() {
     c.thirteenthMonth.status, c.thirteenthMonth.formula, c.thirteenthMonth.timing, c.thirteenthMonth.note,
     c.koreanWorkerNotes.socialInsurance, c.koreanWorkerNotes.severance, c.koreanWorkerNotes.tax, c.koreanWorkerNotes.visa,
     c.expatriateCompliance.localIncomeReport, c.expatriateCompliance.taxFiling, c.expatriateCompliance.workVisa, c.expatriateCompliance.practicalTip,
+    c.annualLeave.statutory, c.annualLeave.grantRule || '',
+    c.annualLeave.compensation.required === true ? '법적 의무' : c.annualLeave.compensation.required === false ? '법적 의무 없음' : String(c.annualLeave.compensation.required),
+    c.annualLeave.compensation.formula,
+    c.annualLeave.carryover.allowed === true ? '가능' : c.annualLeave.carryover.allowed === false ? '불가' : String(c.annualLeave.carryover.allowed),
+    c.annualLeave.carryover.maxYears,
+    c.annualLeave.consent,
+    c.annualLeave.specialObligation || '',
+    c.annualLeave.tip,
     c.contractRequirements.join(' | '),
     c.detailedLabor['수습기간'] || '',
     c.detailedLabor['해고 절차'] || '',
