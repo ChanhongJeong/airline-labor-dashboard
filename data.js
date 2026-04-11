@@ -164,6 +164,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (단기 관광/상용). 업무 체류는 취업비자(기술·인문지식·국제업무 등) 필요.",
+      "fixedTermContract": {
+        "max": "3년 (전문직·60세 이상 5년)",
+        "conversion": "5년 초과 반복 갱신 시 근로자 청구로 무기계약 전환 (2013~)",
+        "legalBasis": "노동계약법 제18조",
+        "note": "별도 허가 사유 불필요, 계약 자유 원칙"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "상시 10명 이상",
+        "legalBasis": "노동기준법 제89조",
+        "procedure": "근로자 대표 의견청취 후 노동기준감독서 신고",
+        "note": "임금·근로시간·휴일·해고 등 필수 기재사항"
+      },
+      "graduateSalary": {
+        "display": "¥225,400 / 월",
+        "amount": 225400,
+        "range": "¥210,000 ~ ¥250,000",
+        "source": "후생노동성 임금구조기본통계조사",
+        "year": 2024,
+        "note": "대졸 남녀 평균 기본급, 상여 제외"
+      },
       "sources": [
         {
           "name": "후생노동성",
@@ -305,6 +326,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>15일 무비자</strong> (2024~ 시범, 관광·상용). 업무 취업은 <strong>Z비자</strong>, 상주는 <strong>R비자</strong> 필요.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음",
+        "conversion": "동일 사용자와 2회 연속 기간제 계약 후 근로자 요구 시 무고정기한(무기) 계약 의무",
+        "legalBasis": "노동계약법 제14조",
+        "note": "10년 연속 근속자도 무기 전환 청구 가능"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "전 사업장 (인원 기준 없음)",
+        "legalBasis": "노동계약법 제4조",
+        "procedure": "직공대표대회·전체회의 의견청취 + 공시",
+        "note": "규장제도(规章制度) 필수, 미공시 시 효력 제한"
+      },
+      "graduateSalary": {
+        "display": "¥7,500 / 월",
+        "amount": 7500,
+        "range": "¥6,000 ~ ¥10,000",
+        "source": "1급도시(북경·상해·광주·심천) 민간 조사 평균",
+        "year": 2024,
+        "note": "지역별 편차 매우 큼, 내륙은 ¥4,000~5,500"
+      },
       "sources": [
         {
           "name": "인력자원사회보장부",
@@ -451,6 +493,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (관광/상용). 업무 체류는 취업허가+거류증 필요.",
+      "fixedTermContract": {
+        "max": "원칙 금지, 특수업무만 허용 (단기·계절성 6개월, 특정성 1년)",
+        "conversion": "계속적 업무에 사용 시 자동 무기계약 간주",
+        "legalBasis": "노동기준법 제9조",
+        "note": "1년 초과 특정성 계약은 노동부 신고 필요"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "상시 30명 이상",
+        "legalBasis": "노동기준법 제70조",
+        "procedure": "노동부 신고 + 사업장 공시",
+        "note": "공작규칙(工作規則), 12개 필수 기재항목"
+      },
+      "graduateSalary": {
+        "display": "NT$33,000 / 월",
+        "amount": 33000,
+        "range": "NT$30,000 ~ NT$38,000",
+        "source": "주계총처 대졸 평균급여 조사",
+        "year": 2024,
+        "note": "업종별 편차, IT·금융은 NT$40,000+"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -602,6 +665,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 GEP(일반고용정책) 비자 필요.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음 (계약 자유)",
+        "conversion": "자동 전환 규정 없음",
+        "legalBasis": "고용조례(Employment Ordinance)",
+        "note": "4주 연속 18h 이상 = 연속근로(continuous contract) 간주, 각종 보호 적용"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 없음",
+        "legalBasis": "-",
+        "procedure": "기업별 Employee Handbook 관행",
+        "note": "서면 계약서 필수 항목은 존재 (임금·예고기간 등)"
+      },
+      "graduateSalary": {
+        "display": "HK$20,000 / 월",
+        "amount": 20000,
+        "range": "HK$17,000 ~ HK$25,000",
+        "source": "JobsDB 대졸 연봉 조사",
+        "year": 2024,
+        "note": "금융·전문직은 HK$25,000~35,000"
+      },
       "sources": [
         {
           "name": "노동처",
@@ -761,6 +845,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 노동허가 필요.",
+      "fixedTermContract": {
+        "max": "2년 (갱신 포함)",
+        "conversion": "2회 갱신 후 무기계약 간주",
+        "legalBasis": "노동관계법 제7/2008호 제6조",
+        "note": "신규 업무 개시 등 특정 사유만 기간제 허용"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 없음",
+        "legalBasis": "-",
+        "procedure": "사내 규정 자율",
+        "note": "주요 고용조건은 계약서에 명시 필요"
+      },
+      "graduateSalary": {
+        "display": "MOP 16,000 / 월",
+        "amount": 16000,
+        "range": "MOP 14,000 ~ MOP 20,000",
+        "source": "DSEC 취업 통계",
+        "year": 2024,
+        "note": "카지노·호텔업은 별도 체계"
+      },
       "sources": [
         {
           "name": "노공사무국",
@@ -895,6 +1000,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (2023~). 초과 시 e-Visa 90일 가능. 업무는 <strong>LD/DT 비자</strong> 필요.",
+      "fixedTermContract": {
+        "max": "36개월 (1회 갱신 한정)",
+        "conversion": "만료 후 30일 내 재계약 시 두 번째부터 무기계약 간주",
+        "legalBasis": "노동법 2019 제20조",
+        "note": "60세 이상·외국인은 예외 (반복 기간제 가능)"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "상시 10명 이상",
+        "legalBasis": "노동법 2019 제118조",
+        "procedure": "노동조합 협의 + 성/시 노동국 등록",
+        "note": "내부노동규칙(Nội quy lao động) 작성·등록 의무"
+      },
+      "graduateSalary": {
+        "display": "VND 10,000,000 / 월",
+        "amount": 10000000,
+        "range": "VND 8,000,000 ~ VND 12,000,000",
+        "source": "VietnamWorks 대졸 급여 조사",
+        "year": 2024,
+        "note": "호치민·하노이 기준, 외국계는 VND 12M~18M"
+      },
       "sources": [
         {
           "name": "노동보훈사회부",
@@ -1039,6 +1165,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 29일 추가 연장 가능. 업무는 9(g) 취업비자 + AEP.",
+      "fixedTermContract": {
+        "max": "원칙 금지, 프로젝트·계절성만 허용",
+        "conversion": "6개월 이상 계속 고용 시 regular(정규직) 간주",
+        "legalBasis": "Labor Code Art. 295 (Brent School vs Zamora 판례)",
+        "note": "수습기간 6개월 이내, 초과 시 regular 전환"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 기준 없음",
+        "legalBasis": "-",
+        "procedure": "기업 Code of Conduct·취업규정은 관행",
+        "note": "20명 이상 사업장 CBA 관행, DOLE 권고"
+      },
+      "graduateSalary": {
+        "display": "₱22,000 / 월",
+        "amount": 22000,
+        "range": "₱18,000 ~ ₱28,000",
+        "source": "JobStreet / PSA 신입 임금 조사",
+        "year": 2024,
+        "note": "NCR 민간 기준, BPO·IT는 ₱25,000~35,000"
+      },
       "sources": [
         {
           "name": "DOLE 노동부",
@@ -1199,6 +1346,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (2024.7 개정). 업무는 Non-B 비자 + Work Permit 필수.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음 (단 119일 초과 시 해고수당 대상)",
+        "conversion": "특별 사유(프로젝트·계절) 없으면 갱신 반복 시 정규직 간주 가능",
+        "legalBasis": "Labor Protection Act §118",
+        "note": "반복 갱신은 해고수당 누적 리스크"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "상시 10명 이상",
+        "legalBasis": "Labor Protection Act §108",
+        "procedure": "작성 후 15일 이내 사업장 게시 + 노동부 사본 제출",
+        "note": "임금·근로시간·휴가·해고 등 필수 기재"
+      },
+      "graduateSalary": {
+        "display": "฿21,000 / 월",
+        "amount": 21000,
+        "range": "฿18,000 ~ ฿25,000",
+        "source": "NSO / JobsDB 신입 임금",
+        "year": 2024,
+        "note": "방콕 민간 기준, 외국계는 ฿28,000~40,000"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -1357,6 +1525,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP(Employment Pass) 필수.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음 (계약 자유)",
+        "conversion": "'genuine fixed-term' 요건 엄격, 반복 갱신 시 정규직 간주 가능",
+        "legalBasis": "Employment Act 1955",
+        "note": "법원 판례(Ahmad Zahri·Innovative Incentives 등)로 우회 금지 경향"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 없음",
+        "legalBasis": "-",
+        "procedure": "Employment Act 적용자는 고용조건 서면 의무",
+        "note": "단체협약 및 사내규정 자율"
+      },
+      "graduateSalary": {
+        "display": "RM 3,200 / 월",
+        "amount": 3200,
+        "range": "RM 2,800 ~ RM 4,000",
+        "source": "MEF Salary Survey",
+        "year": 2024,
+        "note": "KL 민간, IT·금융은 RM 4,000~5,500"
+      },
       "sources": [
         {
           "name": "인적자원부",
@@ -1515,6 +1704,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP/SP/WP 비자 필요.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음 (계약 자유)",
+        "conversion": "자동 전환 없음, 연속근로(continuous service) 요건만 적용",
+        "legalBasis": "Employment Act",
+        "note": "일정 기간 연속 시 해고통지·연차 등 권리 발생"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 없음",
+        "legalBasis": "-",
+        "procedure": "KET(Key Employment Terms) 서면 제공이 대체",
+        "note": "14일 이내 14개 항목 KET 서면 제공 의무 (2016~)"
+      },
+      "graduateSalary": {
+        "display": "S$4,300 / 월",
+        "amount": 4300,
+        "range": "S$3,800 ~ S$5,000",
+        "source": "MOM GES 졸업생 취업 조사",
+        "year": 2024,
+        "note": "NUS/NTU 졸업생 중위값, 금융·테크는 S$5,500~6,500"
+      },
       "sources": [
         {
           "name": "MOM 인력부",
@@ -1683,6 +1893,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong> (관광) 또는 VOA. 업무는 KITAS/KITAP 필요.",
+      "fixedTermContract": {
+        "max": "5년 (연장 포함 누적)",
+        "conversion": "5년 초과 시 PKWTT(무기계약) 전환 의무",
+        "legalBasis": "옴니버스법 PP 35/2021",
+        "note": "계약 만료 시 보상금(uang kompensasi) 지급 의무 신설"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "상시 10명 이상",
+        "legalBasis": "Ketenagakerjaan법 제108조",
+        "procedure": "Kemnaker(노동부) 제출·승인",
+        "note": "단체협약(PKB) 있으면 취업규칙 면제"
+      },
+      "graduateSalary": {
+        "display": "IDR 6,500,000 / 월",
+        "amount": 6500000,
+        "range": "IDR 5,500,000 ~ IDR 8,500,000",
+        "source": "JobStreet / Kemnaker 조사",
+        "year": 2024,
+        "note": "자카르타 민간, 외국계·금융은 IDR 10M~15M"
+      },
       "sources": [
         {
           "name": "Kemnaker 노동부",
@@ -1819,6 +2050,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 HG 취업비자 필요.",
+      "fixedTermContract": {
+        "max": "2년 (일반 업무)",
+        "conversion": "계절·임시·특정 프로젝트 등 허용 사유 없으면 무기 전환",
+        "legalBasis": "노동법 2021 제15조",
+        "note": "특수사유 외 갱신 제한"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "전 사업장 (권장)",
+        "legalBasis": "노동법 2021",
+        "procedure": "내부 규정 제정·공시",
+        "note": "단체협약과 병행 시 우선순위 명문화"
+      },
+      "graduateSalary": {
+        "display": "MNT 2,000,000 / 월",
+        "amount": 2000000,
+        "range": "MNT 1,500,000 ~ MNT 2,800,000",
+        "source": "NSO 평균 급여 통계",
+        "year": 2024,
+        "note": "울란바토르 민간, 광업·금융은 MNT 3M~5M"
+      },
       "sources": [
         {
           "name": "노동사회보장부",
@@ -1962,6 +2214,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (관광, 180일 중 90일 한도). 취업 금지, 업무 시 취업비자 필요.",
+      "fixedTermContract": {
+        "max": "5년",
+        "conversion": "허용 사유 없으면 무기계약 간주",
+        "legalBasis": "노동법 제58조·제59조",
+        "note": "대체·일시·계절·외국인 등 제한된 사유만 기간제 허용"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "전 사업장",
+        "legalBasis": "노동법 제189조",
+        "procedure": "근로자 대표 의견청취 + 승인·공시",
+        "note": "내부노동규정(Правила внутреннего трудового распорядка) 필수"
+      },
+      "graduateSalary": {
+        "display": "RUB 65,000 / 월",
+        "amount": 65000,
+        "range": "RUB 50,000 ~ RUB 90,000",
+        "source": "HeadHunter / Росстат 신입 조사",
+        "year": 2024,
+        "note": "모스크바 민간, 지방은 RUB 35,000~50,000"
+      },
       "sources": [
         {
           "name": "노동사회보장부",
@@ -2106,6 +2379,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 업무는 비즈니스 비자 + 노동허가.",
+      "fixedTermContract": {
+        "max": "3년",
+        "conversion": "2회 갱신(누적 6년 초과) 후 무기 전환",
+        "legalBasis": "Labor Law 2013",
+        "note": "기간 초과 시 자동 무기 간주"
+      },
+      "workRules": {
+        "mandatory": true,
+        "threshold": "전 사업장",
+        "legalBasis": "Labor Law 2013",
+        "procedure": "노동사회복지부 등록",
+        "note": "내부 규정 제정 및 게시 의무"
+      },
+      "graduateSalary": {
+        "display": "LAK 4,000,000 / 월",
+        "amount": 4000000,
+        "range": "LAK 3,000,000 ~ LAK 5,500,000",
+        "source": "ILO / 현지 구직 플랫폼",
+        "year": 2024,
+        "note": "비엔티안 민간, 고인플레로 변동 큼"
+      },
       "sources": [
         {
           "name": "노동사회복지부",
@@ -2270,6 +2564,27 @@ window.DASHBOARD_DATA = {
         }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (Guam-CNMI VWP). 업무는 CW-1 또는 H-2B 비자 필요.",
+      "fixedTermContract": {
+        "max": "명문 상한 없음 (at-will 원칙)",
+        "conversion": "자동 전환 규정 없음",
+        "legalBasis": "미 연방법 / CNMI 지역법",
+        "note": "CW-1 비자는 3년 한도(갱신 가능), H-2B는 1년 한도"
+      },
+      "workRules": {
+        "mandatory": false,
+        "threshold": "법정 의무 없음",
+        "legalBasis": "-",
+        "procedure": "Employee Handbook 기업 자율",
+        "note": "FLSA·CNMI 노동법 통지(posting) 의무만 존재"
+      },
+      "graduateSalary": {
+        "display": "US$3,000 / 월",
+        "amount": 3000,
+        "range": "US$2,500 ~ US$3,800",
+        "source": "BLS OES / 미국 본토 참고치",
+        "year": 2024,
+        "note": "CNMI는 데이터 제한적, 본토보다 낮음"
+      },
       "sources": [
         {
           "name": "미 노동부 (DOL)",

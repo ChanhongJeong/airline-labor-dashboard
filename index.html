@@ -680,6 +680,13 @@ function render() {
         </div>
       </div>
 
+      <div class="section-title">💼 계약·취업규칙·대졸 초임</div>
+      <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
+        <li><strong style="color:var(--jju-orange-dark);">계약직 최대:</strong> ${c.fixedTermContract.max}</li>
+        <li><strong style="color:var(--jju-orange-dark);">취업규칙:</strong> ${c.workRules.mandatory ? '✅ <strong>' + c.workRules.threshold + '</strong> 의무' : '❌ 법정 의무 없음'}</li>
+        <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year} 참고치)</span></li>
+      </ul>
+
       <div class="card-footer">
         <button class="detail-btn" data-detail="${c.code}">📊 상세보기 (추이·계약·공휴일·비자)</button>
       </div>
@@ -820,6 +827,39 @@ function openModal(code) {
       </div>
 
       <div class="modal-section">
+        <div class="modal-section-title">💼 계약직 / 취업규칙 / 대졸 초임</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:130px;">계약직 최대기간<br><span style="font-size:10px;color:#999;">Fixed-term</span></td>
+              <td>
+                <div class="p-formula">${c.fixedTermContract.max}</div>
+                <div class="p-note">전환 요건: ${c.fixedTermContract.conversion}</div>
+                <div class="p-note" style="margin-top:2px;">📖 ${c.fixedTermContract.legalBasis} · ${c.fixedTermContract.note}</div>
+              </td>
+            </tr>
+            <tr>
+              <td>취업규칙 의무<br><span style="font-size:10px;color:#999;">Work Rules</span></td>
+              <td>
+                <div class="p-formula">${c.workRules.mandatory ? '✅ 의무 — ' + c.workRules.threshold : '❌ 법정 의무 없음'}</div>
+                <div class="p-note">${c.workRules.legalBasis !== '-' ? '📖 ' + c.workRules.legalBasis : '📖 법정 근거 없음'}</div>
+                <div class="p-note" style="margin-top:2px;">절차: ${c.workRules.procedure}</div>
+                <div class="p-note" style="margin-top:2px;">${c.workRules.note}</div>
+              </td>
+            </tr>
+            <tr>
+              <td>대졸 사무직 초임<br><span style="font-size:10px;color:#999;">Graduate</span></td>
+              <td>
+                <div class="p-formula">${c.graduateSalary.display} <span style="color:#999;font-weight:400;font-size:11px;">(범위: ${c.graduateSalary.range})</span></div>
+                <div class="p-note">출처: ${c.graduateSalary.source} (${c.graduateSalary.year})</div>
+                <div class="p-note" style="margin-top:2px;">${c.graduateSalary.note}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-section">
         <div class="modal-section-title">⚖️ 상세 노동법</div>
         <dl class="info-grid">
           ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
@@ -882,6 +922,9 @@ function exportCSV() {
     '야간수당공식', '야간수당비고',
     '휴일수당공식', '휴일수당비고',
     '공휴일수당공식', '공휴일수당비고',
+    '계약직_최대기간', '계약직_전환요건', '계약직_근거', '계약직_비고',
+    '취업규칙_의무여부', '취업규칙_기준', '취업규칙_근거', '취업규칙_절차', '취업규칙_비고',
+    '대졸초임', '대졸초임_범위', '대졸초임_출처', '대졸초임_연도', '대졸초임_비고',
     '근로계약필수항목',
     '수습기간', '해고절차', '퇴직금', '사회보험', '외국인고용',
     '비자', '공식링크'
@@ -897,6 +940,9 @@ function exportCSV() {
     c.wagePremiums.night.formula, c.wagePremiums.night.note,
     c.wagePremiums.restDay.formula, c.wagePremiums.restDay.note,
     c.wagePremiums.publicHoliday.formula, c.wagePremiums.publicHoliday.note,
+    c.fixedTermContract.max, c.fixedTermContract.conversion, c.fixedTermContract.legalBasis, c.fixedTermContract.note,
+    c.workRules.mandatory ? '의무' : '없음', c.workRules.threshold, c.workRules.legalBasis, c.workRules.procedure, c.workRules.note,
+    c.graduateSalary.display, c.graduateSalary.range, c.graduateSalary.source, c.graduateSalary.year, c.graduateSalary.note,
     c.contractRequirements.join(' | '),
     c.detailedLabor['수습기간'] || '',
     c.detailedLabor['해고 절차'] || '',
