@@ -914,6 +914,30 @@ function openModal(code) {
       </div>
 
       <div class="modal-section">
+        <div class="modal-section-title">✈️ 본사 주재원 파견 컴플라이언스</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:130px;">현지 신고 소득<br><span style="font-size:10px;color:#999;">Reportable Income</span></td>
+              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.localIncomeReport}</div></td>
+            </tr>
+            <tr>
+              <td>세금 신고 의무<br><span style="font-size:10px;color:#999;">Tax Filing</span></td>
+              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.taxFiling}</div></td>
+            </tr>
+            <tr>
+              <td>취업비자 의무<br><span style="font-size:10px;color:#999;">Work Visa</span></td>
+              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.workVisa}</div></td>
+            </tr>
+            <tr>
+              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-section">
         <div class="modal-section-title">⚖️ 상세 노동법</div>
         <dl class="info-grid">
           ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
@@ -982,6 +1006,7 @@ function exportCSV() {
     '채용표준경로', '수습기간상세', '수습중종료', '수습후종료', '실무팁', '리스크',
     '13월급여_의무여부', '13월급여_계산식', '13월급여_시기', '13월급여_비고',
     '한국인_사회보험', '한국인_퇴직금', '한국인_세금', '한국인_비자기타',
+    '주재원_현지신고소득', '주재원_세금신고', '주재원_취업비자', '주재원_실무팁',
     '근로계약필수항목',
     '수습기간', '해고절차', '퇴직금', '사회보험', '외국인고용',
     '비자', '공식링크'
@@ -1003,6 +1028,7 @@ function exportCSV() {
     c.hiringPlaybook.standardPath, c.hiringPlaybook.probationDetails, c.hiringPlaybook.terminateDuringProbation, c.hiringPlaybook.terminateAfterProbation, c.hiringPlaybook.practicalTip, c.hiringPlaybook.riskNotes,
     c.thirteenthMonth.status, c.thirteenthMonth.formula, c.thirteenthMonth.timing, c.thirteenthMonth.note,
     c.koreanWorkerNotes.socialInsurance, c.koreanWorkerNotes.severance, c.koreanWorkerNotes.tax, c.koreanWorkerNotes.visa,
+    c.expatriateCompliance.localIncomeReport, c.expatriateCompliance.taxFiling, c.expatriateCompliance.workVisa, c.expatriateCompliance.practicalTip,
     c.contractRequirements.join(' | '),
     c.detailedLabor['수습기간'] || '',
     c.detailedLabor['해고 절차'] || '',

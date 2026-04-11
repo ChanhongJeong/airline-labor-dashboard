@@ -206,6 +206,12 @@ window.DASHBOARD_DATA = {
         "timing": "夏期(6~7월) + 年末(12월) 2회 분할 지급",
         "note": "법정 의무 아니나 정사원에겐 사실상 표준. 계약사원·파견직은 편차 큼. 한국 주재원도 본사 체계 + 현지 관행 확인"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(1년+ 또는 住所)는 전 세계 소득 과세. 비영주자(5년 이내)는 일본 원천 + 일본 송금분만. <strong>현지·본사 지급 모두 일본 근무 대가면 신고 대상.</strong> 사택·회사 임차 주택은 본인부담 50%+ 시 비과세, 현금 주택수당은 전액 과세. 통근비(월 15만엔 한도)·출장비는 비과세",
+        "taxFiling": "소득세 5~45% + 부흥특별세 2.1% + 주민세 10%. 고용주 매월 원천징수 + 12월 年末調整. 연소득 2,000만엔 초과·복수 수입자는 확정신고(確定申告) 2/16~3/15. 거주자 판정: 住所 or 1년+ 居所",
+        "workVisa": "<strong>기술·인문지식·국제업무 비자</strong>(사무·경영) 또는 <strong>기업내전근(企業内転勤)</strong>(본사 1년+ 근속 필요). 재류카드 14일 이내 발급. 가족은 家族滞在 별도. 변경·갱신은 만료 3개월 전부터",
+        "practicalTip": "한일 조세조약 + 사회보장협정(적용증명서)으로 5년 이내 파견 시 일본 연금 면제. 기업내전근 비자는 한국 본사 1년+ 연속 근속 필수. 사택 제공 형식이 현금 주택수당보다 세제 유리"
+      },
       "sources": [
         {
           "name": "후생노동성",
@@ -388,6 +394,12 @@ window.DASHBOARD_DATA = {
         "formula": "통상 기본급 1~2개월분 (외자기업·국유기업 관행적)",
         "timing": "춘절(음력설) 전 1~2월",
         "note": "법정 의무 아님. 국유기업·공공부문은 '13薪' 고정 관행, 민영은 실적 연동. 계약서·사규 명시 시 법적 의무화"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 전 세계 소득 과세. <strong>6년 연속 체류 + 매년 183일+ 시 전 세계 소득 (6년 룰)</strong>, 이전 비거주 시 리셋 가능. 현지·본사 지급분 모두 중국 근무 대가면 신고. <strong>⚠️ 2022 세제 개편으로 주택보조금·자녀교육비 비과세 경과 규정 2027년까지만 유지</strong>, 이후 전액 과세",
+        "taxFiling": "개인소득세(IIT) 3~45% 7단계. 고용주 매월 원천징수 + 연간 종합신고(综合所得汇算清缴) 익년 3/1~6/30. 외국인 고용주 매월 申报 의무. 원천지: 근로지가 중국이면 과세",
+        "workVisa": "<strong>Z비자 + 외국인 취업허가증 + 외국인 거류허가</strong> 3단. 2017~ 허가증 A/B/C 등급제 (A: 고급인재, B: 일반, C: 제한). 만 60세 미만(A급 일부 예외). 배우자·자녀 S1. 취업허가 최장 5년(A급)",
+        "practicalTip": "한중 사회보장협정(2013~)으로 양로·실업 면제 → 참가증명서(Certificate of Participation) 반드시 준비. 2027년까지 주택보조금·자녀교육 비과세 최대 활용(그로스업 감소). 6년 룰 관리 위해 중간 출국(30일+) 전략 가능"
       },
       "sources": [
         {
@@ -576,6 +588,12 @@ window.DASHBOARD_DATA = {
         "formula": "年終獎金 = 기본급 × 1~3개월분 (IT·금융 3~6개월)",
         "timing": "춘절(음력설) 전 1~2월",
         "note": "법률 강제 아니나 미지급 시 이직·노동분쟁 빈발. 대부분 기업이 '월급 × 13' 구조로 운영"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 대만 원천 + 해외 소득 중 기본소득세 대상. 비거주자(183일 미만) <strong>18% 정액 원천징수</strong>, 확정신고 불필요. 본사 지급분도 대만 근무 대가면 포함. <strong>주택 수당·사택 모두 과세 원칙</strong>",
+        "taxFiling": "개인소득세 5~40% 5단계 누진(거주자). 비거주자 18% 단일. 연 1회 확정신고 5/1~5/31. 고용주 매월 원천징수 보고. 배우자·부양가족·주택대출·의료비 공제",
+        "workVisa": "<strong>취업허가(勞動部) → 거류증(ARC)</strong> 2단계. 화이트칼라 쿼터 없음. 월 최저 급여 NT$48,000+ 권장(전문직). 계약 종료 시 ARC 취소 → 15일 내 신규 구직 또는 출국. 가족 거류증 별도",
+        "practicalTip": "⚠️ <strong>183일 미만 유지 시 18% 단일세</strong>로 거주자 누진보다 유리할 수 있음 → 단기 파견 설계 활용. 한-대만 조세조약 없음(비공식 협력만). 5월 신고 마감일 놓치면 가산세. 노퇴금(勞退金) 6% 개인계좌 퇴사 시 환급 청구"
       },
       "sources": [
         {
@@ -769,6 +787,12 @@ window.DASHBOARD_DATA = {
         "formula": "계약·사규·관행으로 정해진 경우 'end of year payment' 전액 지급. 근속 3개월+ 비례",
         "timing": "음력설 전 또는 12월",
         "note": "고용조례 제11A~11D조 — 계약·관행으로 규정되면 미지급 시 법 위반. 일방 철회 불가. 실무상 지급 관행이면 법적 권리로 인정"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자 판정 없음. <strong>홍콩 원천(source-based) 근로소득</strong>만 과세. 본사 지급분이라도 홍콩 사무실 근무 대가면 포함. <strong>💡 Rental Reimbursement 절세</strong>: 고용주 직접 임대료 지급 or 환급 시 '월급 × 10%'만 과세소득으로 가산(Rental Value) → 대폭 절세",
+        "taxFiling": "급여세(Salaries Tax) 최고 17% 또는 누진 중 낮은 것. 과세연도 4/1~3/31. 고용주 매년 4/1까지 IR56B 제출(근로자별 연봉). 개인 BIR60 신고 5~7월. 자진 납부 (원천징수 없음)",
+        "workVisa": "<strong>GEP(General Employment Policy)</strong>가 표준. Top Talent Pass Scheme(TTPS) 간소화 대상 포함. 1~2년 → 2+2+3년 연장. 직업 변경 시 신규 신청 필요. 가족 피부양자 비자",
+        "practicalTip": "<strong>🏠 Rental Reimbursement 구조</strong>: 현금 주택수당 대신 '회사 직접 임대차계약 + 본인 실비 환급 청구' 방식 → 월급의 10%만 과세 → 세부담 대폭 감소. 'non-Hong Kong employment' 구성 시 홍콩 체류일수 비율만 과세 가능 → 장기 출장형 배치에 유리. 한-홍콩 조세조약 없음 but 저세율로 사실상 문제 없음"
       },
       "sources": [
         {
@@ -971,6 +995,12 @@ window.DASHBOARD_DATA = {
         "timing": "12월 (크리스마스 전)",
         "note": "노동관계법(Law 7/2008) 제60조 Christmas Bonus. 중도 퇴사자도 비례 지급 의무. 외국인 동일 적용. 미지급 시 DSAL 벌금"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "마카오 원천소득 과세(source-based). 현지·본사 지급 모두 마카오 근무 대가면 포함. <strong>⭐ 직업세 연간 MOP 144,000 초과분만 과세</strong>(약 2,200만원 면세 구간). 회사 사택·주택 수당·13월 급여 모두 과세 대상이나 공제 범위 커서 실부담 낮음",
+        "taxFiling": "직업세(Imposto Profissional) 7~12% 누진 (MOP 144,000 공제 후). 1그룹 employed: 고용주 원천징수 + 연 1회 개인 신고 1~2월. <strong>매년 30% 추가 공제(税款宽减) 관행</strong> (DSF 발표)",
+        "workVisa": "<strong>외지고용 허가(藍卡/Blue Card)</strong>: DSAL이 사용자에게 발급. 신원증 사무국에서 비거주 노동자 신원증. <strong>⚠️ 쿼터 제한 엄격</strong>(카지노·호텔·건설). 가족 동반 별도 신청. 장기 거주 7년+ 후 신청 가능",
+        "practicalTip": "⭐ 15개국 중 세부담 최저. 연 MOP 144,000 이하 면세 + 매년 30% 추가 공제로 사실상 20~30% 세부담. Blue Card 쿼터 포화 업종은 신청 일정 여유 확보. 한-마카오 조세조약 없으나 저세율로 이중과세 실질 문제 적음"
+      },
       "sources": [
         {
           "name": "노공사무국",
@@ -1146,6 +1176,12 @@ window.DASHBOARD_DATA = {
         "formula": "Tết 보너스 = 기본급 × 1~3개월분 (평균 1개월분)",
         "timing": "음력설(Tết) 전 1~2월",
         "note": "법정 의무 아니나 거의 모든 기업 지급. 미지급 시 노동분쟁·이탈 빈발. 계약서·취업규칙 명시 시 법적 의무화. 한국 주재원도 동일 지급 관행"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 전 세계 소득. 비거주자 20% 정액. 현지·본사 지급 전부 베트남 근무 대가면 포함. <strong>🏠 주택수당: 총소득의 15% 초과분만 비과세</strong>(실비 기준). 통근비·식대(월 730,000 VND 한도)·교육비·자녀 학비·연 1회 일시귀국 항공권은 비과세",
+        "taxFiling": "개인소득세 5~35% 7단계 누진. 고용주 매월 원천징수 + 분기 신고. 개인 연간 Finalization 익년 3/31. 본인 공제 11M VND/월, 부양가족 4.4M VND/월",
+        "workVisa": "<strong>노동허가서(Work Permit) → DT(투자자)/LD(노무) 비자 → 임시거류증(TRC)</strong> 순차. Work Permit 최대 2년, 갱신 가능. <strong>⚠️ 허가 전 근로 금지</strong>(VND 75M 벌금 + 출국). 절차: 의료검진→학위인증(영사확인)→범죄경력→WP→비자→TRC (2~3개월)",
+        "practicalTip": "⚠️ 주택수당 '총소득의 15% 룰' 숙지해서 그로스업 설계. Work Permit 면제 대상(임원급·주주·30일 미만 파견) 활용 검토. <strong>⚠️ 한국인은 실업보험 미가입 → 퇴직금 별도 지급 의무</strong>. 학위·범죄경력 영사확인 1~2개월 소요, 부임 전 미리 준비"
       },
       "sources": [
         {
@@ -1332,6 +1368,12 @@ window.DASHBOARD_DATA = {
         "formula": "해당 연도 기본급 합계 ÷ 12 (근속 1개월 이상 전원 대상, 비례 지급)",
         "timing": "매년 12월 24일까지",
         "note": "Presidential Decree No. 851 (1975). 한국 주재원 포함 외국인 동일 적용. 미지급 시 DOLE 벌금·형사처벌. 최고 경영진(Managerial)은 제외될 수 있음"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(180일+) 전 세계 소득 과세. 비거주자 25% 정액. 현지·본사 지급 모두 필리핀 근무 대가면 포함. <strong>주택 수당: 회사 직접 임대료 지급 권장</strong>(현금 수당은 전액 과세). 13th Month Pay는 PHP 90,000까지 비과세 활용",
+        "taxFiling": "개인소득세 0~35% 누진(TRAIN Law). 연 소득 PHP 250,000 이하 면세. 고용주 매월 원천징수 + 연말 Substituted Filing. 개인 신고 4/15. <strong>⚠️ TRAIN Law 이후 ROHQ 임원 15% 우대세율 폐지</strong>, 일반 누진 적용",
+        "workVisa": "<strong>9(g) 상용 취업비자 + AEP(Alien Employment Permit)</strong> 두 가지 모두 필수. AEP(DOLE) 15일, 9(g)비자(BI) 30~45일. 예비 9(a) 임시비자로 입국 후 9(g) 전환 가능. TIN(납세번호) 필수 등록. 가족 동반 비자 별도",
+        "practicalTip": "TRAIN Law(2018~) 이후 임원 세부담 증가 주의. 13th Month Pay PHP 90,000 비과세 한도 최대 활용. AEP + 9(g) 동시 진행으로 총 45~60일 단축. BOI 프로모션 기업은 비자 간소 절차"
       },
       "sources": [
         {
@@ -1535,6 +1577,12 @@ window.DASHBOARD_DATA = {
         "timing": "연말(12월) 또는 송크란(4월)",
         "note": "법정 의무 아님. 대기업·외자 기업 대부분 지급. 계약·사규 명시 시 법적 의무. 한국 주재원 포함 동일 관행"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(180일+) 태국 원천 + <strong>⚠️ 2024 개정: 해외 소득 중 태국 송금분도 과세 확대</strong>. 현지·본사 지급 전부 태국 근무 대가면 포함. 주택수당 과세 원칙, 회사 사택은 시세 20%까지만 근로소득 간주. 교육·일시귀국은 관행상 비과세(영수증)",
+        "taxFiling": "개인소득세 0~35% 7단계 누진. 근로소득 THB 150,000까지 면세. 고용주 매월 원천징수(PND1) + 개인 연간 신고 PND91(3/31)",
+        "workVisa": "<strong>Non-B 비자(Business) + Work Permit 둘 다 필수</strong>. Non-B 한국에서 신청 → 입국 15일 내 Work Permit 신청. 외국인 1명당 등록자본 THB 2,000,000 요건. 1년 갱신. <strong>BOI 프로모션 기업은 Single Window 특혜</strong>. 가족 Non-O 동반",
+        "practicalTip": "⚠️ <strong>2024~ 해외 송금 과세 확대</strong> — 본사 그로스업분 관리 주의. BOI 프로모션 대상 기업은 세제·비자 특혜 최대 활용. Work Permit 없이 근로 시 THB 100,000 벌금 + 최대 5년 징역. 한-태 조세조약 활용"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -1735,6 +1783,12 @@ window.DASHBOARD_DATA = {
         "timing": "연말 또는 Hari Raya 전",
         "note": "법정 의무 아님. 대부분 기업 지급. 계약서·단체협약 명시 시 법적 의무. 한국 주재원 포함 동일 관행"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(182일+) 말레이시아 원천 + 2022~ 해외 송금 과세 부활. 비거주자 30% 정액(단 60일 미만 출장은 면세). <strong>주택 수당: 현금은 과세 / 회사 임차는 시세 30% 또는 월급 30% 중 낮은 것</strong> 과세. 자녀 교육비 과세, 연 1회 일시귀국 비과세",
+        "taxFiling": "개인소득세 거주자 0~30% 누진, 비거주자 30% 단일. 고용주 매월 PCB(원천징수). 개인 연간 BE 신고 4/30. 부양가족·EPF·생명보험 공제",
+        "workVisa": "<strong>Employment Pass(EP) 3 카테고리</strong>: Cat I 월급 RM 10,000+ (5년), Cat II RM 5,000~9,999 (2년), Cat III RM 3,000~4,999 (1년, 2023~ 제한). MDEC(IT)·MIDA(제조) 승인 후 이민국. 가족 Dependant Pass는 Cat I/II만. 6개월 미만 출장은 Professional Visit Pass",
+        "practicalTip": "⚠️ 2025~ EP Cat I 기준 상향 예정 — 한국 본사 지급분 포함 Cat I 월급 기준 설계 필요. 주재원 부동산 구입 시 MM2H 프로그램 검토. 60일 미만 출장은 세금 면제 활용 가능"
+      },
       "sources": [
         {
           "name": "인적자원부",
@@ -1934,6 +1988,12 @@ window.DASHBOARD_DATA = {
         "formula": "통상 기본급 × 1개월분 (일부 기업 2개월분)",
         "timing": "12월 또는 춘절 전",
         "note": "법정 의무 아니나 대부분 기업 지급. 계약·단체협약 명시 시 법적 의무. NWC(국가임금위원회) 권고 사항. 한국 주재원 포함 동일"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+ 또는 연속 3년) 싱가포르 원천만 과세. <strong>⭐ 해외 소득 송금해도 비과세</strong>(영토주의). 현지·본사 지급 모두 싱가포르 근무 대가면 포함. <strong>⚠️ 2015~ 주택수당 과세 방식 변경</strong> — 이전 AV 10% 룰 폐지, <strong>실제 임대료 전액 과세소득</strong>. 자녀 교육·클럽 멤버십 과세",
+        "taxFiling": "소득세 거주자 최고 24%(2024~ 22→24% 인상), 비거주자 15% 또는 최종세율 중 높은 것. 고용주 3/1까지 IR8A 제출. 개인 4/18까지 e-filing. NOR(Not Ordinarily Resident) Scheme 폐지(2020), 경과 규정",
+        "workVisa": "<strong>EP(Employment Pass) 월급 S$5,600+</strong>(2025~), 금융 S$6,200+. <strong>COMPASS 점수제(2023~)</strong>: 월급·학력·국적 다양성·기업 기여도·전략 우선순위. S Pass(S$3,150+)·PEP(고소득). 가족 Dependant Pass는 EP 월급 S$6,000+. EP 갱신 2년",
+        "practicalTip": "⚠️ <strong>CPF 외국인 미가입</strong> → 본사 퇴직금 유지 필수. 주택수당 전액 과세 정책(2015~) 주의 — 그로스업 부담 증가. <strong>COMPASS 점수</strong>: 한국 국적은 C3 점수(국적 다양성) 활용 가능. 주재원 이사비·일시귀국은 IR8A에 분리 보고"
       },
       "sources": [
         {
@@ -2145,6 +2205,12 @@ window.DASHBOARD_DATA = {
         "timing": "종교 휴일(Idul Fitri/Natal/Nyepi 등) 7일 전",
         "note": "Kepmenaker No. 6/2016. 미지급 시 5% 연체료 + Kemnaker 제재. 외국인(한국인 포함) 동일 적용. 가장 엄격한 13월 급여 법제 중 하나"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 전 세계 소득. 특정 외국인은 4년간 인니 원천만 과세(tax holiday 요건). 현지·본사 지급 모두 인니 근무 대가면 포함. <strong>⭐ 2022~ 현물 주택(사택)은 고용주 비과세 혜택</strong>, 현금 수당은 근로소득 과세. 교육·의료·이사비·일시귀국 관행상 비과세",
+        "taxFiling": "개인소득세 5~35% 5단계 누진(2022~). 고용주 매월 PPh 21 원천징수. 개인 SPT 1770 연간 신고 3/31. <strong>⚠️ NPWP(납세번호) 필수</strong> — 미등록 시 원천세 20% 가산(일반 15%보다 +5%p)",
+        "workVisa": "<strong>RPTKA(외국인고용계획) → IMTA(외국인고용허가) → KITAS(임시거류증)</strong> 3단 절차. 금지 직군 리스트(HR·법무·안전 등) 주의. KITAS 6개월~2년 갱신. 가족 KITAS 동반. 절차 2~3개월. <strong>DKP-TKA(외국인 숙련기부금) 월 USD 100 추가 납부</strong>",
+        "practicalTip": "⭐ <strong>주택 지원은 반드시 사택(현물) 형태</strong>로 설계 → 고용주 비과세 혜택. 현금 주택수당은 전액 과세. NPWP 부임 즉시 등록(원천세 5%p 절감). 금지 직군 확인 후 직책 설계. DKP-TKA 월 USD 100 별도 예산"
+      },
       "sources": [
         {
           "name": "Kemnaker 노동부",
@@ -2322,6 +2388,12 @@ window.DASHBOARD_DATA = {
         "formula": "1~2개월분 (대기업·광업 관행)",
         "timing": "연말 또는 Tsagaan Sar(음력 신년) 전",
         "note": "법정 의무 아님. 정부·공공부문만 관행 지급. 민간은 실적 연동. 주재원은 본사 체계 + 현지 관행 확인"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 전 세계 소득. 비거주자 20% 정액. 현지·본사 지급 몽골 근무 대가 포함. 주택 현금수당은 과세. 사택 제공은 기업 복리후생 처리 가능",
+        "taxFiling": "개인소득세 10~20% 누진. 고용주 매월 원천징수 + 분기 신고. 개인 연간 신고 2/15 마감",
+        "workVisa": "<strong>HG(취업비자) + 노동허가 필수</strong>. <strong>⚠️ 외국인 취업세: 월 최저임금의 2배(현재 MNT 1,320,000/월) — 고용주 부담</strong>. 업종별 쿼터 엄격 (광업·IT 일부 완화). 가족 동반 비자",
+        "practicalTip": "⚠️ 외국인 취업세(월 MNT 1.32M ≈ 50만원) 고용주 예산 반영 필수. 광업 외 업종 쿼터 확보 어려움. 겨울(12~2월) 세무서 업무 지연. 한-몽 조세조약 활용"
       },
       "sources": [
         {
@@ -2508,6 +2580,12 @@ window.DASHBOARD_DATA = {
         "timing": "12월",
         "note": "법정 의무 아님. 단체협약·사규 명시 시 법적 의무. 사기업 지급률 감소 추세이나 대기업·외자 기업 관행 유지"
       },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 러시아 원천 + 해외 소득 전부. <strong>⚠️ 비거주자 30% 중과세</strong>(특별 카테고리 제외). 현지·본사 지급 모두 러시아 근무 대가면 포함. 회사 임대 주택·주택수당 전부 과세. <strong>💎 HQS 비자 보유자는 비거주자여도 13% 적용</strong>(2020~)",
+        "taxFiling": "개인소득세 13%(거주자) → 500만 RUB 초과분 15%(2021~). 비거주자 30% 원칙. 고용주 매월 원천징수(НДФЛ) 익월 15일 납부. 개인 신고 4/30 (환급 등)",
+        "workVisa": "일반 Work Permit: 지역 쿼터 제한, 1년 단위. <strong>⭐ HQS(Highly Qualified Specialist) 비자: 월급 RUB 167,000+(약 250만원)</strong>, 간소 절차, 3년 갱신, 러시아어 시험 면제, <strong>비거주자도 13% 세율</strong>. 가족 HQS 동반",
+        "practicalTip": "⭐ <strong>HQS 비자 적극 활용</strong> — 30% → 13% 세율 대폭 절감(유일한 경로). 월급 RUB 167,000+ 충족 설계 필수. 한-러 사회보장협정(2021~)으로 연금 이중납부 회피. 제재 환경 고려 송금·외환 관리 주의 (달러 결제 제약)"
+      },
       "sources": [
         {
           "name": "노동사회보장부",
@@ -2693,6 +2771,12 @@ window.DASHBOARD_DATA = {
         "formula": "기본급 × 1개월분 (대기업·외자 기업)",
         "timing": "라오스 신년(Pi Mai, 4월) 전 또는 연말",
         "note": "법정 의무 아님. 고인플레 대응 연말 특별 보너스 지급 증가. 주재원은 본사 체계 우선 + 현지 관행 보완"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "거주자(183일+) 라오스 원천 + 해외 소득. 비거주자 라오스 원천만. 현지·본사 지급 전부 라오스 근무 대가면 포함. 주택수당 과세, 실비 공제 관행",
+        "taxFiling": "개인소득세 0~25% 5단계 누진. 고용주 매월 원천징수. 연간 신고 3/31",
+        "workVisa": "비즈니스 비자 + 노동허가 필수. <strong>외국인 쿼터 10% 내외</strong>. 절차 3~6개월 소요(느림). 가족 동반 비자",
+        "practicalTip": "고인플레(2024 23%+)로 실질 구매력 관리 중요 — 주택·교육비 USD 계약 권장. 한-라오스 조세조약 활용. 비자 절차 지연 고려 부임 6개월 전부터 준비"
       },
       "sources": [
         {
@@ -2899,6 +2983,12 @@ window.DASHBOARD_DATA = {
         "formula": "-",
         "timing": "-",
         "note": "미국 법에 13th month 개념 없음. 계약·관행으로 연말 보너스 지급 가능(사용자 재량). 본사 정책 우선 적용"
+      },
+      "expatriateCompliance": {
+        "localIncomeReport": "미 연방 + CNMI 이중 체계. 거주자(183일+ 또는 Green Card) 전 세계 소득. 비거주자 CNMI 원천만. 현지·본사 지급 모두 CNMI 근무 대가면 포함. <strong>⚠️ 주택 수당 과세 원칙</strong> (IRC §119: 사업상 필요·사업장 내 주거 조건 시 비과세 가능). <strong>❌ FEIE(해외근로소득 공제) 미적용</strong> — 미 영토이므로 본토 해외 근무자 특례 불가",
+        "taxFiling": "NMTIT(CNMI 소득세) = 연방세 + CNMI 가산세율. FICA(사회보장 6.2% + 메디케어 1.45%) 고용주·근로자 매칭. 연간 신고 4/15 (1040-NMI 양식). 고용주 W-2 발행",
+        "workVisa": "<strong>CW-1 비자</strong>(CNMI-Only Transitional Worker, 3년 단위, 2029년까지 연장 승인). <strong>H-2B</strong>(1년, 비숙련). <strong>L-1</strong>(기업 내 전근, 한국 본사 1년+ 근속 필수, 관리직·특수지식 요건). 청원서 I-129CW 고용주 신청. 가족 CW-2/L-2, CW-2는 취업 불가",
+        "practicalTip": "한-미 사회보장협정으로 5년 이내 파견 시 한국 Social Security만 납부(Certificate of Coverage <strong>A/USA 4</strong> 필수). <strong>⚠️ FEIE 미적용</strong>이 가장 큰 세부담 원인 — 연방세 완화 방법 제한적. L-1 비자는 한국 본사 1년+ 근속 필수. IRC §119 주거 요건 충족 설계로 주택 비과세 가능"
       },
       "sources": [
         {
