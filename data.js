@@ -110,58 +110,24 @@ window.DASHBOARD_DATA = {
         "사회보험 가입 여부"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "성인의 날",
-          "date": "1월 2째 월"
-        },
-        {
-          "name": "건국기념일",
-          "date": "2/11"
-        },
-        {
-          "name": "천황탄생일",
-          "date": "2/23"
-        },
-        {
-          "name": "춘분의 날",
-          "date": "3/20경"
-        },
-        {
-          "name": "쇼와의 날",
-          "date": "4/29"
-        },
-        {
-          "name": "헌법기념일",
-          "date": "5/3"
-        },
-        {
-          "name": "어린이의 날",
-          "date": "5/5"
-        },
-        {
-          "name": "바다의 날",
-          "date": "7월 3째 월"
-        },
-        {
-          "name": "산의 날",
-          "date": "8/11"
-        },
-        {
-          "name": "경로의 날",
-          "date": "9월 3째 월"
-        },
-        {
-          "name": "문화의 날",
-          "date": "11/3"
-        },
-        {
-          "name": "근로감사의 날",
-          "date": "11/23"
-        }
+        { "name": "元日 (신정)", "date": "1/1" },
+        { "name": "成人の日 (성인의 날)", "date": "1월 2째 월요일" },
+        { "name": "建国記念の日 (건국기념일)", "date": "2/11" },
+        { "name": "天皇誕生日 (천황탄생일)", "date": "2/23" },
+        { "name": "春分の日 (춘분의 날)", "date": "3/20~21경 (매년 관보)" },
+        { "name": "昭和の日 (쇼와의 날)", "date": "4/29" },
+        { "name": "憲法記念日 (헌법기념일)", "date": "5/3" },
+        { "name": "みどりの日 (녹색의 날)", "date": "5/4" },
+        { "name": "こどもの日 (어린이의 날)", "date": "5/5" },
+        { "name": "海の日 (바다의 날)", "date": "7월 3째 월요일" },
+        { "name": "山の日 (산의 날)", "date": "8/11" },
+        { "name": "敬老の日 (경로의 날)", "date": "9월 3째 월요일" },
+        { "name": "秋分の日 (추분의 날)", "date": "9/22~23경 (매년 관보)" },
+        { "name": "スポーツの日 (체육의 날)", "date": "10월 2째 월요일" },
+        { "name": "文化の日 (문화의 날)", "date": "11/3" },
+        { "name": "勤労感謝の日 (근로감사의 날)", "date": "11/23" },
+        { "name": "振替休日 (대체휴일)", "date": "공휴일이 일요일일 경우 다음 평일" },
+        { "name": "国民の休日 (국민의 휴일)", "date": "평일이 2개 공휴일 사이에 낀 경우 자동 휴일 (예: 5/4)" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (단기 관광/상용). 업무 체류는 취업비자(기술·인문지식·국제업무 등) 필요.",
       "fixedTermContract": {
@@ -207,10 +173,10 @@ window.DASHBOARD_DATA = {
         "note": "법정 의무 아니나 정사원에겐 사실상 표준. 계약사원·파견직은 편차 큼. 한국 주재원도 본사 체계 + 현지 관행 확인"
       },
       "expatriateCompliance": {
-        "localIncomeReport": "거주자(1년+ 또는 住所)는 전 세계 소득 과세. 비영주자(5년 이내)는 일본 원천 + 일본 송금분만. <strong>현지·본사 지급 모두 일본 근무 대가면 신고 대상.</strong> 사택·회사 임차 주택은 본인부담 50%+ 시 비과세, 현금 주택수당은 전액 과세. 통근비(월 15만엔 한도)·출장비는 비과세",
-        "taxFiling": "소득세 5~45% + 부흥특별세 2.1% + 주민세 10%. 고용주 매월 원천징수 + 12월 年末調整. 연소득 2,000만엔 초과·복수 수입자는 확정신고(確定申告) 2/16~3/15. 거주자 판정: 住所 or 1년+ 居所",
-        "workVisa": "<strong>기술·인문지식·국제업무 비자</strong>(사무·경영) 또는 <strong>기업내전근(企業内転勤)</strong>(본사 1년+ 근속 필요). 재류카드 14일 이내 발급. 가족은 家族滞在 별도. 변경·갱신은 만료 3개월 전부터",
-        "practicalTip": "한일 조세조약 + 사회보장협정(적용증명서)으로 5년 이내 파견 시 일본 연금 면제. 기업내전근 비자는 한국 본사 1년+ 연속 근속 필수. 사택 제공 형식이 현금 주택수당보다 세제 유리"
+        "localIncomeReport": "⚠️ <strong>핵심 원칙: 일본에서 수행한 근로 대가는 지급지와 무관하게 '일본 원천소득(国内源泉所得)'으로 일본 과세 대상</strong> (소득세법 제161조). 한국 본사가 한국에서 지급하는 '급여 + 체재비' 전액이 일본 근무 대가면 모두 포함. <strong>체재비·주택수당·자녀교육비 지원도 원칙 과세</strong> (실비 정산·사택 50% 본인부담·통근비 월 15만엔 한도 등 일부 비과세 예외만 인정). 비영주자(체류 1~5년)는 전 세계 소득 과세이나 '국외 소득 + 국내 송금분'만 일본 과세 — 그러나 한국 본사 지급 급여 중 '일본 근무 대가 부분'은 지급 장소와 상관없이 국내 원천으로 100% 과세.",
+        "taxFiling": "⚠️ <strong>본사 해외 지급 급여도 반드시 본인 확정신고(準確定申告) 의무</strong> — 소득세법 제172조: 해외 고용주로부터 직접 급여를 받는 거주자는 익년 3/15까지(또는 출국 시 準확정신고) 개별 신고·납부 의무. 일본 내 원천징수 의무자(지점·자회사)가 있는 경우 지점이 원천징수(甲·乙欄). <strong>주민세(住民税) 10%</strong>는 1/1 거주 확인 후 시구정촌이 별도 부과 (6월~익년 5월 분납). 소득세 5~45% 7단계 누진 + 부흥특별세 2.1%. 연말조정(年末調整)은 일본 내 원천징수분에만 적용 → 본사 직접 지급분은 반드시 확정신고로 정산.",
+        "workVisa": "<strong>기술·인문지식·국제업무 비자</strong>(사무·경영직 표준) 또는 <strong>기업내전근(企業内転勤)</strong>(한국 본사 1년+ 연속 근속 필수). 재류카드 14일 이내 주소지 등록. 가족은 家族滞在 비자 별도. 변경·갱신 만료 3개월 전부터.",
+        "practicalTip": "🚨 <strong>본사 전액 지급 + 일본 미신고 = 소득세법 위반 리스크 매우 큼</strong>. 일본 국세청(NTA)은 한국 NTS와 CRS/BEPS 정보교환 중 → 적발 시 무신고 가산세 15~20% + 연체세 + 5년 소급 추징, 고의 시 포탈범 형사처벌 가능. <strong>대응 3단계</strong>: ① 주재원 체류 형태 확정(거주자/비영주자/비거주자) 판정 → ② 일본 지점·현지법인 여부에 따라 원천징수 의무자 지정 → ③ 세리사(税理士) 선임해 과거분 自主신고(期限後申告) 검토(가산세 경감 가능). 한일 사회보장협정(2005~) + 조세조약 적용으로 이중과세·이중납부는 피할 수 있으나 <strong>'신고 자체를 안 한 것'은 조약 보호 대상 아님</strong> — 반드시 신고 후 조약 혜택 청구."
       },
       "sources": [
         {
@@ -323,34 +289,13 @@ window.DASHBOARD_DATA = {
         "법령상 필수 기타 사항"
       ],
       "holidays": [
-        {
-          "name": "원단",
-          "date": "1/1"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (7일)"
-        },
-        {
-          "name": "청명절",
-          "date": "4/4~5경"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1~3"
-        },
-        {
-          "name": "단오절",
-          "date": "음력 5/5"
-        },
-        {
-          "name": "중추절",
-          "date": "음력 8/15"
-        },
-        {
-          "name": "국경절",
-          "date": "10/1~7"
-        }
+        { "name": "元旦 (신정)", "date": "1/1 (1일 법정)" },
+        { "name": "春节 (춘절)", "date": "음력 1/1 (3일 법정, 조정 후 7일 연휴)" },
+        { "name": "清明节 (청명절)", "date": "양력 4/4~5경 (1일 법정)" },
+        { "name": "劳动节 (노동절)", "date": "5/1 (1일 법정, 조정 후 5일 연휴)" },
+        { "name": "端午节 (단오절)", "date": "음력 5/5 (1일 법정)" },
+        { "name": "中秋节 (중추절)", "date": "음력 8/15 (1일 법정)" },
+        { "name": "国庆节 (국경절)", "date": "10/1~3 (3일 법정, 조정 후 7일 연휴)" }
       ],
       "visa": "한국 여권 <strong>15일 무비자</strong> (2024~ 시범, 관광·상용). 업무 취업은 <strong>Z비자</strong>, 상주는 <strong>R비자</strong> 필요.",
       "fixedTermContract": {
@@ -509,42 +454,16 @@ window.DASHBOARD_DATA = {
         "근로자 교육·훈련"
       ],
       "holidays": [
-        {
-          "name": "원단",
-          "date": "1/1"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (6일)"
-        },
-        {
-          "name": "228 평화기념일",
-          "date": "2/28"
-        },
-        {
-          "name": "어린이날",
-          "date": "4/4"
-        },
-        {
-          "name": "청명절",
-          "date": "4/4~5"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "단오절",
-          "date": "음력 5/5"
-        },
-        {
-          "name": "중추절",
-          "date": "음력 8/15"
-        },
-        {
-          "name": "국경일",
-          "date": "10/10"
-        }
+        { "name": "中華民國開國紀念日 (건국기념일·신정)", "date": "1/1" },
+        { "name": "農曆除夕 (춘절 전날)", "date": "음력 12/30" },
+        { "name": "春節 (춘절)", "date": "음력 1/1~1/3 (3일)" },
+        { "name": "和平紀念日 (228 평화기념일)", "date": "2/28" },
+        { "name": "兒童節 (어린이날)", "date": "4/4" },
+        { "name": "民族掃墓節 (청명절)", "date": "4/4 또는 4/5" },
+        { "name": "勞動節 (노동절·근로자만)", "date": "5/1" },
+        { "name": "端午節 (단오절)", "date": "음력 5/5" },
+        { "name": "中秋節 (중추절)", "date": "음력 8/15" },
+        { "name": "國慶日 (국경일·쌍십절)", "date": "10/10" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (관광/상용). 업무 체류는 취업허가+거류증 필요.",
       "fixedTermContract": {
@@ -700,50 +619,22 @@ window.DASHBOARD_DATA = {
         "병가 조건"
       ],
       "holidays": [
-        {
-          "name": "원단",
-          "date": "1/1"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (3일)"
-        },
-        {
-          "name": "청명절",
-          "date": "4/4~5"
-        },
-        {
-          "name": "부활절",
-          "date": "3~4월"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "불탄일",
-          "date": "음력 4/8"
-        },
-        {
-          "name": "단오절",
-          "date": "음력 5/5"
-        },
-        {
-          "name": "특구성립기념일",
-          "date": "7/1"
-        },
-        {
-          "name": "중추절 익일",
-          "date": "음력 8/16"
-        },
-        {
-          "name": "국경일",
-          "date": "10/1"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/25~26"
-        }
+        { "name": "元旦 (신정)", "date": "1/1 · 법정" },
+        { "name": "農曆年初一 (음력설)", "date": "음력 1/1 · 법정" },
+        { "name": "農曆年初二", "date": "음력 1/2 · 법정" },
+        { "name": "農曆年初三", "date": "음력 1/3 · 법정" },
+        { "name": "清明節 (청명절)", "date": "4/4 또는 4/5 · 법정" },
+        { "name": "勞動節 (노동절)", "date": "5/1 · 법정" },
+        { "name": "佛誕 (석가탄신일)", "date": "음력 4/8 · 법정 (2022~ 추가)" },
+        { "name": "端午節 (단오절)", "date": "음력 5/5 · 법정" },
+        { "name": "香港特別行政區成立紀念日", "date": "7/1 · 법정" },
+        { "name": "中秋節翌日 (중추절 익일)", "date": "음력 8/16 · 법정" },
+        { "name": "國慶日 (국경일)", "date": "10/1 · 법정" },
+        { "name": "重陽節 (중양절)", "date": "음력 9/9 · 법정" },
+        { "name": "冬至 또는 聖誕節 (동지 또는 크리스마스)", "date": "12/22 또는 12/25 · 법정 (고용주 선택)" },
+        { "name": "[추가] 復活節星期五 (Good Friday)", "date": "3~4월 · 공중가기(Public Holiday)만 해당, 법정 아님" },
+        { "name": "[추가] 聖誕節後第一個周日 (Boxing Day)", "date": "12/26 · 공중가기, 법정 아님" },
+        { "name": "※ 법정가기(法定假日) 13일 → 2030년까지 단계적 17일로 확대 예정 (Statutory-General Holiday Alignment)", "date": "—" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 GEP(일반고용정책) 비자 필요.",
       "fixedTermContract": {
@@ -899,58 +790,26 @@ window.DASHBOARD_DATA = {
         "계약기간 (유기계약인 경우)"
       ],
       "holidays": [
-        {
-          "name": "원단",
-          "date": "1/1"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (3일)"
-        },
-        {
-          "name": "청명절",
-          "date": "4/4~5"
-        },
-        {
-          "name": "부활절",
-          "date": "3~4월"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "불탄일",
-          "date": "음력 4/8"
-        },
-        {
-          "name": "단오절",
-          "date": "음력 5/5"
-        },
-        {
-          "name": "중추절 익일",
-          "date": "음력 8/16"
-        },
-        {
-          "name": "국경일",
-          "date": "10/1~2"
-        },
-        {
-          "name": "중양절",
-          "date": "음력 9/9"
-        },
-        {
-          "name": "추사절",
-          "date": "11/2"
-        },
-        {
-          "name": "특구성립기념일",
-          "date": "12/20"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/24~25"
-        }
+        { "name": "元旦 (신정)", "date": "1/1" },
+        { "name": "農曆新年初一 (음력설)", "date": "음력 1/1" },
+        { "name": "農曆新年初二", "date": "음력 1/2" },
+        { "name": "農曆新年初三", "date": "음력 1/3" },
+        { "name": "耶穌受難日 (Good Friday)", "date": "3~4월 (이동)" },
+        { "name": "復活節前日 (Holy Saturday)", "date": "3~4월" },
+        { "name": "清明節 (청명절)", "date": "4/4 또는 4/5" },
+        { "name": "勞動節 (노동절)", "date": "5/1" },
+        { "name": "佛誕 (석가탄신일)", "date": "음력 4/8" },
+        { "name": "端午節 (단오절)", "date": "음력 5/5" },
+        { "name": "中華人民共和國成立紀念日", "date": "10/1" },
+        { "name": "國慶日翌日", "date": "10/2" },
+        { "name": "中秋節翌日 (중추절 익일)", "date": "음력 8/16" },
+        { "name": "重陽節 (중양절)", "date": "음력 9/9" },
+        { "name": "追思節 (All Souls' Day)", "date": "11/2" },
+        { "name": "聖母無原罪瞻禮 (원죄 없이 잉태되신 성모)", "date": "12/8" },
+        { "name": "冬至 (동지)", "date": "12/22 경" },
+        { "name": "聖誕節前夕 (크리스마스 이브)", "date": "12/24" },
+        { "name": "聖誕節 (크리스마스)", "date": "12/25" },
+        { "name": "澳門特別行政區成立紀念日 (마카오 특구 성립일)", "date": "12/20" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 노동허가 필요.",
       "fixedTermContract": {
@@ -1109,30 +968,13 @@ window.DASHBOARD_DATA = {
         "교육·양성·숙련도 향상"
       ],
       "holidays": [
-        {
-          "name": "양력 신정",
-          "date": "1/1"
-        },
-        {
-          "name": "Tet 음력설",
-          "date": "음력 1/1 (5일)"
-        },
-        {
-          "name": "흥왕제",
-          "date": "음력 3/10"
-        },
-        {
-          "name": "해방기념일",
-          "date": "4/30"
-        },
-        {
-          "name": "국제노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "건국기념일",
-          "date": "9/2 (2일)"
-        }
+        { "name": "Tết Dương Lịch (양력 신정)", "date": "1/1 (1일)" },
+        { "name": "Tết Nguyên Đán (음력설)", "date": "음력 12/30 또는 1/1 ~ 1/4 (5일, 전후 조정)" },
+        { "name": "Giỗ Tổ Hùng Vương (훙왕 제)", "date": "음력 3/10 (1일)" },
+        { "name": "Ngày Giải Phóng Miền Nam (남부 해방·통일기념일)", "date": "4/30 (1일)" },
+        { "name": "Ngày Quốc Tế Lao Động (국제노동절)", "date": "5/1 (1일)" },
+        { "name": "Ngày Quốc Khánh (건국기념일)", "date": "9/2 (1일 + 전날 또는 다음날 1일 추가 = 총 2일, 2021~)" },
+        { "name": "※ 외국인 근로자는 추가로 본국 건국일(또는 설날) 1일 보장", "date": "노동법 제112조 2항 · 외국인용 +1일" }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (2023~). 초과 시 e-Visa 90일 가능. 업무는 <strong>LD/DT 비자</strong> 필요.",
       "fixedTermContract": {
@@ -1289,42 +1131,28 @@ window.DASHBOARD_DATA = {
         "사회보험 가입"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "EDSA 혁명기념일",
-          "date": "2/25"
-        },
-        {
-          "name": "성주간",
-          "date": "3~4월 (부활절 주)"
-        },
-        {
-          "name": "용사의 날",
-          "date": "4/9"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "독립기념일",
-          "date": "6/12"
-        },
-        {
-          "name": "국가영웅의 날",
-          "date": "8월 마지막 월"
-        },
-        {
-          "name": "제신의 날",
-          "date": "12/30"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/25"
-        }
+        { "name": "[Regular] New Year's Day (신정)", "date": "1/1 · 일급 200%" },
+        { "name": "[Regular] Maundy Thursday (성목요일)", "date": "3~4월 (부활절 전)" },
+        { "name": "[Regular] Good Friday (성금요일)", "date": "3~4월" },
+        { "name": "[Regular] Araw ng Kagitingan (용사의 날)", "date": "4/9" },
+        { "name": "[Regular] Labor Day (노동절)", "date": "5/1" },
+        { "name": "[Regular] Independence Day (독립기념일)", "date": "6/12" },
+        { "name": "[Regular] Eid'l Fitr", "date": "이슬람력" },
+        { "name": "[Regular] Eid'l Adha", "date": "이슬람력" },
+        { "name": "[Regular] National Heroes Day (국가영웅의 날)", "date": "8월 마지막 월요일" },
+        { "name": "[Regular] Bonifacio Day", "date": "11/30" },
+        { "name": "[Regular] Christmas Day (크리스마스)", "date": "12/25" },
+        { "name": "[Regular] Rizal Day (제신의 날)", "date": "12/30" },
+        { "name": "[Special Non-Working] Chinese New Year (음력설)", "date": "음력 1/1 · 일급 130%" },
+        { "name": "[Special Non-Working] EDSA 혁명기념일", "date": "2/25 (연도별 시행)" },
+        { "name": "[Special Non-Working] Black Saturday", "date": "3~4월 (부활절 토)" },
+        { "name": "[Special Non-Working] Ninoy Aquino Day", "date": "8/21" },
+        { "name": "[Special Non-Working] All Saints' Day", "date": "11/1" },
+        { "name": "[Special Non-Working] All Souls' Day", "date": "11/2" },
+        { "name": "[Special Non-Working] Feast of Immaculate Conception", "date": "12/8" },
+        { "name": "[Special Non-Working] Christmas Eve", "date": "12/24" },
+        { "name": "[Special Non-Working] Last Day of the Year", "date": "12/31" },
+        { "name": "※ Proclamation으로 매년 대통령 발표. Regular는 100% 지급+근무 시 200%, Special은 근무 시 130%", "date": "—" }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 29일 추가 연장 가능. 업무는 9(g) 취업비자 + AEP.",
       "fixedTermContract": {
@@ -1485,54 +1313,25 @@ window.DASHBOARD_DATA = {
         "해지 조건·예고기간"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "Makha Bucha",
-          "date": "음력 3월 보름"
-        },
-        {
-          "name": "차크리 왕조의 날",
-          "date": "4/6"
-        },
-        {
-          "name": "송크란",
-          "date": "4/13~15"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "대관식의 날",
-          "date": "5/4"
-        },
-        {
-          "name": "Visakha Bucha",
-          "date": "음력 6월 보름"
-        },
-        {
-          "name": "국왕 탄신일",
-          "date": "7/28"
-        },
-        {
-          "name": "모후 탄신일",
-          "date": "8/12"
-        },
-        {
-          "name": "푸미폰 기일",
-          "date": "10/13"
-        },
-        {
-          "name": "쭐랄롱꼰 대왕의 날",
-          "date": "10/23"
-        },
-        {
-          "name": "부친의 날",
-          "date": "12/5"
-        }
+        { "name": "New Year's Day (신정)", "date": "1/1" },
+        { "name": "Makha Bucha Day (마카부차)", "date": "음력 3월 보름" },
+        { "name": "Chakri Day (차크리 왕조의 날)", "date": "4/6" },
+        { "name": "Songkran Festival (송크란 태국 신년)", "date": "4/13, 4/14, 4/15 (3일)" },
+        { "name": "National Labour Day (노동절)", "date": "5/1" },
+        { "name": "Coronation Day (Rama X 대관식의 날)", "date": "5/4" },
+        { "name": "Royal Ploughing Ceremony (왕실 경운의 날)", "date": "5월 상순 (이동, 공공부문만)" },
+        { "name": "Visakha Bucha Day (석가탄신일)", "date": "음력 6월 보름" },
+        { "name": "H.M. Queen Suthida's Birthday", "date": "6/3" },
+        { "name": "Asanha Bucha Day (아산하부차)", "date": "음력 8월 보름" },
+        { "name": "Khao Phansa Day (불교 사순절 시작)", "date": "음력 8월 보름 다음날" },
+        { "name": "H.M. King Vajiralongkorn's Birthday (국왕 탄신일)", "date": "7/28" },
+        { "name": "H.M. Queen Sirikit's Birthday / Mother's Day", "date": "8/12" },
+        { "name": "King Bhumibol Memorial Day (푸미폰 국왕 기일)", "date": "10/13" },
+        { "name": "Chulalongkorn Day (쭐랄롱꼰 대왕의 날)", "date": "10/23" },
+        { "name": "King Bhumibol's Birthday / Father's Day", "date": "12/5" },
+        { "name": "Constitution Day (헌법의 날)", "date": "12/10" },
+        { "name": "New Year's Eve", "date": "12/31" },
+        { "name": "※ 매년 총리실 공고. 은행·정부·민간 리스트 약간 상이", "date": "—" }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (2024.7 개정). 업무는 Non-B 비자 + Work Permit 필수.",
       "fixedTermContract": {
@@ -1691,54 +1490,22 @@ window.DASHBOARD_DATA = {
         "수습기간"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "Thaipusam",
-          "date": "1~2월"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (2일)"
-        },
-        {
-          "name": "Hari Raya Puasa",
-          "date": "이슬람력"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "Wesak Day",
-          "date": "4~5월"
-        },
-        {
-          "name": "국왕 생신",
-          "date": "6월 1째 월"
-        },
-        {
-          "name": "Hari Raya Haji",
-          "date": "이슬람력"
-        },
-        {
-          "name": "Merdeka",
-          "date": "8/31"
-        },
-        {
-          "name": "말레이시아의 날",
-          "date": "9/16"
-        },
-        {
-          "name": "Deepavali",
-          "date": "10~11월"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/25"
-        }
+        { "name": "New Year's Day (신정)", "date": "1/1 (주별 차등, 일부 주 제외)" },
+        { "name": "Thaipusam", "date": "1~2월 (힌두력)" },
+        { "name": "Federal Territory Day", "date": "2/1 (KL·Labuan·Putrajaya)" },
+        { "name": "Chinese New Year (춘절)", "date": "음력 1/1, 1/2 (2일)" },
+        { "name": "Labour Day (노동절)", "date": "5/1" },
+        { "name": "Wesak Day (석가탄신일)", "date": "4~5월 (불교력)" },
+        { "name": "Agong's Birthday (국왕 생신)", "date": "6월 1째 월요일 (2017~)" },
+        { "name": "Hari Raya Aidilfitri (이드 알 피트르)", "date": "이슬람력 (2일)" },
+        { "name": "Hari Raya Aidiladha (이드 알 아드하)", "date": "이슬람력 (1일)" },
+        { "name": "Awal Muharram (이슬람 신년)", "date": "이슬람력" },
+        { "name": "Maulidur Rasul (예언자 탄생일)", "date": "이슬람력" },
+        { "name": "Merdeka Day (독립기념일)", "date": "8/31" },
+        { "name": "Malaysia Day (말레이시아의 날)", "date": "9/16" },
+        { "name": "Deepavali (디파발리·힌두)", "date": "10~11월 (일부 주 제외)" },
+        { "name": "Christmas Day (크리스마스)", "date": "12/25" },
+        { "name": "※ Employment Act 제60D조 11일 필수 + 각 주별 추가 (KL 17일 내외). 술탄 생일은 주별 상이", "date": "—" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP(Employment Pass) 필수.",
       "fixedTermContract": {
@@ -1905,46 +1672,18 @@ window.DASHBOARD_DATA = {
         "근무지"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1 (2일)"
-        },
-        {
-          "name": "Good Friday",
-          "date": "3~4월"
-        },
-        {
-          "name": "Hari Raya Puasa",
-          "date": "이슬람력"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "Vesak Day",
-          "date": "4~5월"
-        },
-        {
-          "name": "Hari Raya Haji",
-          "date": "이슬람력"
-        },
-        {
-          "name": "국경일",
-          "date": "8/9"
-        },
-        {
-          "name": "Deepavali",
-          "date": "10~11월"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/25"
-        }
+        { "name": "New Year's Day (신정)", "date": "1/1" },
+        { "name": "Chinese New Year Day 1 (음력설)", "date": "음력 1/1" },
+        { "name": "Chinese New Year Day 2", "date": "음력 1/2" },
+        { "name": "Good Friday", "date": "3~4월 (기독교)" },
+        { "name": "Hari Raya Puasa (이드 알 피트르)", "date": "이슬람력" },
+        { "name": "Labour Day (노동절)", "date": "5/1" },
+        { "name": "Vesak Day (석가탄신일)", "date": "4~5월 (불교력)" },
+        { "name": "Hari Raya Haji (이드 알 아드하)", "date": "이슬람력" },
+        { "name": "National Day (국경일)", "date": "8/9" },
+        { "name": "Deepavali (디파발리·힌두)", "date": "10~11월" },
+        { "name": "Christmas Day (크리스마스)", "date": "12/25" },
+        { "name": "※ Employment Act 제88조 11일 법정. 공휴일 일요일 겹치면 다음 월요일 대체휴일", "date": "—" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP/SP/WP 비자 필요.",
       "fixedTermContract": {
@@ -2101,66 +1840,23 @@ window.DASHBOARD_DATA = {
         "단체협약(PKB) 준거 명시"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "Isra Mi'raj",
-          "date": "이슬람력"
-        },
-        {
-          "name": "춘절",
-          "date": "음력 1/1"
-        },
-        {
-          "name": "Nyepi",
-          "date": "사카력 신년"
-        },
-        {
-          "name": "Good Friday",
-          "date": "3~4월"
-        },
-        {
-          "name": "Idul Fitri",
-          "date": "이슬람력 (2일)"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "Waisak",
-          "date": "4~5월"
-        },
-        {
-          "name": "Ascension Day",
-          "date": "5~6월"
-        },
-        {
-          "name": "Pancasila의 날",
-          "date": "6/1"
-        },
-        {
-          "name": "Idul Adha",
-          "date": "이슬람력"
-        },
-        {
-          "name": "독립기념일",
-          "date": "8/17"
-        },
-        {
-          "name": "이슬람 신년",
-          "date": "이슬람력"
-        },
-        {
-          "name": "Maulid Nabi",
-          "date": "이슬람력"
-        },
-        {
-          "name": "크리스마스",
-          "date": "12/25"
-        }
+        { "name": "Tahun Baru Masehi (신정)", "date": "1/1" },
+        { "name": "Tahun Baru Imlek (음력설)", "date": "음력 1/1" },
+        { "name": "Isra Mi'raj Nabi Muhammad", "date": "이슬람력 7월 27일" },
+        { "name": "Hari Suci Nyepi (발리 힌두 신년)", "date": "사카력 신년 (3월)" },
+        { "name": "Wafat Isa Al Masih (Good Friday)", "date": "3~4월 (기독교)" },
+        { "name": "Hari Paskah (Easter Sunday)", "date": "3~4월" },
+        { "name": "Hari Buruh (노동절)", "date": "5/1" },
+        { "name": "Hari Raya Waisak (석가탄신일)", "date": "4~5월" },
+        { "name": "Kenaikan Isa Al Masih (Ascension)", "date": "5~6월" },
+        { "name": "Hari Lahir Pancasila (판차실라의 날)", "date": "6/1" },
+        { "name": "Hari Raya Idul Fitri (이드 알 피트르)", "date": "이슬람력 (2일)" },
+        { "name": "Hari Raya Idul Adha (이드 알 아드하)", "date": "이슬람력" },
+        { "name": "Tahun Baru Islam (이슬람 신년)", "date": "이슬람력" },
+        { "name": "Hari Kemerdekaan (독립기념일)", "date": "8/17" },
+        { "name": "Maulid Nabi Muhammad (예언자 탄생일)", "date": "이슬람력" },
+        { "name": "Hari Raya Natal (크리스마스)", "date": "12/25" },
+        { "name": "※ Cuti Bersama (공동 연차) 평균 4~8일 추가 — SKB 3 Menteri 매년 발표 (Idul Fitri 전후·연말 위주)", "date": "—" }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong> (관광) 또는 VOA. 업무는 KITAS/KITAP 필요.",
       "fixedTermContract": {
@@ -2317,34 +2013,14 @@ window.DASHBOARD_DATA = {
         "근로조건"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "Tsagaan Sar",
-          "date": "음력 신년 (3일)"
-        },
-        {
-          "name": "국제여성의 날",
-          "date": "3/8"
-        },
-        {
-          "name": "어린이의 날",
-          "date": "6/1"
-        },
-        {
-          "name": "Naadam",
-          "date": "7/11~15"
-        },
-        {
-          "name": "Chinggis Khaan의 날",
-          "date": "11월"
-        },
-        {
-          "name": "독립기념일",
-          "date": "12/29"
-        }
+        { "name": "Шинэ жил (양력 신정)", "date": "1/1" },
+        { "name": "Цагаан сар (차간사르·음력설)", "date": "음력 1/1~1/3 (3일)" },
+        { "name": "Олон улсын эмэгтэйчүүдийн баяр (세계 여성의 날)", "date": "3/8" },
+        { "name": "Хүүхдийн баяр (어린이 날)", "date": "6/1" },
+        { "name": "Их Монгол улсын үндэсний их баяр Наадам", "date": "7/11 ~ 7/15 (5일)" },
+        { "name": "Их Эзэн Чингис хааны мэндэлсэн өдөр (칭기즈칸 탄신일)", "date": "음력 10월 1일 (11월)" },
+        { "name": "Бүгд Найрамдах Улс тунхагласны баяр (공화국 선포일)", "date": "11/26" },
+        { "name": "Үндэсний эрх чөлөө, тусгаар тогтнолоо сэргээсэн өдөр (독립 회복의 날)", "date": "12/29" }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 HG 취업비자 필요.",
       "fixedTermContract": {
@@ -2504,38 +2180,15 @@ window.DASHBOARD_DATA = {
         "수습조건 (해당 시)"
       ],
       "holidays": [
-        {
-          "name": "신정 연휴",
-          "date": "1/1~8"
-        },
-        {
-          "name": "정교 크리스마스",
-          "date": "1/7"
-        },
-        {
-          "name": "조국수호자의 날",
-          "date": "2/23"
-        },
-        {
-          "name": "국제여성의 날",
-          "date": "3/8"
-        },
-        {
-          "name": "봄과 노동의 날",
-          "date": "5/1"
-        },
-        {
-          "name": "승전기념일",
-          "date": "5/9"
-        },
-        {
-          "name": "러시아의 날",
-          "date": "6/12"
-        },
-        {
-          "name": "국민통합의 날",
-          "date": "11/4"
-        }
+        { "name": "Новогодние каникулы (신정 연휴)", "date": "1/1, 1/2, 1/3, 1/4, 1/5, 1/6, 1/8 (8일)" },
+        { "name": "Рождество Христово (정교 크리스마스)", "date": "1/7" },
+        { "name": "День защитника Отечества (조국수호자의 날)", "date": "2/23" },
+        { "name": "Международный женский день (세계 여성의 날)", "date": "3/8" },
+        { "name": "Праздник Весны и Труда (봄과 노동의 날)", "date": "5/1" },
+        { "name": "День Победы (전승기념일)", "date": "5/9" },
+        { "name": "День России (러시아의 날)", "date": "6/12" },
+        { "name": "День народного единства (국민통합의 날)", "date": "11/4" },
+        { "name": "※ 노동법 제112조 법정 14일. 토·일 겹치면 자동 이동. 매년 정부령으로 연휴 추가 조정", "date": "—" }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (관광, 180일 중 90일 한도). 취업 금지, 업무 시 취업비자 필요.",
       "fixedTermContract": {
@@ -2692,42 +2345,20 @@ window.DASHBOARD_DATA = {
         "사회보험"
       ],
       "holidays": [
-        {
-          "name": "신정",
-          "date": "1/1"
-        },
-        {
-          "name": "국제여성의 날",
-          "date": "3/8"
-        },
-        {
-          "name": "Lao New Year (Pi Mai)",
-          "date": "4/14~16"
-        },
-        {
-          "name": "노동절",
-          "date": "5/1"
-        },
-        {
-          "name": "어린이의 날",
-          "date": "6/1"
-        },
-        {
-          "name": "Boun Khao Phansa",
-          "date": "음력 7~8월"
-        },
-        {
-          "name": "Boun Ok Phansa",
-          "date": "음력 10~11월"
-        },
-        {
-          "name": "That Luang 축제",
-          "date": "음력 11월"
-        },
-        {
-          "name": "건국기념일",
-          "date": "12/2"
-        }
+        { "name": "International New Year (양력 신정)", "date": "1/1" },
+        { "name": "Pathet Lao Day (빠텟 라오 창당기념일)", "date": "1/6 (일부 지역)" },
+        { "name": "Army Day (인민군 창군일)", "date": "1/20 (공공만)" },
+        { "name": "International Women's Day (세계 여성의 날)", "date": "3/8" },
+        { "name": "Lao People's Party Foundation Day", "date": "3/22 (공공만)" },
+        { "name": "Lao New Year / Pi Mai (라오 신년·송크란)", "date": "4/14, 4/15, 4/16 (3일)" },
+        { "name": "International Labour Day (노동절)", "date": "5/1" },
+        { "name": "International Children's Day (어린이 날)", "date": "6/1" },
+        { "name": "Boun Khao Phansa (라오 사순절 시작)", "date": "음력 8월 보름" },
+        { "name": "Lao Women's Union Day (라오 여성연맹 창립일)", "date": "7/20 (일부 지역)" },
+        { "name": "Boun Ok Phansa (라오 사순절 종료)", "date": "음력 11월 보름" },
+        { "name": "Boun That Luang (그 루앙 축제)", "date": "음력 12월 보름" },
+        { "name": "Lao National Day (건국기념일)", "date": "12/2" },
+        { "name": "※ 노동법 제51조 공식 11일 법정 + 지역별 1~2일 추가", "date": "—" }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 업무는 비즈니스 비자 + 노동허가.",
       "fixedTermContract": {
@@ -2884,62 +2515,23 @@ window.DASHBOARD_DATA = {
         "연방법·CNMI법 준거"
       ],
       "holidays": [
-        {
-          "name": "New Year's Day",
-          "date": "1/1"
-        },
-        {
-          "name": "MLK Day",
-          "date": "1월 3째 월"
-        },
-        {
-          "name": "Commonwealth Day",
-          "date": "1/9"
-        },
-        {
-          "name": "Presidents Day",
-          "date": "2월 3째 월"
-        },
-        {
-          "name": "Covenant Day",
-          "date": "3/24"
-        },
-        {
-          "name": "Memorial Day",
-          "date": "5월 마지막 월"
-        },
-        {
-          "name": "Independence Day",
-          "date": "7/4"
-        },
-        {
-          "name": "Labor Day",
-          "date": "9월 1째 월"
-        },
-        {
-          "name": "Columbus Day",
-          "date": "10월 2째 월"
-        },
-        {
-          "name": "Citizenship Day",
-          "date": "11/4"
-        },
-        {
-          "name": "Veterans Day",
-          "date": "11/11"
-        },
-        {
-          "name": "Thanksgiving",
-          "date": "11월 4째 목"
-        },
-        {
-          "name": "Constitution Day",
-          "date": "12/8"
-        },
-        {
-          "name": "Christmas",
-          "date": "12/25"
-        }
+        { "name": "New Year's Day (신정)", "date": "1/1 · 연방+지방" },
+        { "name": "Martin Luther King Jr. Day (MLK Day)", "date": "1월 3째 월요일 · 연방" },
+        { "name": "Commonwealth Day (CNMI 자치령의 날)", "date": "1/9 · 지방" },
+        { "name": "Presidents' Day", "date": "2월 3째 월요일 · 연방" },
+        { "name": "Commonwealth Covenant Day", "date": "3/24 · 지방" },
+        { "name": "Good Friday", "date": "3~4월 · 지방 (기독교)" },
+        { "name": "Memorial Day", "date": "5월 마지막 월요일 · 연방" },
+        { "name": "Juneteenth (Juneteenth National Independence Day)", "date": "6/19 · 연방 (2021~)" },
+        { "name": "Independence Day (미국 독립기념일)", "date": "7/4 · 연방" },
+        { "name": "Labor Day", "date": "9월 1째 월요일 · 연방" },
+        { "name": "Columbus Day / Indigenous Peoples' Day", "date": "10월 2째 월요일 · 연방" },
+        { "name": "CNMI Citizenship Day (시민권의 날)", "date": "11/4 · 지방" },
+        { "name": "Veterans Day (재향군인의 날)", "date": "11/11 · 연방" },
+        { "name": "Thanksgiving Day (추수감사절)", "date": "11월 4째 목요일 · 연방" },
+        { "name": "Constitution Day (CNMI 헌법 제정일)", "date": "12/8 · 지방" },
+        { "name": "Christmas Day (크리스마스)", "date": "12/25 · 연방+지방" },
+        { "name": "※ 미 연방 공휴일 11일 + CNMI 지방 공휴일 5~6일 = 총 16~17일", "date": "—" }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (Guam-CNMI VWP). 업무는 CW-1 또는 H-2B 비자 필요.",
       "fixedTermContract": {
