@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제주항공 취항지 노동법·물가·최저임금 대시보드</title>
+<style>
+  :root {
+    --jju-orange: #FF6B00;
+    --jju-orange-dark: #E55A00;
+    --jju-orange-light: #FFE4D1;
+    --jju-orange-soft: #FFF5EC;
+    --text-main: #222;
+    --text-sub: #666;
+    --border: #EEE;
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --chip-up: #E74C3C;
+    --chip-down: #3498DB;
+    --chip-flat: #7F8C8D;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-hover: 0 6px 20px rgba(255,107,0,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(135deg, var(--jju-orange) 0%, #FF8C3A 100%);
+    color: #fff;
+    padding: 32px 24px 28px;
+    box-shadow: var(--shadow);
+  }
+  .header-inner { max-width: 1400px; margin: 0 auto; }
+  h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 14px;
+    opacity: 0.92;
+  }
+  .badges {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    backdrop-filter: blur(4px);
+  }
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+    padding: 11px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus { outline: none; border-color: var(--jju-orange); }
+  .filter-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    padding: 8px 14px;
+    border: 2px solid var(--border);
+    background: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    color: var(--text-sub);
+  }
+  .chip:hover { border-color: var(--jju-orange); color: var(--jju-orange); }
+  .chip.active {
+    background: var(--jju-orange);
+    color: #fff;
+    border-color: var(--jju-orange);
+  }
+  .export-btn {
+    padding: 9px 16px;
+    background: #fff;
+    border: 2px solid var(--jju-orange);
+    color: var(--jju-orange);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .export-btn:hover {
+    background: var(--jju-orange);
+    color: #fff;
+  }
+  .summary-bar {
+    background: var(--jju-orange-soft);
+    border: 1px solid var(--jju-orange-light);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 13px;
+    color: #7A3A00;
+  }
+  .summary-bar strong { color: var(--jju-orange-dark); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--jju-orange-light);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .flag { font-size: 32px; line-height: 1; }
+  .country-name-wrap { flex: 1; }
+  .country-name { font-size: 18px; font-weight: 700; }
+  .country-sub { font-size: 12px; color: var(--text-sub); }
+  .update-tag {
+    font-size: 10px;
+    background: #F0F0F0;
+    color: #777;
+    padding: 2px 7px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .stat-box {
+    background: var(--bg);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-sub);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+  }
+  .stat-value { font-size: 15px; font-weight: 700; color: var(--text-main); }
+  .stat-sub { font-size: 11px; color: var(--text-sub); margin-top: 2px; }
+  .krw-badge {
+    display: inline-block;
+    background: var(--jju-orange);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+  }
+  .krw-badge.loading { background: #BBB; }
+  .trend {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 4px;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .trend-up { background: #FDECEA; color: var(--chip-up); }
+  .trend-down { background: #E8F4FB; color: var(--chip-down); }
+  .trend-flat { background: #EEE; color: var(--chip-flat); }
+  .labor-section { margin-bottom: 14px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--jju-orange-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .labor-list { list-style: none; font-size: 13px; color: #444; }
+  .labor-list li {
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .labor-list li::before {
+    content: "•";
+    color: var(--jju-orange);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .premium-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+  .premium-item {
+    background: var(--jju-orange-soft);
+    padding: 8px 10px;
+    border-radius: 8px;
+    border-left: 3px solid var(--jju-orange);
+  }
+  .premium-name { font-weight: 700; color: var(--jju-orange-dark); font-size: 11px; }
+  .premium-formula { color: var(--text-main); font-size: 12px; margin-top: 2px; font-weight: 600; }
+  .card-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .detail-btn {
+    flex: 1;
+    min-width: 110px;
+    padding: 9px 14px;
+    background: var(--jju-orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .detail-btn:hover { background: var(--jju-orange-dark); transform: translateY(-1px); }
+  .source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .source-link {
+    display: inline-block;
+    padding: 6px 10px;
+    background: var(--jju-orange-soft);
+    color: var(--jju-orange-dark);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .source-link:hover {
+    background: var(--jju-orange);
+    color: #fff;
+    border-color: var(--jju-orange);
+  }
+  footer {
+    max-width: 1400px;
+    margin: 20px auto 0;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-sub);
+    border-top: 1px solid var(--border);
+  }
+  footer strong { color: var(--jju-orange-dark); }
+  footer a { color: var(--jju-orange-dark); }
+
+  /* ===== 모달 ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: #fff;
+    max-width: 880px;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: modalIn 0.24s ease-out;
+    margin-bottom: 40px;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(18px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-header {
+    background: linear-gradient(135deg, var(--jju-orange) 0%, #FF8C3A 100%);
+    color: #fff;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .modal-header .flag { font-size: 46px; }
+  .modal-title { font-size: 24px; font-weight: 800; }
+  .modal-subtitle { font-size: 13px; opacity: 0.92; }
+  .modal-close {
+    margin-left: auto;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.4); }
+  .modal-body { padding: 24px 28px 28px; }
+  .modal-section { margin-bottom: 24px; }
+  .modal-section-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--jju-orange-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--jju-orange-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chart-wrap {
+    background: var(--jju-orange-soft);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .chart-wrap svg { width: 100%; height: auto; display: block; }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 16px;
+    font-size: 13px;
+  }
+  .info-grid dt {
+    color: var(--text-sub);
+    font-weight: 600;
+  }
+  .info-grid dd { color: var(--text-main); }
+  .premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .premium-table th, .premium-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .premium-table th {
+    background: var(--jju-orange-soft);
+    color: var(--jju-orange-dark);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .premium-table .p-formula {
+    font-weight: 700;
+    color: var(--text-main);
+  }
+  .premium-table .p-note {
+    font-size: 11px;
+    color: var(--text-sub);
+    margin-top: 2px;
+  }
+  .contract-list {
+    list-style: none;
+    counter-reset: contract;
+  }
+  .contract-list li {
+    counter-increment: contract;
+    padding: 8px 10px 8px 40px;
+    position: relative;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  .contract-list li::before {
+    content: counter(contract);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    background: var(--jju-orange);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .holiday-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px;
+    font-size: 12px;
+  }
+  .holiday-item {
+    background: var(--bg);
+    padding: 8px 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--jju-orange);
+  }
+  .holiday-name { font-weight: 600; color: var(--text-main); }
+  .holiday-date { color: var(--text-sub); font-size: 11px; }
+  .visa-box {
+    background: #F0F9FF;
+    border: 1px solid #BEE3F8;
+    border-left: 4px solid #3498DB;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #1E4B6B;
+  }
+  .visa-box strong { color: #0C3C5C; }
+
+  /* 모바일 반응형 */
+  @media (max-width: 768px) {
+    header { padding: 22px 16px 20px; }
+    h1 { font-size: 20px; }
+    .subtitle { font-size: 12px; }
+    main { padding: 16px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .card { padding: 16px; }
+    .country-name { font-size: 16px; }
+    .stat-value { font-size: 14px; }
+    .controls { flex-direction: column; align-items: stretch; }
+    .search-box { width: 100%; }
+    .filter-chips {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .chip { flex-shrink: 0; }
+    .modal-overlay { padding: 10px; }
+    .modal-header { padding: 18px 20px; }
+    .modal-title { font-size: 19px; }
+    .modal-header .flag { font-size: 36px; }
+    .modal-body { padding: 18px 20px 22px; }
+    .info-grid { grid-template-columns: 110px 1fr; font-size: 12px; }
+    .premium-grid { grid-template-columns: 1fr; }
+    .premium-table th, .premium-table td { padding: 8px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>✈️ 제주항공 취항지 노동법·물가·최저임금 대시보드</h1>
+    <div class="subtitle">취항 15개국의 근로기준·물가·최저임금·수당 공식·계약 필수항목을 한곳에서</div>
+    <div class="badges">
+      <span class="badge" id="lastUpdatedBadge">📅 데이터 갱신: 로딩 중...</span>
+      <span class="badge" id="fxStatus">💱 환율 로딩 중...</span>
+      <span class="badge" id="cpiBadge">📊 CPI: World Bank</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="controls">
+    <input type="text" class="search-box" id="searchBox" placeholder="🔍 국가명 검색 (한글/영문)">
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-region="all">전체</button>
+      <button class="chip" data-region="ne">동북아</button>
+      <button class="chip" data-region="se">동남아</button>
+      <button class="chip" data-region="etc">기타</button>
+    </div>
+    <button class="export-btn" id="csvExportBtn">📥 CSV 내보내기</button>
+  </div>
+
+  <div class="summary-bar">
+    <span>💡 <strong>사용법:</strong> 카드의 <strong>상세보기</strong>를 누르면 수당 공식, 근로계약 필수항목, 5년 추이, 공휴일, 비자까지 모두 확인.</span>
+    <span>🔄 <strong>CPI 데이터</strong>는 GitHub Actions가 World Bank API로 자동 갱신합니다.</span>
+  </div>
+
+  <div class="grid" id="countryGrid"></div>
+</main>
+
+<footer>
+  <p>본 대시보드는 제주항공 취항지 노무·경제 동향 확인 목적의 <strong>내부 참고 자료</strong>입니다.</p>
+  <p>데이터 출처: 각국 노동부/통계청 · CPI: <a href="https://data.worldbank.org/" target="_blank" rel="noopener">World Bank</a> · 환율: <a href="https://open.er-api.com/" target="_blank" rel="noopener">open.er-api.com</a></p>
+  <p style="margin-top:6px;">⚠️ 최저임금·수당 공식은 참고용입니다. 업무 판단 전 공식 링크에서 반드시 재확인하세요.</p>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+// ========================= CHECK DATA =========================
+if (typeof window.DASHBOARD_DATA === 'undefined') {
+  document.body.innerHTML = '<div style="padding:60px;text-align:center;font-family:sans-serif;"><h2>⚠️ data.js 로드 실패</h2><p>data.js 파일이 같은 폴더에 있어야 합니다.</p></div>';
+  throw new Error('data.js not loaded');
+}
+
+const DATA = window.DASHBOARD_DATA;
+const countries = DATA.countries;
+
+// Last updated badge
+document.getElementById('lastUpdatedBadge').textContent = `📅 데이터 갱신: ${DATA.meta.lastUpdated}`;
+
+// ========================= STATE =========================
+let fxRates = null;
+let activeRegion = 'all';
+let searchTerm = '';
+
+// ========================= FX =========================
+async function loadFx() {
+  const statusEl = document.getElementById('fxStatus');
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    const data = await res.json();
+    if (data && data.rates) {
+      fxRates = data.rates;
+      const date = data.time_last_update_utc ? new Date(data.time_last_update_utc).toLocaleDateString('ko-KR') : '방금';
+      statusEl.textContent = `💱 환율: ${date}`;
+      render();
+    } else {
+      throw new Error('rates empty');
+    }
+  } catch (e) {
+    statusEl.textContent = '💱 환율 로드 실패 (오프라인)';
+    render();
+  }
+}
+
+function toKRW(amount, currency) {
+  if (!fxRates || !amount) return null;
+  const usdRate = fxRates[currency];
+  const krwRate = fxRates['KRW'];
+  if (!usdRate || !krwRate) return null;
+  const usd = amount / usdRate;
+  return Math.round(usd * krwRate);
+}
+
+function formatKRW(n) {
+  if (n == null) return '—';
+  if (n >= 100000000) return (n / 100000000).toFixed(2) + '억원';
+  if (n >= 10000) return (n / 10000).toFixed(1) + '만원';
+  return n.toLocaleString('ko-KR') + '원';
+}
+
+// ========================= RENDER =========================
+const grid = document.getElementById('countryGrid');
+const searchBox = document.getElementById('searchBox');
+const chips = document.querySelectorAll('.chip');
+
+function render() {
+  const filtered = countries.filter(c => {
+    const matchRegion = activeRegion === 'all' || c.region === activeRegion;
+    const s = searchTerm.toLowerCase();
+    const matchSearch = !s ||
+      c.name.toLowerCase().includes(s) ||
+      c.nameEn.toLowerCase().includes(s) ||
+      c.code.toLowerCase().includes(s);
+    return matchRegion && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#999;">검색 결과가 없습니다.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(c => {
+    const krw = toKRW(c.minWage.amount, c.currency);
+    const krwLabel = c.minWage.amount === 0
+      ? '<span class="krw-badge" style="background:#999;">PWM 직종별 상이</span>'
+      : krw != null
+        ? `<span class="krw-badge">≈ ${formatKRW(krw)} / ${c.minWage.unit}</span>`
+        : '<span class="krw-badge loading">환율 로딩...</span>';
+    return `
+    <div class="card">
+      <div class="card-header">
+        <div class="flag">${c.flag}</div>
+        <div class="country-name-wrap">
+          <div class="country-name">${c.name}</div>
+          <div class="country-sub">${c.nameEn} · ${c.code} · ${c.currency}</div>
+        </div>
+        <span class="update-tag" title="최저임금 기준일">${c.minWage.updated}</span>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">💰 최저임금</div>
+          <div class="stat-value">${c.minWage.display}<span class="trend trend-${c.minWage.trend.dir}">${c.minWage.trend.text}</span></div>
+          <div class="stat-sub">${c.minWage.sub}</div>
+          ${krwLabel}
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">📈 물가상승률 (${c.inflation.year})</div>
+          <div class="stat-value">${c.inflation.display}<span class="trend trend-${c.inflation.trend.dir}">${c.inflation.trend.text}</span></div>
+          <div class="stat-sub">World Bank · ${c.inflation.updated}</div>
+        </div>
+      </div>
+
+      <div class="labor-section">
+        <div class="section-title">⚖️ 노동법 주요 내용</div>
+        <ul class="labor-list">
+          ${c.labor.map(l => `<li>${l}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="section-title" style="margin-top:4px;">💵 법정 수당 공식 (요약)</div>
+      <div class="premium-grid">
+        <div class="premium-item">
+          <div class="premium-name">연장수당</div>
+          <div class="premium-formula">${c.wagePremiums.overtime.formula}</div>
+        </div>
+        <div class="premium-item">
+          <div class="premium-name">야간수당</div>
+          <div class="premium-formula">${c.wagePremiums.night.formula}</div>
+        </div>
+        <div class="premium-item">
+          <div class="premium-name">휴일수당</div>
+          <div class="premium-formula">${c.wagePremiums.restDay.formula}</div>
+        </div>
+        <div class="premium-item">
+          <div class="premium-name">공휴일수당</div>
+          <div class="premium-formula">${c.wagePremiums.publicHoliday.formula}</div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button class="detail-btn" data-detail="${c.code}">📊 상세보기 (추이·계약·공휴일·비자)</button>
+      </div>
+      <div class="source-links">
+        ${c.sources.map(s => `<a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}
+      </div>
+    </div>
+  `;
+  }).join('');
+
+  grid.querySelectorAll('.detail-btn').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.detail));
+  });
+}
+
+// ========================= CHART (SVG) =========================
+function renderChart(history, unit) {
+  const W = 780, H = 260, P = 50;
+  const values = history.map(h => h.value);
+  const minV = Math.min(...values);
+  const maxV = Math.max(...values);
+  const range = (maxV - minV) || 1;
+  const xStep = (W - P * 2) / (history.length - 1);
+  const yScale = (v) => H - P - ((v - minV) / range) * (H - P * 2);
+
+  const pts = history.map((h, i) => ({
+    x: P + i * xStep,
+    y: yScale(h.value),
+    year: h.year,
+    value: h.value
+  }));
+
+  const linePath = pts.map((p, i) => (i === 0 ? 'M' : 'L') + p.x + ',' + p.y).join(' ');
+  const areaPath = linePath + ` L${pts[pts.length-1].x},${H-P} L${pts[0].x},${H-P} Z`;
+
+  const yTicks = [0, 0.25, 0.5, 0.75, 1].map(r => {
+    const v = minV + r * range;
+    const y = yScale(v);
+    return { v, y };
+  });
+
+  const formatNum = (n) => {
+    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+    return n.toString();
+  };
+
+  return `
+    <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FF6B00" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#FF6B00" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      ${yTicks.map(t => `
+        <line x1="${P}" y1="${t.y}" x2="${W-P+10}" y2="${t.y}" stroke="#FFD4B0" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="${P-8}" y="${t.y+4}" text-anchor="end" font-size="11" fill="#999">${formatNum(t.v)}</text>
+      `).join('')}
+      <path d="${areaPath}" fill="url(#areaGrad)"/>
+      <path d="${linePath}" stroke="#FF6B00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      ${pts.map(p => `
+        <circle cx="${p.x}" cy="${p.y}" r="5" fill="#fff" stroke="#FF6B00" stroke-width="3"/>
+        <text x="${p.x}" y="${p.y-12}" text-anchor="middle" font-size="11" font-weight="700" fill="#E55A00">${formatNum(p.value)}</text>
+        <text x="${p.x}" y="${H-P+20}" text-anchor="middle" font-size="12" fill="#666" font-weight="600">${p.year}</text>
+      `).join('')}
+      <text x="${W/2}" y="${H-10}" text-anchor="middle" font-size="11" fill="#999">단위: ${unit}</text>
+    </svg>
+  `;
+}
+
+// ========================= MODAL =========================
+const modalOverlay = document.getElementById('modalOverlay');
+const modal = document.getElementById('modal');
+
+function openModal(code) {
+  const c = countries.find(x => x.code === code);
+  if (!c) return;
+  const firstVal = c.minWageHistory[0].value;
+  const lastVal = c.minWageHistory[c.minWageHistory.length - 1].value;
+  const growth = firstVal > 0 ? (((lastVal - firstVal) / firstVal) * 100).toFixed(1) : '—';
+  const krw = toKRW(c.minWage.amount, c.currency);
+
+  modal.innerHTML = `
+    <div class="modal-header">
+      <div class="flag">${c.flag}</div>
+      <div>
+        <div class="modal-title">${c.name}</div>
+        <div class="modal-subtitle">${c.nameEn} · ${c.code} · 통화 ${c.currency}</div>
+      </div>
+      <button class="modal-close" id="modalCloseBtn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">📊 최저임금 5년 추이</div>
+        <div class="chart-wrap">
+          ${renderChart(c.minWageHistory, c.historyUnit)}
+        </div>
+        <div style="margin-top:10px; font-size:13px; color:#666;">
+          5년간 누적 인상률: <strong style="color:#FF6B00;">${growth === '—' ? '—' : '+' + growth + '%'}</strong>
+          ${krw != null && c.minWage.amount > 0 ? ` · 현재 원화 환산: <strong>${formatKRW(krw)} / ${c.minWage.unit}</strong>` : ''}
+          · 최종 개정일: <strong>${c.minWage.updated}</strong>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">💵 법정 수당 공식 (상세)</div>
+        <table class="premium-table">
+          <thead>
+            <tr><th style="width:110px;">구분</th><th>산식·기준</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>연장수당<br><span style="font-size:10px;color:#999;">Overtime</span></td>
+              <td><div class="p-formula">${c.wagePremiums.overtime.formula}</div><div class="p-note">${c.wagePremiums.overtime.note}</div></td>
+            </tr>
+            <tr>
+              <td>야간수당<br><span style="font-size:10px;color:#999;">Night Shift</span></td>
+              <td><div class="p-formula">${c.wagePremiums.night.formula}</div><div class="p-note">${c.wagePremiums.night.note}</div></td>
+            </tr>
+            <tr>
+              <td>휴일수당<br><span style="font-size:10px;color:#999;">Rest Day</span></td>
+              <td><div class="p-formula">${c.wagePremiums.restDay.formula}</div><div class="p-note">${c.wagePremiums.restDay.note}</div></td>
+            </tr>
+            <tr>
+              <td>공휴일수당<br><span style="font-size:10px;color:#999;">Public Holiday</span></td>
+              <td><div class="p-formula">${c.wagePremiums.publicHoliday.formula}</div><div class="p-note">${c.wagePremiums.publicHoliday.note}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">📝 근로계약서 필수 항목</div>
+        <ol class="contract-list">
+          ${c.contractRequirements.map(r => `<li>${r}</li>`).join('')}
+        </ol>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">⚖️ 상세 노동법</div>
+        <dl class="info-grid">
+          ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
+        </dl>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">🛂 한국인 비자</div>
+        <div class="visa-box">${c.visa}</div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">🎌 공휴일 (주요)</div>
+        <div class="holiday-grid">
+          ${c.holidays.map(h => `
+            <div class="holiday-item">
+              <div class="holiday-name">${h.name}</div>
+              <div class="holiday-date">${h.date}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+});
+
+// ========================= CSV EXPORT =========================
+function csvEscape(s) {
+  if (s == null) return '';
+  const str = String(s).replace(/<[^>]+>/g, ''); // strip HTML
+  if (/[",\n]/.test(str)) {
+    return '"' + str.replace(/"/g, '""') + '"';
+  }
+  return str;
+}
+
+function exportCSV() {
+  const headers = [
+    '국가코드', '국가명', '영문명', '통화', '지역',
+    '최저임금', '최저임금단위', '최저임금기준일',
+    '물가상승률(%)', 'CPI기준년도',
+    '법정근로시간',
+    '연장수당공식', '연장수당비고',
+    '야간수당공식', '야간수당비고',
+    '휴일수당공식', '휴일수당비고',
+    '공휴일수당공식', '공휴일수당비고',
+    '근로계약필수항목',
+    '수습기간', '해고절차', '퇴직금', '사회보험', '외국인고용',
+    '비자', '공식링크'
+  ];
+
+  const rows = countries.map(c => [
+    c.code, c.name, c.nameEn, c.currency,
+    c.region === 'ne' ? '동북아' : c.region === 'se' ? '동남아' : '기타',
+    c.minWage.display, c.minWage.unit, c.minWage.updated,
+    c.inflation.rate, c.inflation.year,
+    c.labor[0] || '',
+    c.wagePremiums.overtime.formula, c.wagePremiums.overtime.note,
+    c.wagePremiums.night.formula, c.wagePremiums.night.note,
+    c.wagePremiums.restDay.formula, c.wagePremiums.restDay.note,
+    c.wagePremiums.publicHoliday.formula, c.wagePremiums.publicHoliday.note,
+    c.contractRequirements.join(' | '),
+    c.detailedLabor['수습기간'] || '',
+    c.detailedLabor['해고 절차'] || '',
+    c.detailedLabor['퇴직금'] || '',
+    c.detailedLabor['사회보험'] || '',
+    c.detailedLabor['외국인 고용'] || '',
+    c.visa,
+    c.sources.map(s => s.name + ': ' + s.url).join(' | ')
+  ]);
+
+  const csv = [headers, ...rows]
+    .map(row => row.map(csvEscape).join(','))
+    .join('\n');
+
+  // BOM for Excel Korean encoding
+  const bom = '\uFEFF';
+  const blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const today = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `취항지_노동법_대시보드_${today}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('csvExportBtn').addEventListener('click', exportCSV);
+
+// ========================= EVENTS =========================
+searchBox.addEventListener('input', e => {
+  searchTerm = e.target.value;
+  render();
+});
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeRegion = chip.dataset.region;
+    render();
+  });
+});
+
+// ========================= INIT =========================
+render();
+loadFx();
+</script>
+</body>
+</html>
