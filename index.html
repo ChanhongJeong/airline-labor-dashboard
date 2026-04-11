@@ -680,11 +680,13 @@ function render() {
         </div>
       </div>
 
-      <div class="section-title">💼 계약·취업규칙·대졸 초임</div>
+      <div class="section-title">💼 계약·제도·보상</div>
       <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
         <li><strong style="color:var(--jju-orange-dark);">계약직 최대:</strong> ${c.fixedTermContract.max}</li>
         <li><strong style="color:var(--jju-orange-dark);">취업규칙:</strong> ${c.workRules.mandatory ? '✅ <strong>' + c.workRules.threshold + '</strong> 의무' : '❌ 법정 의무 없음'}</li>
-        <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year} 참고치)</span></li>
+        <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
+        <li><strong style="color:var(--jju-orange-dark);">13월 급여:</strong> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};font-weight:700;">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
+        <li><strong style="color:#C0392B;">🇰🇷 한국인 주의:</strong> <span style="font-size:11.5px;">${c.koreanWorkerNotes.socialInsurance.length > 60 ? c.koreanWorkerNotes.socialInsurance.substring(0, 60) + '...' : c.koreanWorkerNotes.socialInsurance}</span></li>
       </ul>
 
       <div class="card-footer">
@@ -860,6 +862,58 @@ function openModal(code) {
       </div>
 
       <div class="modal-section">
+        <div class="modal-section-title">🚀 채용 플레이북 (실무 운영 가이드)</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:130px;">표준 경로<br><span style="font-size:10px;color:#999;">Standard Path</span></td>
+              <td><div class="p-formula">${c.hiringPlaybook.standardPath}</div></td>
+            </tr>
+            <tr>
+              <td>수습기간<br><span style="font-size:10px;color:#999;">Probation</span></td>
+              <td><div class="p-formula">${c.hiringPlaybook.probationDetails}</div></td>
+            </tr>
+            <tr>
+              <td>수습 중 종료<br><span style="font-size:10px;color:#999;">Terminate in Probation</span></td>
+              <td><div class="p-formula">${c.hiringPlaybook.terminateDuringProbation}</div></td>
+            </tr>
+            <tr>
+              <td>수습 후 종료<br><span style="font-size:10px;color:#999;">Terminate after Probation</span></td>
+              <td><div class="p-formula">${c.hiringPlaybook.terminateAfterProbation}</div></td>
+            </tr>
+            <tr>
+              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;">${c.hiringPlaybook.practicalTip}</div></td>
+            </tr>
+            <tr>
+              <td>⚠️ 리스크<br><span style="font-size:10px;color:#999;">Risk Notes</span></td>
+              <td><div class="p-note" style="font-size:12px;color:#444;">${c.hiringPlaybook.riskNotes}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">🎁 13월 급여 / 연말 보너스</div>
+        <div class="visa-box" style="background:${c.thirteenthMonth.status.includes('법정') ? '#FFEAEA' : c.thirteenthMonth.status === '없음' ? '#F5F5F5' : '#FFF5EC'}; border-color:${c.thirteenthMonth.status.includes('법정') ? '#F5B7B1' : c.thirteenthMonth.status === '없음' ? '#DDD' : '#FFD4B0'}; border-left-color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'}; color:${c.thirteenthMonth.status.includes('법정') ? '#7B241C' : c.thirteenthMonth.status === '없음' ? '#555' : '#7A3A00'};">
+          <div style="font-weight:700;font-size:14px;margin-bottom:6px;">${c.thirteenthMonth.status}</div>
+          ${c.thirteenthMonth.formula !== '-' ? `<div><strong>계산식:</strong> ${c.thirteenthMonth.formula}</div>` : ''}
+          ${c.thirteenthMonth.timing !== '-' ? `<div style="margin-top:2px;"><strong>지급 시기:</strong> ${c.thirteenthMonth.timing}</div>` : ''}
+          <div style="margin-top:6px;font-size:12px;line-height:1.5;">${c.thirteenthMonth.note}</div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">🇰🇷 한국인 근로자 특이사항</div>
+        <dl class="info-grid">
+          <dt>사회보험</dt><dd>${c.koreanWorkerNotes.socialInsurance}</dd>
+          <dt>퇴직금</dt><dd>${c.koreanWorkerNotes.severance}</dd>
+          <dt>세금</dt><dd>${c.koreanWorkerNotes.tax}</dd>
+          <dt>비자·기타</dt><dd>${c.koreanWorkerNotes.visa}</dd>
+        </dl>
+      </div>
+
+      <div class="modal-section">
         <div class="modal-section-title">⚖️ 상세 노동법</div>
         <dl class="info-grid">
           ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
@@ -925,6 +979,9 @@ function exportCSV() {
     '계약직_최대기간', '계약직_전환요건', '계약직_근거', '계약직_비고',
     '취업규칙_의무여부', '취업규칙_기준', '취업규칙_근거', '취업규칙_절차', '취업규칙_비고',
     '대졸초임', '대졸초임_범위', '대졸초임_출처', '대졸초임_연도', '대졸초임_비고',
+    '채용표준경로', '수습기간상세', '수습중종료', '수습후종료', '실무팁', '리스크',
+    '13월급여_의무여부', '13월급여_계산식', '13월급여_시기', '13월급여_비고',
+    '한국인_사회보험', '한국인_퇴직금', '한국인_세금', '한국인_비자기타',
     '근로계약필수항목',
     '수습기간', '해고절차', '퇴직금', '사회보험', '외국인고용',
     '비자', '공식링크'
@@ -943,6 +1000,9 @@ function exportCSV() {
     c.fixedTermContract.max, c.fixedTermContract.conversion, c.fixedTermContract.legalBasis, c.fixedTermContract.note,
     c.workRules.mandatory ? '의무' : '없음', c.workRules.threshold, c.workRules.legalBasis, c.workRules.procedure, c.workRules.note,
     c.graduateSalary.display, c.graduateSalary.range, c.graduateSalary.source, c.graduateSalary.year, c.graduateSalary.note,
+    c.hiringPlaybook.standardPath, c.hiringPlaybook.probationDetails, c.hiringPlaybook.terminateDuringProbation, c.hiringPlaybook.terminateAfterProbation, c.hiringPlaybook.practicalTip, c.hiringPlaybook.riskNotes,
+    c.thirteenthMonth.status, c.thirteenthMonth.formula, c.thirteenthMonth.timing, c.thirteenthMonth.note,
+    c.koreanWorkerNotes.socialInsurance, c.koreanWorkerNotes.severance, c.koreanWorkerNotes.tax, c.koreanWorkerNotes.visa,
     c.contractRequirements.join(' | '),
     c.detailedLabor['수습기간'] || '',
     c.detailedLabor['해고 절차'] || '',

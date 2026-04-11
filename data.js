@@ -185,6 +185,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "대졸 남녀 평균 기본급, 상여 제외"
       },
+      "hiringPlaybook": {
+        "standardPath": "무기계약(正社員) 표준. 유기계약은 契約社員 3년 한도 (전문직·60세+ 5년)",
+        "probationDetails": "법정 수습 없음. 관행 試用期間 3~6개월. 본채용 거부는 최초 14일 이내만 즉시 해고 가능",
+        "terminateDuringProbation": "14일 이내: 즉시 해고 가능 / 15일+: 30일 예고 또는 30일분 예고수당",
+        "terminateAfterProbation": "30일 전 서면 예고 또는 예고수당 + 정당 사유 필수. 부당해고 시 노동심판/법원 절차",
+        "practicalTip": "Day 14 이내 평가 완료 권장. 이후엔 사실상 해고 불가 수준. 평가·개선 기회 서면 기록 필수",
+        "riskNotes": "해고 규제 세계 최강 수준. '정당 사유' 해석 엄격. 한국식 권고사직도 분쟁 가능"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "건강보험·후생연금·고용보험 의무. 한일 사회보장협정(2005~)으로 5년 이내 파견 시 일본 연금 면제 (적용증명서 필요)",
+        "severance": "법정 퇴직금 없음. 기업 퇴직일시금·企業年金 가입자만 수혜. 한국 본사 퇴직금 계속 산정 권장",
+        "tax": "183일 이상 = 거주자 세제. 한일 조세조약으로 이중과세 방지",
+        "visa": "기술·인문지식·국제업무 비자 필수. 재류카드 14일 이내 발급. 家族滞在 별도"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "기본급 × 1~6개월분 (업계·기업별 편차 큼)",
+        "timing": "夏期(6~7월) + 年末(12월) 2회 분할 지급",
+        "note": "법정 의무 아니나 정사원에겐 사실상 표준. 계약사원·파견직은 편차 큼. 한국 주재원도 본사 체계 + 현지 관행 확인"
+      },
       "sources": [
         {
           "name": "후생노동성",
@@ -346,6 +367,27 @@ window.DASHBOARD_DATA = {
         "source": "1급도시(북경·상해·광주·심천) 민간 조사 평균",
         "year": 2024,
         "note": "지역별 편차 매우 큼, 내륙은 ¥4,000~5,500"
+      },
+      "hiringPlaybook": {
+        "standardPath": "고정기한(기간제) 1~3년 → 2회 연속 후 근로자 청구 시 무고정기한. 처음부터 무고정기한도 가능",
+        "probationDetails": "기간제 3개월~1년 = 수습 1개월 / 1~3년 = 2개월 / 3년+/무고정 = 6개월",
+        "terminateDuringProbation": "수습 중 '임용 기준 미달' 서면 입증 시 해고 가능. 구체 평가 기준 사전 고지 필수",
+        "terminateAfterProbation": "30일 전 예고 또는 1개월분 임금 + 경제보상금 N+1 (근속년수 × 월평균임금 + 1개월)",
+        "practicalTip": "수습 종료 3일 전까지 서면 평가. 모호한 '부적응' 사유는 노동중재 패소 위험",
+        "riskNotes": "2회 연속 고정기한 후 무고정기한 의무. 근속 10년+ 근로자는 무고정기한 청구 가능. 지역별 노동중재 해석 차이"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "외국인 5대 사회보험 원칙 의무. 한중 사회보장협정(2013~)으로 양로·실업은 면제 가능(참가증명서 필요). 의료·산재·생육은 납부",
+        "severance": "경제보상금은 외국인 동일 적용. 한국 본사 퇴직금과 중복 여부 사내 규정 사전 확인 필요",
+        "tax": "183일 이상 = 거주자세. 5년 초과 체류자는 전 세계 소득 과세 대상. 한중 조세조약 적용",
+        "visa": "Z비자 + 외국인 취업허가증(2017~ 통합) 필수. 입국 후 5일 내 취업증 등록, 30일 내 거류증"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "통상 기본급 1~2개월분 (외자기업·국유기업 관행적)",
+        "timing": "춘절(음력설) 전 1~2월",
+        "note": "법정 의무 아님. 국유기업·공공부문은 '13薪' 고정 관행, 민영은 실적 연동. 계약서·사규 명시 시 법적 의무화"
       },
       "sources": [
         {
@@ -513,6 +555,27 @@ window.DASHBOARD_DATA = {
         "source": "주계총처 대졸 평균급여 조사",
         "year": 2024,
         "note": "업종별 편차, IT·금융은 NT$40,000+"
+      },
+      "hiringPlaybook": {
+        "standardPath": "不定期契約(무기) 원칙. 기간제는 계절·단기·특정성 업무만 허용",
+        "probationDetails": "법정 수습 없음. 관행 試用期(3개월)은 계약 자유. 계약서 명시 필수",
+        "terminateDuringProbation": "판례상 '시용기간' 설정 시 합리 사유로 본채용 거부 가능. 무기 예고와 동일 10일 예고 권장",
+        "terminateAfterProbation": "근속별 예고: 3개월~1년 10일 / 1~3년 20일 / 3년+ 30일. 해고수당 월평균 0.5~1개월분/년",
+        "practicalTip": "시용 해지도 해고로 간주하는 판례 있음. 평가 근거·개선 기회 문서화 필수",
+        "riskNotes": "계속적 업무의 기간제 사용은 자동 무기전환. 유사근로자(準勞工) 보호 강화 추세"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "노보(勞保)·건보(健保)·노퇴금(勞退金) 6% 의무. 한-대만 사회보장협정 없음 → 한국 본사 국민연금·건보 계속 가입 가능",
+        "severance": "노퇴금 6% 개인계좌 적립은 외국인 동일. 퇴사 시 일시 환급 청구 가능. 본사 퇴직금과 별도",
+        "tax": "183일 미만 = 비거주자 18% 원천징수 / 초과 = 거주자 누진. 한-대만 조세조약 부재(비공식 협력만)",
+        "visa": "취업허가(勞動部) + 거류증 필수. 화이트칼라 쿼터 없음"
+      },
+      "thirteenthMonth": {
+        "status": "관행 (사실상 의무 수준)",
+        "formula": "年終獎金 = 기본급 × 1~3개월분 (IT·금융 3~6개월)",
+        "timing": "춘절(음력설) 전 1~2월",
+        "note": "법률 강제 아니나 미지급 시 이직·노동분쟁 빈발. 대부분 기업이 '월급 × 13' 구조로 운영"
       },
       "sources": [
         {
@@ -685,6 +748,27 @@ window.DASHBOARD_DATA = {
         "source": "JobsDB 대졸 연봉 조사",
         "year": 2024,
         "note": "금융·전문직은 HK$25,000~35,000"
+      },
+      "hiringPlaybook": {
+        "standardPath": "Continuous Contract(4주 18h+) 기준 보호. 계약 자유 원칙, 기간제·무기 구분 약함",
+        "probationDetails": "법정 수습 없음. 관행 1~3개월. 첫 1개월은 예고 불필요가 원칙",
+        "terminateDuringProbation": "첫 1개월: 예고 불필요 / 2~3개월 수습 조항 명시 시: 7일 예고 또는 7일분",
+        "terminateAfterProbation": "1개월 예고 또는 예고수당. 사유 불필요(단 차별·보복 금지, ERA 보호 조항 적용)",
+        "practicalTip": "계약서에 수습기간·예고 명시. 장기근속금(5년+)·해고수당(2년+) 의무 주의",
+        "riskNotes": "법정 해고 보호 약하지만 'unreasonable dismissal' 구제(ERA) 가능. Employment Ordinance 제5부 준수"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "MPF 5%+5% 원칙 가입. 단 13개월 미만 단기 체류·해외연금 가입 증명자는 면제 신청 가능. 한국 국민연금 가입 증명 활용",
+        "severance": "장기근속금·해고수당 외국인 동일 적용. MPF 면제 시 본사 퇴직금 유지 필수",
+        "tax": "저세율(최대 17%). 홍콩 원천소득만 과세. 한-홍콩 조세조약 없음, 사실상 저세율로 이중과세 문제 적음",
+        "visa": "GEP(General Employment Policy) 비자 필수. 직군별 최저 월급 기준. 근로 가능 기간은 비자 만료일까지"
+      },
+      "thirteenthMonth": {
+        "status": "계약·관행 명시 시 법적 의무",
+        "formula": "계약·사규·관행으로 정해진 경우 'end of year payment' 전액 지급. 근속 3개월+ 비례",
+        "timing": "음력설 전 또는 12월",
+        "note": "고용조례 제11A~11D조 — 계약·관행으로 규정되면 미지급 시 법 위반. 일방 철회 불가. 실무상 지급 관행이면 법적 권리로 인정"
       },
       "sources": [
         {
@@ -866,6 +950,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "카지노·호텔업은 별도 체계"
       },
+      "hiringPlaybook": {
+        "standardPath": "⭐ 무기계약(표준) + 90일 수습. 한국식 '계약직→정규직' 구조 불가",
+        "probationDetails": "무기 90일 / 기간제 30일 / 관리·고도전문직 180일. 계약서 명시 필수",
+        "terminateDuringProbation": "7일 서면 예고만 필요. 사유 불필요, 해고수당 없음",
+        "terminateAfterProbation": "15일 서면 예고 + 해고수당 근속 1년당 7일분 (최대 20년). 정당 사유 없어도 '부당해고 배상' 책임",
+        "practicalTip": "⚠️ Day 83까지 종료 결정 서면 통지 완료. Day 90 당일 통지 = 예고 부족 = 부당해고. 평가는 Day 30/60/75 정기 실시",
+        "riskNotes": "수습 연장 불가. Day 91 이후는 정식 근로로 자동 전환. 180일 수습은 관리직·고도전문직 한정, 평사원은 90일 고정"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "FSS(사회보장기금) 비거주 외국인 가입 의무(고용주 부담). 한-마카오 사회보장협정 없음",
+        "severance": "해고수당(7일분/년) 외국인 동일 적용. 13월 급여도 동일 적용. 본사 퇴직금 유지 권장",
+        "tax": "직업세 연간 MOP 144,000 초과분만 과세. 세부담 매우 낮음. 한-마카오 조세조약 없음",
+        "visa": "외지고용 허가(藍卡) 필수. 고용주가 DSAL에 신청. 업종별 쿼터 제한(카지노·호텔 등)"
+      },
+      "thirteenthMonth": {
+        "status": "법정 의무",
+        "formula": "근속 1년 이상 = 기본급 1개월분 / 1년 미만 = 근무 월수 / 12 × 월급",
+        "timing": "12월 (크리스마스 전)",
+        "note": "노동관계법(Law 7/2008) 제60조 Christmas Bonus. 중도 퇴사자도 비례 지급 의무. 외국인 동일 적용. 미지급 시 DSAL 벌금"
+      },
       "sources": [
         {
           "name": "노공사무국",
@@ -1020,6 +1125,27 @@ window.DASHBOARD_DATA = {
         "source": "VietnamWorks 대졸 급여 조사",
         "year": 2024,
         "note": "호치민·하노이 기준, 외국계는 VND 12M~18M"
+      },
+      "hiringPlaybook": {
+        "standardPath": "기간제 최대 36개월(1회 갱신) → 2번째 만료 시 자동 무기 전환. 수습은 별도 계약",
+        "probationDetails": "직무별: 대학·전문대졸 60일 / 중등 30일 / 단순노무 6일. 수습 임금은 정식 임금의 85% 이상",
+        "terminateDuringProbation": "수습 중 양쪽 모두 예고 없이 종료 가능. 서면 결과 통지는 권장(노동분쟁 대비)",
+        "terminateAfterProbation": "사용자 해고: 30~45일 예고 + 정당 사유 입증. 일방 해고 시 근속별 해고수당 + 미지급 임금 + 2개월분 배상",
+        "practicalTip": "수습 '불합격' 서면 통지를 수습 종료 3일 전 전달. 사유·평가 기록 문서화 필수",
+        "riskNotes": "수습 기간 초과 시 자동 정식 근로. 기간제 2회 연속 후 무기 전환. 기간제 갱신 횟수·기간 엄격 관리"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "⚠️ 외국인 사회·의료보험 의무(2018~). **실업보험은 베트남 국민 전용 → 한국인 가입 불가** → 이직수당·퇴직금 대체 불가",
+        "severance": "⚠️ 베트남 국민은 실업보험으로 퇴직금 대체되나 **한국인은 실업보험 미가입 → 근속 1년당 0.5개월분 Severance Allowance 별도 지급 의무**. 계약서·사규 명시 필수",
+        "tax": "183일 이상 = 거주자 누진세(최대 35%). 한베 조세조약 있음",
+        "visa": "노동허가서(Work Permit) 최대 2년, 갱신 가능. 허가 전 근로 금지(최대 VND 75M 벌금 + 출국)"
+      },
+      "thirteenthMonth": {
+        "status": "관행 (사실상 표준)",
+        "formula": "Tết 보너스 = 기본급 × 1~3개월분 (평균 1개월분)",
+        "timing": "음력설(Tết) 전 1~2월",
+        "note": "법정 의무 아니나 거의 모든 기업 지급. 미지급 시 노동분쟁·이탈 빈발. 계약서·취업규칙 명시 시 법적 의무화. 한국 주재원도 동일 지급 관행"
       },
       "sources": [
         {
@@ -1185,6 +1311,27 @@ window.DASHBOARD_DATA = {
         "source": "JobStreet / PSA 신입 임금 조사",
         "year": 2024,
         "note": "NCR 민간 기준, BPO·IT는 ₱25,000~35,000"
+      },
+      "hiringPlaybook": {
+        "standardPath": "Probationary Employment 최대 6개월 → Regular 자동 전환. 기간제는 프로젝트·계절성만",
+        "probationDetails": "최대 6개월. 성과 기준·평가 방식을 입사 시 서면 고지 필수 (미고지 시 처음부터 regular 간주)",
+        "terminateDuringProbation": "Reasonable standards 미달 시 종료 가능. Two-Notice Rule (1차 고지 + 2차 종료 통지) 적용",
+        "terminateAfterProbation": "Just Cause(중대 과실) 또는 Authorized Cause(경영상 필요). Authorized Cause는 해고수당 1개월분/년",
+        "practicalTip": "성과 기준 서명본 필수. 6개월 미만이라도 평가 기준 미공지 시 regular 판례. Day 180 전 결정",
+        "riskNotes": "Brent School vs Zamora 판례: 사실상 계속 고용은 regular. DOLE 부당해고 시 복직 + 백페이(backwages) 명령"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "SSS·PhilHealth·Pag-IBIG 외국인 가입 의무. 단기 체류(1년 미만) 면제 가능. 한-필 사회보장협정 없음",
+        "severance": "Authorized Cause 해고수당 외국인 동일 적용. 13th Month Pay 필수. 본사 퇴직금과 중복 여부 확인",
+        "tax": "183일 이상 = 거주자 누진세. 한-필 조세조약 있음",
+        "visa": "9(g) 상용 취업비자 + AEP(Alien Employment Permit) 둘 다 필수. 순차 신청 45~60일 소요"
+      },
+      "thirteenthMonth": {
+        "status": "법정 의무",
+        "formula": "해당 연도 기본급 합계 ÷ 12 (근속 1개월 이상 전원 대상, 비례 지급)",
+        "timing": "매년 12월 24일까지",
+        "note": "Presidential Decree No. 851 (1975). 한국 주재원 포함 외국인 동일 적용. 미지급 시 DOLE 벌금·형사처벌. 최고 경영진(Managerial)은 제외될 수 있음"
       },
       "sources": [
         {
@@ -1367,6 +1514,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "방콕 민간 기준, 외국계는 ฿28,000~40,000"
       },
+      "hiringPlaybook": {
+        "standardPath": "무기계약 원칙. 기간제 119일 룰: 120일 이상 근무 시 해고수당 대상 → 실질적 분기점",
+        "probationDetails": "법정 수습 없음. 관행 119일 이하(해고수당 회피 목적). 계약서 명시 권장",
+        "terminateDuringProbation": "119일 이내 종료 = 해고수당 없음. 1임금기간(통상 1개월) 예고 또는 예고수당",
+        "terminateAfterProbation": "근속 120일~ 해고수당 30일분, 이후 단계별 최대 400일분 누적. 정당 사유 없어도 법정 해고수당 의무",
+        "practicalTip": "119일 내 평가 완료. 반복 갱신은 '위장 기간제'로 노동부 분쟁 위험. 근속 연속 계산 주의",
+        "riskNotes": "119일 이내 종료도 부당해고(차별·보복 등) 입증 시 별도 손해배상. 근속별 해고수당 누진 가파름"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "Social Security Fund 5%+5% 외국인 가입 의무. 한-태 사회보장협정 없음 → 이중 가입 가능성",
+        "severance": "근속별 해고수당(최대 400일분) 외국인 동일 적용. 한국 본사 퇴직금 유지 권장",
+        "tax": "183일 이상 = 거주자 누진세. 한-태 조세조약 있음. BOI 프로모션 대상 시 세제 혜택",
+        "visa": "Non-B 비자 + Work Permit 필수. Work Permit 전 근로 금지(형사처벌·벌금)"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "기본급 1개월분 (대기업·외자 기업 표준)",
+        "timing": "연말(12월) 또는 송크란(4월)",
+        "note": "법정 의무 아님. 대기업·외자 기업 대부분 지급. 계약·사규 명시 시 법적 의무. 한국 주재원 포함 동일 관행"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -1546,6 +1714,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "KL 민간, IT·금융은 RM 4,000~5,500"
       },
+      "hiringPlaybook": {
+        "standardPath": "Permanent 원칙. Fixed-term은 'genuine need' 입증 필요, 반복 갱신 시 regular 간주 판례",
+        "probationDetails": "법정 규정 없음. 관행 3~6개월. 계약서 명시 필수",
+        "terminateDuringProbation": "수습 중 해고도 '합리 사유' 판례 요구. 서면 고지 + Two-notice 권장",
+        "terminateAfterProbation": "Employment Act 적용자 해고수당: 2~5년 10일/년, 5~10년 15일/년, 10년+ 20일/년. 4~8주 예고",
+        "practicalTip": "Industrial Court 부당해고 판정 시 복직 명령 + 백페이. 평가·개선 기회 기록 철저",
+        "riskNotes": "Ahmad Zahri 판례 등 sham fixed-term 판정 증가. 반복 갱신 금지 원칙 강화"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "EPF 외국인 선택 가입(의무 아님). SOCSO 2019~ 외국인 의무. EIS(고용보험) 외국인 면제",
+        "severance": "Employment Act 해고수당 외국인 동일 적용. EPF 미가입 시 본사 퇴직금 유지 권장",
+        "tax": "183일 이상 = 거주자 누진세. 미만 = 비거주자 30% 일괄. 한-말 조세조약 있음",
+        "visa": "Employment Pass(EP) 필수. 최저 월급 RM 5,000+. 카테고리별 기간 상이 (Cat I 5년, II 2년, III 1년)"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "기본급 × 1~2개월분 (계약·사규 상이)",
+        "timing": "연말 또는 Hari Raya 전",
+        "note": "법정 의무 아님. 대부분 기업 지급. 계약서·단체협약 명시 시 법적 의무. 한국 주재원 포함 동일 관행"
+      },
       "sources": [
         {
           "name": "인적자원부",
@@ -1724,6 +1913,27 @@ window.DASHBOARD_DATA = {
         "source": "MOM GES 졸업생 취업 조사",
         "year": 2024,
         "note": "NUS/NTU 졸업생 중위값, 금융·테크는 S$5,500~6,500"
+      },
+      "hiringPlaybook": {
+        "standardPath": "Permanent + 수습 관행 3~6개월. 계약 자유 원칙. KET 14개 항목 서면 14일 이내 의무",
+        "probationDetails": "법정 수습 없음. 관행 3~6개월. 계약서·KET에 명시",
+        "terminateDuringProbation": "계약 예고기간 준수 (통상 1일~1주). 사유 불필요",
+        "terminateAfterProbation": "계약 예고기간 (1~3개월). 중대 사유 시 즉시 해고 가능. 법정 해고수당 없음",
+        "practicalTip": "성과 해고는 문서화 필수. Fair Consideration Framework(FCF) 준수. TADM(노동분쟁조정) 대응 가능",
+        "riskNotes": "부당해고 소송 드물지만 MOM 분쟁 가능. Tripartite Alliance Fair Employment Practices 준수 필수"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "⚠️ CPF는 시민·PR 전용 → **외국인(Work Pass) CPF 미가입** → 고용주 부담 크게 감소. 한국 본사 국민연금 계속 가입",
+        "severance": "법정 해고수당 없음 → **본사 퇴직금 유지 필수**. 계약서에 퇴직금 조항 명시 가능",
+        "tax": "183일 이상 = 거주자(최대 24%) / 미만 = 비거주자(15% 또는 최종세율). 한-싱 조세조약 있음",
+        "visa": "EP(Employment Pass) 최저 월급 S$5,600+(2025~). 또는 SP(S$3,150)/WP. EP 갱신 2년 단위. COMPASS 점수제"
+      },
+      "thirteenthMonth": {
+        "status": "관행 (AWS - Annual Wage Supplement)",
+        "formula": "통상 기본급 × 1개월분 (일부 기업 2개월분)",
+        "timing": "12월 또는 춘절 전",
+        "note": "법정 의무 아니나 대부분 기업 지급. 계약·단체협약 명시 시 법적 의무. NWC(국가임금위원회) 권고 사항. 한국 주재원 포함 동일"
       },
       "sources": [
         {
@@ -1914,6 +2124,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "자카르타 민간, 외국계·금융은 IDR 10M~15M"
       },
+      "hiringPlaybook": {
+        "standardPath": "PKWT(기간제 최대 5년) 또는 PKWTT(무기). PKWT 만료 시 보상금 지급 의무",
+        "probationDetails": "⚠️ PKWTT(무기)만 수습 최대 3개월 허용. PKWT(기간제)는 수습 불가",
+        "terminateDuringProbation": "수습 중 양쪽 모두 예고 없이 종료 가능. 서면 결과 통지 권장",
+        "terminateAfterProbation": "옴니버스법 후 간소화. 근속별 해고수당(uang pesangon) + 근무기간보상(uang penghargaan) + 권리대체수당(uang penggantian hak)",
+        "practicalTip": "PKWT 5년 초과 시 자동 PKWTT 전환. PKWT 만료 시 근무월당 1/12 × 월급 보상금 지급",
+        "riskNotes": "기간제 채용 시 수습 조항 무효. 노동법원 부당해고 판례 다수. 해고 사유 서면 입증 필수"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "BPJS Kesehatan(의료)·Ketenagakerjaan(고용) 외국인 6개월 이상 근무 시 가입 의무. 한-인니 사회보장협정 없음",
+        "severance": "해고수당 외국인 동일 적용. THR(13월 급여) 외국인 동일 의무. 본사 퇴직금 중복 방지 사내 협의 필요",
+        "tax": "183일 이상 = 거주자 누진세(최대 35%). 한-인니 조세조약 있음",
+        "visa": "RPTKA(외국인고용계획) + IMTA + KITAS 3단 절차. 특정 직군(HR, 법무 등) 금지 리스트. 절차 2~3개월"
+      },
+      "thirteenthMonth": {
+        "status": "법정 의무 (THR - Tunjangan Hari Raya)",
+        "formula": "근속 1년 이상 = 기본급 1개월분 / 1개월~1년 미만 = 비례(근속월/12 × 월급)",
+        "timing": "종교 휴일(Idul Fitri/Natal/Nyepi 등) 7일 전",
+        "note": "Kepmenaker No. 6/2016. 미지급 시 5% 연체료 + Kemnaker 제재. 외국인(한국인 포함) 동일 적용. 가장 엄격한 13월 급여 법제 중 하나"
+      },
       "sources": [
         {
           "name": "Kemnaker 노동부",
@@ -2070,6 +2301,27 @@ window.DASHBOARD_DATA = {
         "source": "NSO 평균 급여 통계",
         "year": 2024,
         "note": "울란바토르 민간, 광업·금융은 MNT 3M~5M"
+      },
+      "hiringPlaybook": {
+        "standardPath": "무기계약 원칙. 기간제는 계절·임시·특정 프로젝트 등 허용 사유 시만",
+        "probationDetails": "최대 3개월 수습. 계약서 명시 필수",
+        "terminateDuringProbation": "수습 중 사유 입증 시 해고 가능. 예고 없이 종료 가능하나 서면 사유 기록 권장",
+        "terminateAfterProbation": "1개월 예고 + 해고수당 월급 1개월분 이상. 근속별 가산",
+        "practicalTip": "수습 평가 문서화. 구두 평가·사유 무효 판례 존재. 노동법 2021 개정 후 근로자 보호 강화",
+        "riskNotes": "허용 사유 없는 기간제는 자동 무기 간주. 외국인 쿼터·취업세 부담"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "사회보험 외국인 선택 가입(단체협약 기반). 의무 아님. 한-몽 사회보장협정 없음",
+        "severance": "해고수당 외국인 동일 적용. 본사 퇴직금 유지 권장",
+        "tax": "183일 이상 = 거주자 누진세. 한-몽 조세조약 있음",
+        "visa": "HG(취업비자) 필수. 외국인 취업세 고용주 부담 (월 최저임금의 2배). 쿼터 제한 엄격(업종별 5~10%)"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "1~2개월분 (대기업·광업 관행)",
+        "timing": "연말 또는 Tsagaan Sar(음력 신년) 전",
+        "note": "법정 의무 아님. 정부·공공부문만 관행 지급. 민간은 실적 연동. 주재원은 본사 체계 + 현지 관행 확인"
       },
       "sources": [
         {
@@ -2235,6 +2487,27 @@ window.DASHBOARD_DATA = {
         "year": 2024,
         "note": "모스크바 민간, 지방은 RUB 35,000~50,000"
       },
+      "hiringPlaybook": {
+        "standardPath": "무기계약 원칙. 기간제 5년 한도이나 허용 사유 엄격 제한 (대체·일시·계절·외국인 등)",
+        "probationDetails": "일반직 최대 3개월 / 관리직·경리 최대 6개월 / 2~6개월 단기 계약 최대 2주",
+        "terminateDuringProbation": "수습 해고 = 3일 전 서면 예고 + 불합격 사유 구체 명시. 해고수당 없음",
+        "terminateAfterProbation": "2개월 전 예고 + 해고수당 월평균 1~3개월분 (사유별). 구조조정은 3개월분",
+        "practicalTip": "수습 해고 사유는 구체·측정 가능하게 문서화. 러시아 법원 '주관적 평가' 사유 부정 판례 다수",
+        "riskNotes": "기간제 사유 엄격. 사유 없이 반복 시 무기 간주. 노동감독원(GIT) 조사·벌금"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "외국인도 연금·의료·산재 가입 의무. 한-러 사회보장협정(2021~)으로 연금 이중납부 회피 가능 (적용증명서 필요)",
+        "severance": "해고수당 외국인 동일 적용. 본사 퇴직금 유지 권장",
+        "tax": "⚠️ 183일 이상 = 거주자 13%(고액 15%) / 미만 = 비거주자 30% 중과세. 한-러 조세조약 활용 필수",
+        "visa": "노동허가(WP) 또는 HQS(고급 전문가 - 월 167,000 RUB+) 비자. HQS는 간소 절차·세제 우대. 지역별 쿼터"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "13я зарплата = 기본급 × 1개월분 (단체협약·사규 명시 시)",
+        "timing": "12월",
+        "note": "법정 의무 아님. 단체협약·사규 명시 시 법적 의무. 사기업 지급률 감소 추세이나 대기업·외자 기업 관행 유지"
+      },
       "sources": [
         {
           "name": "노동사회보장부",
@@ -2399,6 +2672,27 @@ window.DASHBOARD_DATA = {
         "source": "ILO / 현지 구직 플랫폼",
         "year": 2024,
         "note": "비엔티안 민간, 고인플레로 변동 큼"
+      },
+      "hiringPlaybook": {
+        "standardPath": "무기 원칙. 기간제 최대 3년, 2회 갱신(누적 6년) 후 자동 무기 전환",
+        "probationDetails": "일반직 60일 / 전문직 30일. 계약서 명시 필수",
+        "terminateDuringProbation": "수습 중 해고 예고 단축 (통상 무예고 또는 수일). 서면 사유 명시 필수",
+        "terminateAfterProbation": "30~45일 예고 + 해고수당 근속 1년당 0.5~1개월분 (사유별)",
+        "practicalTip": "수습 평가 문서화. 노동부 분쟁 시 계약서·평가 기록 중심 판단",
+        "riskNotes": "기간제 6년 초과 시 자동 무기. 외국인 쿼터(일반적 10% 이내) 엄격"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "NSSF(사회보장기금) 외국인 가입 원칙 의무. 단 한국 본사 소속 증명(파견 형식) 시 면제 신청 가능. 한-라오스 협정 없음",
+        "severance": "해고수당 외국인 동일 적용. 본사 퇴직금 유지 권장",
+        "tax": "183일 이상 = 거주자 누진세. 한-라오스 조세조약 있음",
+        "visa": "비즈니스 비자 + 노동허가 필수. 외국인 쿼터 제한. 서류 절차 느림(3~6개월 가능)"
+      },
+      "thirteenthMonth": {
+        "status": "관행",
+        "formula": "기본급 × 1개월분 (대기업·외자 기업)",
+        "timing": "라오스 신년(Pi Mai, 4월) 전 또는 연말",
+        "note": "법정 의무 아님. 고인플레 대응 연말 특별 보너스 지급 증가. 주재원은 본사 체계 우선 + 현지 관행 보완"
       },
       "sources": [
         {
@@ -2584,6 +2878,27 @@ window.DASHBOARD_DATA = {
         "source": "BLS OES / 미국 본토 참고치",
         "year": 2024,
         "note": "CNMI는 데이터 제한적, 본토보다 낮음"
+      },
+      "hiringPlaybook": {
+        "standardPath": "At-will 고용 원칙. 계약 자유. CW-1 비자 근로자는 청원서 조건(직무·임금) 준수",
+        "probationDetails": "법정 수습 없음. 관행 90일. 계약서 자유 명시",
+        "terminateDuringProbation": "사유·예고 불필요 (at-will). 단 차별·보복 해고는 연방법(Title VII 등) 위반",
+        "terminateAfterProbation": "사유·예고 불필요 (at-will). 법정 해고수당 없음. 단 차별·WARN Act(집단해고) 등 주의",
+        "practicalTip": "해고 시 문서화는 법적 분쟁(차별 등) 대비용. 청원서 조건 변경 시 USCIS 신고",
+        "riskNotes": "CW-1 비자 3년 내 갱신 필요. 청원서 조건 이탈 시 비자 취소. 2029까지 CW-1 프로그램 연장 승인"
+      },
+      "koreanWorkerNotes": {
+        "applicable": true,
+        "socialInsurance": "Social Security + Medicare 의무. 한-미 사회보장협정으로 5년 이내 파견 시 한국만 납부(Certificate of Coverage A/USA 4 필요)",
+        "severance": "법정 해고수당 없음 → **본사 퇴직금 유지 필수**",
+        "tax": "미 연방세 + CNMI 지방세. 183일 기준 거주자 판정. 한-미 조세조약 있음. Federal FICA 세금 주의",
+        "visa": "CW-1 비자 (CNMI 전용, 3년 갱신) 또는 H-2B(1년). I-129CW 청원서 필수. 최저 임금 준수"
+      },
+      "thirteenthMonth": {
+        "status": "없음",
+        "formula": "-",
+        "timing": "-",
+        "note": "미국 법에 13th month 개념 없음. 계약·관행으로 연말 보너스 지급 가능(사용자 재량). 본사 정책 우선 적용"
       },
       "sources": [
         {
