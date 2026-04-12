@@ -262,6 +262,100 @@ window.DASHBOARD_DATA = {
         "consent": "자동 이월 (별도 동의서 불필요)",
         "specialObligation": "⚠️ 연 5일 이상 취득 의무 (2019~, 働き方改革) — 사용자가 시계(時季) 지정해서라도 5일 사용시켜야 함. 미이행 시 근로자 1인당 최대 30만엔 벌금",
         "tip": "실무상 유급휴가 소진 관리가 엄격. 연 5일 의무 취득 체크 + 이월분 소멸 전 통보 필수"
+      },
+      "minWageRegional": {
+        "unit": "시",
+        "basis": "都道府県별 시급 (厚生労働省 FY2024, 2024.10 개정)",
+        "regions": [
+          {
+            "cities": [
+              "도쿄 (東京)"
+            ],
+            "amount": 1163,
+            "display": "¥1,163/시",
+            "note": "전국 최고"
+          },
+          {
+            "cities": [
+              "오사카 (大阪)"
+            ],
+            "amount": 1114,
+            "display": "¥1,114/시"
+          },
+          {
+            "cities": [
+              "나고야 (愛知)"
+            ],
+            "amount": 1077,
+            "display": "¥1,077/시"
+          },
+          {
+            "cities": [
+              "고베 (兵庫)"
+            ],
+            "amount": 1052,
+            "display": "¥1,052/시"
+          },
+          {
+            "cities": [
+              "시즈오카 (静岡)"
+            ],
+            "amount": 1034,
+            "display": "¥1,034/시"
+          },
+          {
+            "cities": [
+              "히로시마 (広島)"
+            ],
+            "amount": 1020,
+            "display": "¥1,020/시"
+          },
+          {
+            "cities": [
+              "삿포로 (北海道)",
+              "하코다테 (北海道)"
+            ],
+            "amount": 1010,
+            "display": "¥1,010/시",
+            "note": "홋카이도 都道府県 단일"
+          },
+          {
+            "cities": [
+              "후쿠오카 (福岡)"
+            ],
+            "amount": 992,
+            "display": "¥992/시"
+          },
+          {
+            "cities": [
+              "마쓰야마 (愛媛)"
+            ],
+            "amount": 956,
+            "display": "¥956/시"
+          },
+          {
+            "cities": [
+              "오이타 (大分)"
+            ],
+            "amount": 954,
+            "display": "¥954/시"
+          },
+          {
+            "cities": [
+              "가고시마 (鹿児島)"
+            ],
+            "amount": 953,
+            "display": "¥953/시"
+          },
+          {
+            "cities": [
+              "오키나와 (沖縄)"
+            ],
+            "amount": 952,
+            "display": "¥952/시",
+            "note": "전국 최저"
+          }
+        ]
       }
     },
     {
@@ -472,6 +566,77 @@ window.DASHBOARD_DATA = {
         "consent": "이월 시 근로자 서면 동의 필수 (분쟁 예방용)",
         "specialObligation": "서면 연차 계획(年休计划) 수립 의무. 노동감찰 시 자주 점검",
         "tip": "300% 지급 의무를 피하려면 연말까지 소진 or 서면 포기서 확보. 외국인도 동일 적용"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "각 성·직할시 최저임금 (1~4등급 구분, 2023~2024 최신)",
+        "regions": [
+          {
+            "cities": [
+              "상하이 (上海)"
+            ],
+            "amount": 2690,
+            "display": "¥2,690/월",
+            "note": "2023.7 개정 · 전국 최고"
+          },
+          {
+            "cities": [
+              "베이징 (北京)"
+            ],
+            "amount": 2420,
+            "display": "¥2,420/월",
+            "note": "2023.9 개정"
+          },
+          {
+            "cities": [
+              "칭다오 (青岛)",
+              "스자좡 (石家庄)"
+            ],
+            "amount": 2200,
+            "display": "¥2,200/월",
+            "note": "산동 1급 (2023.10) / 허베이 1급 (2024.1)"
+          },
+          {
+            "cities": [
+              "웨이하이 (威海)"
+            ],
+            "amount": 2010,
+            "display": "¥2,010/월",
+            "note": "산동 2급 (2023.10)"
+          },
+          {
+            "cities": [
+              "옌지 (延吉)"
+            ],
+            "amount": 1880,
+            "display": "¥1,880/월",
+            "note": "지린성 1급 (2022.10)"
+          },
+          {
+            "cities": [
+              "하얼빈 (哈尔滨)"
+            ],
+            "amount": 1860,
+            "display": "¥1,860/월",
+            "note": "헤이룽장 1급 (2023.9)"
+          },
+          {
+            "cities": [
+              "장가계 (张家界)"
+            ],
+            "amount": 1740,
+            "display": "¥1,740/월",
+            "note": "후난성 2급 (추정)"
+          },
+          {
+            "cities": [
+              "자무스 (佳木斯)"
+            ],
+            "amount": 1690,
+            "display": "¥1,690/월",
+            "note": "헤이룽장 2급 (2023.9)"
+          }
+        ]
       }
     },
     {
@@ -687,6 +852,21 @@ window.DASHBOARD_DATA = {
         "consent": "이월 시 서면 합의 필수 (노동부 권고)",
         "specialObligation": "사용자는 근로자에게 매년 연차 일수·기간 서면 통지 의무 (§38 V)",
         "tip": "대만은 연차 환산 의무가 가장 엄격. 모든 근로자 동일 적용. 2년 이월은 합의서로 명시 권장"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "勞動部 전국 단일 월급 (2025.1 개정)",
+        "regions": [
+          {
+            "cities": [
+              "타이베이 (台北)",
+              "가오슝 (高雄)"
+            ],
+            "amount": 28590,
+            "display": "NT$28,590/월",
+            "note": "전 지역 단일 (시급 NT$190)"
+          }
+        ]
       }
     },
     {
@@ -1386,6 +1566,30 @@ window.DASHBOARD_DATA = {
         "consent": "이월·환산 시 서면 합의 권장 (노동감찰 대비)",
         "specialObligation": "왕복 이동 1일 이상 소요 시 교통일 연차 추가 지급 (§113 VI)",
         "tip": "⚠️ 한국인은 장기 주재 시 왕복 이동일 +교통일 추가 적용 가능. 계약서 명시 권장"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "Nghị định 74/2024/ND-CP 4개 지역 분류 (2024.7 개정)",
+        "regions": [
+          {
+            "cities": [
+              "하노이 도심 (Ha Noi)",
+              "다낭 도심 (Da Nang)"
+            ],
+            "amount": 4960000,
+            "display": "VND 4,960,000/월",
+            "note": "지역 I (도시 중심부)"
+          },
+          {
+            "cities": [
+              "나트랑 (Nha Trang)",
+              "푸꾸옥 (Phu Quoc)"
+            ],
+            "amount": 4410000,
+            "display": "VND 4,410,000/월",
+            "note": "지역 II (주요 도시 외곽·관광지)"
+          }
+        ]
       }
     },
     {
@@ -1655,6 +1859,44 @@ window.DASHBOARD_DATA = {
         "consent": "이월 없음 → 동의서 불필요",
         "specialObligation": "13th Month Pay와는 별개 계산. 외자·대기업은 추가 Vacation Leave 15~20일 관행",
         "tip": "SIL 5일은 최소 한도. 실무상 국제 표준 맞추려면 계약으로 15~20일 추가 부여"
+      },
+      "minWageRegional": {
+        "unit": "일",
+        "basis": "NWPC 지역별 Wage Order (2024 개정, 비농업 기준)",
+        "regions": [
+          {
+            "cities": [
+              "마닐라 (NCR)"
+            ],
+            "amount": 645,
+            "display": "₱645/일",
+            "note": "WO-25 (2024.7) · 비농업 · 전국 최고"
+          },
+          {
+            "cities": [
+              "세부 (Cebu Class A)"
+            ],
+            "amount": 501,
+            "display": "₱501/일",
+            "note": "Region VII Class A (Cebu City, Lapu-Lapu, Mandaue, Talisay) 2024"
+          },
+          {
+            "cities": [
+              "클락 (Pampanga)"
+            ],
+            "amount": 500,
+            "display": "₱500/일",
+            "note": "Region III Central Luzon · 2024"
+          },
+          {
+            "cities": [
+              "보홀 (Bohol)"
+            ],
+            "amount": 455,
+            "display": "₱455/일",
+            "note": "Region VII Class B (Bohol 일부 지역) · 2024"
+          }
+        ]
       }
     },
     {
@@ -1904,6 +2146,37 @@ window.DASHBOARD_DATA = {
         "consent": "이월 시 서면 합의 권장",
         "specialObligation": "외자·대기업은 본국 왕복 교통비와 연계된 추가 연차 7~10일을 계약·사규에 명시하는 관행",
         "tip": "6일은 너무 적어 실무 관행과 괴리. 20일 전후 부여가 표준"
+      },
+      "minWageRegional": {
+        "unit": "일",
+        "basis": "총리실 임금위원회 지역·업종별 공고 (2024.10)",
+        "regions": [
+          {
+            "cities": [
+              "방콕 4성+ 호텔 (Bangkok)",
+              "치앙마이 4성+ 호텔 (Chiang Mai)"
+            ],
+            "amount": 400,
+            "display": "฿400/일",
+            "note": "2024.10 인상 · 4성 이상 호텔 등 특정 업종"
+          },
+          {
+            "cities": [
+              "방콕 일반 (Bangkok)"
+            ],
+            "amount": 372,
+            "display": "฿372/일",
+            "note": "2024.1 기본 · 일반 업종"
+          },
+          {
+            "cities": [
+              "치앙마이 일반 (Chiang Mai)"
+            ],
+            "amount": 350,
+            "display": "฿350/일",
+            "note": "2024.1 기본 · 일반 업종"
+          }
+        ]
       }
     },
     {
@@ -2147,6 +2420,20 @@ window.DASHBOARD_DATA = {
         "consent": "법정 동의서 없음",
         "specialObligation": "연차 사용 시 사용자 사전 승인 필요 (§60E(1))",
         "tip": "사내 핸드북에 이월 한도 1년 + 초과분 자동 환산 명시 권장"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "Minimum Wages Order 2024 (2025.2 시행, 전국 단일)",
+        "regions": [
+          {
+            "cities": [
+              "코타키나발루 (Kota Kinabalu, Sabah)"
+            ],
+            "amount": 1700,
+            "display": "RM 1,700/월",
+            "note": "전국 단일 · 5인 이상 기업 (5인 미만 2025.8부터)"
+          }
+        ]
       }
     },
     {
@@ -2615,6 +2902,28 @@ window.DASHBOARD_DATA = {
         "consent": "법정 의무 없음",
         "specialObligation": "종교 휴일(Idul Fitri 등) 전후 집중 사용 관행 — 사용자 거부 어려움",
         "tip": "THR(13월 급여)와 함께 Idul Fitri 전후 1~2주 연차 사용이 표준 — 스케줄 사전 협의 필수"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "각 주 UMP·UMK 2025 (대통령령 PP 51/2023)",
+        "regions": [
+          {
+            "cities": [
+              "바탐 (Batam, Kepulauan Riau)"
+            ],
+            "amount": 4685050,
+            "display": "IDR 4,685,050/월",
+            "note": "Batam UMK 2025 · 자유무역지대·산업단지로 상대적 고임금"
+          },
+          {
+            "cities": [
+              "발리 (Bali - Denpasar UMK)"
+            ],
+            "amount": 3096823,
+            "display": "IDR 3,096,823/월",
+            "note": "Denpasar UMK 2025 · Bali UMP 2,996,500보다 높음 (관광 중심지)"
+          }
+        ]
       }
     },
     {
@@ -2820,6 +3129,20 @@ window.DASHBOARD_DATA = {
         "consent": "이월 시 서면 합의 권장",
         "specialObligation": "Naadam(7/11~15) 집중 사용 관행. 광업·원격지 근무는 교대 연차 방식",
         "tip": "Naadam(7/11~15) 전후 집중 사용 관행. 원격지 광업·인프라 사업장은 교대 근무로 연 1~2회 장기 연차 사용 일반"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "전국 단일 (2024.1 개정)",
+        "regions": [
+          {
+            "cities": [
+              "울란바토르 (Улаанбаатар)"
+            ],
+            "amount": 660000,
+            "display": "MNT 660,000/월",
+            "note": "전국 단일"
+          }
+        ]
       }
     },
     {
@@ -3032,6 +3355,20 @@ window.DASHBOARD_DATA = {
         "consent": "이월 시 근로자 서면 동의 필수",
         "specialObligation": "⚠️ 2년 연속 미사용 시 노동감독원(GIT) 벌금. 사용자가 사용 시점 '연간 스케줄' 수립 의무",
         "tip": "러시아는 '연차 미사용 = 불법' 원칙 강함. HR이 연차 스케줄 엄격 관리 필수. 2년 연속 미사용 시 GIT(노동감독원) 벌금"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "МРОТ 연방 최저 + 연해주 지역 계수 (2025)",
+        "regions": [
+          {
+            "cities": [
+              "블라디보스톡 (Vladivostok, 연해주)"
+            ],
+            "amount": 26928,
+            "display": "RUB 26,928/월",
+            "note": "연방 МРОТ 22,440 × 지역 계수 1.2 + 기타 수당 (2025 추정)"
+          }
+        ]
       }
     },
     {
@@ -3261,6 +3598,20 @@ window.DASHBOARD_DATA = {
         "consent": "법정 의무 없음",
         "specialObligation": "Pi Mai(4월) 집중 사용 관행",
         "tip": "15일은 동남아 평균 수준. 본국 왕복 교통일은 계약으로 별도 부여 가능"
+      },
+      "minWageRegional": {
+        "unit": "월",
+        "basis": "전국 단일 (2023.10 개정)",
+        "regions": [
+          {
+            "cities": [
+              "비엔티안 (Vientiane)"
+            ],
+            "amount": 1600000,
+            "display": "LAK 1,600,000/월",
+            "note": "전국 단일"
+          }
+        ]
       }
     },
     {

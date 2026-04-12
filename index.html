@@ -643,7 +643,7 @@ function render() {
         <div class="stat-box">
           <div class="stat-label">💰 최저임금</div>
           <div class="stat-value">${c.minWage.display}<span class="trend trend-${c.minWage.trend.dir}">${c.minWage.trend.text}</span></div>
-          <div class="stat-sub">${c.minWage.sub}</div>
+          <div class="stat-sub">${c.minWage.sub}${c.minWageRegional ? ' · <strong style="color:var(--jju-orange-dark);">🏙️ 지점 ' + c.minWageRegional.regions.reduce((a, r) => a + r.cities.length, 0) + '곳</strong>' : ''}</div>
           ${krwLabel}
         </div>
         <div class="stat-box">
@@ -794,6 +794,35 @@ function openModal(code) {
           · 최종 개정일: <strong>${c.minWage.updated}</strong>
         </div>
       </div>
+
+      ${c.minWageRegional ? `
+      <div class="modal-section">
+        <div class="modal-section-title">🏙️ 제주항공 취항지 지점별 최저임금</div>
+        <div style="font-size:12px; color:#666; margin-bottom:10px;">${c.minWageRegional.basis}</div>
+        <table class="premium-table">
+          <thead>
+            <tr>
+              <th style="width:45%;">지점·도시</th>
+              <th style="width:25%;">최저임금</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${c.minWageRegional.regions.map(r => {
+              const regionKrw = toKRW(r.amount, c.currency);
+              const krwText = regionKrw != null ? ` <span style="color:#999;font-size:10px;font-weight:400;">(≈ ${formatKRW(regionKrw)})</span>` : '';
+              return `
+              <tr>
+                <td><div class="p-formula" style="font-size:12px;">${r.cities.join(' · ')}</div></td>
+                <td><div class="p-formula" style="color:#C0392B;">${r.display}${krwText}</div></td>
+                <td><div class="p-note" style="font-size:11px;">${r.note || '—'}</div></td>
+              </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+      ` : ''}
 
       <div class="modal-section">
         <div class="modal-section-title">💵 법정 수당 공식 (상세)</div>
@@ -1034,7 +1063,7 @@ function csvEscape(s) {
 function exportCSV() {
   const headers = [
     '국가코드', '국가명', '영문명', '통화', '지역',
-    '최저임금', '최저임금단위', '최저임금기준일',
+    '최저임금', '최저임금단위', '최저임금기준일', '지점별_최저임금',
     '물가상승률(%)', 'CPI기준년도',
     '법정근로시간',
     '연장수당공식', '연장수당비고',
@@ -1058,6 +1087,7 @@ function exportCSV() {
     c.code, c.name, c.nameEn, c.currency,
     c.region === 'ne' ? '동북아' : c.region === 'se' ? '동남아' : '기타',
     c.minWage.display, c.minWage.unit, c.minWage.updated,
+    c.minWageRegional ? c.minWageRegional.regions.map(r => r.cities.join('·') + ': ' + r.display + (r.note ? ' (' + r.note + ')' : '')).join(' | ') : '',
     c.inflation.rate, c.inflation.year,
     c.labor[0] || '',
     c.wagePremiums.overtime.formula, c.wagePremiums.overtime.note,
