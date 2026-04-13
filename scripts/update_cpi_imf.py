@@ -19,7 +19,7 @@ CODE_MAP = {
     "KR": "KOR", "JP": "JPN", "CN": "CHN", "TW": "TWN",
     "HK": "HKG", "MO": "MAC", "VN": "VNM", "PH": "PHL",
     "TH": "THA", "MY": "MYS", "SG": "SGP", "ID": "IDN",
-    "MN": "MNG", "RU": "RUS", "LA": "LAO", "MP": "USA"  # CNMI uses US data
+    "MN": "MNG", "RU": "RUS", "LA": "LAO", "SP": "USA"  # CNMI uses US data
 }
 
 

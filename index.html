@@ -696,7 +696,7 @@ function render() {
         ? `<span class="krw-badge">≈ ${formatKRW(krw)} / ${wageUnit}</span>`
         : '<span class="krw-badge loading">환율 로딩...</span>';
     return `
-    <div class="card" ${isHistorical ? 'style="border-left:3px solid #F39C12;"' : ''}>
+    <div class="card">
       <div class="card-header">
         <div class="flag">${c.flag}</div>
         <div class="country-name-wrap">
@@ -714,9 +714,20 @@ function render() {
           ${krwLabel}
         </div>
         <div class="stat-box">
-          <div class="stat-label">📈 물가상승률 (${c.inflation.year})</div>
-          <div class="stat-value">${c.inflation.display}<span class="trend trend-${c.inflation.trend.dir}">${c.inflation.trend.text}</span></div>
-          <div class="stat-sub">World Bank · ${c.inflation.updated}</div>
+          <div class="stat-label">📈 물가상승률 ${(() => {
+            const cpiEntry = c.inflationHistory ? c.inflationHistory.find(h => h.year === selectedYear) || c.inflationHistory.find(h => h.year === selectedYear - 1) : null;
+            const cpiRate = cpiEntry ? cpiEntry.rate : c.inflation.rate;
+            const cpiYear = cpiEntry ? cpiEntry.year : c.inflation.year;
+            return `(${cpiYear})`;
+          })()}</div>
+          <div class="stat-value">${(() => {
+            const cpiEntry = c.inflationHistory ? c.inflationHistory.find(h => h.year === selectedYear) || c.inflationHistory.find(h => h.year === selectedYear - 1) : null;
+            const cpiRate = cpiEntry ? cpiEntry.rate : c.inflation.rate;
+            const tDir = cpiRate >= 5 ? 'up' : cpiRate >= 2 ? 'up' : cpiRate >= 0.5 ? 'flat' : 'down';
+            const tText = cpiRate >= 5 ? '고물가' : cpiRate >= 2 ? '상승' : cpiRate >= 0.5 ? '안정' : '저물가';
+            return `${cpiRate >= 0 ? '+' : ''}${cpiRate}%<span class="trend trend-${tDir}">${tText}</span>`;
+          })()}</div>
+          <div class="stat-sub">IMF WEO · ${isHistorical ? selectedYear + '년 기준' : c.inflation.updated}</div>
         </div>
       </div>
 
@@ -859,7 +870,7 @@ function openModal(code) {
         <div style="margin-top:10px; font-size:13px; color:#666;">
           5년간 누적 인상률: <strong style="color:#FF6B00;">${growth === '—' ? '—' : '+' + growth + '%'}</strong>
           ${krw != null && c.minWage.amount > 0 ? ` · 현재 원화 환산: <strong>${formatKRW(krw)} / ${c.minWage.unit}</strong>` : ''}
-          · 최종 개정일: <strong>${c.minWage.updated}</strong>
+          · 최종 개정일: <strong>${isHistorical ? selectedYear + '년 기준' : c.minWage.updated}</strong>
         </div>
       </div>
 
