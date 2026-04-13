@@ -611,6 +611,26 @@ function formatKRW(n) {
   return n.toLocaleString('ko-KR') + '원';
 }
 
+// ========================= YEAR OVERRIDE =========================
+function getCountryForYear(c, year) {
+  const currentYear = 2026;
+  if (year >= currentYear || !c.yearOverrides) return c;
+
+  const merged = JSON.parse(JSON.stringify(c)); // deep clone
+  const fieldsToCheck = ['labor', 'wagePremiums', 'fixedTermContract', 'annualLeave', 'workRules', 'hiringPlaybook', 'thirteenthMonth', 'detailedLabor', 'contractRequirements'];
+  const overrideYears = Object.keys(c.yearOverrides).map(Number).sort((a, b) => b - a);
+
+  for (const field of fieldsToCheck) {
+    for (const oy of overrideYears) {
+      if (oy <= year && c.yearOverrides[String(oy)] && c.yearOverrides[String(oy)][field] !== undefined) {
+        merged[field] = c.yearOverrides[String(oy)][field];
+        break;
+      }
+    }
+  }
+  return merged;
+}
+
 // ========================= RENDER =========================
 const grid = document.getElementById('countryGrid');
 const searchBox = document.getElementById('searchBox');
@@ -635,7 +655,9 @@ function render() {
   const currentYear = 2026;
   const isHistorical = selectedYear !== currentYear;
 
-  grid.innerHTML = (isHistorical ? `<div style="grid-column:1/-1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 최저임금을 표시 중입니다. 노동법·수당·계약 관련 정보는 <strong>2026년 최신</strong> 기준입니다. 해당 연도의 법률이 현재와 다를 수 있습니다.</div>` : '') + filtered.map(c => {
+  grid.innerHTML = (isHistorical ? `<div style="grid-column:1/-1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
+    // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
+    const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
     const yearWage = c.minWageHistory ? c.minWageHistory.find(h => h.year === selectedYear) : null;
     const wageAmount = yearWage ? yearWage.value : c.minWage.amount;
@@ -811,8 +833,9 @@ const modalOverlay = document.getElementById('modalOverlay');
 const modal = document.getElementById('modal');
 
 function openModal(code) {
-  const c = countries.find(x => x.code === code);
-  if (!c) return;
+  const c_raw = countries.find(x => x.code === code);
+  if (!c_raw) return;
+  const c = getCountryForYear(c_raw, selectedYear);
   const firstVal = c.minWageHistory[0].value;
   const lastVal = c.minWageHistory[c.minWageHistory.length - 1].value;
   const growth = firstVal > 0 ? (((lastVal - firstVal) / firstVal) * 100).toFixed(1) : '—';
