@@ -616,7 +616,7 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "시",
-        "basis": "都道府県별 시급 (厚生労働省 FY2024, 2024.10 개정)",
+        "basis": "都道府県별 시급 (厚生労働省 FY2025, 2025.10 개정)",
         "regions": [
           {
             "cities": [
@@ -624,35 +624,39 @@ window.DASHBOARD_DATA = {
             ],
             "amount": 1226,
             "display": "¥1,226/시",
-            "note": "FY2025 · 전국 최고"
+            "note": "FY2025 (2025.10~) · 전국 최고"
           },
           {
             "cities": [
               "오사카 (大阪)"
             ],
             "amount": 1177,
-            "display": "¥1,177/시"
+            "display": "¥1,177/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
               "나고야 (愛知)"
             ],
             "amount": 1140,
-            "display": "¥1,140/시"
+            "display": "¥1,140/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
               "고베 (兵庫)"
             ],
             "amount": 1102,
-            "display": "¥1,102/시"
+            "display": "¥1,102/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
               "시즈오카 (静岡)"
             ],
             "amount": 1097,
-            "display": "¥1,097/시"
+            "display": "¥1,097/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
@@ -661,28 +665,31 @@ window.DASHBOARD_DATA = {
             ],
             "amount": 1071,
             "display": "¥1,071/시",
-            "note": "홋카이도 都道府県 단일"
+            "note": "FY2025 (2025.10~) · 홋카이도 都道府県 단일"
           },
           {
             "cities": [
               "히로시마 (広島)"
             ],
             "amount": 1070,
-            "display": "¥1,070/시"
+            "display": "¥1,070/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
               "후쿠오카 (福岡)"
             ],
             "amount": 1057,
-            "display": "¥1,057/시"
+            "display": "¥1,057/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
               "가고시마 (鹿児島)"
             ],
             "amount": 1025,
-            "display": "¥1,025/시"
+            "display": "¥1,025/시",
+            "note": "FY2025 (2025.10~)"
           },
           {
             "cities": [
@@ -692,7 +699,7 @@ window.DASHBOARD_DATA = {
             ],
             "amount": 1023,
             "display": "¥1,023/시",
-            "note": "FY2025 최저 구간 · 전 도도부현 ¥1,000 돌파"
+            "note": "FY2025 (2025.10~) · 최저 구간 · 전 도도부현 ¥1,000 돌파"
           }
         ]
       },
