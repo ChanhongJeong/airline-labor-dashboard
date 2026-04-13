@@ -8,7 +8,7 @@
 // ==========================================================
 window.DASHBOARD_DATA = {
   "meta": {
-    "lastUpdated": "2026-04-11",
+    "lastUpdated": "2026-04-13",
     "cpiSource": "World Bank API (FP.CPI.TOTL.ZG)",
     "cpiNote": "World Bank 연간 CPI는 통상 1~2년 lag가 있습니다. 최신 월간 수치는 각국 통계청 링크로 확인하세요.",
     "minWageNote": "최저임금은 공개 API가 없어 수동 업데이트 방식입니다. 각 국가의 minWage.updated 필드에서 최종 갱신일을 확인하세요.",
@@ -24,15 +24,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "KRW",
       "minWage": {
-        "amount": 10030,
+        "amount": 10320,
         "unit": "시",
-        "display": "₩10,030 / 시",
-        "sub": "전국 단일 · 월 ₩2,096,270 (209h 기준)",
-        "updated": "2025-01-01",
+        "display": "₩10,320 / 시",
+        "sub": "전국 단일 · 월 ₩2,156,880 (209h)",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+1.7%",
+          "text": "+2.9%",
           "dir": "up",
-          "note": "9,860 → 10,030"
+          "note": "10,030 → 10,320"
         }
       },
       "inflation": {
@@ -46,10 +46,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-12"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 8720
-        },
         {
           "year": 2022,
           "value": 9160
@@ -65,6 +61,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 10030
+        },
+        {
+          "year": 2026,
+          "value": 10320
         }
       ],
       "historyUnit": "₩/시",
@@ -235,11 +235,11 @@ window.DASHBOARD_DATA = {
         "regions": [
           {
             "cities": [
-              "전국 (서울·부산·인천·제주 등 모든 지역)"
+              "전국 (서울·부산·인천·제주 등)"
             ],
-            "amount": 10030,
-            "display": "₩10,030/시 (월 ₩2,096,270)",
-            "note": "2025.1.1 개정 · 전국 단일 · 지역별 차등 없음"
+            "amount": 10320,
+            "display": "₩10,320/시 (월 ₩2,156,880)",
+            "note": "2026.1.1 개정 · 전국 단일"
           }
         ]
       },
@@ -271,15 +271,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "JPY",
       "minWage": {
-        "amount": 1055,
+        "amount": 1121,
         "unit": "시",
-        "display": "¥1,055 / 시",
-        "sub": "전국 가중평균",
-        "updated": "2024-10-01",
+        "display": "¥1,121 / 시",
+        "sub": "전국 가중평균 · FY2025 (2025.10~)",
+        "updated": "2025-10-01",
         "trend": {
-          "text": "+5.1%",
+          "text": "+6.3%",
           "dir": "up",
-          "note": "전년 대비"
+          "note": "1,055 → 1,121 (전국 평균)"
         }
       },
       "inflation": {
@@ -293,10 +293,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 930
-        },
         {
           "year": 2022,
           "value": 961
@@ -312,6 +308,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 1118
+        },
+        {
+          "year": 2026,
+          "value": 1121
         }
       ],
       "historyUnit": "¥/시",
@@ -518,89 +518,77 @@ window.DASHBOARD_DATA = {
             "cities": [
               "도쿄 (東京)"
             ],
-            "amount": 1163,
-            "display": "¥1,163/시",
-            "note": "전국 최고"
+            "amount": 1226,
+            "display": "¥1,226/시",
+            "note": "FY2025 · 전국 최고"
           },
           {
             "cities": [
               "오사카 (大阪)"
             ],
-            "amount": 1114,
-            "display": "¥1,114/시"
+            "amount": 1177,
+            "display": "¥1,177/시"
           },
           {
             "cities": [
               "나고야 (愛知)"
             ],
-            "amount": 1077,
-            "display": "¥1,077/시"
+            "amount": 1140,
+            "display": "¥1,140/시"
           },
           {
             "cities": [
               "고베 (兵庫)"
             ],
-            "amount": 1052,
-            "display": "¥1,052/시"
+            "amount": 1102,
+            "display": "¥1,102/시"
           },
           {
             "cities": [
               "시즈오카 (静岡)"
             ],
-            "amount": 1034,
-            "display": "¥1,034/시"
-          },
-          {
-            "cities": [
-              "히로시마 (広島)"
-            ],
-            "amount": 1020,
-            "display": "¥1,020/시"
+            "amount": 1097,
+            "display": "¥1,097/시"
           },
           {
             "cities": [
               "삿포로 (北海道)",
               "하코다테 (北海道)"
             ],
-            "amount": 1010,
-            "display": "¥1,010/시",
+            "amount": 1071,
+            "display": "¥1,071/시",
             "note": "홋카이도 都道府県 단일"
+          },
+          {
+            "cities": [
+              "히로시마 (広島)"
+            ],
+            "amount": 1070,
+            "display": "¥1,070/시"
           },
           {
             "cities": [
               "후쿠오카 (福岡)"
             ],
-            "amount": 992,
-            "display": "¥992/시"
-          },
-          {
-            "cities": [
-              "마쓰야마 (愛媛)"
-            ],
-            "amount": 956,
-            "display": "¥956/시"
-          },
-          {
-            "cities": [
-              "오이타 (大分)"
-            ],
-            "amount": 954,
-            "display": "¥954/시"
+            "amount": 1057,
+            "display": "¥1,057/시"
           },
           {
             "cities": [
               "가고시마 (鹿児島)"
             ],
-            "amount": 953,
-            "display": "¥953/시"
+            "amount": 1025,
+            "display": "¥1,025/시"
           },
           {
             "cities": [
+              "마쓰야마 (愛媛)",
+              "오이타 (大分)",
               "오키나와 (沖縄)"
             ],
-            "amount": 952,
-            "display": "¥952/시",
-            "note": "전국 최저"
+            "amount": 1023,
+            "display": "¥1,023/시",
+            "note": "FY2025 최저 구간 · 전 도도부현 ¥1,000 돌파"
           }
         ]
       }
@@ -614,15 +602,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "CNY",
       "minWage": {
-        "amount": 2690,
+        "amount": 2740,
         "unit": "월",
-        "display": "¥2,690 / 월",
+        "display": "¥2,740 / 월",
         "sub": "상하이 기준 · 지역별 상이",
-        "updated": "2024-07-01",
+        "updated": "2025-04-01",
         "trend": {
-          "text": "+5.4%",
+          "text": "+1.9%",
           "dir": "up",
-          "note": "상하이 조정"
+          "note": "2,690 → 2,740 (상하이)"
         }
       },
       "inflation": {
@@ -637,10 +625,6 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
-          "year": 2021,
-          "value": 2590
-        },
-        {
           "year": 2022,
           "value": 2590
         },
@@ -654,6 +638,10 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
+          "value": 2740
+        },
+        {
+          "year": 2026,
           "value": 2740
         }
       ],
@@ -822,66 +810,66 @@ window.DASHBOARD_DATA = {
             "cities": [
               "상하이 (上海)"
             ],
-            "amount": 2690,
-            "display": "¥2,690/월",
-            "note": "2023.7 개정 · 전국 최고"
+            "amount": 2740,
+            "display": "¥2,740/월",
+            "note": "2025 개정 · 전국 최고"
           },
           {
             "cities": [
               "베이징 (北京)"
             ],
-            "amount": 2420,
-            "display": "¥2,420/월",
-            "note": "2023.9 개정"
+            "amount": 2540,
+            "display": "¥2,540/월",
+            "note": "2025 개정"
           },
           {
             "cities": [
               "칭다오 (青岛)",
               "스자좡 (石家庄)"
             ],
-            "amount": 2200,
-            "display": "¥2,200/월",
-            "note": "산동 1급 (2023.10) / 허베이 1급 (2024.1)"
+            "amount": 2400,
+            "display": "¥2,400/월",
+            "note": "산동·허베이 1급 (2025 개정)"
           },
           {
             "cities": [
               "웨이하이 (威海)"
             ],
-            "amount": 2010,
-            "display": "¥2,010/월",
-            "note": "산동 2급 (2023.10)"
+            "amount": 2200,
+            "display": "¥2,200/월",
+            "note": "산동 2급 (2025 개정)"
           },
           {
             "cities": [
               "옌지 (延吉)"
             ],
-            "amount": 1880,
-            "display": "¥1,880/월",
-            "note": "지린성 1급 (2022.10)"
+            "amount": 2000,
+            "display": "¥2,000/월",
+            "note": "지린 1급 (2025 추정)"
           },
           {
             "cities": [
               "하얼빈 (哈尔滨)"
             ],
-            "amount": 1860,
-            "display": "¥1,860/월",
-            "note": "헤이룽장 1급 (2023.9)"
+            "amount": 1960,
+            "display": "¥1,960/월",
+            "note": "헤이룽장 1급 (2025 추정)"
           },
           {
             "cities": [
               "장가계 (张家界)"
             ],
-            "amount": 1740,
-            "display": "¥1,740/월",
-            "note": "후난성 2급 (추정)"
+            "amount": 1850,
+            "display": "¥1,850/월",
+            "note": "후난 2급 (2025 추정)"
           },
           {
             "cities": [
               "자무스 (佳木斯)"
             ],
-            "amount": 1690,
-            "display": "¥1,690/월",
-            "note": "헤이룽장 2급 (2023.9)"
+            "amount": 1790,
+            "display": "¥1,790/월",
+            "note": "헤이룽장 2급 (2025 추정)"
           }
         ]
       }
@@ -895,15 +883,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "TWD",
       "minWage": {
-        "amount": 28590,
+        "amount": 29500,
         "unit": "월",
-        "display": "NT$28,590 / 월",
-        "sub": "시급 NT$190",
-        "updated": "2025-01-01",
+        "display": "NT$29,500 / 월",
+        "sub": "시급 NT$196",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+4.08%",
+          "text": "+3.18%",
           "dir": "up",
-          "note": "2025년 인상"
+          "note": "28,590 → 29,500"
         }
       },
       "inflation": {
@@ -917,10 +905,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 24000
-        },
         {
           "year": 2022,
           "value": 25250
@@ -936,6 +920,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 28590
+        },
+        {
+          "year": 2026,
+          "value": 29500
         }
       ],
       "historyUnit": "NT$/월",
@@ -1109,9 +1097,9 @@ window.DASHBOARD_DATA = {
               "타이베이 (台北)",
               "가오슝 (高雄)"
             ],
-            "amount": 28590,
-            "display": "NT$28,590/월",
-            "note": "전 지역 단일 (시급 NT$190)"
+            "amount": 29500,
+            "display": "NT$29,500/월 (시급 NT$196)",
+            "note": "전국 단일 · 2026.1 개정"
           }
         ]
       }
@@ -1125,15 +1113,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "HKD",
       "minWage": {
-        "amount": 42.1,
+        "amount": 43.1,
         "unit": "시",
-        "display": "HK$42.1 / 시",
-        "sub": "2025.5 개정",
-        "updated": "2025-05-01",
+        "display": "HK$43.1 / 시",
+        "sub": "2026.5.1 개정",
+        "updated": "2026-05-01",
         "trend": {
-          "text": "+7.1%",
+          "text": "+2.4%",
           "dir": "up",
-          "note": "2년 주기 조정"
+          "note": "42.1 → 43.1"
         }
       },
       "inflation": {
@@ -1147,10 +1135,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 37.5
-        },
         {
           "year": 2022,
           "value": 37.5
@@ -1166,6 +1150,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 42.1
+        },
+        {
+          "year": 2026,
+          "value": 43.1
         }
       ],
       "historyUnit": "HK$/시",
@@ -1369,15 +1357,15 @@ window.DASHBOARD_DATA = {
       "region": "ne",
       "currency": "MOP",
       "minWage": {
-        "amount": 32,
+        "amount": 35,
         "unit": "시",
-        "display": "MOP 32 / 시",
-        "sub": "월 MOP 6,656",
-        "updated": "2024-01-01",
+        "display": "MOP 35 / 시",
+        "sub": "월 MOP 7,280 · 2026.1 개정",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+6.7%",
+          "text": "+9.4%",
           "dir": "up",
-          "note": "2년 주기"
+          "note": "32 → 35 (시급)"
         }
       },
       "inflation": {
@@ -1391,10 +1379,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 6240
-        },
         {
           "year": 2022,
           "value": 6240
@@ -1410,6 +1394,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 7072
+        },
+        {
+          "year": 2026,
+          "value": 7280
         }
       ],
       "historyUnit": "MOP/월",
@@ -1621,15 +1609,15 @@ window.DASHBOARD_DATA = {
       "region": "se",
       "currency": "VND",
       "minWage": {
-        "amount": 4960000,
+        "amount": 5310000,
         "unit": "월",
-        "display": "VND 4,960,000 / 월",
-        "sub": "지역 I (호치민·하노이 등)",
-        "updated": "2024-07-01",
+        "display": "VND 5,310,000 / 월",
+        "sub": "지역 I (하노이·호치민 등)",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+6.0%",
+          "text": "+7.1%",
           "dir": "up",
-          "note": "정부 결정"
+          "note": "4,960,000 → 5,310,000 (지역 I)"
         }
       },
       "inflation": {
@@ -1643,10 +1631,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 4420000
-        },
         {
           "year": 2022,
           "value": 4680000
@@ -1662,6 +1646,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 4960000
+        },
+        {
+          "year": 2026,
+          "value": 5310000
         }
       ],
       "historyUnit": "VND/월 (지역 I)",
@@ -1823,18 +1811,18 @@ window.DASHBOARD_DATA = {
               "하노이 도심 (Ha Noi)",
               "다낭 도심 (Da Nang)"
             ],
-            "amount": 4960000,
-            "display": "VND 4,960,000/월",
-            "note": "지역 I (도시 중심부)"
+            "amount": 5310000,
+            "display": "VND 5,310,000/월",
+            "note": "지역 I · Nghị định 293 (2026.1.1)"
           },
           {
             "cities": [
               "나트랑 (Nha Trang)",
               "푸꾸옥 (Phu Quoc)"
             ],
-            "amount": 4410000,
-            "display": "VND 4,410,000/월",
-            "note": "지역 II (주요 도시 외곽·관광지)"
+            "amount": 4710000,
+            "display": "VND 4,710,000/월",
+            "note": "지역 II · 2026.1.1 개정"
           }
         ]
       }
@@ -1848,15 +1836,15 @@ window.DASHBOARD_DATA = {
       "region": "se",
       "currency": "PHP",
       "minWage": {
-        "amount": 645,
+        "amount": 695,
         "unit": "일",
-        "display": "₱645 / 일",
-        "sub": "NCR 비농업",
-        "updated": "2024-07-17",
+        "display": "₱695 / 일",
+        "sub": "NCR 비농업 · 2025.7 개정",
+        "updated": "2025-07-18",
         "trend": {
-          "text": "+₱35",
+          "text": "+₱50",
           "dir": "up",
-          "note": "WO-25"
+          "note": "645 → 695 (NCR)"
         }
       },
       "inflation": {
@@ -1870,10 +1858,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 537
-        },
         {
           "year": 2022,
           "value": 570
@@ -1889,6 +1873,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 645
+        },
+        {
+          "year": 2026,
+          "value": 695
         }
       ],
       "historyUnit": "₱/일 (NCR)",
@@ -2115,33 +2103,33 @@ window.DASHBOARD_DATA = {
             "cities": [
               "마닐라 (NCR)"
             ],
-            "amount": 645,
-            "display": "₱645/일",
-            "note": "WO-25 (2024.7) · 비농업 · 전국 최고"
+            "amount": 695,
+            "display": "₱695/일",
+            "note": "WO-26 (2025.7.18~) · 비농업"
           },
           {
             "cities": [
               "세부 (Cebu Class A)"
             ],
-            "amount": 501,
-            "display": "₱501/일",
-            "note": "Region VII Class A (Cebu City, Lapu-Lapu, Mandaue, Talisay) 2024"
+            "amount": 533,
+            "display": "₱533/일",
+            "note": "Region VII Class A 2025 개정 추정"
           },
           {
             "cities": [
               "클락 (Pampanga)"
             ],
-            "amount": 500,
-            "display": "₱500/일",
-            "note": "Region III Central Luzon · 2024"
+            "amount": 530,
+            "display": "₱530/일",
+            "note": "Region III 2025 개정 추정"
           },
           {
             "cities": [
               "보홀 (Bohol)"
             ],
-            "amount": 455,
-            "display": "₱455/일",
-            "note": "Region VII Class B (Bohol 일부 지역) · 2024"
+            "amount": 480,
+            "display": "₱480/일",
+            "note": "Region VII Class B 2025 개정 추정"
           }
         ]
       }
@@ -2158,12 +2146,12 @@ window.DASHBOARD_DATA = {
         "amount": 400,
         "unit": "일",
         "display": "฿400 / 일",
-        "sub": "일부 지역·업종",
+        "sub": "전국 확대 적용 목표 (2024.10~)",
         "updated": "2024-10-01",
         "trend": {
-          "text": "+11.1%",
-          "dir": "up",
-          "note": "특정 업종·지역"
+          "text": "유지",
+          "dir": "flat",
+          "note": "2026 추가 인상 미정"
         }
       },
       "inflation": {
@@ -2178,10 +2166,6 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
-          "year": 2021,
-          "value": 336
-        },
-        {
           "year": 2022,
           "value": 354
         },
@@ -2195,6 +2179,10 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
+          "value": 400
+        },
+        {
+          "year": 2026,
           "value": 400
         }
       ],
@@ -2441,9 +2429,9 @@ window.DASHBOARD_DATA = {
         "sub": "5인 이상 사업장",
         "updated": "2025-02-01",
         "trend": {
-          "text": "+13.3%",
-          "dir": "up",
-          "note": "대폭 인상"
+          "text": "유지",
+          "dir": "flat",
+          "note": "2025.2 이후 변동 없음"
         }
       },
       "inflation": {
@@ -2458,10 +2446,6 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
-          "year": 2021,
-          "value": 1200
-        },
-        {
           "year": 2022,
           "value": 1500
         },
@@ -2475,6 +2459,10 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
+          "value": 1700
+        },
+        {
+          "year": 2026,
           "value": 1700
         }
       ],
@@ -2919,15 +2907,15 @@ window.DASHBOARD_DATA = {
       "region": "se",
       "currency": "IDR",
       "minWage": {
-        "amount": 5396761,
+        "amount": 5729876,
         "unit": "월",
-        "display": "IDR 5,396,761 / 월",
-        "sub": "자카르타 UMP 2025",
-        "updated": "2025-01-01",
+        "display": "IDR 5,729,876 / 월",
+        "sub": "자카르타 UMP 2026",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+6.5%",
+          "text": "+6.2%",
           "dir": "up",
-          "note": "대통령령"
+          "note": "5,396,761 → 5,729,876 (자카르타)"
         }
       },
       "inflation": {
@@ -2941,10 +2929,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 4416186
-        },
         {
           "year": 2022,
           "value": 4641854
@@ -2960,6 +2944,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 5396761
+        },
+        {
+          "year": 2026,
+          "value": 5729876
         }
       ],
       "historyUnit": "IDR/월 (자카르타)",
@@ -3158,17 +3146,17 @@ window.DASHBOARD_DATA = {
             "cities": [
               "바탐 (Batam, Kepulauan Riau)"
             ],
-            "amount": 4685050,
-            "display": "IDR 4,685,050/월",
-            "note": "Batam UMK 2025 · 자유무역지대·산업단지로 상대적 고임금"
+            "amount": 4980000,
+            "display": "IDR 4,980,000/월",
+            "note": "Batam UMK 2026 추정 (+6%)"
           },
           {
             "cities": [
               "발리 (Bali - Denpasar UMK)"
             ],
-            "amount": 3096823,
-            "display": "IDR 3,096,823/월",
-            "note": "Denpasar UMK 2025 · Bali UMP 2,996,500보다 높음 (관광 중심지)"
+            "amount": 3283000,
+            "display": "IDR 3,283,000/월",
+            "note": "Denpasar UMK 2026 추정 (+6%)"
           }
         ]
       }
@@ -3182,15 +3170,15 @@ window.DASHBOARD_DATA = {
       "region": "etc",
       "currency": "MNT",
       "minWage": {
-        "amount": 660000,
+        "amount": 792000,
         "unit": "월",
-        "display": "MNT 660,000 / 월",
-        "sub": "2024.1 개정",
-        "updated": "2024-01-01",
+        "display": "MNT 792,000 / 월",
+        "sub": "2025.4.1 개정",
+        "updated": "2025-04-01",
         "trend": {
           "text": "+20.0%",
           "dir": "up",
-          "note": "대폭 인상"
+          "note": "660,000 → 792,000"
         }
       },
       "inflation": {
@@ -3204,10 +3192,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 420000
-        },
         {
           "year": 2022,
           "value": 420000
@@ -3223,6 +3207,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 660000
+        },
+        {
+          "year": 2026,
+          "value": 792000
         }
       ],
       "historyUnit": "MNT/월",
@@ -3401,15 +3389,15 @@ window.DASHBOARD_DATA = {
       "region": "etc",
       "currency": "RUB",
       "minWage": {
-        "amount": 22440,
+        "amount": 27093,
         "unit": "월",
-        "display": "RUB 22,440 / 월",
-        "sub": "МРОТ 연방 기준",
-        "updated": "2025-01-01",
+        "display": "RUB 27,093 / 월",
+        "sub": "МРОТ 연방 기준 · 2026.1 개정",
+        "updated": "2026-01-01",
         "trend": {
-          "text": "+16.6%",
+          "text": "+20.7%",
           "dir": "up",
-          "note": "연방 조정"
+          "note": "22,440 → 27,093"
         }
       },
       "inflation": {
@@ -3423,10 +3411,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 12792
-        },
         {
           "year": 2022,
           "value": 15279
@@ -3442,6 +3426,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 22440
+        },
+        {
+          "year": 2026,
+          "value": 27093
         }
       ],
       "historyUnit": "RUB/월",
@@ -3611,9 +3599,9 @@ window.DASHBOARD_DATA = {
             "cities": [
               "블라디보스톡 (Vladivostok, 연해주)"
             ],
-            "amount": 26928,
-            "display": "RUB 26,928/월",
-            "note": "연방 МРОТ 22,440 × 지역 계수 1.2 + 기타 수당 (2025 추정)"
+            "amount": 32512,
+            "display": "RUB 32,512/월",
+            "note": "МРОТ 27,093 × 지역계수 1.2 (2026 추정)"
           }
         ]
       }
@@ -3627,15 +3615,15 @@ window.DASHBOARD_DATA = {
       "region": "se",
       "currency": "LAK",
       "minWage": {
-        "amount": 1600000,
+        "amount": 2500000,
         "unit": "월",
-        "display": "LAK 1,600,000 / 월",
-        "sub": "2023.10 개정",
-        "updated": "2023-10-01",
+        "display": "LAK 2,500,000 / 월",
+        "sub": "2025 개정",
+        "updated": "2025-05-01",
         "trend": {
-          "text": "+23.1%",
+          "text": "+56.3%",
           "dir": "up",
-          "note": "고인플레 대응"
+          "note": "1,600,000 → 2,500,000 (대폭 인상)"
         }
       },
       "inflation": {
@@ -3649,10 +3637,6 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
-        {
-          "year": 2021,
-          "value": 1100000
-        },
         {
           "year": 2022,
           "value": 1200000
@@ -3668,6 +3652,10 @@ window.DASHBOARD_DATA = {
         {
           "year": 2025,
           "value": 1600000
+        },
+        {
+          "year": 2026,
+          "value": 2500000
         }
       ],
       "historyUnit": "LAK/월",
@@ -3854,9 +3842,9 @@ window.DASHBOARD_DATA = {
             "cities": [
               "비엔티안 (Vientiane)"
             ],
-            "amount": 1600000,
-            "display": "LAK 1,600,000/월",
-            "note": "전국 단일"
+            "amount": 2500000,
+            "display": "LAK 2,500,000/월",
+            "note": "전국 단일 · 2025 개정"
           }
         ]
       }
@@ -3893,10 +3881,6 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
-          "year": 2021,
-          "value": 7.25
-        },
-        {
           "year": 2022,
           "value": 7.25
         },
@@ -3910,6 +3894,10 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
+          "value": 7.25
+        },
+        {
+          "year": 2026,
           "value": 7.25
         }
       ],
