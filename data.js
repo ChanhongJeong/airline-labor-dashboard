@@ -1,15 +1,8 @@
-// ==========================================================
-// 제주항공 취항지 노동법·물가·최저임금 대시보드 데이터
-// ----------------------------------------------------------
-// inflation.rate / inflation.year 는 scripts/update_cpi_imf.py
-// 스크립트가 IMF WEO API(PCPIPCH)에서 자동 갱신.
-// minWage 관련 필드는 공식 API 부재로 수동 업데이트.
-// GitHub Actions 주기적 실행 → 커밋.
-// ==========================================================
+// Auto-updated by GitHub Actions
 window.DASHBOARD_DATA = {
   "meta": {
     "lastUpdated": "2026-04-13",
-    "cpiSource": "IMF WEO API (PCPIPCH, 2025년 연간 평균 CPI)",
+    "cpiSource": "IMF WEO API (PCPIPCH, 2025)",
     "cpiNote": "World Bank 연간 CPI는 통상 1~2년 lag가 있습니다. 최신 월간 수치는 각국 통계청 링크로 확인하세요.",
     "minWageNote": "최저임금은 공개 API가 없어 수동 업데이트 방식입니다. 각 국가의 minWage.updated 필드에서 최종 갱신일을 확인하세요.",
     "fxSource": "open.er-api.com (클라이언트 사이드 fetch)"
