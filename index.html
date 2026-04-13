@@ -524,6 +524,16 @@
       <button class="chip" data-region="se">동남아</button>
       <button class="chip" data-region="etc">기타</button>
     </div>
+    <select id="yearSelector" style="padding:8px 14px;border:2px solid var(--border);border-radius:10px;font-size:13px;font-weight:600;background:#fff;color:var(--text-main);cursor:pointer;min-width:110px;">
+      <option value="2026" selected>📅 2026년</option>
+      <option value="2025">2025년</option>
+      <option value="2024">2024년</option>
+      <option value="2023">2023년</option>
+      <option value="2022">2022년</option>
+      <option value="2021">2021년</option>
+      <option value="2020">2020년</option>
+      <option value="2019">2019년</option>
+    </select>
     <button class="export-btn" id="csvExportBtn">📥 CSV 내보내기</button>
   </div>
 
@@ -563,6 +573,7 @@ document.getElementById('lastUpdatedBadge').textContent = `📅 데이터 갱신
 let fxRates = null;
 let activeRegion = 'all';
 let searchTerm = '';
+let selectedYear = 2026;
 
 // ========================= FX =========================
 async function loadFx() {
@@ -621,29 +632,63 @@ function render() {
     return;
   }
 
-  grid.innerHTML = filtered.map(c => {
-    const krw = toKRW(c.minWage.amount, c.currency);
-    const krwLabel = c.minWage.amount === 0
+  const currentYear = 2026;
+  const isHistorical = selectedYear !== currentYear;
+
+  grid.innerHTML = (isHistorical ? `<div style="grid-column:1/-1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 최저임금을 표시 중입니다. 노동법·수당·계약 관련 정보는 <strong>2026년 최신</strong> 기준입니다. 해당 연도의 법률이 현재와 다를 수 있습니다.</div>` : '') + filtered.map(c => {
+    // 선택된 연도의 최저임금 찾기
+    const yearWage = c.minWageHistory ? c.minWageHistory.find(h => h.year === selectedYear) : null;
+    const wageAmount = yearWage ? yearWage.value : c.minWage.amount;
+    const wageUnit = c.minWage.unit;
+    const prevYearWage = c.minWageHistory ? c.minWageHistory.find(h => h.year === selectedYear - 1) : null;
+    const yearChange = (yearWage && prevYearWage && prevYearWage.value > 0) ? ((yearWage.value - prevYearWage.value) / prevYearWage.value * 100).toFixed(1) : null;
+
+    // 현재 연도면 기존 display 사용, 과거면 history에서 생성
+    const wageDisplay = isHistorical && yearWage
+      ? (c.currency === 'KRW' ? `₩${wageAmount.toLocaleString()}` :
+         c.currency === 'JPY' || c.currency === 'CNY' ? `¥${wageAmount.toLocaleString()}` :
+         c.currency === 'TWD' ? `NT$${wageAmount.toLocaleString()}` :
+         c.currency === 'HKD' ? `HK$${wageAmount}` :
+         c.currency === 'MOP' ? `MOP ${wageAmount.toLocaleString()}` :
+         c.currency === 'VND' ? `VND ${wageAmount.toLocaleString()}` :
+         c.currency === 'PHP' ? `₱${wageAmount.toLocaleString()}` :
+         c.currency === 'THB' ? `฿${wageAmount.toLocaleString()}` :
+         c.currency === 'MYR' ? `RM ${wageAmount.toLocaleString()}` :
+         c.currency === 'SGD' ? `S$${wageAmount.toLocaleString()}` :
+         c.currency === 'IDR' ? `IDR ${wageAmount.toLocaleString()}` :
+         c.currency === 'MNT' ? `MNT ${wageAmount.toLocaleString()}` :
+         c.currency === 'RUB' ? `RUB ${wageAmount.toLocaleString()}` :
+         c.currency === 'LAK' ? `LAK ${wageAmount.toLocaleString()}` :
+         c.currency === 'USD' ? `US$${wageAmount}` :
+         `${wageAmount.toLocaleString()}`) + ` / ${wageUnit}`
+      : c.minWage.display;
+
+    const trendLabel = isHistorical && yearChange !== null
+      ? `<span class="trend ${parseFloat(yearChange) > 0 ? 'trend-up' : parseFloat(yearChange) === 0 ? 'trend-flat' : 'trend-down'}">${parseFloat(yearChange) > 0 ? '+' : ''}${yearChange}%</span>`
+      : `<span class="trend trend-${c.minWage.trend.dir}">${c.minWage.trend.text}</span>`;
+
+    const krw = toKRW(wageAmount, c.currency);
+    const krwLabel = wageAmount === 0
       ? '<span class="krw-badge" style="background:#999;">PWM 직종별 상이</span>'
       : krw != null
-        ? `<span class="krw-badge">≈ ${formatKRW(krw)} / ${c.minWage.unit}</span>`
+        ? `<span class="krw-badge">≈ ${formatKRW(krw)} / ${wageUnit}</span>`
         : '<span class="krw-badge loading">환율 로딩...</span>';
     return `
-    <div class="card">
+    <div class="card" ${isHistorical ? 'style="border-left:3px solid #F39C12;"' : ''}>
       <div class="card-header">
         <div class="flag">${c.flag}</div>
         <div class="country-name-wrap">
           <div class="country-name">${c.name}</div>
           <div class="country-sub">${c.nameEn} · ${c.code} · ${c.currency}</div>
         </div>
-        <span class="update-tag" title="최저임금 기준일">${c.minWage.updated}</span>
+        ${isHistorical ? `<span class="update-tag" style="background:var(--jju-orange);color:#fff;">${selectedYear}년</span>` : `<span class="update-tag" title="최저임금 기준일">${c.minWage.updated}</span>`}
       </div>
 
       <div class="stat-row">
         <div class="stat-box">
-          <div class="stat-label">💰 최저임금</div>
-          <div class="stat-value">${c.minWage.display}<span class="trend trend-${c.minWage.trend.dir}">${c.minWage.trend.text}</span></div>
-          <div class="stat-sub">${c.minWage.sub}${c.minWageRegional ? ' · <strong style="color:var(--jju-orange-dark);">🏙️ 지점 ' + c.minWageRegional.regions.reduce((a, r) => a + r.cities.length, 0) + '곳</strong>' : ''}</div>
+          <div class="stat-label">💰 최저임금 ${isHistorical ? '(' + selectedYear + '년)' : ''}</div>
+          <div class="stat-value">${wageDisplay}${trendLabel}</div>
+          <div class="stat-sub">${isHistorical ? selectedYear + '년 기준 (전년 대비)' : c.minWage.sub}${!isHistorical && c.minWageRegional ? ' · <strong style="color:var(--jju-orange-dark);">🏙️ 지점 ' + c.minWageRegional.regions.reduce((a, r) => a + r.cities.length, 0) + '곳</strong>' : ''}</div>
           ${krwLabel}
         </div>
         <div class="stat-box">
@@ -1140,6 +1185,12 @@ function exportCSV() {
 document.getElementById('csvExportBtn').addEventListener('click', exportCSV);
 
 // ========================= EVENTS =========================
+const yearSelector = document.getElementById('yearSelector');
+yearSelector.addEventListener('change', e => {
+  selectedYear = parseInt(e.target.value);
+  render();
+});
+
 searchBox.addEventListener('input', e => {
   searchTerm = e.target.value;
   render();

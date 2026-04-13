@@ -47,6 +47,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 8350
+        },
+        {
+          "year": 2020,
+          "value": 8590
+        },
+        {
+          "year": 2021,
+          "value": 8720
+        },
+        {
           "year": 2022,
           "value": 9160
         },
@@ -293,6 +305,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 901
+        },
+        {
+          "year": 2020,
+          "value": 902
+        },
+        {
+          "year": 2021,
+          "value": 930
+        },
         {
           "year": 2022,
           "value": 961
@@ -625,6 +649,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 2480
+        },
+        {
+          "year": 2020,
+          "value": 2480
+        },
+        {
+          "year": 2021,
+          "value": 2590
+        },
+        {
           "year": 2022,
           "value": 2590
         },
@@ -906,6 +942,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 23100
+        },
+        {
+          "year": 2020,
+          "value": 23800
+        },
+        {
+          "year": 2021,
+          "value": 24000
+        },
+        {
           "year": 2022,
           "value": 25250
         },
@@ -1135,6 +1183,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 37.5
+        },
+        {
+          "year": 2020,
+          "value": 37.5
+        },
+        {
+          "year": 2021,
+          "value": 37.5
+        },
         {
           "year": 2022,
           "value": 37.5
@@ -1379,6 +1439,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 6240
+        },
+        {
+          "year": 2020,
+          "value": 6240
+        },
+        {
+          "year": 2021,
+          "value": 6240
+        },
         {
           "year": 2022,
           "value": 6240
@@ -1632,6 +1704,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 4180000
+        },
+        {
+          "year": 2020,
+          "value": 4420000
+        },
+        {
+          "year": 2021,
+          "value": 4420000
+        },
+        {
           "year": 2022,
           "value": 4680000
         },
@@ -1858,6 +1942,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 537
+        },
+        {
+          "year": 2020,
+          "value": 537
+        },
+        {
+          "year": 2021,
+          "value": 537
+        },
         {
           "year": 2022,
           "value": 570
@@ -2166,6 +2262,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 325
+        },
+        {
+          "year": 2020,
+          "value": 331
+        },
+        {
+          "year": 2021,
+          "value": 336
+        },
+        {
           "year": 2022,
           "value": 354
         },
@@ -2446,6 +2554,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 1100
+        },
+        {
+          "year": 2020,
+          "value": 1200
+        },
+        {
+          "year": 2021,
+          "value": 1200
+        },
+        {
           "year": 2022,
           "value": 1500
         },
@@ -2703,6 +2823,14 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 0
+        },
+        {
+          "year": 2020,
+          "value": 0
+        },
+        {
           "year": 2021,
           "value": 1200
         },
@@ -2929,6 +3057,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 3940973
+        },
+        {
+          "year": 2020,
+          "value": 4276350
+        },
+        {
+          "year": 2021,
+          "value": 4416186
+        },
         {
           "year": 2022,
           "value": 4641854
@@ -3193,6 +3333,18 @@ window.DASHBOARD_DATA = {
       },
       "minWageHistory": [
         {
+          "year": 2019,
+          "value": 320000
+        },
+        {
+          "year": 2020,
+          "value": 420000
+        },
+        {
+          "year": 2021,
+          "value": 420000
+        },
+        {
           "year": 2022,
           "value": 420000
         },
@@ -3411,6 +3563,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 11280
+        },
+        {
+          "year": 2020,
+          "value": 12130
+        },
+        {
+          "year": 2021,
+          "value": 12792
+        },
         {
           "year": 2022,
           "value": 15279
@@ -3637,6 +3801,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 1100000
+        },
+        {
+          "year": 2020,
+          "value": 1100000
+        },
+        {
+          "year": 2021,
+          "value": 1100000
+        },
         {
           "year": 2022,
           "value": 1200000
@@ -3880,6 +4056,18 @@ window.DASHBOARD_DATA = {
         "updated": "2026-04-11"
       },
       "minWageHistory": [
+        {
+          "year": 2019,
+          "value": 7.25
+        },
+        {
+          "year": 2020,
+          "value": 7.25
+        },
+        {
+          "year": 2021,
+          "value": 7.25
+        },
         {
           "year": 2022,
           "value": 7.25
