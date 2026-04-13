@@ -21,8 +21,49 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: CPI 데이터 갱신 (World Bank API)
-        run: python scripts/update_data.py
+      - name: CPI 데이터 갱신 (IMF WEO API)
+        run: |
+          curl -s "https://www.imf.org/external/datamapper/api/v1/PCPIPCH?periods=2025" -o /tmp/imf_data.json
+          python3 -c "
+          import json, re, sys
+          from datetime import date
+          from pathlib import Path
+
+          imf = json.loads(Path('/tmp/imf_data.json').read_text())
+          vals = imf.get('values', {}).get('PCPIPCH', {})
+          if not vals:
+              print('IMF data empty, skipping')
+              sys.exit(0)
+
+          CODE_MAP = {
+              'KR': 'KOR', 'JP': 'JPN', 'CN': 'CHN', 'TW': 'TWN',
+              'HK': 'HKG', 'MO': 'MAC', 'VN': 'VNM', 'PH': 'PHL',
+              'TH': 'THA', 'MY': 'MYS', 'SG': 'SGP', 'ID': 'IDN',
+              'MN': 'MNG', 'RU': 'RUS', 'LA': 'LAO', 'MP': 'USA'
+          }
+          def trend(r):
+              if r >= 5: return {'text': '고물가', 'dir': 'up'}
+              if r >= 2: return {'text': '상승', 'dir': 'up'}
+              if r >= 0.5: return {'text': '안정', 'dir': 'flat'}
+              return {'text': '저물가', 'dir': 'down'}
+
+          text = Path('data.js').read_text('utf-8')
+          m = re.search(r'window\.DASHBOARD_DATA\s*=\s*(\{.*\})\s*;\s*$', text, re.DOTALL)
+          data = json.loads(m.group(1))
+          today = date.today().isoformat()
+          for c in data['countries']:
+              imf_code = CODE_MAP.get(c['code'])
+              if not imf_code: continue
+              rate = vals.get(imf_code, {}).get('2025')
+              if rate is None: continue
+              rate = round(float(rate), 2)
+              c['inflation'] = {'rate': rate, 'year': 2025, 'display': f'+{rate}%' if rate >= 0 else f'{rate}%', 'trend': trend(rate), 'updated': today}
+          data['meta']['lastUpdated'] = today
+          data['meta']['cpiSource'] = 'IMF WEO API (PCPIPCH, 2025)'
+          header = '// Auto-updated by GitHub Actions\n'
+          Path('data.js').write_text(header + 'window.DASHBOARD_DATA = ' + json.dumps(data, ensure_ascii=False, indent=2) + ';\n', 'utf-8')
+          print(f'Updated {len([c for c in data[\"countries\"] if CODE_MAP.get(c[\"code\"])])} countries')
+          "
 
       - name: 변경사항 확인 및 커밋
         run: |
@@ -33,5 +74,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.js
-          git commit -m "chore(data): World Bank CPI 자동 갱신 $(date -u +%Y-%m-%d)"
+          git commit -m "chore(data): IMF WEO CPI 자동 갱신 $(date -u +%Y-%m-%d)"
           git push

@@ -1,15 +1,15 @@
 // ==========================================================
 // 제주항공 취항지 노동법·물가·최저임금 대시보드 데이터
 // ----------------------------------------------------------
-// inflation.rate / inflation.year 는 scripts/update_data.py
-// 스크립트가 World Bank API(FP.CPI.TOTL.ZG)에서 자동 갱신.
+// inflation.rate / inflation.year 는 scripts/update_cpi_imf.py
+// 스크립트가 IMF WEO API(PCPIPCH)에서 자동 갱신.
 // minWage 관련 필드는 공식 API 부재로 수동 업데이트.
-// GitHub Actions 주기적 실행(scripts/update_data.py) → 커밋.
+// GitHub Actions 주기적 실행 → 커밋.
 // ==========================================================
 window.DASHBOARD_DATA = {
   "meta": {
     "lastUpdated": "2026-04-13",
-    "cpiSource": "World Bank API (FP.CPI.TOTL.ZG)",
+    "cpiSource": "IMF WEO API (PCPIPCH, 2025년 연간 평균 CPI)",
     "cpiNote": "World Bank 연간 CPI는 통상 1~2년 lag가 있습니다. 최신 월간 수치는 각국 통계청 링크로 확인하세요.",
     "minWageNote": "최저임금은 공개 API가 없어 수동 업데이트 방식입니다. 각 국가의 minWage.updated 필드에서 최종 갱신일을 확인하세요.",
     "fxSource": "open.er-api.com (클라이언트 사이드 fetch)"
@@ -36,14 +36,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.3,
-        "year": 2024,
-        "display": "+2.3%",
+        "rate": 2.0,
+        "year": 2025,
+        "display": "+2.0%",
         "trend": {
-          "text": "안정",
-          "dir": "flat"
+          "text": "상승",
+          "dir": "up"
         },
-        "updated": "2026-04-12"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -295,14 +295,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.74,
-        "year": 2024,
-        "display": "+2.74%",
+        "rate": 3.3,
+        "year": 2025,
+        "display": "+3.3%",
         "trend": {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -638,14 +638,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 0.22,
-        "year": 2024,
-        "display": "+0.22%",
+        "rate": 0.0,
+        "year": 2025,
+        "display": "+0.0%",
         "trend": {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -931,14 +931,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.2,
-        "year": 2024,
-        "display": "+2.2%",
+        "rate": 1.7,
+        "year": 2025,
+        "display": "+1.7%",
         "trend": {
-          "text": "상승",
-          "dir": "up"
+          "text": "안정",
+          "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -1173,14 +1173,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 1.73,
-        "year": 2024,
-        "display": "+1.73%",
+        "rate": 1.7,
+        "year": 2025,
+        "display": "+1.7%",
         "trend": {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -1429,14 +1429,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 0.67,
-        "year": 2024,
-        "display": "+0.67%",
+        "rate": 0.5,
+        "year": 2025,
+        "display": "+0.5%",
         "trend": {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -1693,14 +1693,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 3.62,
-        "year": 2024,
-        "display": "+3.62%",
+        "rate": 3.4,
+        "year": 2025,
+        "display": "+3.4%",
         "trend": {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -1932,14 +1932,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 3.21,
-        "year": 2024,
-        "display": "+3.21%",
+        "rate": 1.6,
+        "year": 2025,
+        "display": "+1.6%",
         "trend": {
-          "text": "상승",
-          "dir": "up"
+          "text": "안정",
+          "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -2251,14 +2251,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 1.37,
-        "year": 2024,
-        "display": "+1.37%",
+        "rate": 0.2,
+        "year": 2025,
+        "display": "+0.2%",
         "trend": {
-          "text": "안정",
-          "dir": "flat"
+          "text": "저물가",
+          "dir": "down"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -2543,14 +2543,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 1.83,
-        "year": 2024,
-        "display": "+1.83%",
+        "rate": 1.6,
+        "year": 2025,
+        "display": "+1.6%",
         "trend": {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -2812,14 +2812,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.39,
-        "year": 2024,
-        "display": "+2.39%",
+        "rate": 0.9,
+        "year": 2025,
+        "display": "+0.9%",
         "trend": {
-          "text": "상승",
-          "dir": "up"
+          "text": "안정",
+          "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -3047,14 +3047,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.18,
-        "year": 2024,
-        "display": "+2.18%",
+        "rate": 1.8,
+        "year": 2025,
+        "display": "+1.8%",
         "trend": {
-          "text": "상승",
-          "dir": "up"
+          "text": "안정",
+          "dir": "flat"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -3322,14 +3322,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 6.2,
-        "year": 2024,
-        "display": "+6.2%",
+        "rate": 8.3,
+        "year": 2025,
+        "display": "+8.3%",
         "trend": {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -3553,14 +3553,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 8.43,
-        "year": 2024,
-        "display": "+8.43%",
+        "rate": 9.0,
+        "year": 2025,
+        "display": "+9.0%",
         "trend": {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -3791,14 +3791,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 23.13,
-        "year": 2024,
-        "display": "+23.13%",
+        "rate": 7.8,
+        "year": 2025,
+        "display": "+7.8%",
         "trend": {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
@@ -4046,14 +4046,14 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 2.95,
-        "year": 2024,
-        "display": "+2.95%",
+        "rate": 2.7,
+        "year": 2025,
+        "display": "+2.7%",
         "trend": {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-04-11"
+        "updated": "2026-04-13"
       },
       "minWageHistory": [
         {
