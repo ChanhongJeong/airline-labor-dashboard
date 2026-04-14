@@ -133,7 +133,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 18px;
-    align-items: start;
   }
   .card {
     background: var(--card-bg);
@@ -252,13 +251,15 @@
   .premium-name { font-weight: 700; color: var(--jju-orange-dark); font-size: 11px; }
   .premium-formula { color: var(--text-main); font-size: 12px; margin-top: 2px; font-weight: 600; }
   .card-footer {
-    margin-top: auto;
     padding-top: 12px;
     border-top: 1px dashed var(--border);
     display: flex;
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
+  }
+  .source-links-wrap {
+    margin-top: auto;
   }
   .detail-btn {
     flex: 1;
@@ -772,8 +773,10 @@ function render() {
       <div class="card-footer">
         <button class="detail-btn" data-detail="${c.code}">📊 상세보기 (추이·계약·공휴일·비자)</button>
       </div>
-      <div class="source-links">
-        ${c.sources.map(s => `<a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}
+      <div class="source-links-wrap">
+        <div class="source-links">
+          ${c.sources.map(s => `<a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}
+        </div>
       </div>
     </div>
   `;
