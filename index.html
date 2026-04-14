@@ -847,6 +847,7 @@ function openModal(code) {
   const c_raw = countries.find(x => x.code === code);
   if (!c_raw) return;
   const c = getCountryForYear(c_raw, selectedYear);
+  const isHistorical = selectedYear !== 2026;
   const firstVal = c.minWageHistory[0].value;
   const lastVal = c.minWageHistory[c.minWageHistory.length - 1].value;
   const growth = firstVal > 0 ? (((lastVal - firstVal) / firstVal) * 100).toFixed(1) : '—';
