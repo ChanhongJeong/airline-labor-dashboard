@@ -258,9 +258,6 @@
     align-items: center;
     flex-wrap: wrap;
   }
-  .source-links-wrap {
-    margin-top: auto;
-  }
   .detail-btn {
     flex: 1;
     min-width: 110px;
@@ -773,10 +770,8 @@ function render() {
       <div class="card-footer">
         <button class="detail-btn" data-detail="${c.code}">📊 상세보기 (추이·계약·공휴일·비자)</button>
       </div>
-      <div class="source-links-wrap">
-        <div class="source-links">
-          ${c.sources.map(s => `<a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}
-        </div>
+      <div class="source-links" style="margin-top:8px;">
+        ${c.sources.map(s => `<a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}
       </div>
     </div>
   `;
