@@ -130,10 +130,8 @@
   }
   .summary-bar strong { color: var(--jju-orange-dark); }
   .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    align-items: start;
+    column-count: 3;
+    column-gap: 18px;
   }
   .card {
     background: var(--card-bg);
@@ -142,6 +140,8 @@
     padding: 20px;
     box-shadow: var(--shadow);
     transition: all 0.2s;
+    break-inside: avoid;
+    margin-bottom: 18px;
   }
   .card:hover {
     transform: translateY(-2px);
@@ -471,14 +471,14 @@
 
   /* 모바일 반응형 */
   @media (max-width: 1100px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid { column-count: 2; }
   }
   @media (max-width: 768px) {
     header { padding: 22px 16px 20px; }
     h1 { font-size: 20px; }
     .subtitle { font-size: 12px; }
     main { padding: 16px; }
-    .grid { grid-template-columns: 1fr; }
+    .grid { column-count: 1; }
     .card { padding: 16px; }
     .country-name { font-size: 16px; }
     .stat-value { font-size: 14px; }
@@ -605,20 +605,43 @@ function toKRW(amount, currency) {
   return Math.round(usd * krwRate);
 }
 
+// 현재 화면 너비로 CSS column 개수 결정 (index.html 미디어쿼리와 일치)
+function getColCount() {
+  const w = window.innerWidth;
+  if (w <= 768) return 1;
+  if (w <= 1100) return 2;
+  return 3;
+}
+
+// CSS columns는 세로 먼저 채우므로, 가로(왼쪽→오른쪽) 순서로 보이게 하려면
+// 데이터 배열을 열 기준으로 전치(transpose)해야 함
+function reorderForColumns(arr, cols) {
+  if (cols <= 1 || arr.length <= cols) return arr.slice();
+  const rows = Math.ceil(arr.length / cols);
+  const out = [];
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++) {
+      const i = r * cols + c;
+      if (i < arr.length) out.push(arr[i]);
+    }
+  }
+  return out;
+}
+
 // {value, legal} 형태의 필드를 표시. value만 있으면 value, 없으면 fallback.
-// legal이 있으면 "📖 법조항" chip을 덧붙인다.
+// legal이 있으면 "📖 법조항" chip을 덧붙인다. (회색 톤, 보조 정보로 강조 낮춤)
 function fmtField(obj, fallback) {
   if (obj && typeof obj === 'object' && 'value' in obj) {
-    const legalChip = obj.legal ? ` <span style="display:inline-block;background:#FFF5EC;color:#E55A00;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;border:1px solid #FFD4B0;">📖 ${obj.legal}</span>` : '';
+    const legalChip = obj.legal ? ` <span style="display:inline-block;background:#F4F4F4;color:#888;font-size:10px;font-weight:500;padding:1px 6px;border-radius:4px;border:1px solid #E0E0E0;">📖 ${obj.legal}</span>` : '';
     return obj.value + legalChip;
   }
   if (typeof obj === 'string') return obj;
   return fallback || '—';
 }
-// 법조항 chip만 단독으로 렌더
+// 법조항 chip만 단독으로 렌더 (회색 톤)
 function legalChip(legal) {
   if (!legal) return '';
-  return `<div style="margin-top:4px;"><span style="display:inline-block;background:#FFF5EC;color:#E55A00;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;border:1px solid #FFD4B0;">📖 ${legal}</span></div>`;
+  return `<div style="margin-top:4px;"><span style="display:inline-block;background:#F4F4F4;color:#888;font-size:11px;font-weight:500;padding:2px 8px;border-radius:6px;border:1px solid #E0E0E0;">📖 ${legal}</span></div>`;
 }
 
 function formatKRW(n) {
@@ -665,14 +688,17 @@ function render() {
   });
 
   if (filtered.length === 0) {
-    grid.innerHTML = '<div style="grid-column: 1 / -1;text-align:center;padding:60px 20px;color:#999;">검색 결과가 없습니다.</div>';
+    grid.innerHTML = '<div style="column-span:all;text-align:center;padding:60px 20px;color:#999;">검색 결과가 없습니다.</div>';
     return;
   }
 
   const currentYear = 2026;
   const isHistorical = selectedYear !== currentYear;
 
-  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
+  // CSS columns의 세로 우선 배치를 가로(왼쪽→오른쪽) 순서로 전환
+  const displayList = reorderForColumns(filtered, getColCount());
+
+  grid.innerHTML = (isHistorical ? `<div style="column-span:all;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + displayList.map(c_raw => {
     // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
     const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
@@ -760,8 +786,6 @@ function render() {
       <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
         <li><strong style="color:var(--jju-orange-dark);">기준:</strong> ${fmtField(c.workingHours?.daily, '일 8시간')} · ${fmtField(c.workingHours?.weekly, '주 40시간')}</li>
         <li><strong style="color:var(--jju-orange-dark);">연장근로:</strong> ${fmtField(c.workingHours?.overtime, c.detailedLabor?.['최대 연장시간'] || '—')}</li>
-        <li><strong style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</strong> ${fmtField(c.workingHours?.unusedLeaveCompensation, c.annualLeave?.compensation?.required === true ? '✅ 의무 — ' + (c.annualLeave.compensation.formula || '') : '—')}</li>
-        <li><strong style="color:var(--jju-orange-dark);">퇴직금 지급 의무:</strong> ${fmtField(c.workingHours?.severanceObligation, c.detailedLabor?.['퇴직금'] || '—')}</li>
       </ul>
 
       <div class="section-title">💵 법정 수당 공식 (요약)</div>
@@ -788,6 +812,7 @@ function render() {
       <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
         <li><strong style="color:var(--jju-orange-dark);">🏖️ 연차기준:</strong> <span style="font-size:11.5px;">${c.annualLeave.statutory.length > 70 ? c.annualLeave.statutory.substring(0, 70) + '...' : c.annualLeave.statutory}</span></li>
         <li><strong style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</strong> ${c.annualLeave?.compensation?.required === true ? '<span style="color:#C0392B;font-weight:700;">✅ 법적 의무</span>' : c.annualLeave?.compensation?.required === false ? '<span style="color:#999;">❌ 법적 의무 없음</span>' : '<span style="color:#F39C12;">⚠️ ' + (c.annualLeave?.compensation?.required || '—') + '</span>'}<span style="color:#666;font-size:11px;"> — ${(c.annualLeave?.compensation?.formula || '').replace(/<[^>]+>/g, '').substring(0, 50)}</span></li>
+        <li><strong style="color:var(--jju-orange-dark);">퇴직금 지급 의무:</strong> ${fmtField(c.workingHours?.severanceObligation, c.detailedLabor?.['퇴직금'] || '—')}</li>
         <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
         <li><strong style="color:var(--jju-orange-dark);">13월의 급여:</strong> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};font-weight:700;">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
       </ul>
@@ -1412,6 +1437,13 @@ chips.forEach(chip => {
     activeRegion = chip.dataset.region;
     render();
   });
+});
+
+// 화면 너비가 바뀌어 컬럼 수가 변하면 재렌더링 (가로 순서 유지)
+let lastColCount = getColCount();
+window.addEventListener('resize', () => {
+  const c = getColCount();
+  if (c !== lastColCount) { lastColCount = c; render(); }
 });
 
 // ========================= INIT =========================
