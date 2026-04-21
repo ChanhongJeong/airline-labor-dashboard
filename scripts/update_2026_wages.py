@@ -220,7 +220,7 @@ UPDATES = {
             {"cities": ["비엔티안 (Vientiane)"], "amount": 2500000, "display": "LAK 2,500,000/월", "note": "전국 단일 · 2025 개정"}
         ]
     },
-    "MP": {
+    "SP": {
         "minWage": {
             "amount": 7.25, "unit": "시",
             "display": "US$7.25 / 시",

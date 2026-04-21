@@ -84,7 +84,7 @@ HISTORY_EXT = {
         {"year": 2020, "value": 1100000},
         {"year": 2021, "value": 1100000},
     ],
-    "MP": [
+    "SP": [
         {"year": 2019, "value": 7.25},
         {"year": 2020, "value": 7.25},
         {"year": 2021, "value": 7.25},
