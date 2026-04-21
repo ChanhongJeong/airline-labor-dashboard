@@ -418,13 +418,24 @@
     text-transform: uppercase;
   }
   .premium-table .p-formula {
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-main);
   }
   .premium-table .p-note {
     font-size: 11px;
     color: var(--text-sub);
     margin-top: 2px;
+  }
+  /* 모달 본문 설명부 볼드 제거 (라벨·제목은 유지) */
+  .modal-body .p-formula,
+  .modal-body .p-formula *,
+  .modal-body .p-note,
+  .modal-body .p-note *,
+  .modal-body .visa-box,
+  .modal-body .visa-box *,
+  .modal-body dd,
+  .modal-body dd * {
+    font-weight: 500 !important;
   }
   .contract-list {
     list-style: none;
@@ -1140,7 +1151,7 @@ function openModal(code) {
             <tr>
               <td>13월의 급여<br><span style="font-size:10px;color:#999;">13th Month</span></td>
               <td>
-                <div class="p-formula" style="color:${c.thirteenthMonth.status.includes('법정') ? '#C0392B' : c.thirteenthMonth.status === '없음' ? '#999' : '#D68910'};font-weight:700;">${c.thirteenthMonth.status}</div>
+                <div class="p-formula" style="color:${c.thirteenthMonth.status.includes('법정') ? '#C0392B' : c.thirteenthMonth.status === '없음' ? '#999' : '#D68910'};">${c.thirteenthMonth.status}</div>
                 ${c.thirteenthMonth.formula !== '-' ? `<div class="p-note" style="margin-top:4px;"><strong>계산식:</strong> ${c.thirteenthMonth.formula}</div>` : ''}
                 ${c.thirteenthMonth.timing !== '-' ? `<div class="p-note" style="margin-top:2px;"><strong>시기:</strong> ${c.thirteenthMonth.timing}</div>` : ''}
                 <div class="p-note" style="margin-top:2px;">${c.thirteenthMonth.note}</div>
