@@ -1150,7 +1150,7 @@ window.DASHBOARD_DATA = {
       "name": "몽골",
       "nameEn": "Mongolia",
       "flag": "🇲🇳",
-      "region": "etc",
+      "region": "ne",
       "currency": "MNT",
       "minWage": {
         "amount": 792000,
