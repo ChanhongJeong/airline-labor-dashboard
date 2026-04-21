@@ -605,6 +605,22 @@ function toKRW(amount, currency) {
   return Math.round(usd * krwRate);
 }
 
+// {value, legal} 형태의 필드를 표시. value만 있으면 value, 없으면 fallback.
+// legal이 있으면 "📖 법조항" chip을 덧붙인다.
+function fmtField(obj, fallback) {
+  if (obj && typeof obj === 'object' && 'value' in obj) {
+    const legalChip = obj.legal ? ` <span style="display:inline-block;background:#FFF5EC;color:#E55A00;font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;border:1px solid #FFD4B0;">📖 ${obj.legal}</span>` : '';
+    return obj.value + legalChip;
+  }
+  if (typeof obj === 'string') return obj;
+  return fallback || '—';
+}
+// 법조항 chip만 단독으로 렌더
+function legalChip(legal) {
+  if (!legal) return '';
+  return `<div style="margin-top:4px;"><span style="display:inline-block;background:#FFF5EC;color:#E55A00;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;border:1px solid #FFD4B0;">📖 ${legal}</span></div>`;
+}
+
 function formatKRW(n) {
   if (n == null) return '—';
   if (n >= 100000000) return (n / 100000000).toFixed(2) + '억원';
@@ -732,14 +748,23 @@ function render() {
         </div>
       </div>
 
-      <div class="labor-section">
-        <div class="section-title">⚖️ 노동법 주요 내용</div>
-        <ul class="labor-list">
-          ${c.labor.map(l => `<li>${l}</li>`).join('')}
-        </ul>
-      </div>
+      <div class="section-title">👤 고용형태</div>
+      <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
+        <li><strong style="color:var(--jju-orange-dark);">계약유형:</strong> ${fmtField(c.employmentType?.contractType, c.fixedTermContract.conversion || c.fixedTermContract.max)}</li>
+        <li><strong style="color:var(--jju-orange-dark);">수습기간:</strong> ${fmtField(c.employmentType?.probation, c.detailedLabor?.['수습기간'] || '—')}</li>
+        <li><strong style="color:var(--jju-orange-dark);">계약직 최대기간:</strong> ${fmtField(c.employmentType?.fixedTermMax, c.fixedTermContract.max)}</li>
+        <li><strong style="color:var(--jju-orange-dark);">외국인 고용 제한:</strong> ${fmtField(c.employmentType?.foreignerLimit, c.detailedLabor?.['외국인 고용'] || '—')}</li>
+      </ul>
 
-      <div class="section-title" style="margin-top:4px;">💵 법정 수당 공식 (요약)</div>
+      <div class="section-title">⏰ 근로시간</div>
+      <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
+        <li><strong style="color:var(--jju-orange-dark);">기준:</strong> ${fmtField(c.workingHours?.daily, '일 8시간')} · ${fmtField(c.workingHours?.weekly, '주 40시간')}</li>
+        <li><strong style="color:var(--jju-orange-dark);">연장근로:</strong> ${fmtField(c.workingHours?.overtime, c.detailedLabor?.['최대 연장시간'] || '—')}</li>
+        <li><strong style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</strong> ${fmtField(c.workingHours?.unusedLeaveCompensation, c.annualLeave?.compensation?.required === true ? '✅ 의무 — ' + (c.annualLeave.compensation.formula || '') : '—')}</li>
+        <li><strong style="color:var(--jju-orange-dark);">퇴직금 지급 의무:</strong> ${fmtField(c.workingHours?.severanceObligation, c.detailedLabor?.['퇴직금'] || '—')}</li>
+      </ul>
+
+      <div class="section-title">💵 법정 수당 공식 (요약)</div>
       <div class="premium-grid">
         <div class="premium-item">
           <div class="premium-name">연장수당</div>
@@ -759,14 +784,12 @@ function render() {
         </div>
       </div>
 
-      <div class="section-title">💼 계약·제도·보상</div>
+      <div class="section-title">📅 근태·보상</div>
       <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
-        <li><strong style="color:var(--jju-orange-dark);">계약직 최대:</strong> ${c.fixedTermContract.max}</li>
-        <li><strong style="color:var(--jju-orange-dark);">취업규칙:</strong> ${c.workRules.mandatory ? '✅ <strong>' + c.workRules.threshold + '</strong> 의무' : '❌ 법정 의무 없음'}</li>
+        <li><strong style="color:var(--jju-orange-dark);">🏖️ 연차기준:</strong> <span style="font-size:11.5px;">${c.annualLeave.statutory.length > 70 ? c.annualLeave.statutory.substring(0, 70) + '...' : c.annualLeave.statutory}</span></li>
+        <li><strong style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</strong> ${c.annualLeave?.compensation?.required === true ? '<span style="color:#C0392B;font-weight:700;">✅ 법적 의무</span>' : c.annualLeave?.compensation?.required === false ? '<span style="color:#999;">❌ 법적 의무 없음</span>' : '<span style="color:#F39C12;">⚠️ ' + (c.annualLeave?.compensation?.required || '—') + '</span>'}<span style="color:#666;font-size:11px;"> — ${(c.annualLeave?.compensation?.formula || '').replace(/<[^>]+>/g, '').substring(0, 50)}</span></li>
         <li><strong style="color:var(--jju-orange-dark);">대졸 사무직 초임:</strong> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
-        <li><strong style="color:var(--jju-orange-dark);">13월 급여:</strong> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};font-weight:700;">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
-        <li><strong style="color:var(--jju-orange-dark);">🏖️ 연차:</strong> <span style="font-size:11.5px;">${c.annualLeave.statutory.length > 55 ? c.annualLeave.statutory.substring(0, 55) + '...' : c.annualLeave.statutory}</span></li>
-        <li><strong style="color:#C0392B;">🇰🇷 한국인 주의:</strong> <span style="font-size:11.5px;">${c.koreanWorkerNotes.socialInsurance.length > 60 ? c.koreanWorkerNotes.socialInsurance.substring(0, 60) + '...' : c.koreanWorkerNotes.socialInsurance}</span></li>
+        <li><strong style="color:var(--jju-orange-dark);">13월의 급여:</strong> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};font-weight:700;">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
       </ul>
 
       <div class="card-footer">
@@ -905,92 +928,49 @@ function openModal(code) {
       </div>
       ` : ''}
 
+      <!-- 3. 운영가이드 -->
       <div class="modal-section">
-        <div class="modal-section-title">💵 법정 수당 공식 (상세)</div>
-        <table class="premium-table">
-          <thead>
-            <tr><th style="width:110px;">구분</th><th>산식·기준</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>연장수당<br><span style="font-size:10px;color:#999;">Overtime</span></td>
-              <td><div class="p-formula">${c.wagePremiums.overtime.formula}</div><div class="p-note">${c.wagePremiums.overtime.note}</div></td>
-            </tr>
-            <tr>
-              <td>야간수당<br><span style="font-size:10px;color:#999;">Night Shift</span></td>
-              <td><div class="p-formula">${c.wagePremiums.night.formula}</div><div class="p-note">${c.wagePremiums.night.note}</div></td>
-            </tr>
-            <tr>
-              <td>휴일수당<br><span style="font-size:10px;color:#999;">Rest Day</span></td>
-              <td><div class="p-formula">${c.wagePremiums.restDay.formula}</div><div class="p-note">${c.wagePremiums.restDay.note}</div></td>
-            </tr>
-            <tr>
-              <td>공휴일수당<br><span style="font-size:10px;color:#999;">Public Holiday</span></td>
-              <td><div class="p-formula">${c.wagePremiums.publicHoliday.formula}</div><div class="p-note">${c.wagePremiums.publicHoliday.note}</div></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="modal-section">
-        <div class="modal-section-title">📝 근로계약서 필수 항목</div>
-        <ol class="contract-list">
-          ${c.contractRequirements.map(r => `<li>${r}</li>`).join('')}
-        </ol>
-      </div>
-
-      <div class="modal-section">
-        <div class="modal-section-title">💼 계약직 / 취업규칙 / 대졸 초임</div>
+        <div class="modal-section-title">🧭 운영가이드</div>
         <table class="premium-table">
           <tbody>
             <tr>
-              <td style="width:130px;">계약직 최대기간<br><span style="font-size:10px;color:#999;">Fixed-term</span></td>
+              <td style="width:150px;">취업규칙 의무<br><span style="font-size:10px;color:#999;">Work Rules</span></td>
               <td>
-                <div class="p-formula">${c.fixedTermContract.max}</div>
-                <div class="p-note">전환 요건: ${c.fixedTermContract.conversion}</div>
-                <div class="p-note" style="margin-top:2px;">📖 ${c.fixedTermContract.legalBasis} · ${c.fixedTermContract.note}</div>
-              </td>
-            </tr>
-            <tr>
-              <td>취업규칙 의무<br><span style="font-size:10px;color:#999;">Work Rules</span></td>
-              <td>
-                <div class="p-formula">${c.workRules.mandatory ? '✅ 의무 — ' + c.workRules.threshold : '❌ 법정 의무 없음'}</div>
-                <div class="p-note">${c.workRules.legalBasis !== '-' ? '📖 ' + c.workRules.legalBasis : '📖 법정 근거 없음'}</div>
-                <div class="p-note" style="margin-top:2px;">절차: ${c.workRules.procedure}</div>
+                <div class="p-formula">${c.operatingGuide?.workRulesObligation?.value || (c.workRules.mandatory ? '✅ 의무 — ' + c.workRules.threshold : '❌ 법정 의무 없음')}</div>
+                ${legalChip(c.operatingGuide?.workRulesObligation?.legal || c.workRules.legalBasis)}
+                <div class="p-note" style="margin-top:4px;">절차: ${c.workRules.procedure}</div>
                 <div class="p-note" style="margin-top:2px;">${c.workRules.note}</div>
               </td>
             </tr>
             <tr>
-              <td>대졸 사무직 초임<br><span style="font-size:10px;color:#999;">Graduate</span></td>
+              <td>계약직 최대기간<br><span style="font-size:10px;color:#999;">Fixed-term Max</span></td>
               <td>
-                <div class="p-formula">${c.graduateSalary.display} <span style="color:#999;font-weight:400;font-size:11px;">(범위: ${c.graduateSalary.range})</span></div>
-                <div class="p-note">출처: ${c.graduateSalary.source} (${c.graduateSalary.year})</div>
-                <div class="p-note" style="margin-top:2px;">${c.graduateSalary.note}</div>
+                <div class="p-formula">${c.operatingGuide?.fixedTermMaxGuide?.value || c.fixedTermContract.max}</div>
+                ${legalChip(c.operatingGuide?.fixedTermMaxGuide?.legal || c.fixedTermContract.legalBasis)}
+                <div class="p-note" style="margin-top:4px;">전환 요건: ${c.fixedTermContract.conversion}</div>
+                <div class="p-note" style="margin-top:2px;">${c.fixedTermContract.note}</div>
               </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="modal-section">
-        <div class="modal-section-title">🚀 채용 플레이북 (실무 운영 가이드)</div>
-        <table class="premium-table">
-          <tbody>
-            <tr>
-              <td style="width:130px;">표준 경로<br><span style="font-size:10px;color:#999;">Standard Path</span></td>
-              <td><div class="p-formula">${c.hiringPlaybook.standardPath}</div></td>
             </tr>
             <tr>
               <td>수습기간<br><span style="font-size:10px;color:#999;">Probation</span></td>
-              <td><div class="p-formula">${c.hiringPlaybook.probationDetails}</div></td>
+              <td>
+                <div class="p-formula">${c.operatingGuide?.probationGuide?.value || c.hiringPlaybook.probationDetails}</div>
+                ${legalChip(c.operatingGuide?.probationGuide?.legal)}
+              </td>
             </tr>
             <tr>
-              <td>수습 중 종료<br><span style="font-size:10px;color:#999;">Terminate in Probation</span></td>
-              <td><div class="p-formula">${c.hiringPlaybook.terminateDuringProbation}</div></td>
+              <td>수습 중 계약종료<br><span style="font-size:10px;color:#999;">Terminate in Probation</span></td>
+              <td>
+                <div class="p-formula">${c.operatingGuide?.terminateDuringProbation?.value || c.hiringPlaybook.terminateDuringProbation}</div>
+                ${legalChip(c.operatingGuide?.terminateDuringProbation?.legal)}
+              </td>
             </tr>
             <tr>
-              <td>수습 후 종료<br><span style="font-size:10px;color:#999;">Terminate after Probation</span></td>
-              <td><div class="p-formula">${c.hiringPlaybook.terminateAfterProbation}</div></td>
+              <td>수습 후 계약종료<br><span style="font-size:10px;color:#999;">Terminate after Probation</span></td>
+              <td>
+                <div class="p-formula">${c.operatingGuide?.terminateAfterProbation?.value || c.hiringPlaybook.terminateAfterProbation}</div>
+                ${legalChip(c.operatingGuide?.terminateAfterProbation?.legal)}
+              </td>
             </tr>
             <tr>
               <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
@@ -1004,53 +984,103 @@ function openModal(code) {
         </table>
       </div>
 
+      <!-- 4. 근로계약서 필수항목 -->
       <div class="modal-section">
-        <div class="modal-section-title">🎁 13월 급여 / 연말 보너스</div>
-        <div class="visa-box" style="background:${c.thirteenthMonth.status.includes('법정') ? '#FFEAEA' : c.thirteenthMonth.status === '없음' ? '#F5F5F5' : '#FFF5EC'}; border-color:${c.thirteenthMonth.status.includes('법정') ? '#F5B7B1' : c.thirteenthMonth.status === '없음' ? '#DDD' : '#FFD4B0'}; border-left-color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'}; color:${c.thirteenthMonth.status.includes('법정') ? '#7B241C' : c.thirteenthMonth.status === '없음' ? '#555' : '#7A3A00'};">
-          <div style="font-weight:700;font-size:14px;margin-bottom:6px;">${c.thirteenthMonth.status}</div>
-          ${c.thirteenthMonth.formula !== '-' ? `<div><strong>계산식:</strong> ${c.thirteenthMonth.formula}</div>` : ''}
-          ${c.thirteenthMonth.timing !== '-' ? `<div style="margin-top:2px;"><strong>지급 시기:</strong> ${c.thirteenthMonth.timing}</div>` : ''}
-          <div style="margin-top:6px;font-size:12px;line-height:1.5;">${c.thirteenthMonth.note}</div>
-        </div>
+        <div class="modal-section-title">📝 근로계약서 필수 항목</div>
+        <ol class="contract-list">
+          ${c.contractRequirements.map(r => `<li>${r}</li>`).join('')}
+        </ol>
       </div>
 
+      <!-- 5. 법정수당 (상세 + 법령 조항) -->
       <div class="modal-section">
-        <div class="modal-section-title">🇰🇷 한국인 근로자 특이사항</div>
-        <dl class="info-grid">
-          <dt>사회보험</dt><dd>${c.koreanWorkerNotes.socialInsurance}</dd>
-          <dt>퇴직금</dt><dd>${c.koreanWorkerNotes.severance}</dd>
-          <dt>세금</dt><dd>${c.koreanWorkerNotes.tax}</dd>
-          <dt>비자·기타</dt><dd>${c.koreanWorkerNotes.visa}</dd>
-        </dl>
+        <div class="modal-section-title">💵 법정 수당 공식 (상세)</div>
+        <table class="premium-table">
+          <thead>
+            <tr><th style="width:110px;">구분</th><th>산식·기준</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>연장수당<br><span style="font-size:10px;color:#999;">Overtime</span></td>
+              <td><div class="p-formula">${c.wagePremiums.overtime.formula}</div><div class="p-note">${c.wagePremiums.overtime.note}</div>${legalChip(c.wagePremiums.overtime.legal)}</td>
+            </tr>
+            <tr>
+              <td>야간수당<br><span style="font-size:10px;color:#999;">Night Shift</span></td>
+              <td><div class="p-formula">${c.wagePremiums.night.formula}</div><div class="p-note">${c.wagePremiums.night.note}</div>${legalChip(c.wagePremiums.night.legal)}</td>
+            </tr>
+            <tr>
+              <td>휴일수당<br><span style="font-size:10px;color:#999;">Rest Day</span></td>
+              <td><div class="p-formula">${c.wagePremiums.restDay.formula}</div><div class="p-note">${c.wagePremiums.restDay.note}</div>${legalChip(c.wagePremiums.restDay.legal)}</td>
+            </tr>
+            <tr>
+              <td>공휴일수당<br><span style="font-size:10px;color:#999;">Public Holiday</span></td>
+              <td><div class="p-formula">${c.wagePremiums.publicHoliday.formula}</div><div class="p-note">${c.wagePremiums.publicHoliday.note}</div>${legalChip(c.wagePremiums.publicHoliday.legal)}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
+      <!-- 6. 근태 (연차/이월/출산/부성/보건/병가/육아/계약직 육아) -->
       <div class="modal-section">
-        <div class="modal-section-title">🏖️ 연차 휴가 (Annual Leave)</div>
+        <div class="modal-section-title">📅 근태 (휴가·휴직)</div>
         <table class="premium-table">
           <tbody>
             <tr>
-              <td style="width:130px;">법정 일수<br><span style="font-size:10px;color:#999;">Statutory Days</span></td>
-              <td><div class="p-formula" style="font-size:12px;line-height:1.6;">${c.annualLeave.statutory}</div>${c.annualLeave.grantRule ? `<div class="p-note">${c.annualLeave.grantRule}</div>` : ''}</td>
+              <td style="width:150px;">연차 기준<br><span style="font-size:10px;color:#999;">Annual Leave</span></td>
+              <td>
+                <div class="p-formula" style="font-size:12px;line-height:1.6;">${c.annualLeave.statutory}</div>
+                ${c.annualLeave.grantRule ? `<div class="p-note">${c.annualLeave.grantRule}</div>` : ''}
+              </td>
             </tr>
             <tr>
-              <td>미사용 보상<br><span style="font-size:10px;color:#999;">Unused Compensation</span></td>
+              <td>미사용 연차보상<br><span style="font-size:10px;color:#999;">Unused Compensation</span></td>
               <td>
-                <div class="p-formula" style="color:${c.annualLeave.compensation.required === true || c.annualLeave.compensation.required === '퇴직 시 의무' || c.annualLeave.compensation.required === '퇴직 시만' || c.annualLeave.compensation.required === '퇴직 시만' || c.annualLeave.compensation.required === '퇴직 시 의무 + 28일 초과분만' ? '#C0392B' : '#555'};">${c.annualLeave.compensation.required === true ? '✅ 법적 의무' : c.annualLeave.compensation.required === false ? '❌ 법적 의무 없음' : '⚠️ ' + c.annualLeave.compensation.required}</div>
+                <div class="p-formula" style="color:${c.annualLeave.compensation.required === true ? '#C0392B' : '#555'};">${c.annualLeave.compensation.required === true ? '✅ 법적 의무' : c.annualLeave.compensation.required === false ? '❌ 법적 의무 없음' : '⚠️ ' + c.annualLeave.compensation.required}</div>
                 <div class="p-note" style="margin-top:4px;"><strong>산식:</strong> ${c.annualLeave.compensation.formula}</div>
                 ${c.annualLeave.compensation.note ? `<div class="p-note" style="margin-top:2px;">${c.annualLeave.compensation.note}</div>` : ''}
+                ${legalChip(c.annualLeave.compensation.legal)}
               </td>
             </tr>
             <tr>
-              <td>이월 규정<br><span style="font-size:10px;color:#999;">Carryover</span></td>
+              <td>연차 이월 규정<br><span style="font-size:10px;color:#999;">Carryover</span></td>
               <td>
-                <div class="p-formula">${c.annualLeave.carryover.allowed === true ? '✅ 가능' : c.annualLeave.carryover.allowed === false ? '❌ 불가 (당해 연도 소진)' : '⚠️ ' + c.annualLeave.carryover.allowed} · 최대 <strong>${c.annualLeave.carryover.maxYears}</strong></div>
+                <div class="p-formula">${c.annualLeave.carryover.allowed === true ? '✅ 가능' : c.annualLeave.carryover.allowed === false ? '❌ 불가' : '⚠️ ' + c.annualLeave.carryover.allowed} · 최대 <strong>${c.annualLeave.carryover.maxYears}</strong></div>
+                ${c.annualLeave.carryover.condition ? `<div class="p-note" style="margin-top:4px;"><strong>조건:</strong> ${c.annualLeave.carryover.condition}</div>` : ''}
+                ${c.annualLeave.carryover.consentRequired ? `<div class="p-note" style="margin-top:2px;"><strong>동의서 작성 의무:</strong> ${c.annualLeave.carryover.consentRequired}</div>` : (c.annualLeave.consent ? `<div class="p-note" style="margin-top:2px;"><strong>동의서:</strong> ${c.annualLeave.consent}</div>` : '')}
                 ${c.annualLeave.carryover.detail ? `<div class="p-note" style="margin-top:2px;">${c.annualLeave.carryover.detail}</div>` : ''}
+                ${legalChip(c.annualLeave.carryover.legal)}
               </td>
             </tr>
+            ${c.leavePolicyExtended?.maternity ? `
             <tr>
-              <td>이월 동의서<br><span style="font-size:10px;color:#999;">Consent</span></td>
-              <td><div class="p-formula" style="font-size:12px;">${c.annualLeave.consent}</div></td>
-            </tr>
+              <td>출산휴가<br><span style="font-size:10px;color:#999;">Maternity</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.maternity.value}</div>${legalChip(c.leavePolicyExtended.maternity.legal)}</td>
+            </tr>` : ''}
+            ${c.leavePolicyExtended?.paternity ? `
+            <tr>
+              <td>부성휴가<br><span style="font-size:10px;color:#999;">Paternity</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.paternity.value}</div>${legalChip(c.leavePolicyExtended.paternity.legal)}</td>
+            </tr>` : ''}
+            ${c.leavePolicyExtended?.healthLeave ? `
+            <tr>
+              <td>보건휴가<br><span style="font-size:10px;color:#999;">Health Leave</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.healthLeave.value}</div>${legalChip(c.leavePolicyExtended.healthLeave.legal)}</td>
+            </tr>` : ''}
+            ${c.leavePolicyExtended?.sick ? `
+            <tr>
+              <td>병가<br><span style="font-size:10px;color:#999;">Sick Leave</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.sick.value}</div>${legalChip(c.leavePolicyExtended.sick.legal)}</td>
+            </tr>` : ''}
+            ${c.leavePolicyExtended?.parental ? `
+            <tr>
+              <td>육아휴직<br><span style="font-size:10px;color:#999;">Parental</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.parental.value}</div>${legalChip(c.leavePolicyExtended.parental.legal)}</td>
+            </tr>` : ''}
+            ${c.leavePolicyExtended?.parentalFixedTerm ? `
+            <tr>
+              <td>계약직 육아휴직<br><span style="font-size:10px;color:#999;">Fixed-term Parental</span></td>
+              <td><div class="p-formula">${c.leavePolicyExtended.parentalFixedTerm.value}</div>${legalChip(c.leavePolicyExtended.parentalFixedTerm.legal)}</td>
+            </tr>` : ''}
             ${c.annualLeave.specialObligation ? `
             <tr>
               <td>특이 의무<br><span style="font-size:10px;color:#999;">Special</span></td>
@@ -1064,42 +1094,7 @@ function openModal(code) {
         </table>
       </div>
 
-      <div class="modal-section">
-        <div class="modal-section-title">✈️ 본사 주재원 파견 컴플라이언스</div>
-        <table class="premium-table">
-          <tbody>
-            <tr>
-              <td style="width:130px;">현지 신고 소득<br><span style="font-size:10px;color:#999;">Reportable Income</span></td>
-              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.localIncomeReport}</div></td>
-            </tr>
-            <tr>
-              <td>세금 신고 의무<br><span style="font-size:10px;color:#999;">Tax Filing</span></td>
-              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.taxFiling}</div></td>
-            </tr>
-            <tr>
-              <td>취업비자 의무<br><span style="font-size:10px;color:#999;">Work Visa</span></td>
-              <td><div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.workVisa}</div></td>
-            </tr>
-            <tr>
-              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="modal-section">
-        <div class="modal-section-title">⚖️ 상세 노동법</div>
-        <dl class="info-grid">
-          ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
-        </dl>
-      </div>
-
-      <div class="modal-section">
-        <div class="modal-section-title">🛂 한국인 비자</div>
-        <div class="visa-box">${c.visa}</div>
-      </div>
-
+      <!-- 7. 법정 공휴일 -->
       <div class="modal-section">
         <div class="modal-section-title">🎌 법정 공휴일</div>
         <div class="holiday-grid">
@@ -1110,6 +1105,184 @@ function openModal(code) {
             </div>
           `).join('')}
         </div>
+      </div>
+
+      <!-- 8. 급여·보상 -->
+      <div class="modal-section">
+        <div class="modal-section-title">💰 급여·보상</div>
+        <table class="premium-table">
+          <tbody>
+            ${c.compensation?.socialInsurance ? `
+            <tr>
+              <td style="width:150px;">사회보험<br><span style="font-size:10px;color:#999;">Social Insurance</span></td>
+              <td>
+                <div class="p-formula"><strong>사용자:</strong> ${c.compensation.socialInsurance.employer}</div>
+                <div class="p-formula" style="margin-top:4px;"><strong>근로자:</strong> ${c.compensation.socialInsurance.employee}</div>
+                ${c.compensation.socialInsurance.note ? `<div class="p-note" style="margin-top:4px;">${c.compensation.socialInsurance.note}</div>` : ''}
+                ${legalChip(c.compensation.socialInsurance.legal)}
+              </td>
+            </tr>` : `
+            <tr>
+              <td style="width:150px;">사회보험<br><span style="font-size:10px;color:#999;">Social Insurance</span></td>
+              <td><div class="p-formula">${c.detailedLabor?.['사회보험'] || '—'}</div></td>
+            </tr>`}
+            <tr>
+              <td>13월의 급여<br><span style="font-size:10px;color:#999;">13th Month</span></td>
+              <td>
+                <div class="p-formula" style="color:${c.thirteenthMonth.status.includes('법정') ? '#C0392B' : c.thirteenthMonth.status === '없음' ? '#999' : '#D68910'};font-weight:700;">${c.thirteenthMonth.status}</div>
+                ${c.thirteenthMonth.formula !== '-' ? `<div class="p-note" style="margin-top:4px;"><strong>계산식:</strong> ${c.thirteenthMonth.formula}</div>` : ''}
+                ${c.thirteenthMonth.timing !== '-' ? `<div class="p-note" style="margin-top:2px;"><strong>시기:</strong> ${c.thirteenthMonth.timing}</div>` : ''}
+                <div class="p-note" style="margin-top:2px;">${c.thirteenthMonth.note}</div>
+                ${legalChip(c.thirteenthMonth.legal || (c.compensation?.thirteenthMonth?.legal))}
+              </td>
+            </tr>
+            ${c.compensation?.bonus ? `
+            <tr>
+              <td>상여금<br><span style="font-size:10px;color:#999;">Bonus</span></td>
+              <td>
+                <div class="p-formula">${c.compensation.bonus.value}</div>
+                ${legalChip(c.compensation.bonus.legal)}
+              </td>
+            </tr>` : ''}
+            ${c.compensation?.severance ? `
+            <tr>
+              <td>퇴직금<br><span style="font-size:10px;color:#999;">Severance</span></td>
+              <td>
+                <div class="p-formula">${c.compensation.severance.value}</div>
+                ${legalChip(c.compensation.severance.legal)}
+              </td>
+            </tr>` : `
+            <tr>
+              <td>퇴직금<br><span style="font-size:10px;color:#999;">Severance</span></td>
+              <td><div class="p-formula">${c.detailedLabor?.['퇴직금'] || '—'}</div></td>
+            </tr>`}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 9. 급여명세서 필수항목 -->
+      <div class="modal-section">
+        <div class="modal-section-title">🧾 급여명세서 필수 항목</div>
+        ${c.payrollStatement ? `
+          <div style="margin-bottom:10px;font-size:13px;">
+            <span style="display:inline-block;background:${c.payrollStatement.required ? '#FFE4E4' : '#F5F5F5'};color:${c.payrollStatement.required ? '#C0392B' : '#666'};padding:4px 10px;border-radius:6px;font-weight:700;">${c.payrollStatement.required ? '✅ 교부 의무' : '❌ 법정 의무 없음'}</span>
+            ${c.payrollStatement.format ? `<span style="margin-left:8px;color:#555;">형식: ${c.payrollStatement.format}</span>` : ''}
+          </div>
+          <ol class="contract-list">
+            ${c.payrollStatement.items.map(i => `<li>${i}</li>`).join('')}
+          </ol>
+          ${c.payrollStatement.note ? `<div class="p-note" style="margin-top:8px;">${c.payrollStatement.note}</div>` : ''}
+          ${legalChip(c.payrollStatement.legal)}
+        ` : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중 — 법정 규정 확인 후 업데이트 예정</div>`}
+      </div>
+
+      <!-- 10. 퇴직 (계약종료 / 자발적 / 해고) -->
+      <div class="modal-section">
+        <div class="modal-section-title">🚪 퇴직 (계약종료·자발적·해고)</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:160px;">계약종료 (계약직)<br><span style="font-size:10px;color:#999;">Fixed-term End</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.fixedTermEnd?.value || c.fixedTermContract.conversion || '—'}</div>
+                ${legalChip(c.terminationProcess?.fixedTermEnd?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>계약종료 (정규직/해고)<br><span style="font-size:10px;color:#999;">Regular Dismissal</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.regularDismissal?.value || c.detailedLabor?.['해고 절차'] || '—'}</div>
+                ${legalChip(c.terminationProcess?.regularDismissal?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>자발적 퇴사 절차<br><span style="font-size:10px;color:#999;">Voluntary Resignation</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || '통상 사전 통지 후 근로관계 종료 (기간은 국가별 상이)'}</div>
+                ${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>해고 조건<br><span style="font-size:10px;color:#999;">Dismissal Conditions</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.dismissalConditions?.value || '정당 사유 필수 (국가별 상이)'}</div>
+                ${legalChip(c.terminationProcess?.dismissalConditions?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>해고 절차<br><span style="font-size:10px;color:#999;">Dismissal Procedure</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.dismissalProcedure?.value || c.hiringPlaybook.terminateAfterProbation || '—'}</div>
+                ${legalChip(c.terminationProcess?.dismissalProcedure?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>해고 통보기간<br><span style="font-size:10px;color:#999;">Notice Period</span></td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || '국가별 상이 — 상세는 해고 절차 참조'}</div>
+                ${legalChip(c.terminationProcess?.noticePeriod?.legal)}
+              </td>
+            </tr>
+            ${c.terminationProcess?.protectedWorkers ? `
+            <tr>
+              <td>보호 대상자<br><span style="font-size:10px;color:#999;">Protected</span></td>
+              <td>
+                <div class="p-note" style="font-size:12px;">${c.terminationProcess.protectedWorkers.value}</div>
+                ${legalChip(c.terminationProcess.protectedWorkers.legal)}
+              </td>
+            </tr>` : ''}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 11. 한국인 채용 특이사항 -->
+      <div class="modal-section">
+        <div class="modal-section-title">🇰🇷 한국인 채용 특이사항</div>
+        <dl class="info-grid">
+          <dt>사회보험</dt><dd>${c.koreanWorkerNotes.socialInsurance}</dd>
+          <dt>퇴직금</dt><dd>${c.koreanWorkerNotes.severance}</dd>
+          <dt>세금</dt><dd>${c.koreanWorkerNotes.tax}</dd>
+          <dt>비자</dt><dd>${c.koreanWorkerNotes.visa}</dd>
+          ${c.koreanWorkerNotes.employmentQuota ? `<dt>고용인원 제한</dt><dd>${c.koreanWorkerNotes.employmentQuota}${c.koreanWorkerNotes.employmentQuotaLegal ? legalChip(c.koreanWorkerNotes.employmentQuotaLegal) : ''}</dd>` : ''}
+        </dl>
+        <div class="visa-box" style="margin-top:12px;"><strong>한국인 비자:</strong> ${c.visa}</div>
+      </div>
+
+      <!-- 12. 주재원 파견 특이사항 -->
+      <div class="modal-section">
+        <div class="modal-section-title">✈️ 본사 주재원 파견 특이사항</div>
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:150px;">현지 소득신고 항목·의무<br><span style="font-size:10px;color:#999;">Reportable Income</span></td>
+              <td>
+                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.localIncomeReport}</div>
+                ${legalChip(c.expatriateCompliance.localIncomeReportLegal)}
+                <div class="p-note" style="margin-top:6px;"><strong>세금 신고:</strong> ${c.expatriateCompliance.taxFiling}</div>
+                ${legalChip(c.expatriateCompliance.taxFilingLegal)}
+              </td>
+            </tr>
+            <tr>
+              <td>비자<br><span style="font-size:10px;color:#999;">Work Visa</span></td>
+              <td>
+                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.workVisa}</div>
+                ${legalChip(c.expatriateCompliance.workVisaLegal)}
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 13. 상세 노동법 (참조) -->
+      <div class="modal-section">
+        <div class="modal-section-title">⚖️ 상세 노동법 (참조)</div>
+        <dl class="info-grid">
+          ${Object.entries(c.detailedLabor).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
+        </dl>
       </div>
     </div>
   `;

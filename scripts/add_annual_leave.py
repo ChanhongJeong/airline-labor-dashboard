@@ -251,7 +251,7 @@ ANNUAL_LEAVE = {
         "specialObligation": "Pi Mai(4월) 집중 사용 관행",
         "tip": "15일은 동남아 평균 수준. 주재원은 본국 왕복 교통일 추가 계약 권장"
     },
-    "MP": {
+    "SP": {
         "statutory": "❌ 미 연방법상 법정 연차 없음 (FLSA 적용 안 됨). CNMI 지방법도 없음 — 계약·사내 규정 자유",
         "grantRule": "사용자 재량. 관행 10~15일 (미국 본토 평균 수준)",
         "compensation": {

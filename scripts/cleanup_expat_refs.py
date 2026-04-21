@@ -55,7 +55,7 @@ CLEANUP = {
         "thirteenthMonth.note": "법정 의무 아님. 고인플레 대응 연말 특별 보너스 지급 증가",
         "annualLeave.tip": "15일은 동남아 평균 수준. 본국 왕복 교통일은 계약으로 별도 부여 가능"
     },
-    "MP": {
+    "SP": {
         "thirteenthMonth.note": "미국 법에 13th month 개념 없음. 계약·관행으로 연말 보너스 지급 가능(사용자 재량)",
         "annualLeave.tip": "연방법상 법정 연차 없음 → 100% 계약·Employee Handbook으로 설계. PTO(Paid Time Off) 통합 방식이 표준"
     }
