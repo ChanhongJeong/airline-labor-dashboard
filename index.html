@@ -130,8 +130,10 @@
   }
   .summary-bar strong { color: var(--jju-orange-dark); }
   .grid {
-    column-count: 3;
-    column-gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: start;
   }
   .card {
     background: var(--card-bg);
@@ -140,8 +142,6 @@
     padding: 20px;
     box-shadow: var(--shadow);
     transition: all 0.2s;
-    break-inside: avoid;
-    margin-bottom: 18px;
   }
   .card:hover {
     transform: translateY(-2px);
@@ -471,14 +471,14 @@
 
   /* 모바일 반응형 */
   @media (max-width: 1100px) {
-    .grid { column-count: 2; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
     header { padding: 22px 16px 20px; }
     h1 { font-size: 20px; }
     .subtitle { font-size: 12px; }
     main { padding: 16px; }
-    .grid { column-count: 1; }
+    .grid { grid-template-columns: 1fr; }
     .card { padding: 16px; }
     .country-name { font-size: 16px; }
     .stat-value { font-size: 14px; }
@@ -665,14 +665,14 @@ function render() {
   });
 
   if (filtered.length === 0) {
-    grid.innerHTML = '<div style="column-span:all;text-align:center;padding:60px 20px;color:#999;">검색 결과가 없습니다.</div>';
+    grid.innerHTML = '<div style="grid-column: 1 / -1;text-align:center;padding:60px 20px;color:#999;">검색 결과가 없습니다.</div>';
     return;
   }
 
   const currentYear = 2026;
   const isHistorical = selectedYear !== currentYear;
 
-  grid.innerHTML = (isHistorical ? `<div style="column-span:all;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
+  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
     // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
     const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
