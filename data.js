@@ -957,7 +957,7 @@ window.DASHBOARD_DATA = {
       "wagePremiums": {
         "overtime": {
           "formula": "첫 2h 시급 × 150%, 이후 시급 × 200%",
-          "note": "연장근로 한도: 연 120h, 4개월 내 120h"
+          "note": "연장근로 한도: 2일 연속 4시간 + 연 120시간 (노동법 §99)"
         },
         "night": {
           "formula": "시급 × 120% 이상",
@@ -1201,7 +1201,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
-          "value": 660000
+          "value": 792000
         },
         {
           "year": 2026,
@@ -1298,11 +1298,11 @@ window.DASHBOARD_DATA = {
         "note": "⚠️ 계약서에 '유기계약임'과 '종료일' 명확 기재 필수. 기간 만료 시 사용자가 명시적 종료 의사를 밝히지 않으면 자동 연장. 실무상 1~2년 단위 체결 + 사유 존속 시 갱신"
       },
       "workRules": {
-        "mandatory": true,
-        "threshold": "모든 사업장 (인원 무관)",
-        "legalBasis": "노동법 제122조 제1·2항",
-        "procedure": "사용자 작성 → 근로자 대표 의견 청취 → 서명·공포 → 사업장 비치·공지 (행정 신고 의무 없음)",
-        "note": "필수 기재사항: 근로계약 해지 사유, 노동규율 위반(징계), 휴게·주휴·공휴일, 임금 지급일, 성희롱·괴롭힘 예방 (노동법 제7조 제4항) 등"
+        "mandatory": false,
+        "threshold": "법정 의무 아님 (고용주의 '권리')",
+        "legalBasis": "노동법 제122조 (고용주의 권리)",
+        "procedure": "제정 시 근로자 대표 의견 청취 권고 → 서명·공포 → 사업장 비치·공지 (행정 신고 의무 없음)",
+        "note": "고용주는 법령에 부합하는 내부 취업규칙을 제정·시행할 '권리'를 보유 (의무 아님). 제정하는 경우 권장 기재사항: 근로계약 해지 사유, 노동규율 위반(징계), 휴게·주휴·공휴일, 임금 지급일, 성희롱·괴롭힘 예방 등"
       },
       "graduateSalary": {
         "display": "MNT 2,000,000 / 월",
@@ -1519,8 +1519,8 @@ window.DASHBOARD_DATA = {
       },
       "operatingGuide": {
         "workRulesObligation": {
-          "value": "모든 사업장 취업규칙 작성·공시 의무. 근로자 대표 의견 청취 필요. 행정기관 신고 의무는 없음",
-          "legal": "노동법 제122조 제1·2항, 제43조 제1항 제6호"
+          "value": "취업규칙 제정은 <strong>권장사항 (법정 의무 아님)</strong>. 고용주는 법령에 부합하는 내부 취업규칙을 제정·시행할 '권리' 보유. 제정 시 근로자 대표 의견 청취 권고. 행정기관 신고 의무 없음",
+          "legal": "노동법 제122조 (고용주의 권리), 제43조 제1항 제6호"
         },
         "fixedTermMaxGuide": {
           "value": "<strong>최대 2년</strong>까지 체결 가능 (노사발전재단 2025 안내서). 계약서에 '유기계약임'·'종료일' 명확 기재 필수. 2년 초과 갱신 시 무기계약 간주 리스크",
@@ -1541,15 +1541,15 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "월",
-        "basis": "전국 단일 (2024.1 개정)",
+        "basis": "전국 단일 (2025.4.1 개정)",
         "regions": [
           {
             "cities": [
               "울란바토르 (Улаанбаатар)"
             ],
-            "amount": 660000,
-            "display": "MNT 660,000/월",
-            "note": "전국 단일"
+            "amount": 792000,
+            "display": "MNT 792,000/월",
+            "note": "전국 단일 · 2025.4.1 개정"
           }
         ]
       },
@@ -1935,7 +1935,7 @@ window.DASHBOARD_DATA = {
       "historyUnit": "HK$/시",
       "labor": [
         "법정근로시간 별도 없음 (계약 중심)",
-        "유급휴일 13일 / 유급연차 7~14일",
+        "유급 법정가기(Statutory Holidays) 15일 (2026~, 2030년까지 17일 단계 확대) · 유급연차 7~14일",
         "고용조례(Employment Ordinance) 적용",
         "주 18시간 이상 4주 연속 근무 시 적용",
         "최대 연장: 법정 연장시간 한도 없음 (계약 자유). Employment Ordinance에 상한 미규정..."
@@ -1962,8 +1962,8 @@ window.DASHBOARD_DATA = {
           "note": "대체휴무 원칙, 법정 가산수당 명문 없음"
         },
         "publicHoliday": {
-          "formula": "유급 공휴일(13일/년)",
-          "note": "근무 시 대체휴일 48일 내 부여 또는 관행적 가산"
+          "formula": "유급 법정가기(15일/년, 2026~)",
+          "note": "Employment Amendment Ordinance 2021에 따라 2022년 12일 → 2026년 15일(부활절 월요일 추가) → 2030년 17일까지 단계 확대. 근무 시 대체휴일 48일 내 부여 또는 관행적 가산"
         }
       },
       "contractRequirements": [
@@ -2133,7 +2133,7 @@ window.DASHBOARD_DATA = {
             "퇴직금": "장기근속금(5년+) or 해고수당(2년+)",
             "사회보험": "MPF(강제공적금) 5%+5%",
             "외국인 고용": "GEP 비자 필요, 월급 기준 상회",
-            "법정 공휴일": "⚠️ 법정가기(法定假日) <strong>12일</strong> (2022~ 석가탄신일 추가로 13일, 2030까지 17일 확대 예정)"
+            "법정 공휴일": "⚠️ 법정가기(法定假日) 단계 확대 — 12일(2022 이전) → 13일(2022, 석가탄신일) → 14일(2024) → <strong>15일(2026, 부활절 월요일)</strong> → 16일(2028) → 17일(2030), Employment Amendment Ordinance 2021 기준"
           }
         }
       },
@@ -2810,7 +2810,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
-          "value": 1118
+          "value": 1121
         },
         {
           "year": 2026,
@@ -3498,7 +3498,7 @@ window.DASHBOARD_DATA = {
       ],
       "annualLeave": {
         "statutory": "Service Incentive Leave (SIL) 연 5일 (1년 근속 완료 시) — Labor Code §95",
-        "grantRule": "1년 근속 요건. 5인 미만 소규모 사업장·관리직 제외. 단체협약·사내 규정으로 추가 연차(Vacation Leave) 관행",
+        "grantRule": "1년 근속 요건. 10인 미만 소규모 사업장·관리직·field personnel 제외 (Labor Code §95(b)(3)). 단체협약·사내 규정으로 추가 연차(Vacation Leave) 관행",
         "compensation": {
           "required": true,
           "formula": "해당 연도 미사용 SIL은 일급 × 100% 환산 지급 의무. 사용 또는 환산 중 근로자 선택",
@@ -3515,7 +3515,7 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "일",
-        "basis": "NWPC 지역별 Wage Order (2024 개정, 비농업 기준)",
+        "basis": "NWPC 지역별 Wage Order (NCR Wage Order No.26, 2025.7.18 시행, 비농업 기준)",
         "regions": [
           {
             "cities": [
@@ -3969,7 +3969,7 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "월",
-        "basis": "Nghị định 74/2024/ND-CP 4개 지역 분류 (2024.7 개정)",
+        "basis": "Nghị định 293/2025/ND-CP 4개 지역 분류 (2026.1.1 시행, 74/2024 대체)",
         "regions": [
           {
             "cities": [
@@ -3985,9 +3985,9 @@ window.DASHBOARD_DATA = {
               "나트랑 (Nha Trang)",
               "푸꾸옥 (Phu Quoc)"
             ],
-            "amount": 4710000,
-            "display": "VND 4,710,000/월",
-            "note": "지역 II · 2026.1.1 개정"
+            "amount": 4730000,
+            "display": "VND 4,730,000/월",
+            "note": "지역 II · Nghị định 293 (2026.1.1)"
           }
         ]
       },
@@ -4050,8 +4050,8 @@ window.DASHBOARD_DATA = {
         "amount": 400,
         "unit": "일",
         "display": "฿400 / 일",
-        "sub": "전국 확대 적용 목표 (2024.10~)",
-        "updated": "2024-10-01",
+        "sub": "방콕 전업종 + 푸켓·차청사오·촌부리·라용·꼬사무이 + 50인 이상 4성+ 호텔 (2025.7.1~). 기타 지역 ฿337~372",
+        "updated": "2025-07-01",
         "trend": {
           "text": "유지",
           "dir": "flat",
@@ -4302,7 +4302,7 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "일",
-        "basis": "총리실 임금위원회 지역·업종별 공고 (2024.10)",
+        "basis": "총리실 임금위원회 지역·업종별 공고 (2025.7.1 확대 적용)",
         "regions": [
           {
             "cities": [
@@ -4384,8 +4384,8 @@ window.DASHBOARD_DATA = {
         "amount": 2500000,
         "unit": "월",
         "display": "LAK 2,500,000 / 월",
-        "sub": "2025 개정",
-        "updated": "2025-05-01",
+        "sub": "2024.10.1 개정",
+        "updated": "2024-10-01",
         "trend": {
           "text": "+56.3%",
           "dir": "up",
@@ -4429,7 +4429,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
-          "value": 1600000
+          "value": 2500000
         },
         {
           "year": 2026,
@@ -4786,7 +4786,7 @@ window.DASHBOARD_DATA = {
       },
       "minWageRegional": {
         "unit": "월",
-        "basis": "전국 단일 (2023.10 개정)",
+        "basis": "전국 단일 (2024.10.1 개정)",
         "regions": [
           {
             "cities": [
@@ -4794,7 +4794,7 @@ window.DASHBOARD_DATA = {
             ],
             "amount": 2500000,
             "display": "LAK 2,500,000/월",
-            "note": "전국 단일 · 2025 개정"
+            "note": "전국 단일 · 2024.10.1 개정"
           }
         ]
       },
@@ -5040,7 +5040,7 @@ window.DASHBOARD_DATA = {
         "socialInsurance": "EPF 외국인 선택 가입(의무 아님). SOCSO 2019~ 외국인 의무. EIS(고용보험) 외국인 면제",
         "severance": "Employment Act 해고수당 외국인 동일 적용. EPF 미가입 시 본사 퇴직금 유지 권장",
         "tax": "183일 이상 = 거주자 누진세. 미만 = 비거주자 30% 일괄. 한-말 조세조약 있음",
-        "visa": "Employment Pass(EP) 필수. 최저 월급 RM 5,000+. 카테고리별 기간 상이 (Cat I 5년, II 2년, III 1년)"
+        "visa": "Employment Pass(EP) 필수. 현재 최저 월급 RM 3,000+ (Cat III). <strong>⚠️ 2026.6.1 시행 개정: Cat I RM 20,000+, Cat II RM 10,000~19,999, Cat III RM 5,000~9,999 (제조업 RM 7,000~9,999)</strong>. 카테고리별 기간 상이 (Cat I 5년, II 2년, III 1년)"
       },
       "thirteenthMonth": {
         "status": "관행",
@@ -5051,8 +5051,8 @@ window.DASHBOARD_DATA = {
       "expatriateCompliance": {
         "localIncomeReport": "거주자(182일+) 말레이시아 원천 + 2022~ 해외 송금 과세 부활. 비거주자 30% 정액(단 60일 미만 출장은 면세). <strong>주택 수당: 현금은 과세 / 회사 임차는 시세 30% 또는 월급 30% 중 낮은 것</strong> 과세. 자녀 교육비 과세, 연 1회 일시귀국 비과세",
         "taxFiling": "개인소득세 거주자 0~30% 누진, 비거주자 30% 단일. 고용주 매월 PCB(원천징수). 개인 연간 BE 신고 4/30. 부양가족·EPF·생명보험 공제",
-        "workVisa": "<strong>Employment Pass(EP) 3 카테고리</strong>: Cat I 월급 RM 10,000+ (5년), Cat II RM 5,000~9,999 (2년), Cat III RM 3,000~4,999 (1년, 2023~ 제한). MDEC(IT)·MIDA(제조) 승인 후 이민국. 가족 Dependant Pass는 Cat I/II만. 6개월 미만 출장은 Professional Visit Pass",
-        "practicalTip": "⚠️ 2025~ EP Cat I 기준 상향 예정 — 한국 본사 지급분 포함 Cat I 월급 기준 설계 필요. 주재원 부동산 구입 시 MM2H 프로그램 검토. 60일 미만 출장은 세금 면제 활용 가능"
+        "workVisa": "<strong>Employment Pass(EP) 3 카테고리</strong> (현행): Cat I 월급 RM 10,000+ (5년), Cat II RM 5,000~9,999 (2년), Cat III RM 3,000~4,999 (1년, 2023~ 제한). <strong>⚠️ 2026.6.1 시행: Cat I RM 20,000+, Cat II RM 10,000~19,999, Cat III RM 5,000~9,999 (제조업 RM 7,000~9,999)로 대폭 상향</strong>. MDEC(IT)·MIDA(제조) 승인 후 이민국. 가족 Dependant Pass는 Cat I/II만. 6개월 미만 출장은 Professional Visit Pass",
+        "practicalTip": "⚠️ <strong>2026.6.1부터 EP 급여 기준 대폭 상향</strong> — Cat I 2배(RM 10K→20K), Cat III 최저 RM 5K로 신규 파견자 EP 신청 설계 시 반영 필수. 한국 본사 지급분 포함 구조 재검토. 주재원 부동산 구입 시 MM2H 프로그램 검토. 60일 미만 출장은 세금 면제 활용 가능"
       },
       "sources": [
         {
@@ -5223,7 +5223,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "year": 2025,
-          "value": 1870
+          "value": 1910
         }
       ],
       "historyUnit": "S$/월 (PWM 청소직)",
