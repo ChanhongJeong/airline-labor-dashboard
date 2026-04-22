@@ -437,6 +437,13 @@
   .modal-body dd * {
     font-weight: 500 !important;
   }
+  /* 모달 premium-table 왼쪽 소제목(라벨) 볼드 — 취업규칙 의무/계약직 최대기간 등 */
+  .modal-body .premium-table td:first-child {
+    font-weight: 700 !important;
+  }
+  .modal-body .premium-table td:first-child span {
+    font-weight: 400 !important;
+  }
   .contract-list {
     list-style: none;
     counter-reset: contract;
@@ -695,7 +702,7 @@ function render() {
   const currentYear = 2026;
   const isHistorical = selectedYear !== currentYear;
 
-  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
+  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#FFFBE6;border:1px solid #FFF2B2;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#8B6914;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
     // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
     const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
@@ -783,6 +790,8 @@ function render() {
       <ul class="labor-list" style="margin-bottom:14px; font-size:12.5px;">
         <li><span style="color:var(--jju-orange-dark);">기준:</span> ${stripStrong(fmtField(c.workingHours?.daily, '일 8시간'))} · ${stripStrong(fmtField(c.workingHours?.weekly, '주 40시간'))}</li>
         <li><span style="color:var(--jju-orange-dark);">연장근로:</span> ${stripStrong(fmtField(c.workingHours?.overtime, c.detailedLabor?.['최대 연장시간'] || '—'))}</li>
+        ${c.workingHours?.dailyRest ? `<li><span style="color:var(--jju-orange-dark);">일간 휴식:</span> ${stripStrong(fmtField(c.workingHours.dailyRest, '—'))}</li>` : ''}
+        ${c.workingHours?.weeklyRest ? `<li><span style="color:var(--jju-orange-dark);">주휴일:</span> ${stripStrong(fmtField(c.workingHours.weeklyRest, '—'))}</li>` : ''}
       </ul>
 
       <div class="section-title">💵 법정 수당 공식 (요약)</div>
@@ -923,7 +932,7 @@ function openModal(code) {
 
       ${c.minWageRegional ? `
       <div class="modal-section">
-        <div class="modal-section-title">🏙️ 제주항공 취항지 지점별 최저임금</div>
+        <div class="modal-section-title">🏙️ 지점별 최저임금</div>
         <div style="font-size:12px; color:#666; margin-bottom:10px;">${c.minWageRegional.basis}</div>
         <table class="premium-table">
           <thead>
@@ -973,6 +982,14 @@ function openModal(code) {
                 <div class="p-note" style="margin-top:2px;">${c.fixedTermContract.note}</div>
               </td>
             </tr>
+            ${c.operatingGuide?.parentalLeaveReplacement ? `
+            <tr>
+              <td>육아휴직 대체인력<br><span style="font-size:10px;color:#999;">Parental Leave Replacement</span></td>
+              <td>
+                <div class="p-formula">${c.operatingGuide.parentalLeaveReplacement.value}</div>
+                ${legalChip(c.operatingGuide.parentalLeaveReplacement.legal)}
+              </td>
+            </tr>` : ''}
             <tr>
               <td>수습기간<br><span style="font-size:10px;color:#999;">Probation</span></td>
               <td>
@@ -995,8 +1012,8 @@ function openModal(code) {
               </td>
             </tr>
             <tr>
-              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;">${c.hiringPlaybook.practicalTip}</div></td>
+              <td style="background:#FFFAF3;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
+              <td style="background:#FFFAF3;"><div class="p-formula" style="color:#C0392B;">${c.hiringPlaybook.practicalTip}</div></td>
             </tr>
             <tr>
               <td>⚠️ 리스크<br><span style="font-size:10px;color:#999;">Risk Notes</span></td>
@@ -1109,8 +1126,8 @@ function openModal(code) {
               <td><div class="p-note" style="font-size:12px;color:#444;">${c.annualLeave.specialObligation}</div></td>
             </tr>` : ''}
             <tr>
-              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Tip</span></td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
+              <td style="background:#FFFAF3;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Tip</span></td>
+              <td style="background:#FFFAF3;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
             </tr>
           </tbody>
         </table>
@@ -1257,9 +1274,9 @@ function openModal(code) {
         </table>
       </div>
 
-      <!-- 11. 한국인 채용 특이사항 -->
+      <!-- 11. 한국인 고용 특이사항 -->
       <div class="modal-section">
-        <div class="modal-section-title">🇰🇷 한국인 채용 특이사항</div>
+        <div class="modal-section-title"><span style="color:#F1C40F;">⭐</span> 한국인 고용 특이사항</div>
         <dl class="info-grid">
           <dt>사회보험</dt><dd>${c.koreanWorkerNotes.socialInsurance}</dd>
           <dt>퇴직금</dt><dd>${c.koreanWorkerNotes.severance}</dd>
@@ -1292,8 +1309,8 @@ function openModal(code) {
               </td>
             </tr>
             <tr>
-              <td style="background:#FFF5EC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
+              <td style="background:#FFFAF3;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
+              <td style="background:#FFFAF3;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
             </tr>
           </tbody>
         </table>
