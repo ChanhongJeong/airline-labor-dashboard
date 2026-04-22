@@ -1419,6 +1419,14 @@ window.DASHBOARD_DATA = {
           "value": "1일 최대 4시간, 주 총 56시간 한도 (연장 포함). 정해진 사유에 한하여 사용자 요구 가능",
           "legal": "노동법 제84조 제4항, 제91조 제1항"
         },
+        "dailyRest": {
+          "value": "연속 작업일 사이 최소 12시간 연속 휴식 보장",
+          "legal": "노동법 제95조 제1항"
+        },
+        "weeklyRest": {
+          "value": "원칙 토·일 주휴일. 업종 특성상 주말 휴식 불가 시 근로자와 합의하여 다른 연속 2일을 주휴일로 부여 가능",
+          "legal": "노동법 제96조 제1·2항"
+        },
         "unusedLeaveCompensation": {
           "value": "의무 — 사용자 사유로 미사용 시 평균임금 × 150% 지급",
           "legal": "노동법 제110조 제2항"
@@ -1525,6 +1533,10 @@ window.DASHBOARD_DATA = {
         "fixedTermMaxGuide": {
           "value": "<strong>최대 2년</strong>까지 체결 가능 (노사발전재단 2025 안내서). 계약서에 '유기계약임'·'종료일' 명확 기재 필수. 2년 초과 갱신 시 무기계약 간주 리스크",
           "legal": "노동법 제50조"
+        },
+        "parentalLeaveReplacement": {
+          "value": "육아휴직자 복직 전까지 기간제 '대체근로' 계약 체결 가능. 복직 시점 도래 시 계약 자동 종료. 실무상 <strong>최대 2년</strong> 한도 (일반 기간제 상한과 동일 — 2년 초과 시 무기 전환 리스크). 대체인력이 휴직자와 동일 직무·동일 인원일 필요 없음 — 업무 재분배·유사 직무 배치도 가능",
+          "legal": "노동법 제50조 제1항 제4호 (대체근로 허용), 제60조 제1항 제3호 (휴직자 직위 유지 의무), 제139조 (육아휴직 만 3세까지)"
         },
         "probationGuide": {
           "value": "최대 3개월 + 1회 3개월 연장 (합의 시). 계절·대체·단기 계약(제50조 제1항 제3~5호)에는 시용 불가 (제64조 제4항)",
@@ -2469,7 +2481,7 @@ window.DASHBOARD_DATA = {
       "worldBankCode": "USA",
       "name": "사이판 (CNMI)",
       "nameEn": "Saipan / CNMI",
-      "flag": "🇲🇵",
+      "flag": "🏝️",
       "region": "etc",
       "currency": "USD",
       "minWage": {
