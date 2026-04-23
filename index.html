@@ -11,7 +11,7 @@
     --jju-orange: #FF6B00;
     --jju-orange-dark: #E55A00;
     --jju-orange-light: #FFE4D1;
-    --jju-orange-soft: #F5EFE0;
+    --jju-orange-soft: #DCE6DC;
     --text-main: #222;
     --text-sub: #666;
     --border: #EEE;
@@ -737,7 +737,7 @@ function render() {
   const currentYear = 2026;
   const isHistorical = selectedYear !== currentYear;
 
-  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#F5EFE0;border:1px solid #E8DFCA;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#7A6429;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
+  grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#DCE6DC;border:1px solid #BFD2BF;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#355E35;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
     // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
     const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
@@ -1100,8 +1100,8 @@ function openModal(code) {
               </td>
             </tr>
             <tr>
-              <td style="background:#F5EFE0;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
-              <td style="background:#F5EFE0;"><div class="p-formula" style="color:#C0392B;">${c.hiringPlaybook.practicalTip}</div></td>
+              <td style="background:#DCE6DC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Practical Tip</span></td>
+              <td style="background:#DCE6DC;"><div class="p-formula" style="color:#C0392B;">${c.hiringPlaybook.practicalTip}</div></td>
             </tr>
             <tr>
               <td>⚠️ 리스크<br><span style="font-size:10px;color:#999;">Risk Notes</span></td>
@@ -1214,8 +1214,8 @@ function openModal(code) {
               <td><div class="p-note" style="font-size:12px;color:#444;">${c.annualLeave.specialObligation}</div></td>
             </tr>` : ''}
             <tr>
-              <td style="background:#F5EFE0;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Tip</span></td>
-              <td style="background:#F5EFE0;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
+              <td style="background:#DCE6DC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Tip</span></td>
+              <td style="background:#DCE6DC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
             </tr>
           </tbody>
         </table>
@@ -1397,8 +1397,8 @@ function openModal(code) {
               </td>
             </tr>
             <tr>
-              <td style="background:#F5EFE0;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
-              <td style="background:#F5EFE0;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
+              <td style="background:#DCE6DC;">💡 실무 팁<br><span style="font-size:10px;color:#999;">Expat Tip</span></td>
+              <td style="background:#DCE6DC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
             </tr>
           </tbody>
         </table>
