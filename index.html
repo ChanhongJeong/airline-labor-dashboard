@@ -232,21 +232,19 @@
   .trend-down { background: #E8F4FB; color: var(--chip-down); }
   .trend-flat { background: #EEE; color: var(--chip-flat); }
   .labor-section { margin-bottom: 14px; }
-  /* 메인카드 섹션 음영 박스 — 고용형태/근로시간/법정수당/근태·보상 */
-  .card-block {
+  /* 메인카드 섹션 — 박스는 투명, 타이틀에만 음영 (#DCE6DC) */
+  .card-block { margin-bottom: 14px; }
+  .card-block .section-title {
+    display: inline-block;
     background: var(--card-block-bg);
-    padding: 12px 14px 10px;
-    border-radius: 10px;
-    margin-bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 0 0 10px;
+    color: #2F5532;
+    font-weight: 700;
   }
-  .card-block .section-title { margin-top: 0; margin-bottom: 8px; color: #2F5532; }
   .card-block .premium-grid { margin-bottom: 0; }
   .card-block ul.labor-list { margin-bottom: 0; }
-  .card-block .premium-item {
-    background: rgba(255,255,255,0.55);
-    border-left-color: #2F5532;
-  }
-  .card-block .premium-name { color: #2F5532; }
   .section-title {
     font-size: 12px;
     font-weight: 700;
