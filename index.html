@@ -232,17 +232,21 @@
   .trend-down { background: #E8F4FB; color: var(--chip-down); }
   .trend-flat { background: #EEE; color: var(--chip-flat); }
   .labor-section { margin-bottom: 14px; }
-  /* 메인카드 섹션 — 박스는 투명, 타이틀은 원래 칩 디자인을 녹색(#DCE6DC) 톤으로 */
+  /* 메인카드 섹션 — 타이틀을 풀폭 막대로 + 솔리드 녹색 #DCE6DC */
   .card-block { margin-bottom: 14px; }
   .card-block .section-title {
-    display: inline-block;
+    display: block;
+    width: 100%;
     color: #2F5532;
-    background: linear-gradient(180deg, rgba(220, 230, 220, 0.55) 0%, rgba(180, 210, 185, 0.85) 100%);
-    border-bottom: 2px solid rgba(80, 130, 90, 0.55);
-    box-shadow: 0 1px 2px rgba(80, 130, 90, 0.15);
-    padding: 3px 10px 3px 8px;
-    border-radius: 4px;
+    background: #DCE6DC;
+    border: none;
+    box-shadow: none;
+    padding: 6px 12px;
+    border-radius: 6px;
     margin: 0 0 10px;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
   }
   .card-block .premium-grid { margin-bottom: 0; }
   .card-block ul.labor-list { margin-bottom: 0; }
