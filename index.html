@@ -837,7 +837,6 @@ function render() {
         <ul class="labor-list" style="font-size:12.5px;">
           <li><span style="color:var(--jju-orange-dark);">계약유형:</span> ${stripStrong(fmtField(c.employmentType?.contractType, c.fixedTermContract.conversion || c.fixedTermContract.max))}</li>
           <li><span style="color:var(--jju-orange-dark);">수습기간:</span> ${stripStrong(fmtField(c.employmentType?.probation, c.detailedLabor?.['수습기간'] || '-'))}</li>
-          <li><span style="color:var(--jju-orange-dark);">계약직 최대기간:</span> ${stripStrong(fmtField(c.employmentType?.fixedTermMax, c.fixedTermContract.max))}</li>
           <li><span style="color:var(--jju-orange-dark);">외국인 고용 제한:</span> ${stripStrong(fmtField(c.employmentType?.foreignerLimit, c.detailedLabor?.['외국인 고용'] || '-'))}</li>
         </ul>
       </div>
@@ -1043,13 +1042,6 @@ function openModal(code) {
               </td>
             </tr>
             <tr>
-              <td>계약직 최대기간</td>
-              <td>
-                <div class="p-formula">${c.employmentType?.fixedTermMax?.value || c.fixedTermContract.max || '-'}</div>
-                ${legalChip(c.employmentType?.fixedTermMax?.legal)}
-              </td>
-            </tr>
-            <tr>
               <td>외국인 고용 제한</td>
               <td>
                 <div class="p-formula">${c.employmentType?.foreignerLimit?.value || c.detailedLabor?.['외국인 고용'] || '-'}</div>
@@ -1131,13 +1123,6 @@ function openModal(code) {
               </td>
             </tr>` : ''}
             <tr>
-              <td>수습기간</td>
-              <td>
-                <div class="p-formula">${c.operatingGuide?.probationGuide?.value || c.hiringPlaybook.probationDetails}</div>
-                ${legalChip(c.operatingGuide?.probationGuide?.legal)}
-              </td>
-            </tr>
-            <tr>
               <td>수습 중 계약종료</td>
               <td>
                 <div class="p-formula">${c.operatingGuide?.terminateDuringProbation?.value || c.hiringPlaybook.terminateDuringProbation}</div>
@@ -1177,19 +1162,19 @@ function openModal(code) {
         <table class="premium-table">
           <tbody>
             <tr>
-              <td>연장수당</td>
+              <td style="width:110px;white-space:nowrap;">연장수당</td>
               <td><div class="p-formula">${c.wagePremiums.overtime.formula}</div><div class="p-note">${c.wagePremiums.overtime.note}</div>${legalChip(c.wagePremiums.overtime.legal)}</td>
             </tr>
             <tr>
-              <td>야간수당</td>
+              <td style="white-space:nowrap;">야간수당</td>
               <td><div class="p-formula">${c.wagePremiums.night.formula}</div><div class="p-note">${c.wagePremiums.night.note}</div>${legalChip(c.wagePremiums.night.legal)}</td>
             </tr>
             <tr>
-              <td>휴일수당</td>
+              <td style="white-space:nowrap;">휴일수당</td>
               <td><div class="p-formula">${c.wagePremiums.restDay.formula}</div><div class="p-note">${c.wagePremiums.restDay.note}</div>${legalChip(c.wagePremiums.restDay.legal)}</td>
             </tr>
             <tr>
-              <td>공휴일수당</td>
+              <td style="white-space:nowrap;">공휴일수당</td>
               <td><div class="p-formula">${c.wagePremiums.publicHoliday.formula}</div><div class="p-note">${c.wagePremiums.publicHoliday.note}</div>${legalChip(c.wagePremiums.publicHoliday.legal)}</td>
             </tr>
           </tbody>
