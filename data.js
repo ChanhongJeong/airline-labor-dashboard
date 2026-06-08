@@ -167,7 +167,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 총 법정 공휴일 15일 + 대체공휴일. 2022~ 5인 이상 사업장은 관공서 공휴일 유급 의무",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "본국 — 해당 없음",
@@ -684,7 +684,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 2026년 중추절(9/25)과 국경절(10/1)이 근접 → 국무원 조정으로 총 15일 내외 장기 연휴 가능성. 매년 12월 국무원 발표",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>15일 무비자</strong> (2024~ 시범, 관광·상용). 업무 취업은 <strong>Z비자</strong>, 상주는 <strong>R비자</strong> 필요.",
@@ -1083,7 +1083,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 노동법 제112조 법정 14일. 토·일 겹치면 자동 이동. 매년 정부령(Правительственное постановление)으로 연휴 추가 조정",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (관광, 180일 중 90일 한도). 취업 금지, 업무 시 취업비자 필요.",
@@ -1808,7 +1808,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 2026년 춘절: 2/16(섣달그믐)~2/22(일) 연휴 조정 가능. 매년 行政院 人事行政總處 발표",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (관광/상용). 업무 체류는 취업허가+거류증 필요.",
@@ -2121,7 +2121,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 공휴일 일요일 겹치면 다음 평일 대체. 2030년까지 법정가기 13→17일 단계적 확대",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 GEP(일반고용정책) 비자 필요.",
@@ -2758,7 +2758,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 미 연방 공휴일 11일 + CNMI 지방 공휴일 5~6일 = 총 16~17일. 연방 공휴일 주말 겹침 시 가장 가까운 평일로 대체",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (Guam-CNMI VWP). 업무는 CW-1 또는 H-2B 비자 필요.",
@@ -3467,7 +3467,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 매년 대통령실 Proclamation으로 연도별 공표. Regular Holiday 근무: 일급 × 200% / Special Non-Working 근무: 일급 × 130%. 이슬람 공휴일은 MILF·NCMF 권고 후 확정",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 29일 추가 연장 가능. 업무는 9(g) 취업비자 + AEP.",
@@ -3543,7 +3543,7 @@ window.DASHBOARD_DATA = {
         },
         "carryover": {
           "allowed": false,
-          "maxYears": "—",
+          "maxYears": "-",
           "detail": "SIL은 당해 연도 소진 또는 환산. 이월 개념 없음"
         },
         "consent": "이월 없음 → 동의서 불필요",
@@ -3956,7 +3956,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 외국인 근로자 추가 1일: 본국 건국일 또는 설날 (노동법 제112조 2항) · 한국인은 관행상 설날 또는 개천절 활용",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>45일 무비자</strong> (2023~). 초과 시 e-Visa 90일 가능. 업무는 <strong>LD/DT 비자</strong> 필요.",
@@ -4367,7 +4367,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 매년 총리실 공고. 은행·정부·민간 리스트 상이. 주말 겹침 시 대체휴일 가능",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>60일 무비자</strong> (2024.7 개정). 업무는 Non-B 비자 + Work Permit 필수.",
@@ -4837,7 +4837,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ 노동법 제51조 공식 11일 법정 + 지역별 1~2일 추가",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong>. 업무는 비즈니스 비자 + 노동허가.",
@@ -5148,7 +5148,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ Employment Act 제60D조 11일 필수 + 주별 추가. KL 총 17~18일. 일요일 겹침 시 월요일 대체",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP(Employment Pass) 필수.",
@@ -5469,7 +5469,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ Employment Act §88 법정 11일. 공휴일 일요일 겹치면 다음 월요일 대체휴일",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong>. 업무 체류는 EP/SP/WP 비자 필요.",
@@ -5802,7 +5802,7 @@ window.DASHBOARD_DATA = {
         },
         {
           "name": "※ Cuti Bersama (공동 연차) 평균 4~8일 추가 — SKB 3 Menteri 매년 발표. Idul Fitri 전후 대체휴일이 가장 길어 (2026: 3/19~3/23 5일 예상)",
-          "date": "—"
+          "date": "-"
         }
       ],
       "visa": "한국 여권 <strong>30일 무비자</strong> (관광) 또는 VOA. 업무는 KITAS/KITAP 필요.",
