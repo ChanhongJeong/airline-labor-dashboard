@@ -1337,13 +1337,20 @@ function openModal(code) {
         ` : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중 - 법정 규정 확인 후 업데이트 예정</div>`}
       </div>
 
-      <!-- 10. 퇴직 (계약종료 / 자발적 / 해고) -->
+      <!-- 10. 퇴직 (자발적 / 계약종료 / 해고) -->
       <div class="modal-section">
-        <div class="modal-section-title">🚪 퇴직 (계약종료·자발적·해고)</div>
+        <div class="modal-section-title">🚪 퇴직 (자발적·계약종료·해고)</div>
         <table class="premium-table">
           <tbody>
             <tr>
-              <td style="width:160px;">계약종료 (계약직)</td>
+              <td style="width:160px;">자발적 퇴사 절차</td>
+              <td>
+                <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || '통상 사전 통지 후 근로관계 종료 (기간은 국가별 상이)'}</div>
+                ${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>계약종료 (계약직)</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.fixedTermEnd?.value || c.fixedTermContract.conversion || '-'}</div>
                 ${legalChip(c.terminationProcess?.fixedTermEnd?.legal)}
@@ -1354,13 +1361,6 @@ function openModal(code) {
               <td>
                 <div class="p-formula">${c.terminationProcess?.regularDismissal?.value || c.detailedLabor?.['해고 절차'] || '-'}</div>
                 ${legalChip(c.terminationProcess?.regularDismissal?.legal)}
-              </td>
-            </tr>
-            <tr>
-              <td>자발적 퇴사 절차</td>
-              <td>
-                <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || '통상 사전 통지 후 근로관계 종료 (기간은 국가별 상이)'}</div>
-                ${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
               </td>
             </tr>
             <tr>
