@@ -1,7 +1,7 @@
 // Auto-updated by GitHub Actions
 window.DASHBOARD_DATA = {
   "meta": {
-    "lastUpdated": "2026-05-25",
+    "lastUpdated": "2026-06-08",
     "cpiSource": "IMF WEO API (PCPIPCH, 2025)",
     "cpiNote": "World Bank 연간 CPI는 통상 1~2년 lag가 있습니다. 최신 월간 수치는 각국 통계청 링크로 확인하세요.",
     "minWageNote": "최저임금은 공개 API가 없어 수동 업데이트 방식입니다. 각 국가의 minWage.updated 필드에서 최종 갱신일을 확인하세요.",
@@ -36,7 +36,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -420,7 +420,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -978,7 +978,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -1261,7 +1261,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -1713,7 +1713,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -2011,7 +2011,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -2326,7 +2326,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -2985,7 +2985,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -3067,24 +3067,78 @@ window.DASHBOARD_DATA = {
         "사회보험 가입 여부"
       ],
       "holidays": [
-        { "name": "신정", "date": "1/1" },
-        { "name": "성인의 날", "date": "1월 2째 월요일" },
-        { "name": "건국기념일", "date": "2/11" },
-        { "name": "천황탄생일", "date": "2/23" },
-        { "name": "춘분의 날", "date": "3/20~21경 (매년 관보) · 2026: 3/20 (금)" },
-        { "name": "쇼와의 날", "date": "4/29" },
-        { "name": "헌법기념일", "date": "5/3" },
-        { "name": "녹색의 날", "date": "5/4" },
-        { "name": "어린이의 날", "date": "5/5" },
-        { "name": "바다의 날", "date": "7월 3째 월요일" },
-        { "name": "산의 날", "date": "8/11" },
-        { "name": "경로의 날", "date": "9월 3째 월요일" },
-        { "name": "추분의 날", "date": "9/22~23경 (매년 관보) · 2026: 9/23 (수)" },
-        { "name": "체육의 날", "date": "10월 2째 월요일" },
-        { "name": "문화의 날", "date": "11/3" },
-        { "name": "근로감사의 날", "date": "11/23" },
-        { "name": "대체휴일", "date": "공휴일이 일요일일 경우 다음 평일" },
-        { "name": "국민의 휴일", "date": "평일이 2개 공휴일 사이에 낀 경우 자동 휴일 (예: 5/4)" }
+        {
+          "name": "신정",
+          "date": "1/1"
+        },
+        {
+          "name": "성인의 날",
+          "date": "1월 2째 월요일"
+        },
+        {
+          "name": "건국기념일",
+          "date": "2/11"
+        },
+        {
+          "name": "천황탄생일",
+          "date": "2/23"
+        },
+        {
+          "name": "춘분의 날",
+          "date": "3/20~21경 (매년 관보) · 2026: 3/20 (금)"
+        },
+        {
+          "name": "쇼와의 날",
+          "date": "4/29"
+        },
+        {
+          "name": "헌법기념일",
+          "date": "5/3"
+        },
+        {
+          "name": "녹색의 날",
+          "date": "5/4"
+        },
+        {
+          "name": "어린이의 날",
+          "date": "5/5"
+        },
+        {
+          "name": "바다의 날",
+          "date": "7월 3째 월요일"
+        },
+        {
+          "name": "산의 날",
+          "date": "8/11"
+        },
+        {
+          "name": "경로의 날",
+          "date": "9월 3째 월요일"
+        },
+        {
+          "name": "추분의 날",
+          "date": "9/22~23경 (매년 관보) · 2026: 9/23 (수)"
+        },
+        {
+          "name": "체육의 날",
+          "date": "10월 2째 월요일"
+        },
+        {
+          "name": "문화의 날",
+          "date": "11/3"
+        },
+        {
+          "name": "근로감사의 날",
+          "date": "11/23"
+        },
+        {
+          "name": "대체휴일",
+          "date": "공휴일이 일요일일 경우 다음 평일"
+        },
+        {
+          "name": "국민의 휴일",
+          "date": "평일이 2개 공휴일 사이에 낀 경우 자동 휴일 (예: 5/4)"
+        }
       ],
       "visa": "한국 여권 <strong>90일 무비자</strong> (단기 관광/상용). 업무 체류는 취업비자(기술·인문지식·국제업무 등) 필요.",
       "fixedTermContract": {
@@ -3230,16 +3284,89 @@ window.DASHBOARD_DATA = {
         "unit": "시",
         "basis": "광역단체(도도부현)별 시급 (후생노동성 FY2025, 2025.10 개정)",
         "regions": [
-          { "cities": ["도쿄"], "amount": 1226, "display": "¥1,226/시", "note": "FY2025 (2025.10~) · 전국 최고" },
-          { "cities": ["오사카"], "amount": 1177, "display": "¥1,177/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["나고야 (아이치)"], "amount": 1140, "display": "¥1,140/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["고베 (효고)"], "amount": 1102, "display": "¥1,102/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["시즈오카"], "amount": 1097, "display": "¥1,097/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["삿포로 (홋카이도)", "하코다테 (홋카이도)"], "amount": 1071, "display": "¥1,071/시", "note": "FY2025 (2025.10~) · 홋카이도 광역단체 단일" },
-          { "cities": ["히로시마"], "amount": 1070, "display": "¥1,070/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["후쿠오카"], "amount": 1057, "display": "¥1,057/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["가고시마"], "amount": 1025, "display": "¥1,025/시", "note": "FY2025 (2025.10~)" },
-          { "cities": ["마쓰야마 (에히메)", "오이타", "오키나와"], "amount": 1023, "display": "¥1,023/시", "note": "FY2025 (2025.10~) · 최저 구간 · 전 광역단체 ¥1,000 돌파" }
+          {
+            "cities": [
+              "도쿄"
+            ],
+            "amount": 1226,
+            "display": "¥1,226/시",
+            "note": "FY2025 (2025.10~) · 전국 최고"
+          },
+          {
+            "cities": [
+              "오사카"
+            ],
+            "amount": 1177,
+            "display": "¥1,177/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "나고야 (아이치)"
+            ],
+            "amount": 1140,
+            "display": "¥1,140/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "고베 (효고)"
+            ],
+            "amount": 1102,
+            "display": "¥1,102/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "시즈오카"
+            ],
+            "amount": 1097,
+            "display": "¥1,097/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "삿포로 (홋카이도)",
+              "하코다테 (홋카이도)"
+            ],
+            "amount": 1071,
+            "display": "¥1,071/시",
+            "note": "FY2025 (2025.10~) · 홋카이도 광역단체 단일"
+          },
+          {
+            "cities": [
+              "히로시마"
+            ],
+            "amount": 1070,
+            "display": "¥1,070/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "후쿠오카"
+            ],
+            "amount": 1057,
+            "display": "¥1,057/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "가고시마"
+            ],
+            "amount": 1025,
+            "display": "¥1,025/시",
+            "note": "FY2025 (2025.10~)"
+          },
+          {
+            "cities": [
+              "마쓰야마 (에히메)",
+              "오이타",
+              "오키나와"
+            ],
+            "amount": 1023,
+            "display": "¥1,023/시",
+            "note": "FY2025 (2025.10~) · 최저 구간 · 전 광역단체 ¥1,000 돌파"
+          }
         ]
       },
       "yearOverrides": {
@@ -3397,7 +3524,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -3807,7 +3934,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -4327,7 +4454,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -4674,7 +4801,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -5131,7 +5258,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -5481,7 +5608,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
@@ -5810,7 +5937,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-05-25"
+        "updated": "2026-06-08"
       },
       "minWageHistory": [
         {
