@@ -232,7 +232,7 @@
   .trend-down { background: #E8F4FB; color: var(--chip-down); }
   .trend-flat { background: #EEE; color: var(--chip-flat); }
   .labor-section { margin-bottom: 14px; }
-  /* 메인카드 섹션 — 타이틀을 풀폭 막대로 + 솔리드 녹색 #DCE6DC */
+  /* 메인카드 섹션 - 타이틀을 풀폭 막대로 + 솔리드 녹색 #DCE6DC */
   .card-block { margin-bottom: 14px; }
   .card-block .section-title {
     display: block;
@@ -482,7 +482,7 @@
   .modal-body dd * {
     font-weight: 500 !important;
   }
-  /* 모달 premium-table 왼쪽 소제목(라벨) 볼드 — 취업규칙 의무/계약직 최대기간 등 */
+  /* 모달 premium-table 왼쪽 소제목(라벨) 볼드 - 취업규칙 의무/계약직 최대기간 등 */
   .modal-body .premium-table td:first-child {
     font-weight: 700 !important;
   }
@@ -757,7 +757,7 @@ function render() {
   const isHistorical = selectedYear !== currentYear;
 
   grid.innerHTML = (isHistorical ? `<div style="grid-column: 1 / -1;background:#FFF3CD;border:1px solid #FFEAA7;border-radius:10px;padding:12px 18px;margin-bottom:14px;font-size:13px;color:#856404;">⏳ <strong>${selectedYear}년 기준</strong> 데이터를 표시 중입니다. 노동법·수당 변경사항이 있는 국가는 해당 연도 법률이 자동 반영됩니다.</div>` : '') + filtered.map(c_raw => {
-    // 연도별 법률 오버라이드 적용 — c를 재정의하면 아래 모든 c. 참조가 자동 연동
+    // 연도별 법률 오버라이드 적용 - c를 재정의하면 아래 모든 c. 참조가 자동 연동
     const c = getCountryForYear(c_raw, selectedYear);
     // 선택된 연도의 최저임금 찾기
     const yearWage = c.minWageHistory ? c.minWageHistory.find(h => h.year === selectedYear) : null;
@@ -878,10 +878,10 @@ function render() {
         <div class="section-title">📅 근태·보상</div>
         <ul class="labor-list" style="font-size:12.5px;">
           <li><span style="color:var(--jju-orange-dark);">🏖️ 연차기준:</span> <span style="font-size:11.5px;">${stripStrong(c.annualLeave.statutory.length > 70 ? c.annualLeave.statutory.substring(0, 70) + '...' : c.annualLeave.statutory)}</span></li>
-          <li><span style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</span> ${c.annualLeave?.compensation?.required === true ? '<span style="color:#C0392B;">✅ 법적 의무</span>' : c.annualLeave?.compensation?.required === false ? '<span style="color:#999;">❌ 법적 의무 없음</span>' : '<span style="color:#F39C12;">⚠️ ' + (c.annualLeave?.compensation?.required || '-') + '</span>'}<span style="color:#666;font-size:11px;"> — ${(c.annualLeave?.compensation?.formula || '').replace(/<[^>]+>/g, '').substring(0, 50)}</span></li>
+          <li><span style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</span> ${c.annualLeave?.compensation?.required === true ? '<span style="color:#C0392B;">✅ 법적 의무</span>' : c.annualLeave?.compensation?.required === false ? '<span style="color:#999;">❌ 법적 의무 없음</span>' : '<span style="color:#F39C12;">⚠️ ' + (c.annualLeave?.compensation?.required || '-') + '</span>'}<span style="color:#666;font-size:11px;"> - ${(c.annualLeave?.compensation?.formula || '').replace(/<[^>]+>/g, '').substring(0, 50)}</span></li>
           <li><span style="color:var(--jju-orange-dark);">퇴직금 지급 의무:</span> ${stripStrong(fmtField(c.workingHours?.severanceObligation, c.detailedLabor?.['퇴직금'] || '-'))}</li>
           <li><span style="color:var(--jju-orange-dark);">대졸 사무직 초임:</span> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
-          <li><span style="color:var(--jju-orange-dark);">13월의 급여:</span> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">— ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
+          <li><span style="color:var(--jju-orange-dark);">13월의 급여:</span> <span style="color:${c.thirteenthMonth.status.includes('법정') ? '#E74C3C' : c.thirteenthMonth.status === '없음' ? '#999' : '#F39C12'};">${c.thirteenthMonth.status}</span>${c.thirteenthMonth.formula !== '-' ? ' <span style="color:#666;font-size:11px;">- ' + c.thirteenthMonth.formula + '</span>' : ''}</li>
         </ul>
       </div>
 
@@ -1107,7 +1107,7 @@ function openModal(code) {
             <tr>
               <td style="width:150px;">취업규칙 의무</td>
               <td>
-                <div class="p-formula">${c.operatingGuide?.workRulesObligation?.value || (c.workRules.mandatory ? '✅ 의무 — ' + c.workRules.threshold : '❌ 법정 의무 없음')}</div>
+                <div class="p-formula">${c.operatingGuide?.workRulesObligation?.value || (c.workRules.mandatory ? '✅ 의무 - ' + c.workRules.threshold : '❌ 법정 의무 없음')}</div>
                 ${legalChip(c.operatingGuide?.workRulesObligation?.legal || c.workRules.legalBasis)}
                 <div class="p-note" style="margin-top:4px;">절차: ${c.workRules.procedure}</div>
                 <div class="p-note" style="margin-top:2px;">${c.workRules.note}</div>
@@ -1349,7 +1349,7 @@ function openModal(code) {
           </ol>
           ${c.payrollStatement.note ? `<div class="p-note" style="margin-top:8px;">${c.payrollStatement.note}</div>` : ''}
           ${legalChip(c.payrollStatement.legal)}
-        ` : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중 — 법정 규정 확인 후 업데이트 예정</div>`}
+        ` : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중 - 법정 규정 확인 후 업데이트 예정</div>`}
       </div>
 
       <!-- 10. 퇴직 (계약종료 / 자발적 / 해고) -->
@@ -1395,7 +1395,7 @@ function openModal(code) {
             <tr>
               <td>해고 통보기간</td>
               <td>
-                <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || '국가별 상이 — 상세는 해고 절차 참조'}</div>
+                <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || '국가별 상이 - 상세는 해고 절차 참조'}</div>
                 ${legalChip(c.terminationProcess?.noticePeriod?.legal)}
               </td>
             </tr>

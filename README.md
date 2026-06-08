@@ -1,4 +1,4 @@
-# ✈️ 제주항공 GHR 대시보드 — by. jychoi
+# ✈️ 제주항공 GHR 대시보드 - by. jychoi
 
 제주항공 취항 15개국의 **최저임금 / 물가상승률 / 노동법 / 수당 공식 / 근로계약 필수항목**을 한곳에서 확인하는 웹 대시보드.
 
@@ -45,19 +45,19 @@ open http://localhost:8765/
 
 ## 데이터 자동 갱신 구조
 
-### 물가상승률 (CPI) — 자동
+### 물가상승률 (CPI) - 자동
 - **소스**: World Bank API (`FP.CPI.TOTL.ZG`)
 - **주기**: 매주 월요일 UTC 03:00 (KST 12:00), GitHub Actions 자동 실행
 - **대상**: 대만(TW) 제외 14개국 (대만은 World Bank 미포함 → 수동)
 - **CNMI**: 미국 CPI 사용 (worldBankCode: USA)
 - ⚠️ World Bank 연간 데이터는 **1~2년 lag**가 있습니다. 최신 월간 수치는 각국 통계청 링크 참고.
 
-### 최저임금 — 수동 (공개 API 없음)
+### 최저임금 - 수동 (공개 API 없음)
 - 각 국가 `minWage.updated` 필드에 기준일 명시
 - 새 최저임금이 고시되면 `data.js`에서 해당 국가의 `minWage` 및 `minWageHistory`만 수정
 - ILO, Trading Economics, 각국 노동부 고시를 주기적으로 확인 필요
 
-### 환율 — 클라이언트 fetch
+### 환율 - 클라이언트 fetch
 - `open.er-api.com/v6/latest/USD` (무료, API 키 불필요)
 - 페이지 로드 시 자동, 서버 저장 없음
 
