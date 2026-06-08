@@ -965,8 +965,10 @@ function openModal(code) {
   if (!c_raw) return;
   const c = getCountryForYear(c_raw, selectedYear);
   const isHistorical = selectedYear !== 2026;
-  const firstVal = c.minWageHistory[0].value;
-  const lastVal = c.minWageHistory[c.minWageHistory.length - 1].value;
+  // 최근 5개년만 차트·통계에 사용
+  const recentHistory = c.minWageHistory ? c.minWageHistory.slice(-5) : [];
+  const firstVal = recentHistory.length > 0 ? recentHistory[0].value : 0;
+  const lastVal = recentHistory.length > 0 ? recentHistory[recentHistory.length - 1].value : 0;
   const growth = firstVal > 0 ? (((lastVal - firstVal) / firstVal) * 100).toFixed(1) : '—';
   const krw = toKRW(c.minWage.amount, c.currency);
 
@@ -983,7 +985,7 @@ function openModal(code) {
       <div class="modal-section">
         <div class="modal-section-title">📊 최저임금 5년 추이</div>
         <div class="chart-wrap">
-          ${renderChart(c.minWageHistory, c.historyUnit)}
+          ${renderChart(recentHistory, c.historyUnit)}
         </div>
         <div style="margin-top:10px; font-size:13px; color:#666;">
           5년간 누적 인상률: <strong style="color:#FF6B00;">${growth === '—' ? '—' : '+' + growth + '%'}</strong>
