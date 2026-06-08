@@ -250,6 +250,19 @@ window.DASHBOARD_DATA = {
           }
         ]
       },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·생년월일·사원번호 등 식별 정보",
+          "임금 지급일·임금 계산 기간",
+          "임금 총액 / 임금 구성항목별 금액 (기본급, 각종 수당, 상여 등)",
+          "임금 구성항목별 계산 방법 (출근일수·시간·일당·시급·고정 산식 등 변동분 산정 근거 명시)",
+          "공제 항목 및 금액 (4대 보험 - 국민연금·건강보험·고용보험·산재 + 소득세·주민세·기타)",
+          "차감 실지급액"
+        ],
+        "format": "서면 또는 전자 (이메일·문자·앱 가능, 2021.11.19 시행)",
+        "legal": "근로기준법 제48조 (임금명세서 교부) + 시행령 제27조의2 + 시행규칙 제9조. 미교부·기재 누락 시 1차 30만원 / 2차 50만원 / 3차+ 100만원 과태료 (최대 500만원)"
+      },
       "sources": [
         {
           "name": "고용노동부",
@@ -1135,6 +1148,19 @@ window.DASHBOARD_DATA = {
         "workVisa": "일반 Work Permit: 지역 쿼터 제한, 1년 단위. <strong>⭐ HQS(Highly Qualified Specialist) 비자: 월급 RUB 167,000+(약 250만원)</strong>, 간소 절차, 3년 갱신, 러시아어 시험 면제, <strong>비거주자도 13% 세율</strong>. 가족 HQS 동반",
         "practicalTip": "⭐ <strong>HQS 비자 적극 활용</strong> - 30% → 13% 세율 대폭 절감(유일한 경로). 월급 RUB 167,000+ 충족 설계 필수. 한-러 사회보장협정(2021~)으로 연금 이중납부 회피. 제재 환경 고려 송금·외환 관리 주의 (달러 결제 제약)"
       },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "회사명·근로자 성명",
+          "임금 계산 기간",
+          "기본급(оклад) + 각종 수당 + 보너스(премия)",
+          "OT (첫 2시간 1.5배 / 이후 2배), 야간(20% 가산), 휴일근로(2배), 북부·시베리아 지역 계수 가산",
+          "공제 (НДФЛ 소득세 13%, 30만 RUB 초과분 15% / 노조비 등). 사회보험료 30%는 사용자만 부담",
+          "총지급액 / 차감 실지급액(зарплата к выплате)"
+        ],
+        "format": "서면 또는 전자 (расчётный листок). 양식은 사용자가 사내 노조와 협의해 결정",
+        "legal": "Трудовой кодекс РФ (노동법전) 제136조 (임금 지급 시마다 명세서 교부 의무). 위반 시 노동감독원 행정처벌 (사용자 1,000~5,000 RUB / 법인 30,000~50,000 RUB)"
+      },
       "sources": [
         {
           "name": "노동사회보장부",
@@ -1860,6 +1886,20 @@ window.DASHBOARD_DATA = {
         "workVisa": "<strong>취업허가(勞動部) → 거류증(ARC)</strong> 2단계. 화이트칼라 쿼터 없음. 월 최저 급여 NT$48,000+ 권장(전문직). 계약 종료 시 ARC 취소 → 15일 내 신규 구직 또는 출국. 가족 거류증 별도",
         "practicalTip": "⚠️ <strong>183일 미만 유지 시 18% 단일세</strong>로 거주자 누진보다 유리할 수 있음 → 단기 파견 설계 활용. 한-대만 조세조약 없음(비공식 협력만). 5월 신고 마감일 놓치면 가산세. 노퇴금(勞退金) 6% 개인계좌 퇴사 시 환급 청구"
       },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·임금 계산 기간",
+          "기본급 (월급·일급·시급·건수급)",
+          "연장근로 (평일 첫 2시간 1.34배, 이후 1.67배 / 휴식일 2배 / 휴일 2배 + 1일 가산)",
+          "야간·휴일·공휴일 가산 수당",
+          "기타 수당 (직무·교통·식대·자녀·근무지 가산 등)",
+          "공제 (노보·건보 5.17%/근로자 부담 30% + 노퇴금 6% 사용자 + 외국인 IIT 5/183 18% 등)",
+          "총지급액 / 공제 합계 / 차감 실지급액"
+        ],
+        "format": "서면 또는 전자",
+        "legal": "노동기준법 제23조 (임금명세서 제공 의무) + 시행세칙 제14조의1. 미제공·기재 누락 시 9만~45만 NT$ 과태료"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -2173,6 +2213,21 @@ window.DASHBOARD_DATA = {
         "workVisa": "<strong>GEP(General Employment Policy)</strong>가 표준. Top Talent Pass Scheme(TTPS) 간소화 대상 포함. 1~2년 → 2+2+3년 연장. 직업 변경 시 신규 신청 필요. 가족 피부양자 비자",
         "practicalTip": "<strong>🏠 Rental Reimbursement 구조</strong>: 현금 주택수당 대신 '회사 직접 임대차계약 + 본인 실비 환급 청구' 방식 → 월급의 10%만 과세 → 세부담 대폭 감소. 'non-Hong Kong employment' 구성 시 홍콩 체류일수 비율만 과세 가능 → 장기 출장형 배치에 유리. 한-홍콩 조세조약 없음 but 저세율로 사실상 문제 없음"
       },
+      "payrollStatement": {
+        "required": false,
+        "items": [
+          "근로자 성명·HKID·근로 계약 기간",
+          "임금 계산 기간",
+          "기본급 / 시급·일급·월급",
+          "OT 수당 (1.0배 이상, 회사 정책. 법정 가산율 별도 없음)",
+          "휴일·공휴일 근로 수당 (대체 휴일 부여 시 가산 면제)",
+          "공제 (MPF 5% 근로자 부담분, 월 임금 7,100~30,000 HKD 구간) / 노조비 등",
+          "Net Pay (실지급액) — 홍콩은 PAYE 원천징수 없음, 매년 IRD 신고",
+          "MPF 기여 내역 (사용자 5% + 근로자 5%)"
+        ],
+        "format": "서면 또는 전자. Payslip 자체는 EO상 명문 의무 없음 - 다만 §49 임금기록(wage record) 12개월 보존 의무로 사실상 모든 기업이 교부 (MPF·세금·노동분쟁 증빙용)",
+        "legal": "Employment Ordinance (Cap 57) §49 (Wage Records 임금기록 보존 의무 - 사용자가 12개월 이상 보존). Payslip 명문 의무 없음. 다만 MPFSO §43F·G, IRD Form IR56B 의무로 사실상 표준"
+      },
       "sources": [
         {
           "name": "노동처",
@@ -2480,6 +2535,21 @@ window.DASHBOARD_DATA = {
         "taxFiling": "직업세(Imposto Profissional) 7~12% 누진 (MOP 144,000 공제 후). 1그룹 employed: 고용주 원천징수 + 연 1회 개인 신고 1~2월. <strong>매년 30% 추가 공제(税款宽减) 관행</strong> (DSF 발표)",
         "workVisa": "<strong>외지고용 허가(藍卡/Blue Card)</strong>: DSAL이 사용자에게 발급. 신원증 사무국에서 비거주 노동자 신원증. <strong>⚠️ 쿼터 제한 엄격</strong>(카지노·호텔·건설). 가족 동반 별도 신청. 장기 거주 7년+ 후 신청 가능",
         "practicalTip": "⭐ 15개국 중 세부담 최저. 연 MOP 144,000 이하 면세 + 매년 30% 추가 공제로 사실상 20~30% 세부담. Blue Card 쿼터 포화 업종은 신청 일정 여유 확보. 한-마카오 조세조약 없으나 저세율로 이중과세 실질 문제 적음"
+      },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·고용 직위",
+          "임금 계산 기간·지급일",
+          "기본급 (시급·일급·월급)",
+          "OT (평일 1.2배 / 휴일 2배), 휴일·공휴일 가산",
+          "기타 수당 (직무·교통·식대 등)",
+          "공제 (사회보장기금 FSS·외국인 OFS 수수료·직업세 등)",
+          "총지급액 / 차감 실지급액",
+          "지급 방법 (현금·은행이체)"
+        ],
+        "format": "서면 또는 전자",
+        "legal": "노동관계법 Lei n.º 7/2008 제55조 + 제56조 (임금 지급 시 명세서·영수증 교부 의무, 사용자가 보관). 사회보장기금법 제5/2008조 + 시행령. 위반 시 MOP 1,000~10,000 과태료"
       },
       "sources": [
         {
@@ -2809,6 +2879,21 @@ window.DASHBOARD_DATA = {
         "taxFiling": "NMTIT(CNMI 소득세) = 연방세 + CNMI 가산세율. FICA(사회보장 6.2% + 메디케어 1.45%) 고용주·근로자 매칭. 연간 신고 4/15 (1040-NMI 양식). 고용주 W-2 발행",
         "workVisa": "<strong>CW-1 비자</strong>(CNMI-Only Transitional Worker, 3년 단위, 2029년까지 연장 승인). <strong>H-2B</strong>(1년, 비숙련). <strong>L-1</strong>(기업 내 전근, 한국 본사 1년+ 근속 필수, 관리직·특수지식 요건). 청원서 I-129CW 고용주 신청. 가족 CW-2/L-2, CW-2는 취업 불가",
         "practicalTip": "한-미 사회보장협정으로 5년 이내 파견 시 한국 Social Security만 납부(Certificate of Coverage <strong>A/USA 4</strong> 필수). <strong>⚠️ FEIE 미적용</strong>이 가장 큰 세부담 원인 - 연방세 완화 방법 제한적. L-1 비자는 한국 본사 1년+ 근속 필수. IRC §119 주거 요건 충족 설계로 주택 비과세 가능"
+      },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·사원번호·SSN(사회보장번호) 일부",
+          "임금 계산 기간 (Pay Period) — 보통 격주 또는 월급",
+          "Regular Hours (정규시간) × Hourly Rate (시급)",
+          "OT Hours × 1.5 (주 40시간 초과분, FLSA 기준)",
+          "기타 수당 (Holiday Pay, Shift Differential 등)",
+          "공제 (Federal Income Tax / Social Security 6.2% / Medicare 1.45% / CNMI Territorial Income Tax)",
+          "총지급액 (Gross Pay) / 공제 합계 / 실지급액 (Net Pay)",
+          "YTD (Year-to-Date) 누계"
+        ],
+        "format": "서면 또는 전자 (이메일·payroll portal 가능). 3년 이상 보존",
+        "legal": "Fair Labor Standards Act (FLSA) 29 USC §211(c) + 29 CFR Part 516 (임금·시간 기록 의무 + payslip 사실상 표준) + IRS Publication 15 (Federal Tax) + CNMI Labor Code"
       },
       "sources": [
         {
@@ -3534,6 +3619,20 @@ window.DASHBOARD_DATA = {
         "taxFiling": "개인소득세 0~35% 누진(TRAIN Law). 연 소득 PHP 250,000 이하 면세. 고용주 매월 원천징수 + 연말 Substituted Filing. 개인 신고 4/15. <strong>⚠️ TRAIN Law 이후 ROHQ 임원 15% 우대세율 폐지</strong>, 일반 누진 적용",
         "workVisa": "<strong>9(g) 상용 취업비자 + AEP(Alien Employment Permit)</strong> 두 가지 모두 필수. AEP(DOLE) 15일, 9(g)비자(BI) 30~45일. 예비 9(a) 임시비자로 입국 후 9(g) 전환 가능. TIN(납세번호) 필수 등록. 가족 동반 비자 별도",
         "practicalTip": "TRAIN Law(2018~) 이후 임원 세부담 증가 주의. 13th Month Pay PHP 90,000 비과세 한도 최대 활용. AEP + 9(g) 동시 진행으로 총 45~60일 단축. BOI 프로모션 기업은 비자 간소 절차"
+      },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·TIN(납세자번호)",
+          "임금 계산 기간 (cut-off, 보통 격주 또는 월급)",
+          "일급/시급 × 출근일수·실근로 시간",
+          "OT (평일 25% 가산 / 휴일·휴식일 30% 가산 / 정기공휴일 100% / 특별공휴일 30%) + 야간(10pm~6am 10% 가산)",
+          "기타 수당 (식대·교통 등 De Minimis Benefits, 비과세 한도 P90,000/년)",
+          "공제 (SSS·PhilHealth·Pag-IBIG·소득세 BIR Form 2316 원천징수)",
+          "총지급액 / 공제 합계 / 차감 실지급액 (Take-Home Pay)"
+        ],
+        "format": "서면 또는 전자. 사용자는 3년 이상 보존 의무",
+        "legal": "Labor Code Article 113·116 (임금 공제 제한 + 명세서 사실상 의무) + DOLE Department Order No. 195-18 (payslip 교부 의무 명문화) + BIR Revenue Regulations (소득세 원천징수)"
       },
       "sources": [
         {
@@ -4435,6 +4534,19 @@ window.DASHBOARD_DATA = {
         "workVisa": "<strong>Non-B 비자(Business) + Work Permit 둘 다 필수</strong>. Non-B 한국에서 신청 → 입국 15일 내 Work Permit 신청. 외국인 1명당 등록자본 THB 2,000,000 요건. 1년 갱신. <strong>BOI 프로모션 기업은 Single Window 특혜</strong>. 가족 Non-O 동반",
         "practicalTip": "⚠️ <strong>2024~ 해외 송금 과세 확대</strong> - 본사 그로스업분 관리 주의. BOI 프로모션 대상 기업은 세제·비자 특혜 최대 활용. Work Permit 없이 근로 시 THB 100,000 벌금 + 최대 5년 징역. 한-태 조세조약 활용"
       },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·임금 계산 기간",
+          "기본급 (일급·월급) - 일 최저 354 THB 이상 (방콕·푸켓 등 지역별 상이)",
+          "OT (평일 1.5배 / 휴일근로 2배 / 휴일 OT 3배), 야간(20% 가산)",
+          "기타 수당 (Position Allowance·Transportation·식대 등)",
+          "공제 (사회보장기금 5% / Provident Fund 사용자·근로자 합의분 / 소득세 PIT 0~35%)",
+          "총지급액 / 차감 실지급액"
+        ],
+        "format": "서면 또는 전자 (사용자가 영수증에 근로자 서명 받아 보관하는 관행). 사용자는 2년 이상 보존",
+        "legal": "Labor Protection Act B.E. 2541 (1998) §23·76·77 (임금 지급 시 명세서 의무) + Revenue Code §50 (소득세 원천징수 명세). 위반 시 100,000 THB 이하 벌금"
+      },
       "sources": [
         {
           "name": "노동부",
@@ -5216,6 +5328,19 @@ window.DASHBOARD_DATA = {
         "workVisa": "<strong>Employment Pass(EP) 3 카테고리</strong> (현행): Cat I 월급 RM 10,000+ (5년), Cat II RM 5,000~9,999 (2년), Cat III RM 3,000~4,999 (1년, 2023~ 제한). <strong>⚠️ 2026.6.1 시행: Cat I RM 20,000+, Cat II RM 10,000~19,999, Cat III RM 5,000~9,999 (제조업 RM 7,000~9,999)로 대폭 상향</strong>. MDEC(IT)·MIDA(제조) 승인 후 이민국. 가족 Dependant Pass는 Cat I/II만. 6개월 미만 출장은 Professional Visit Pass",
         "practicalTip": "⚠️ <strong>2026.6.1부터 EP 급여 기준 대폭 상향</strong> - Cat I 2배(RM 10K→20K), Cat III 최저 RM 5K로 신규 파견자 EP 신청 설계 시 반영 필수. 한국 본사 지급분 포함 구조 재검토. 주재원 부동산 구입 시 MM2H 프로그램 검토. 60일 미만 출장은 세금 면제 활용 가능"
       },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·IC 번호 (또는 외국인 여권번호)",
+          "임금 계산 기간",
+          "기본급·고정 수당 (Position·Transport·COLA·Shift 등)",
+          "OT (평일 1.5배 / 휴식일 2배 / 공휴일 3배), 야간 가산",
+          "공제 (EPF 사용자 13%·근로자 11% + SOCSO 1.75%+0.5% + EIS 0.2%+0.2% + PCB 소득세 원천징수 / Zakat·노조비 등)",
+          "총지급액 / 공제 합계 / 차감 실지급액"
+        ],
+        "format": "서면 또는 전자 (전자 명세서는 근로자 사전 동의 필요). 6년 이상 보존 의무",
+        "legal": "Employment Act 1955 §25 (임금 지급 영수증) + §99 (Wage Books) + Employment (Amendment) Act 2022 - itemized payslip 명문화. 위반 시 RM 10,000 이하 과태료"
+      },
       "sources": [
         {
           "name": "인적자원부",
@@ -5536,6 +5661,20 @@ window.DASHBOARD_DATA = {
         "taxFiling": "소득세 거주자 최고 24%(2024~ 22→24% 인상), 비거주자 15% 또는 최종세율 중 높은 것. 고용주 3/1까지 IR8A 제출. 개인 4/18까지 e-filing. NOR(Not Ordinarily Resident) Scheme 폐지(2020), 경과 규정",
         "workVisa": "<strong>EP(Employment Pass) 월급 S$5,600+</strong>(2025~), 금융 S$6,200+. <strong>COMPASS 점수제(2023~)</strong>: 월급·학력·국적 다양성·기업 기여도·전략 우선순위. S Pass(S$3,150+)·PEP(고소득). 가족 Dependant Pass는 EP 월급 S$6,000+. EP 갱신 2년",
         "practicalTip": "⚠️ <strong>CPF 외국인 미가입</strong> → 본사 퇴직금 유지 필수. 주택수당 전액 과세 정책(2015~) 주의 - 그로스업 부담 증가. <strong>COMPASS 점수</strong>: 한국 국적은 C3 점수(국적 다양성) 활용 가능. 주재원 이사비·일시귀국은 IR8A에 분리 보고"
+      },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "회사명·근로자명·사원번호",
+          "임금 계산 기간·지급일",
+          "기본급 (Basic Pay) + 고정 수당 (Fixed Allowances) + 변동 수당 (Variable Allowances)",
+          "OT 시간·OT 단가·OT 금액 별도 표기 (시급 × 1.5배, 월 72시간 한도)",
+          "기타 추가 지급 (Bonus, AWS 13th Month 등)",
+          "공제 (CPF 사용자 17%/근로자 20% + SDL 0.25% + Foreign Worker Levy 외국인 사용자)",
+          "총지급액 (Gross) / 공제 합계 / 차감 실지급액 (Net Pay)"
+        ],
+        "format": "서면 또는 전자 (이메일·HR App 가능). 12개월 보존 의무",
+        "legal": "Employment Act §96 (itemized payslip - 2016.4 명문화) + §96A·B (1년 보존 + 키 사항 14가지 의무 기재). 위반 시 1차 S$1,000 ~ 누적 S$5,000 벌금, 형사 기소 가능"
       },
       "sources": [
         {
@@ -5869,6 +6008,20 @@ window.DASHBOARD_DATA = {
         "taxFiling": "개인소득세 5~35% 5단계 누진(2022~). 고용주 매월 PPh 21 원천징수. 개인 SPT 1770 연간 신고 3/31. <strong>⚠️ NPWP(납세번호) 필수</strong> - 미등록 시 원천세 20% 가산(일반 15%보다 +5%p)",
         "workVisa": "<strong>RPTKA(외국인고용계획) → IMTA(외국인고용허가) → KITAS(임시거류증)</strong> 3단 절차. 금지 직군 리스트(HR·법무·안전 등) 주의. KITAS 6개월~2년 갱신. 가족 KITAS 동반. 절차 2~3개월. <strong>DKP-TKA(외국인 숙련기부금) 월 USD 100 추가 납부</strong>",
         "practicalTip": "⭐ <strong>주택 지원은 반드시 사택(현물) 형태</strong>로 설계 → 고용주 비과세 혜택. 현금 주택수당은 전액 과세. NPWP 부임 즉시 등록(원천세 5%p 절감). 금지 직군 확인 후 직책 설계. DKP-TKA 월 USD 100 별도 예산"
+      },
+      "payrollStatement": {
+        "required": true,
+        "items": [
+          "근로자 성명·NIK(주민번호)·사원번호",
+          "임금 계산 기간",
+          "기본급 (Upah Pokok) + 고정 수당 (Tunjangan Tetap) + 변동 수당 (Tunjangan Tidak Tetap)",
+          "OT (Lembur) - 첫 시간 1.5배 / 이후 2배 / 휴일 첫 7시간 2배 / 이후 3배·4배",
+          "THR (Tunjangan Hari Raya, 13월 급여) - 명절(이둘 피트리·크리스마스 등) 기본급 1개월분 의무",
+          "공제 (BPJS Kesehatan 사용자 4%/근로자 1% + BPJS Ketenagakerjaan(JHT·JKK·JKm·JP) + 소득세 PPh21 누진)",
+          "총지급액 / 공제 합계 / 차감 실지급액 (Take Home Pay)"
+        ],
+        "format": "서면 또는 전자 (Slip Gaji). 2년 이상 보존",
+        "legal": "UU 13/2003 노동법 (Law 6/2023 Cipta Kerja 개정) + PP 36/2021 임금 정부령 §53 + Permenaker 6/2016 THR. 미교부·기재 누락 시 행정처벌 + Rp 10,000,000~400,000,000 과태료"
       },
       "sources": [
         {

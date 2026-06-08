@@ -7,6 +7,37 @@
 
 ---
 
+## 2026-06-08 (월) - 7차 작업
+
+### 작업 내용 - 누락 11개국 payrollStatement 일괄 추가 + 해고 라벨 변경
+
+#### 1) 모달 퇴직 섹션 라벨 변경 (`index.html`)
+- `계약종료 (정규직/해고)` → `해고`로 명칭 간결화
+
+#### 2) 11개국 `payrollStatement` 신규 추가 (`data.js`)
+6차 작업에서 일본 신규 추가 후 전체 점검 결과, **5개국만 보유 (CN·MN·JP·VN·LA)** 였고 **11개국 누락** 확인. 모두 신규 입력:
+
+| 국가 | 핵심 법령 |
+|---|---|
+| 🇰🇷 한국 (KR) | 근로기준법 제48조 + 시행령 §27의2 + 시행규칙 §9 (2021.11.19 시행, 최대 과태료 500만원) |
+| 🇷🇺 러시아 (RU) | 노동법전 제136조 (расчётный листок 명세서 의무) |
+| 🇹🇼 대만 (TW) | 노동기준법 제23조 + 시행세칙 제14조의1 (9만~45만 NT$ 과태료) |
+| 🇭🇰 홍콩 (HK) | Employment Ordinance §49 임금기록 보존 (Payslip 명문 의무 X / 실무 표준) |
+| 🇲🇴 마카오 (MO) | Lei n.º 7/2008 제55·56조 + 사회보장기금법 |
+| 🇲🇵 사이판 (SP) | FLSA 29 USC §211(c) + 29 CFR Part 516 + IRS Publication 15 + CNMI Labor Code |
+| 🇵🇭 필리핀 (PH) | Labor Code §113·116 + DOLE Department Order No. 195-18 |
+| 🇹🇭 태국 (TH) | Labor Protection Act §23·76·77 + Revenue Code §50 (100,000 THB 벌금) |
+| 🇲🇾 말레이시아 (MY) | Employment Act 1955 §25·99 + 2022 개정 itemized payslip 명문화 (RM 10,000) |
+| 🇸🇬 싱가포르 (SG) | Employment Act §96·96A·B (2016.4 명문화, 키 사항 14가지 의무, S$1,000~5,000 벌금) |
+| 🇮🇩 인도네시아 (ID) | UU 13/2003 + UU 6/2023 Cipta Kerja + PP 36/2021 §53 + Permenaker 6/2016 THR |
+
+각 국가별 6~8개 필수 항목 입력 (식별·지급기간·기본급·OT·수당·공제·실지급액·법령), `required` 플래그·`format`·`legal` 모두 정확화. 홍콩만 `required: false` (Payslip 자체는 명문 의무 X, 다만 §49 임금기록 보존 의무로 실무 표준).
+
+#### 3) 최종 상태
+- payrollStatement 보유: **16개국 전체 100%** (모달 '🧾 급여명세서 필수 항목' 섹션의 "데이터 수집 중" fallback 메시지가 모든 국가에서 사라짐)
+
+---
+
 ## 2026-06-08 (월) - 6차 작업
 
 ### 작업 내용 - 일본 payrollStatement 신규 추가
