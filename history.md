@@ -7,6 +7,45 @@
 
 ---
 
+## 2026-06-08 (월)
+
+### 작업 내용 — 다른 PC zip 동기화 + 5/28 작업본 복원 + GitHub 첫 push 완료
+
+5/28 작업 이후 GitHub push가 보류되어 있던 상태에서, 다른 PC(소유자 보유)에서 받은 5/8자 zip을 압축 해제하고 → 5/28 수동 작업본을 zip 내 `.git` 저장소로 통합 → GitHub에 정식 push 완료.
+
+#### 1) 파일 위치 정리
+- 압축 해제 결과: `Desktop\airline-labor-dashboard\airline-labor-dashboard\` (이중 폴더 구조, 안쪽이 실제 `.git` 저장소)
+- 상위 폴더(`Desktop\airline-labor-dashboard\`)에 5/28자 `data.js`(289KB) / `index.html`(69KB) / `history.md`(20KB) 보존 확인
+- zip 안 `data.js`(271KB) / `index.html`(69KB)는 5/8자 구버전 → 5/28 작업 반영 안 되어 있던 상태
+
+#### 2) 동기화 작업
+- 상위 폴더의 5/28자 3개 파일을 zip 안 `.git` 저장소로 복사·덮어쓰기
+- git user 설정 (저장소 한정): `ChanhongJeong` / `30867102+ChanhongJeong@users.noreply.github.com`
+- 1차 커밋 `b55f6f8`: 5/28 작업 통합 (data.js +342 / -76, index.html +6/-2, history.md 신규 277줄)
+
+#### 3) 인증
+- Git Credential Manager(`git-ecosystem` OAuth 앱) 브라우저 인증 사용
+- GitHub 보안 정책상 새 디바이스라 이메일 verify 단계 거침 → 등록 이메일로 인증 메일 받아 본인 확인 통과
+- 이후 PC에서는 인증 토큰 캐시되어 별도 인증 절차 불필요
+
+#### 4) 충돌 해결
+- 1차 push 거부 (`! [rejected] main -> main (fetch first)`) — 원격에 GitHub Actions가 자동으로 push한 CPI 갱신 커밋 6개 누적되어 있었음 (`644e2ad`/`e2da1ff`/`1f9cfe7`/`be471f8`/`4a3f9ba`/`b5a8c43`, 4/27~6/1 매주 월요일)
+- `git pull origin main --no-rebase` 시도 → `data.js` 충돌 발생 (자동 CPI 갱신이 `inflationHistory` 영역을 매주 수정한 반면, 5/28 수동 작업은 그 직전에 `yearOverrides` 추가 → 같은 영역 충돌)
+- 해결 전략: `git checkout --ours data.js`로 **5/28 수동 작업본 우선 채택** (자동 CPI 값은 다음 주 월요일 GitHub Actions가 재갱신하므로 손실 없음)
+- 2차 커밋 `3d7b303` (merge 커밋) 생성 → 정상 push 완료 (`b5a8c43..3d7b303 main -> main`)
+
+#### 5) 결과
+- 최종 origin/main: `3d7b303` (merge) ← `b55f6f8` (5/28 통합) ← `b5a8c43` (마지막 자동 갱신)
+- GitHub Pages 자동 빌드 트리거됨 → 배포 URL에 5/28 작업(중국·베트남 데이터 보강, 4개국 yearOverrides, 차트 5개년 표시)이 실제로 반영됨
+- 다음 자동 갱신: 2026-06-15(월) UTC 03:00 (KST 12:00) — `.github/workflows/update.yml`
+
+#### 6) 향후 권장
+- 이 PC에서 작업 시 항상 `Desktop\airline-labor-dashboard\airline-labor-dashboard\` 폴더 안에서 작업 (`.git` 있는 곳)
+- 상위 폴더의 5/28자 파일들은 백업 용도로만 보관, 새 수정은 안쪽 폴더에서만 진행
+- 작업 후 흐름: 안쪽 폴더에서 수정 → `git add` → `git commit -m "..."` → `git push origin main`
+
+---
+
 ## 2026-05-28 (목)
 
 ### 작업 내용 — 베트남 급여명세서 문구 삭제 + 자녀 간호휴가 일수 정정 + 전반 점검
