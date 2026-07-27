@@ -52,6 +52,7 @@ node --check data.js
 | `data-2026-07-27-before-VN-CN-HK-TW.json` | 11차 작업 **전** | 9·10차 작업(라오스 정정, 홍콩 6건, 근로시간 16개국) 반영 완료 상태 |
 | `data-2026-07-27-after-VN-CN-HK-TW.json` | 11차 작업 **후** | 베트남·중국·홍콩·대만 심화 블록 보강 완료 상태 |
 | `data-2026-07-27-16countries-complete.json` | 12차 작업 후 | **16개국 9개 핵심 블록 전체 완비** 상태 (588.7 KB) |
+| `data-2026-07-27-after-compress.json` | 13차 작업 후 | value/detail 2단 구조로 압축 완료 상태 (608.1 KB) |
 
 ## 참고
 

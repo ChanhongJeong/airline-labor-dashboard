@@ -471,6 +471,38 @@
     color: var(--text-sub);
     margin-top: 2px;
   }
+  /* 필드별 보충 설명 접이식 */
+  .p-detail {
+    margin-top: 5px;
+  }
+  .p-detail > summary {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--jju-orange-dark);
+    background: #FFF5EC;
+    border: 1px solid #FFE0C7;
+    border-radius: 5px;
+    padding: 1px 8px;
+    list-style: none;
+    user-select: none;
+  }
+  .p-detail > summary::-webkit-details-marker { display: none; }
+  .p-detail > summary::before { content: '＋ '; }
+  .p-detail[open] > summary::before { content: '－ '; }
+  .p-detail[open] > summary { background: #F4F4F4; color: #777; border-color: #E0E0E0; }
+  .p-detail > summary:hover { filter: brightness(0.97); }
+  .p-detail-body {
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #555;
+    margin-top: 5px;
+    padding: 7px 10px;
+    background: #FAFAFA;
+    border-left: 2px solid #E8E8E8;
+    border-radius: 0 5px 5px 0;
+  }
   /* 모달 본문 설명부 볼드 제거 (라벨·제목은 유지) */
   .modal-body .p-formula,
   .modal-body .p-formula *,
@@ -702,6 +734,13 @@ function fmtField(obj, fallback) {
 // 법조항 chip만 단독으로 렌더 (회색 톤)
 // CSV 내보내기용 - HTML 태그(<strong>, <br> 등)를 제거해 평문으로 변환
 const plain = v => v == null ? '' : String(v).replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '');
+
+// 필드의 보충 설명(obj.detail)을 접이식으로 렌더링.
+// value에는 핵심 규정만 두고, 예외·절차·실무 주의사항은 detail로 내려 모달 밀도를 유지한다.
+function detailBlock(obj) {
+  if (!obj || !obj.detail) return '';
+  return `<details class="p-detail"><summary>상세보기</summary><div class="p-detail-body">${obj.detail}</div></details>`;
+}
 
 // 데이터가 등록되지 않은 항목에 쓰는 표시.
 // 여기에 그럴듯한 기본값(예: '일 8시간')을 넣으면 출처 없는 값이 사실처럼 보이므로 절대 넣지 말 것.
@@ -1038,21 +1077,21 @@ function openModal(code) {
               <td style="width:150px;">계약유형</td>
               <td>
                 <div class="p-formula">${c.employmentType?.contractType?.value || c.fixedTermContract.conversion || c.fixedTermContract.max || '-'}</div>
-                ${legalChip(c.employmentType?.contractType?.legal)}
+                ${detailBlock(c.employmentType?.contractType)}${legalChip(c.employmentType?.contractType?.legal)}
               </td>
             </tr>
             <tr>
               <td>수습기간</td>
               <td>
                 <div class="p-formula">${c.employmentType?.probation?.value || c.detailedLabor?.['수습기간'] || '-'}</div>
-                ${legalChip(c.employmentType?.probation?.legal)}
+                ${detailBlock(c.employmentType?.probation)}${legalChip(c.employmentType?.probation?.legal)}
               </td>
             </tr>
             <tr>
               <td>외국인 고용 제한</td>
               <td>
                 <div class="p-formula">${c.employmentType?.foreignerLimit?.value || c.detailedLabor?.['외국인 고용'] || '-'}</div>
-                ${legalChip(c.employmentType?.foreignerLimit?.legal)}
+                ${detailBlock(c.employmentType?.foreignerLimit)}${legalChip(c.employmentType?.foreignerLimit?.legal)}
               </td>
             </tr>
           </tbody>
@@ -1068,14 +1107,14 @@ function openModal(code) {
               <td style="width:150px;">기준</td>
               <td>
                 <div class="p-formula">${c.workingHours ? `${c.workingHours.daily?.value || '-'} · ${c.workingHours.weekly?.value || '-'}` : (c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || NO_DATA)}</div>
-                ${legalChip(c.workingHours?.daily?.legal || c.workingHours?.weekly?.legal)}
+                ${detailBlock(c.workingHours?.daily)}${legalChip(c.workingHours?.daily?.legal || c.workingHours?.weekly?.legal)}
               </td>
             </tr>
             <tr>
               <td>연장근로</td>
               <td>
                 <div class="p-formula">${c.workingHours?.overtime?.value || c.detailedLabor?.['최대 연장시간'] || '-'}</div>
-                ${legalChip(c.workingHours?.overtime?.legal)}
+                ${detailBlock(c.workingHours?.overtime)}${legalChip(c.workingHours?.overtime?.legal)}
               </td>
             </tr>
             ${c.workingHours?.dailyRest ? `
@@ -1083,7 +1122,7 @@ function openModal(code) {
               <td>일간 휴식</td>
               <td>
                 <div class="p-formula">${c.workingHours.dailyRest.value}</div>
-                ${legalChip(c.workingHours.dailyRest.legal)}
+                ${detailBlock(c.workingHours.dailyRest)}${legalChip(c.workingHours.dailyRest.legal)}
               </td>
             </tr>` : ''}
             ${c.workingHours?.weeklyRest ? `
@@ -1091,7 +1130,7 @@ function openModal(code) {
               <td>주휴일</td>
               <td>
                 <div class="p-formula">${c.workingHours.weeklyRest.value}</div>
-                ${legalChip(c.workingHours.weeklyRest.legal)}
+                ${detailBlock(c.workingHours.weeklyRest)}${legalChip(c.workingHours.weeklyRest.legal)}
               </td>
             </tr>` : ''}
           </tbody>
@@ -1107,7 +1146,7 @@ function openModal(code) {
               <td style="width:150px;">취업규칙 의무</td>
               <td>
                 <div class="p-formula">${c.operatingGuide?.workRulesObligation?.value || (c.workRules.mandatory ? '✅ 의무 - ' + c.workRules.threshold : '❌ 법정 의무 없음')}</div>
-                ${legalChip(c.operatingGuide?.workRulesObligation?.legal || c.workRules.legalBasis)}
+                ${detailBlock(c.operatingGuide?.workRulesObligation)}${legalChip(c.operatingGuide?.workRulesObligation?.legal || c.workRules.legalBasis)}
                 <div class="p-note" style="margin-top:4px;">절차: ${c.workRules.procedure}</div>
                 <div class="p-note" style="margin-top:2px;">${c.workRules.note}</div>
               </td>
@@ -1116,7 +1155,7 @@ function openModal(code) {
               <td>계약직 최대기간</td>
               <td>
                 <div class="p-formula">${c.operatingGuide?.fixedTermMaxGuide?.value || c.fixedTermContract.max}</div>
-                ${legalChip(c.operatingGuide?.fixedTermMaxGuide?.legal || c.fixedTermContract.legalBasis)}
+                ${detailBlock(c.operatingGuide?.fixedTermMaxGuide)}${legalChip(c.operatingGuide?.fixedTermMaxGuide?.legal || c.fixedTermContract.legalBasis)}
                 <div class="p-note" style="margin-top:4px;">전환 요건: ${c.fixedTermContract.conversion}</div>
                 <div class="p-note" style="margin-top:2px;">${c.fixedTermContract.note}</div>
               </td>
@@ -1126,21 +1165,21 @@ function openModal(code) {
               <td>육아휴직 대체인력</td>
               <td>
                 <div class="p-formula">${c.operatingGuide.parentalLeaveReplacement.value}</div>
-                ${legalChip(c.operatingGuide.parentalLeaveReplacement.legal)}
+                ${detailBlock(c.operatingGuide.parentalLeaveReplacement)}${legalChip(c.operatingGuide.parentalLeaveReplacement.legal)}
               </td>
             </tr>` : ''}
             <tr>
               <td>수습 중 계약종료</td>
               <td>
                 <div class="p-formula">${c.operatingGuide?.terminateDuringProbation?.value || c.hiringPlaybook.terminateDuringProbation}</div>
-                ${legalChip(c.operatingGuide?.terminateDuringProbation?.legal)}
+                ${detailBlock(c.operatingGuide?.terminateDuringProbation)}${legalChip(c.operatingGuide?.terminateDuringProbation?.legal)}
               </td>
             </tr>
             <tr>
               <td>수습 후 계약종료</td>
               <td>
                 <div class="p-formula">${c.operatingGuide?.terminateAfterProbation?.value || c.hiringPlaybook.terminateAfterProbation}</div>
-                ${legalChip(c.operatingGuide?.terminateAfterProbation?.legal)}
+                ${detailBlock(c.operatingGuide?.terminateAfterProbation)}${legalChip(c.operatingGuide?.terminateAfterProbation?.legal)}
               </td>
             </tr>
             <tr>
@@ -1222,32 +1261,32 @@ function openModal(code) {
             ${c.leavePolicyExtended?.maternity ? `
             <tr>
               <td>출산휴가</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.maternity.value}</div>${legalChip(c.leavePolicyExtended.maternity.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.maternity.value}</div>${detailBlock(c.leavePolicyExtended.maternity)}${legalChip(c.leavePolicyExtended.maternity.legal)}</td>
             </tr>` : ''}
             ${c.leavePolicyExtended?.paternity ? `
             <tr>
               <td>부성휴가</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.paternity.value}</div>${legalChip(c.leavePolicyExtended.paternity.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.paternity.value}</div>${detailBlock(c.leavePolicyExtended.paternity)}${legalChip(c.leavePolicyExtended.paternity.legal)}</td>
             </tr>` : ''}
             ${c.leavePolicyExtended?.healthLeave ? `
             <tr>
               <td>보건휴가</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.healthLeave.value}</div>${legalChip(c.leavePolicyExtended.healthLeave.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.healthLeave.value}</div>${detailBlock(c.leavePolicyExtended.healthLeave)}${legalChip(c.leavePolicyExtended.healthLeave.legal)}</td>
             </tr>` : ''}
             ${c.leavePolicyExtended?.sick ? `
             <tr>
               <td>병가</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.sick.value}</div>${legalChip(c.leavePolicyExtended.sick.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.sick.value}</div>${detailBlock(c.leavePolicyExtended.sick)}${legalChip(c.leavePolicyExtended.sick.legal)}</td>
             </tr>` : ''}
             ${c.leavePolicyExtended?.parental ? `
             <tr>
               <td>육아휴직</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.parental.value}</div>${legalChip(c.leavePolicyExtended.parental.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.parental.value}</div>${detailBlock(c.leavePolicyExtended.parental)}${legalChip(c.leavePolicyExtended.parental.legal)}</td>
             </tr>` : ''}
             ${c.leavePolicyExtended?.parentalFixedTerm ? `
             <tr>
               <td>계약직 육아휴직</td>
-              <td><div class="p-formula">${c.leavePolicyExtended.parentalFixedTerm.value}</div>${legalChip(c.leavePolicyExtended.parentalFixedTerm.legal)}</td>
+              <td><div class="p-formula">${c.leavePolicyExtended.parentalFixedTerm.value}</div>${detailBlock(c.leavePolicyExtended.parentalFixedTerm)}${legalChip(c.leavePolicyExtended.parentalFixedTerm.legal)}</td>
             </tr>` : ''}
             ${c.annualLeave.specialObligation ? `
             <tr>
@@ -1287,7 +1326,7 @@ function openModal(code) {
                 <div class="p-formula"><strong>사용자:</strong> ${c.compensation.socialInsurance.employer}</div>
                 <div class="p-formula" style="margin-top:4px;"><strong>근로자:</strong> ${c.compensation.socialInsurance.employee}</div>
                 ${c.compensation.socialInsurance.note ? `<div class="p-note" style="margin-top:4px;">${c.compensation.socialInsurance.note}</div>` : ''}
-                ${legalChip(c.compensation.socialInsurance.legal)}
+                ${detailBlock(c.compensation.socialInsurance)}${legalChip(c.compensation.socialInsurance.legal)}
               </td>
             </tr>` : `
             <tr>
@@ -1309,7 +1348,7 @@ function openModal(code) {
               <td>상여금</td>
               <td>
                 <div class="p-formula">${c.compensation.bonus.value}</div>
-                ${legalChip(c.compensation.bonus.legal)}
+                ${detailBlock(c.compensation.bonus)}${legalChip(c.compensation.bonus.legal)}
               </td>
             </tr>` : ''}
             ${c.compensation?.severance ? `
@@ -1317,7 +1356,7 @@ function openModal(code) {
               <td>퇴직금</td>
               <td>
                 <div class="p-formula">${c.compensation.severance.value}</div>
-                ${legalChip(c.compensation.severance.legal)}
+                ${detailBlock(c.compensation.severance)}${legalChip(c.compensation.severance.legal)}
               </td>
             </tr>` : `
             <tr>
@@ -1353,42 +1392,42 @@ function openModal(code) {
               <td style="width:160px;">자발적 퇴사 절차</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || NO_DATA}</div>
-                ${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
+                ${detailBlock(c.terminationProcess?.voluntaryResignation)}${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
               </td>
             </tr>
             <tr>
               <td>계약종료 (계약직)</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.fixedTermEnd?.value || c.fixedTermContract.conversion || '-'}</div>
-                ${legalChip(c.terminationProcess?.fixedTermEnd?.legal)}
+                ${detailBlock(c.terminationProcess?.fixedTermEnd)}${legalChip(c.terminationProcess?.fixedTermEnd?.legal)}
               </td>
             </tr>
             <tr>
               <td>해고</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.regularDismissal?.value || c.detailedLabor?.['해고 절차'] || '-'}</div>
-                ${legalChip(c.terminationProcess?.regularDismissal?.legal)}
+                ${detailBlock(c.terminationProcess?.regularDismissal)}${legalChip(c.terminationProcess?.regularDismissal?.legal)}
               </td>
             </tr>
             <tr>
               <td>해고 조건</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.dismissalConditions?.value || NO_DATA}</div>
-                ${legalChip(c.terminationProcess?.dismissalConditions?.legal)}
+                ${detailBlock(c.terminationProcess?.dismissalConditions)}${legalChip(c.terminationProcess?.dismissalConditions?.legal)}
               </td>
             </tr>
             <tr>
               <td>해고 절차</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.dismissalProcedure?.value || c.hiringPlaybook.terminateAfterProbation || '-'}</div>
-                ${legalChip(c.terminationProcess?.dismissalProcedure?.legal)}
+                ${detailBlock(c.terminationProcess?.dismissalProcedure)}${legalChip(c.terminationProcess?.dismissalProcedure?.legal)}
               </td>
             </tr>
             <tr>
               <td>해고 통보기간</td>
               <td>
                 <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || c.detailedLabor?.['해고 절차'] || NO_DATA}</div>
-                ${legalChip(c.terminationProcess?.noticePeriod?.legal)}
+                ${detailBlock(c.terminationProcess?.noticePeriod)}${legalChip(c.terminationProcess?.noticePeriod?.legal)}
               </td>
             </tr>
             ${c.terminationProcess?.protectedWorkers ? `
@@ -1396,7 +1435,7 @@ function openModal(code) {
               <td>보호 대상자</td>
               <td>
                 <div class="p-note" style="font-size:12px;">${c.terminationProcess.protectedWorkers.value}</div>
-                ${legalChip(c.terminationProcess.protectedWorkers.legal)}
+                ${detailBlock(c.terminationProcess.protectedWorkers)}${legalChip(c.terminationProcess.protectedWorkers.legal)}
               </td>
             </tr>` : ''}
           </tbody>
