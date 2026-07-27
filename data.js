@@ -4409,18 +4409,136 @@ window.DASHBOARD_DATA = {
           "url": "https://nwpc.dole.gov.ph/"
         }
       ],
+      "employmentType": {
+        "contractType": {
+          "value": "고용 형태는 <strong>정규직(regular)·기간제(fixed-term)·프로젝트(project)·계절적(seasonal)·수습(probationary)·임시(casual)</strong>로 구분됨. <strong>계속적·필수적 업무(usually necessary or desirable in the usual business)</strong>에 종사하면 원칙적으로 <strong>정규직</strong>이며, 수습 근로자는 <strong>6개월</strong>이 지나면 자동으로 정규직이 됨.<br>기간제 계약은 법에 명문 규정이 없으나 대법원(Brent School 판례)이 <strong>당사자가 대등한 지위에서 자유롭게 기간을 합의</strong>했고 사용자의 우월적 지위에 의한 강요가 없었을 것을 요건으로 유효성을 인정. ⚠️ 정규직화를 회피할 목적의 반복 단기계약(<strong>endo·5-5-5</strong>)은 <strong>노동법 잠탈로 무효</strong>이며 근로자는 처음부터 정규직으로 간주됨",
+          "legal": "Labor Code Art. 295 [280]·Art. 296 [281] / Brent School v. Zamora (G.R. No. 48494) 등 판례"
+        },
+        "probation": {
+          "value": "<strong>법정 상한 6개월</strong>(견습·도제 등 특별 사유가 있는 경우 제외). ⚠️ 수습 개시 <strong>시점에</strong> 정규직 전환을 위한 <strong>합격 기준(reasonable standards)을 근로자에게 서면으로 알리지 않으면</strong>, 그 근로자는 <strong>처음부터 정규직</strong>으로 간주됨.<br>6개월이 지나 계속 근무하면 자동으로 정규직이 되며, 수습 기간 중 해고하려면 ① 정규직과 동일한 정당 사유(Art. 297) 또는 ② <strong>사전에 고지한 합격 기준 미달</strong> 중 하나여야 하고 절차적 정당성(통지·소명 기회)도 요구됨",
+          "legal": "Labor Code Art. 296 [281] / Omnibus Rules Implementing the Labor Code, Book VI Rule I Sec. 6"
+        },
+        "fixedTermMax": {
+          "value": "법정 상한 <strong>없음</strong> - 기간제 자체를 규율하는 조문이 없고 판례 법리로만 통제됨. 대신 <strong>수습 6개월</strong>이 실질적 기준선으로 작동하며, 계속적·필수적 업무에 6개월을 넘겨 사용하면 정규직으로 간주됨.<br><strong>프로젝트 고용</strong>은 특정 사업·공정의 완료로 종료되나, 채용 시점에 프로젝트 범위와 기간을 명시하고 완료 시마다 <strong>DOLE에 종료 보고(Termination Report)</strong>를 제출해야 유효. 이를 반복하며 계속 고용하면 정규직으로 전환될 수 있음",
+          "legal": "Labor Code Art. 295 [280] / DOLE Department Order No. 174-17 (하도급) / D.O. 19 (건설업 프로젝트 고용)"
+        },
+        "foreignerLimit": {
+          "value": "외국인은 <strong>Alien Employment Permit(AEP, DOLE 발급)</strong> + <strong>9(g) 취업비자(Bureau of Immigration)</strong>가 필요. AEP 신청 전 <strong>노동시장 조사(Labor Market Test)</strong>로 해당 직무를 수행할 수 있는 필리핀인이 없음을 입증해야 하며, 신문 공고 절차를 거침.<br>인원 쿼터는 없으나 AEP 발급 시 <strong>필리핀인 후임자 양성 계획(Understudy Training Program)</strong> 제출이 요구되는 직종이 있음. 유효기간은 고용계약 기간에 따르되 통상 1~3년",
+          "legal": "Labor Code Art. 40~42 / DOLE Department Order No. 248-25 등 AEP 관련 지침"
+        }
+      },
+      "leavePolicyExtended": {
+        "maternity": {
+          "value": "<strong>105일 유급</strong>(출산 1회당, 혼인 여부·출산 횟수 제한 없음). <strong>한부모(solo parent)</strong>는 <strong>120일</strong>. 유산·응급 임신중절은 <strong>60일</strong>.<br>105일 소진 후 <strong>30일 무급 연장</strong>을 선택할 수 있음(최소 45일 전 통지). 105일 중 <strong>7일은 배우자(또는 대체 수급권자)에게 양도</strong> 가능 → 배우자는 부성휴가 7일과 합쳐 최대 14일 사용 가능.<br>급여는 SSS가 <strong>일평균급여신용(ADSC) × 105일</strong>을 지급하며 사용자는 SSS 급여와 실제 급여의 차액(salary differential)을 보전해야 함",
+          "legal": "RA 11210 (105-Day Expanded Maternity Leave Law) 및 시행규칙 / SSS법(RA 11199)"
+        },
+        "paternity": {
+          "value": "<strong>7일 유급</strong> - 요건: <strong>법률상 혼인 관계</strong>에 있고 배우자와 동거할 것, <strong>처음 4회 출산</strong>까지. 출산·유산일로부터 60일 이내 사용.<br>별도로 배우자가 출산휴가 105일 중 <strong>7일을 양도</strong>하면 <strong>최대 14일</strong>까지 사용 가능",
+          "legal": "RA 8187 (Paternity Leave Act of 1996) / RA 11210 제6조(양도)"
+        },
+        "healthLeave": {
+          "value": "❌ 생리휴가 제도는 없음. 대신 <strong>여성 특별휴가(Special Leave for Women)</strong> - 부인과 질환(gynecological disorder)으로 <strong>수술</strong>을 받은 경우 <strong>최대 2개월 유급</strong>. 요건: 수술 직전 12개월 중 <strong>6개월 이상</strong> 근무.<br>그 밖에 <strong>VAWC 휴가 10일 유급</strong>(여성·자녀에 대한 폭력 피해자), <strong>한부모 휴가(Solo Parent Leave) 연 7일 유급</strong>(1년 이상 근속)",
+          "legal": "RA 9710 (Magna Carta of Women) Sec. 18 / RA 9262 (Anti-VAWC) Sec. 43 / RA 8972·RA 11861 (Solo Parents Welfare Act)"
+        },
+        "sick": {
+          "value": "❌ <strong>법정 유급 병가 제도가 없음</strong> - 노동법에 병가 규정이 없어 회사 규정·단체협약에 따름.<br>대신 <strong>서비스 인센티브 휴가(Service Incentive Leave, SIL) 연 5일</strong>이 법정 최소 유급휴가이며, 근로자가 <strong>병가·연차 어느 용도로도 사용</strong>할 수 있고 <strong>미사용분은 연말 또는 퇴직 시 금전으로 환산</strong>해야 함(1년 이상 근속자, 상시 10인 미만 사업장 등은 적용 제외).<br>업무 외 상병은 <strong>SSS 상병급여(Sickness Benefit)</strong> - 4일 이상 요양 시 일평균급여신용의 <strong>90%</strong>를 연 120일 한도로 지급하되, 사용자가 먼저 지급하고 SSS에 상환 청구. 업무상 재해는 <strong>Employees’ Compensation(EC)</strong> 별도 적용",
+          "legal": "Labor Code Art. 95 [95] (SIL) / SSS법(RA 11199) 제14조 / 병가 자체의 법정 규정은 없음"
+        },
+        "parental": {
+          "value": "❌ <strong>육아휴직 제도가 없음</strong> - 출산휴가(105일) 외에 별도의 유급·무급 육아휴직 규정이 없음. 105일 종료 후 <strong>30일 무급 연장</strong> 옵션이 사실상 유일한 연장 수단.<br><strong>수유시간</strong>은 별도 보장 - 사용자는 <strong>8시간 근무당 최소 40분</strong>의 수유·유축 휴게시간을 부여하고 수유실(lactation station)을 설치해야 함(상시 근로자 요건 충족 시).<br>출산휴가 종료 후 <strong>원직 복귀 보장</strong> 및 임신·출산을 이유로 한 해고·차별 금지",
+          "legal": "RA 11210 (육아휴직 규정 없음) / RA 10028 (Expanded Breastfeeding Promotion Act)"
+        },
+        "parentalFixedTerm": {
+          "value": "기간제·프로젝트·수습 근로자도 SSS 가입자이면 <strong>출산급여·부성휴가·SIL이 동일하게 적용</strong>됨. 다만 계약기간이 만료되면 근로관계가 종료되며, 이 경우 잔여 휴가는 소멸하고 미사용 SIL만 금전 환산 대상이 됨.<br>⚠️ <strong>임신을 이유로 한 계약 갱신 거절</strong>은 성차별로 위법이며, 반복 갱신 관행이 있었다면 정규직 간주 및 부당해고 문제로 이어질 수 있음",
+          "legal": "RA 11210 / RA 9710 (Magna Carta of Women) / Labor Code Art. 133 [135]"
+        }
+      },
+      "terminationProcess": {
+        "fixedTermEnd": {
+          "value": "기간 만료로 종료되며 원칙적으로 <strong>해고수당(separation pay) 지급 의무가 없음</strong>. 다만 ① 계속적·필수적 업무에 종사했거나 ② 반복 갱신으로 사실상 계속 고용된 경우에는 <strong>정규직으로 간주</strong>되어 만료를 이유로 한 종료가 <strong>부당해고</strong>가 됨.<br><strong>프로젝트 고용</strong>은 프로젝트 완료로 종료되나 <strong>완료 시마다 DOLE에 종료 보고서(Establishment Termination Report)를 제출</strong>해야 하며, 이를 누락하면 프로젝트 고용이 아니라 정규직으로 판단될 수 있음",
+          "legal": "Labor Code Art. 295 [280] / DOLE Department Order No. 174-17 · D.O. 19"
+        },
+        "regularDismissal": {
+          "value": "정규직은 <strong>정당 사유(just cause) 또는 허용 사유(authorized cause)</strong>가 있어야만 해고 가능.<br><strong>허용 사유(Art. 298 [283]·299 [284])</strong>와 해고수당 - ① <strong>노동절약 장치 도입</strong> ② <strong>잉여인력(redundancy)</strong> → <strong>근속 1년당 1개월분</strong>(또는 1개월분 중 큰 금액) ③ <strong>손실 방지를 위한 감원(retrenchment)</strong> ④ <strong>사업 폐지·중단</strong>(중대한 손실로 인한 폐업 제외) → <strong>근속 1년당 0.5개월분</strong>(또는 1개월분 중 큰 금액) ⑤ <strong>질병</strong>으로 계속 근로가 본인·동료에게 유해한 경우(6개월 내 치유 불가 의사 소견) → 근속 1년당 0.5개월분.<br>⚠️ 허용 사유 해고는 <strong>근로자와 DOLE 지방사무소 양쪽에 30일 전 서면 통지</strong>가 필수이며, 6개월 이상의 잔여 기간은 1년으로 계산",
+          "legal": "Labor Code Art. 298 [283]·Art. 299 [284]"
+        },
+        "voluntaryResignation": {
+          "value": "근로자는 <strong>30일 전 서면 통지</strong>로 사직할 수 있으며(Art. 300 [285]), 통지 없이 사직해 사용자에게 손해가 발생하면 배상 책임이 있음.<br><strong>즉시 사직이 가능한 경우</strong>: ① 사용자·대리인의 <strong>중대한 모욕</strong> ② 사용자·대리인에 의한 <strong>비인격적·모욕적 대우</strong> ③ 근로자 또는 그 가족에 대한 범죄 행위 ④ 그 밖의 유사한 사유.<br>자발적 사직은 원칙적으로 해고수당 대상이 아니나, 회사 규정·단체협약·관행이 있으면 그에 따름. 최종 급여(final pay)는 <strong>퇴직일로부터 30일 이내</strong> 지급이 원칙(DOLE 지침)",
+          "legal": "Labor Code Art. 300 [285] / DOLE Labor Advisory No. 06-20 (최종 급여·재직증명)"
+        },
+        "dismissalConditions": {
+          "value": "<strong>정당 사유(just cause, Art. 297 [282])</strong> - 해고수당 <strong>없음</strong> - ① <strong>중대한 비위</strong> 또는 적법한 업무 지시에 대한 <strong>고의적 불복종</strong> ② 직무에 대한 <strong>중대하고 상습적인 태만</strong> ③ <strong>사기</strong> 또는 사용자가 부여한 <strong>신뢰의 고의적 배반</strong> ④ 사용자·그 가족·대리인에 대한 <strong>범죄 또는 위법행위</strong> ⑤ 그 밖에 이에 준하는 사유.<br>⚠️ 사유가 정당해도 <strong>절차적 정당성(procedural due process)</strong>을 지키지 않으면 해고는 유효하되 사용자는 <strong>명목적 손해배상(nominal damages, 통상 3만 페소)</strong>을 부담",
+          "legal": "Labor Code Art. 297 [282] / Agabon 및 Jaka 판례 법리"
+        },
+        "dismissalProcedure": {
+          "value": "<strong>정당 사유 해고 - 2회 통지 원칙(twin-notice rule)</strong><br>① <strong>1차 통지</strong>: 구체적 혐의 사실과 근거를 적시하고 <strong>최소 5일(calendar days)</strong>의 서면 소명 기회를 부여 ② <strong>청문(hearing/conference)</strong>: 근로자가 요청하거나 사안의 성질상 필요한 경우 실시하며 대리인·노조 동석 허용 ③ <strong>2차 통지</strong>: 검토 결과와 해고 결정·근거를 서면 통지.<br><strong>허용 사유 해고</strong>: 근로자와 <strong>DOLE 지방사무소 양쪽에 30일 전 서면 통지</strong> + 해고수당 지급 + <strong>공정하고 합리적인 선정 기준</strong>(연공·효율성·건강 등) 문서화.<br>공통: 퇴직 시 <strong>최종 급여 30일 이내 지급</strong> + <strong>재직증명서(Certificate of Employment)를 요청일로부터 3일 이내</strong> 교부",
+          "legal": "Labor Code Art. 292 [277](b)·297·298 / DOLE Department Order No. 147-15 / Labor Advisory No. 06-20"
+        },
+        "noticePeriod": {
+          "value": "<strong>정당 사유 해고</strong>: 별도의 예고기간은 없으나 <strong>2회 통지 + 최소 5일의 소명 기간</strong>이라는 절차적 요건이 사실상 예고 역할을 함.<br><strong>허용 사유 해고</strong>: <strong>30일 전</strong>에 근로자와 DOLE에 각각 서면 통지(예고수당으로 갈음하는 명문 규정은 없으므로 30일분 임금을 지급하더라도 통지 자체를 생략하면 절차 위반).<br><strong>근로자 사직</strong>: 30일 전 서면 통지",
+          "legal": "Labor Code Art. 297·298·300"
+        },
+        "protectedWorkers": {
+          "value": "<strong>혼인·임신을 이유로 한 해고 금지</strong> - 여성 근로자에게 혼인하지 않을 것을 조건으로 하거나, 혼인·임신·출산을 이유로 해고·차별하는 행위는 위법(Art. 134 [136]·Art. 135 [137]).<br><strong>출산휴가 중 해고 금지</strong> 및 휴가 종료 후 <strong>원직 복귀 보장</strong>(RA 11210). <strong>노동조합 가입·활동</strong>을 이유로 한 해고는 <strong>부당노동행위(ULP)</strong>로 형사처벌 대상(Art. 258 [248]).<br>그 밖에 <strong>VAWC 피해자</strong>, <strong>한부모</strong>, <strong>HIV 감염인</strong>(RA 11166), <strong>결핵·B형간염 보유자</strong>에 대한 고용상 차별 금지 규정이 개별법으로 존재",
+          "legal": "Labor Code Art. 134 [136]·Art. 135 [137]·Art. 258 [248] / RA 11210 / RA 9262 / RA 11166"
+        }
+      },
+      "operatingGuide": {
+        "workRulesObligation": {
+          "value": "❌ <strong>취업규칙의 작성·신고 의무가 법정되어 있지 않음</strong>. 다만 사용자는 경영권의 일부로 회사 규정(Code of Conduct·Company Rules)을 정할 수 있고, 판례는 <strong>① 합리적일 것 ② 채용 시 또는 시행 전에 근로자에게 충분히 알렸을 것 ③ 일관되게 적용할 것</strong>을 유효 요건으로 요구함 → <strong>고지·수령 확인 서명을 받아두지 않으면 징계·해고 시 절차 위반</strong>으로 다투어짐.<br>별도로 상시 근로자 수와 무관하게 <strong>직장 내 성희롱 방지 규정</strong>(RA 7877·RA 11313) 및 <strong>약물 없는 직장 정책</strong>(RA 9165, 상시 10인 이상)은 <strong>제정·게시 의무</strong>가 있음. 단체협약(CBA)은 DOLE에 등록해야 효력이 완전해짐",
+          "legal": "취업규칙 신고 의무 규정 없음 / RA 7877·RA 11313(성희롱) / RA 9165 및 DOLE D.O. 53-03(약물정책) / Labor Code Art. 237 [231](CBA 등록)"
+        },
+        "fixedTermMaxGuide": {
+          "value": "기간제 자체의 법정 상한은 없으나 <strong>수습 6개월</strong>이 실질적 상한선. 계속적·필수적 업무에 6개월을 넘겨 사용하면 정규직 간주. ⚠️ 정규직화 회피 목적의 반복 단기계약(<strong>endo</strong>)은 노동법 잠탈로 무효이며 <strong>처음부터 정규직</strong>으로 간주됨. 프로젝트 고용은 채용 시 범위·기간 명시 + 완료 시마다 <strong>DOLE 종료 보고</strong>가 유효 요건",
+          "legal": "Labor Code Art. 295 [280]·Art. 296 [281] / DOLE D.O. 174-17"
+        },
+        "probationGuide": {
+          "value": "법정 상한 <strong>6개월</strong>. ⚠️ 가장 흔한 실수는 <strong>합격 기준 미고지</strong> - 수습 <strong>개시 시점에</strong> 정규직 전환 기준을 서면으로 알리지 않으면 그 근로자는 <strong>처음부터 정규직</strong>이 됨. 평가 항목·배점·합격선을 계약서 또는 별지에 명시하고 <strong>수령 확인 서명</strong>을 받을 것. 6개월이 지나 하루라도 더 근무시키면 정규직이 되므로 <strong>만료일 관리가 핵심</strong>",
+          "legal": "Labor Code Art. 296 [281] / Omnibus Rules Book VI Rule I Sec. 6"
+        },
+        "terminateDuringProbation": {
+          "value": "수습 중 또는 만료 시점의 종료도 ① <strong>사전에 고지한 합격 기준 미달</strong> 또는 ② 정규직과 동일한 <strong>정당 사유(Art. 297)</strong> 중 하나에 해당해야 함. 어느 경우든 <strong>서면 통지와 소명 기회</strong>가 필요하며, 합격 기준 미달을 이유로 할 때는 <strong>만료일 전에 통지</strong>해야 함. 기준 미달을 이유로 한 종료에는 해고수당 지급 의무가 없음",
+          "legal": "Labor Code Art. 296 [281]·Art. 297 [282] / DOLE D.O. 147-15"
+        },
+        "terminateAfterProbation": {
+          "value": "정규직 해고는 <strong>정당 사유 + 2회 통지(최소 5일 소명)</strong> 또는 <strong>허용 사유 + 30일 전 근로자·DOLE 통지 + 해고수당</strong>. 부당해고로 판정되면 <strong>원직 복직 + 해고 시점부터의 임금 전액(full backwages)</strong>이 명해지며, 복직이 곤란하면 <strong>근속 1년당 1개월분의 분리수당(separation pay in lieu of reinstatement)</strong>으로 갈음",
+          "legal": "Labor Code Art. 294 [279]·Art. 297·Art. 298"
+        }
+      },
+      "compensation": {
+        "socialInsurance": {
+          "employer": "SSS 10% + PhilHealth 2.5% + Pag-IBIG 2% + EC(고용보상기금) 사용자 전액",
+          "employee": "SSS 5% + PhilHealth 2.5% + Pag-IBIG 2%",
+          "legal": "사회보장법(RA 11199) / 국민건강보험법(RA 11223) / Pag-IBIG 기금법(RA 9679) / 대통령령 626호(Employees’ Compensation)",
+          "note": "<strong>2026년 기준</strong>. <strong>SSS 합계 15%</strong>(사용자 10% + 근로자 5%) - RA 11199에 따라 2025년 14% → 15%로 인상됨. 월소득신용(MSC) 구간에 따라 부과되며 사용자는 <strong>EC(고용보상기금)</strong>를 추가로 전액 부담. <strong>PhilHealth 5%</strong>(노사 절반) - 월 보험료 최저 ₱500 ~ 최고 ₱5,000. <strong>Pag-IBIG</strong>(주택기금) 근로자·사용자 각 2%.<br>⚠️ <strong>13개월급여(13th month pay)는 사회보험이 아니라 법정 의무 임금</strong>이므로 별도 예산 필요"
+        },
+        "thirteenthMonth": {
+          "value": "✅ <strong>법정 의무</strong> - 급여 형태·지급 방법과 무관하게 <strong>1년 중 최소 1개월 이상 근무한 모든 일반직(rank-and-file) 근로자</strong>에게 지급해야 함(관리직은 제외).<br>금액은 <strong>해당 연도에 받은 기본급 총액의 1/12 이상</strong>이며, 초과근무수당·야간차등·휴일수당 등은 기본급에 포함되지 않음. 1년 미만 근속자는 <strong>비례 지급</strong>.<br>지급 기한은 <strong>매년 12월 24일까지</strong>이며, 사용자는 <strong>다음 해 1월 15일까지 DOLE에 지급 보고(compliance report)</strong>를 제출해야 함. ₱90,000까지는 소득세 면제",
+          "legal": "대통령령 851호(PD 851) 및 개정 시행규칙 / DOLE Labor Advisory (연례)"
+        },
+        "bonus": {
+          "value": "법정 13개월급여를 넘는 상여는 원칙적으로 <strong>재량적 급여(gratuity)</strong>로 법적 의무가 없음. ⚠️ 다만 <strong>장기간·일관되게·의도적으로</strong> 지급해 왔다면 <strong>회사 관행(company practice)</strong>으로 굳어져 일방적으로 폐지·감액할 수 없음 - 이를 <strong>이익 불감축 원칙(non-diminution of benefits, Art. 100)</strong>이라 하며, 판례는 통상 <strong>3년 이상 반복 지급</strong>을 관행 성립의 기준으로 봄.<br>따라서 실적 연동 상여는 <strong>지급 기준과 재량성을 서면으로 명시</strong>해 두어야 함",
+          "legal": "Labor Code Art. 100 [100] (Non-diminution of Benefits) / PD 851"
+        },
+        "severance": {
+          "value": "<strong>해고수당(separation pay)</strong>은 <strong>허용 사유 해고</strong>에만 발생 - 잉여인력·노동절약 장치 도입: <strong>근속 1년당 1개월분</strong> / 감원·사업 폐지·질병: <strong>근속 1년당 0.5개월분</strong>(각각 최소 1개월분 보장, 6개월 이상 잔여 기간은 1년으로 계산). <strong>정당 사유 해고는 지급 의무 없음</strong>.<br><strong>퇴직급여(retirement pay)</strong>는 별도 제도 - 회사 퇴직제도나 단체협약이 없는 경우, <strong>만 60세 이상 65세 이하</strong>로 <strong>5년 이상 근속</strong>한 근로자가 퇴직하면 <strong>근속 1년당 최소 0.5개월분</strong>을 지급해야 하며, 여기서 '0.5개월분'은 <strong>기본급 15일분 + 13개월급여의 1/12 + 미사용 SIL 5일분 = 22.5일분</strong>으로 계산됨. 만 65세는 강제 정년",
+          "legal": "Labor Code Art. 298·299 (해고수당) / Art. 302 [287] 및 RA 7641 (퇴직급여)"
+        }
+      },
       "annualLeave": {
         "statutory": "Service Incentive Leave (SIL) 연 5일 (1년 근속 완료 시) - Labor Code §95",
         "grantRule": "1년 근속 요건. 10인 미만 소규모 사업장·관리직·field personnel 제외 (Labor Code §95(b)(3)). 단체협약·사내 규정으로 추가 연차(Vacation Leave) 관행",
         "compensation": {
           "required": true,
           "formula": "해당 연도 미사용 SIL은 일급 × 100% 환산 지급 의무. 사용 또는 환산 중 근로자 선택",
-          "note": "추가 Vacation Leave는 계약 따름. DOLE D.O. 명확"
+          "note": "추가 Vacation Leave는 계약 따름. DOLE D.O. 명확",
+          "legal": "Labor Code Art. 95 [95] (Service Incentive Leave - 미사용분 금전 환산 의무)"
         },
         "carryover": {
           "allowed": false,
           "maxYears": "-",
-          "detail": "SIL은 당해 연도 소진 또는 환산. 이월 개념 없음"
+          "detail": "SIL은 당해 연도 소진 또는 환산. 이월 개념 없음",
+          "legal": "Labor Code Art. 95 [95] / Omnibus Rules Book III Rule V (연말 또는 퇴직 시 환산이 원칙이므로 이월은 회사 규정 사항)"
         },
         "consent": "이월 없음 → 동의서 불필요",
         "specialObligation": "13th Month Pay와는 별개 계산. 외자·대기업은 추가 Vacation Leave 15~20일 관행",
@@ -5346,18 +5464,136 @@ window.DASHBOARD_DATA = {
           "url": "http://www.nso.go.th/"
         }
       ],
+      "employmentType": {
+        "contractType": {
+          "value": "<strong>기간의 정함이 없는 계약</strong>이 원칙. 기간을 정한 계약(fixed-term)은 <strong>① 특정 프로젝트로서 통상적 사업이 아닌 것 ② 임시적 성격의 업무 ③ 계절적 업무</strong>에 한해, 그리고 <strong>기간이 2년을 넘지 않고</strong> 시작·종료일을 서면으로 정한 경우에만 <strong>해고수당(severance pay) 면제 대상</strong>이 됨(제118조 제4항).<br>⚠️ 위 요건을 충족하지 못하는 기간제 계약은 기간 만료로 종료되더라도 <strong>해고수당을 지급해야 함</strong> → 태국에서 '계약직이니 퇴직금이 없다'는 전제는 대부분 성립하지 않음",
+          "legal": "Labour Protection Act B.E. 2541 §118 (특히 제3·4항)"
+        },
+        "probation": {
+          "value": "<strong>법정 수습기간 규정이 없음</strong> - 기간·연장 여부 모두 노사 합의 사항.<br>⚠️ 다만 <strong>근속 120일</strong>이 되면 해고수당(30일분) 지급 의무가 발생하므로, 실무상 수습기간을 <strong>119일 이하</strong>로 설정하는 것이 표준. 수습기간 중이라도 해고 시에는 <strong>제17조 예고기간</strong>(1임금지급기 전 통지 또는 그에 상당하는 임금)을 지켜야 하며, 제119조의 즉시해고 사유가 없는 한 예고를 생략할 수 없음",
+          "legal": "법정 규정 없음 / 해고수당 기산점: LPA §118 / 예고: LPA §17"
+        },
+        "fixedTermMax": {
+          "value": "해고수당 면제를 받으려면 <strong>2년 이내</strong> + 프로젝트성·임시성·계절성 업무 + 서면으로 시작·종료일 명시라는 요건을 모두 충족해야 함(제118조 제3·4항). 갱신 횟수 자체에 대한 제한 규정은 없으나, 반복 갱신으로 계속 근로가 인정되면 <strong>근속 기간이 통산</strong>되어 해고수당 산정에 반영됨",
+          "legal": "Labour Protection Act §118 제3·4항"
+        },
+        "foreignerLimit": {
+          "value": "외국인은 <strong>노동허가(Work Permit)</strong> + <strong>Non-Immigrant B 비자</strong>가 필요하며, <strong>외국인에게 금지된 직종</strong>(왕령으로 지정, 육체노동·회계·법률사무 등)에는 종사할 수 없음.<br>일반 기업은 <strong>외국인 1인당 등록자본금 200만 밧 + 태국인 근로자 4인</strong>이라는 비율 요건을 충족해야 하고, 회사당 외국인 수에도 상한이 있음(BOI 인가 기업·조약 기업 등은 완화). 노동허가는 고용주·직무·근무지가 특정되므로 <strong>변경 시 재신청</strong> 필요",
+          "legal": "외국인노동관리칙령(B.E. 2560) / 외국인사업법(Foreign Business Act B.E. 2542)"
+        }
+      },
+      "leavePolicyExtended": {
+        "maternity": {
+          "value": "<strong>98일</strong>(휴일 포함) - <strong>산전 진료(antenatal care)를 위한 결근일도 98일에 산입</strong>됨(2019년 개정으로 90일 → 98일).<br>임금은 <strong>사용자가 45일분</strong>을 통상임금으로 지급하고, <strong>사회보장기금(SSO)이 별도로 90일분에 대해 임금의 50%</strong>를 지급(사회보험 가입 요건 충족 시). 임신 중인 근로자는 <strong>일시적으로 다른 업무로의 전환</strong>을 청구할 수 있고, 사용자는 임신부에게 <strong>연장근로·휴일근로·야간(22:00~06:00) 근로를 시킬 수 없음</strong>",
+          "legal": "Labour Protection Act §41·§42·§39 / 사회보장법(Social Security Act) §65"
+        },
+        "paternity": {
+          "value": "❌ <strong>민간부문에는 법정 부성휴가가 없음</strong> - 공무원은 15일의 배우자 출산휴가가 인정되나 민간에는 적용되지 않음.<br>실무상 <strong>제34조의 개인 용무 휴가(business leave) 연 3일 유급</strong>을 배우자 출산 시에 사용하거나, 회사 규정·단체협약으로 별도의 부성휴가를 두는 방식으로 운영됨",
+          "legal": "민간부문 법정 규정 없음 / 개인 용무 휴가: Labour Protection Act §34"
+        },
+        "healthLeave": {
+          "value": "❌ 생리휴가 제도는 없음. 여성 보호는 <strong>업무 제한</strong> 방식으로 규정됨 - 진동 기계·차량 운전, 중량물 취급, 광산·건설 지하·수중·터널 작업, 22:00~06:00 사이 특정 작업 등에 여성 근로자를 사용할 수 없음(제38조). 임신 근로자는 연장·휴일·야간 근로가 전면 금지됨(제39조).<br>별도로 <strong>불임수술(sterilization) 휴가</strong>는 의사가 정한 기간만큼 <strong>유급</strong>으로 부여해야 함(제33조)",
+          "legal": "Labour Protection Act §33·§38·§39"
+        },
+        "sick": {
+          "value": "<strong>연 30일 유급 병가</strong> - 실제 병에 걸린 일수만큼 사용할 수 있고 그 중 <strong>30일까지는 통상임금 전액</strong>을 지급해야 함(제32조·제57조). <strong>3일 이상 연속</strong> 병가를 쓰는 경우 사용자는 <strong>의사 진단서</strong>를 요구할 수 있으며, 진단서를 제출할 수 없으면 근로자가 사용자에게 사유를 설명하면 됨.<br>⚠️ <strong>업무상 재해로 인한 요양은 병가에 산입되지 않음</strong>(근로자보상기금에서 별도 처리). 30일을 초과하는 병가는 무급이며 사회보장기금에서 상병급여 지급",
+          "legal": "Labour Protection Act §32·§57 / 업무상 재해: 근로자보상법(Workmen’s Compensation Act)"
+        },
+        "parental": {
+          "value": "❌ <strong>육아휴직 제도가 없음</strong> - 출산휴가 98일 종료 후 복귀가 원칙이며 별도의 육아휴직·육아기 근로시간 단축 규정이 없음. 수유시간에 관한 법정 규정도 없어 회사 규정 사항.<br>임신·출산을 이유로 한 해고는 금지되며(제43조), 위반 시 형사처벌 대상",
+          "legal": "법정 육아휴직 규정 없음 / 해고 금지: Labour Protection Act §43"
+        },
+        "parentalFixedTerm": {
+          "value": "기간제 근로자도 출산휴가 98일과 병가 30일이 <strong>동일하게 적용</strong>됨. 다만 계약기간이 만료되면 종료되며, 사회보장 급여는 가입 기간 요건(출산급여는 15개월 중 5개월 이상 납부 등)을 충족해야 지급됨.<br>⚠️ <strong>임신을 이유로 한 해고·갱신 거절은 제43조 위반</strong>으로 위법",
+          "legal": "Labour Protection Act §41·§43 / 사회보장법"
+        }
+      },
+      "terminationProcess": {
+        "fixedTermEnd": {
+          "value": "기간 만료로 종료되나 ⚠️ <strong>해고수당 면제는 제118조 제3·4항 요건을 모두 충족한 경우에만</strong> 인정됨 - ① 프로젝트성(통상적 사업이 아닐 것)·임시성·계절성 업무 ② 기간 <strong>2년 이내</strong> ③ 시작일과 종료일을 <strong>서면</strong>으로 명시. 요건을 충족하지 못하면 <strong>기간 만료라도 해고수당을 지급</strong>해야 함.<br>요건을 충족하는 기간제는 만료 시 예고 없이 종료 가능",
+          "legal": "Labour Protection Act §118 제3·4항"
+        },
+        "regularDismissal": {
+          "value": "태국 노동보호법은 해고 사유 자체를 제한하지 않으므로 <strong>예고 + 해고수당</strong>을 이행하면 해고가 가능함. 다만 <strong>노동법원법 제49조</strong>에 따라 <strong>부당해고(unfair termination)</strong>로 인정되면 법원이 <strong>복직 또는 손해배상</strong>을 명할 수 있음 - 근속 기간, 근로자의 곤궁, 해고 사유, 보상 수준을 종합해 판단.<br><strong>구조조정 특례</strong> - ① <strong>사업장 이전</strong>으로 근로자·가족의 생활에 중대한 영향을 주는 경우 30일 전 게시해야 하며, 근로자는 이전을 거부하고 <strong>특별해고수당</strong>을 청구할 수 있음(제120조) ② <strong>기계·기술 도입</strong>으로 인원을 감축하는 경우 <strong>60일 전 근로자와 노동감독관에게 통지</strong>해야 하고, 근속 6년 이상자에게는 <strong>연 15일분(최대 360일분)의 특별해고수당</strong>을 추가 지급(제121조·제122조)",
+          "legal": "Labour Protection Act §118·§120·§121·§122 / 노동법원설치 및 노동사건절차법 §49"
+        },
+        "voluntaryResignation": {
+          "value": "근로자는 <strong>제17조</strong>에 따라 <strong>임금 지급일 또는 그 이전에 통지</strong>하여 <strong>다음 임금 지급기</strong>에 사직의 효력이 발생함(최장 3개월 전 통지를 넘길 필요는 없음). 계약에 더 긴 기간을 정해도 3개월을 초과하는 예고 의무는 인정되지 않음.<br>자발적 사직은 해고수당 대상이 아니며, 사용자는 근로자가 요구하면 <strong>근무증명서(certificate of employment)</strong>를 교부해야 함. 미지급 임금·미사용 연차수당 등은 <strong>퇴직일로부터 3일 이내</strong> 지급해야 함(제70조)",
+          "legal": "Labour Protection Act §17·§70"
+        },
+        "dismissalConditions": {
+          "value": "<strong>제119조 - 해고수당을 지급하지 않아도 되는 6가지 사유</strong> ① 직무 수행 중 <strong>부정직 행위</strong> 또는 사용자에 대한 <strong>고의적 범죄</strong> ② 사용자에게 <strong>고의로 손해</strong>를 입힌 경우 ③ <strong>과실</strong>로 사용자에게 <strong>중대한 손해</strong>를 입힌 경우 ④ 적법한 취업규칙·규정·명령을 위반하고 사용자가 <strong>서면 경고</strong>를 하였음에도 재차 위반한 경우(경고서는 <strong>1년간</strong> 유효, 중대한 위반은 경고 불요) ⑤ 정당한 이유 없이 <strong>연속 3근무일</strong> 무단결근 ⑥ <strong>확정 판결로 금고 이상의 형</strong>을 선고받은 경우(과실범·경범죄로서 사용자에게 손해가 없는 경우는 제외).<br>⚠️ 사용자는 <strong>해고 시점에 그 사유를 서면으로 명시</strong>해야 하며, 명시하지 않은 사유는 나중에 항변으로 원용할 수 없음",
+          "legal": "Labour Protection Act §119"
+        },
+        "dismissalProcedure": {
+          "value": "① 제119조 즉시해고 사유 해당 여부 확인 → 해당하지 않으면 예고 + 해고수당 필요 ② <strong>제17조 예고</strong>: 임금 지급일 또는 그 이전에 통지해 다음 임금 지급기에 효력 발생(예고 대신 <strong>예고기간 상당액의 임금을 즉시 지급</strong>하고 즉시 해고 가능) ③ <strong>해고 사유를 해고 통지서에 서면으로 명시</strong>(누락 시 사후 원용 불가) ④ 제118조 해고수당 지급 ⑤ 기계·기술 도입에 의한 감원이면 60일 전 근로자·노동감독관 통지 + 특별해고수당 ⑥ <strong>퇴직일로부터 3일 이내</strong>에 해고수당·미지급 임금·미사용 연차수당 등 지급(제70조).<br>미지급 시 <strong>연 15%의 지연이자</strong>가 부과되며, 고의로 지급하지 않으면 7일마다 미지급액의 <strong>15% 가산금</strong>이 추가됨(제9조)",
+          "legal": "Labour Protection Act §9·§17·§70·§118·§119·§121·§122"
+        },
+        "noticePeriod": {
+          "value": "<strong>제17조</strong> - 기간의 정함이 없는 계약은 <strong>임금 지급일 또는 그 이전에 서면 통지</strong>하여 <strong>다음 임금 지급기</strong>에 효력이 발생함(월급제라면 통상 최대 1개월 전 통지). 법이 요구하는 예고는 <strong>3개월을 초과할 필요가 없음</strong>.<br>사용자는 예고 대신 <strong>예고기간에 상당하는 임금(payment in lieu of notice)</strong>을 지급하고 <strong>즉시 해고</strong>할 수 있음. ⚠️ 예고수당은 <strong>해고수당과 별개</strong>이므로 두 가지를 모두 지급해야 함",
+          "legal": "Labour Protection Act §17"
+        },
+        "protectedWorkers": {
+          "value": "<strong>임신을 이유로 한 해고 금지</strong>(제43조) - 위반 시 형사처벌.<br><strong>노동조합 활동</strong>을 이유로 한 해고·불이익 취급 금지(노동관계법). <strong>단체교섭·노동쟁의가 진행 중</strong>인 기간에는 관련 근로자에 대한 해고가 제한됨.<br><strong>업무상 재해로 요양 중</strong>인 근로자는 근로자보상기금에서 보상을 받으며, 요양 기간 중 해고하면 부당해고로 판단될 가능성이 큼. 근로자대표·노사협의회 위원은 <strong>노동법원의 허가</strong> 없이 해고할 수 없음",
+          "legal": "Labour Protection Act §43 / 노동관계법(Labour Relations Act B.E. 2518) §52·§121·§123"
+        }
+      },
+      "operatingGuide": {
+        "workRulesObligation": {
+          "value": "상시 근로자 <strong>10명 이상</strong>인 사업장은 <strong>태국어로 된 취업규칙(work rules)</strong>을 작성해야 하며, 근로자가 10명이 된 날로부터 <strong>15일 이내</strong>에 시행하고 <strong>사업장에 게시</strong>하거나 근로자가 열람할 수 있는 상태로 두어야 함(전자적 게시도 허용).<br>⚠️ <strong>2017년 개정으로 노동국장에 대한 제출(submission) 의무는 폐지</strong>되었으나, 사업장 비치·게시 의무는 그대로 유지됨. 필수 기재사항 8개 - 근무일·통상근로시간·휴게시간, 휴일과 휴일 부여 규칙, 연장근로·휴일근로 규칙, 임금·연장근로수당·휴일근로수당의 지급일과 장소, 휴가와 휴가 부여 규칙, 징계와 징계 절차, 고충 처리, 해고·해고수당·특별해고수당",
+          "legal": "Labour Protection Act §108·§110 (2017년 개정으로 제출 의무 폐지)"
+        },
+        "fixedTermMaxGuide": {
+          "value": "해고수당 면제 요건은 <strong>프로젝트성·임시성·계절성 업무 + 2년 이내 + 서면으로 시작·종료일 명시</strong> 3가지를 모두 충족할 것. 하나라도 빠지면 <strong>기간 만료 종료에도 해고수당을 지급</strong>해야 하므로, 태국에서는 기간제를 인건비 절감 수단으로 쓰기 어려움",
+          "legal": "Labour Protection Act §118 제3·4항"
+        },
+        "probationGuide": {
+          "value": "법정 수습기간 규정이 없으므로 계약서에 기간과 평가 기준을 명시할 것. ⚠️ <strong>근속 120일부터 해고수당(30일분) 의무가 발생</strong>하므로 실무 표준은 <strong>119일</strong>. 다만 수습 종료로 계약을 종료할 때에도 <strong>제17조 예고</strong>는 지켜야 하며, 예고를 생략하려면 예고기간 상당 임금을 지급해야 함",
+          "legal": "Labour Protection Act §17·§118"
+        },
+        "terminateDuringProbation": {
+          "value": "⚠️ <strong>'수습 중이라 자유롭게 해고할 수 있다'는 것은 오해</strong> - 제119조 즉시해고 사유가 없으면 <strong>제17조 예고 또는 예고수당</strong>이 필요함. 근속 <strong>120일 미만</strong>이면 해고수당은 발생하지 않으므로 <strong>119일 이내 평가 완료</strong>가 실무 핵심. 해고 통지서에 사유를 서면으로 명시할 것",
+          "legal": "Labour Protection Act §17·§118·§119"
+        },
+        "terminateAfterProbation": {
+          "value": "제17조 예고(또는 예고수당) + 제118조 해고수당(근속별 30~400일분) + 퇴직일로부터 <strong>3일 이내</strong> 정산. 부당해고로 판단되면 노동법원이 복직 또는 손해배상을 명할 수 있으므로 해고 사유와 절차를 문서화할 것",
+          "legal": "Labour Protection Act §17·§70·§118 / 노동법원법 §49"
+        }
+      },
+      "compensation": {
+        "socialInsurance": {
+          "employer": "사회보장기금(SSO) 5% + 근로자보상기금(WCF) 0.2~1.0% 전액",
+          "employee": "사회보장기금(SSO) 5%",
+          "legal": "사회보장법(Social Security Act B.E. 2533) §46 / 근로자보상법(Workmen’s Compensation Act B.E. 2537)",
+          "note": "<strong>2026년 기준</strong>. 사회보장기금은 노사 각 <strong>5%</strong>이며 ⚠️ <strong>2026년 1월부터 기준임금 상한이 월 15,000밧 → 17,500밧으로 인상</strong>되어 <strong>1인당 월 최대 부담이 750밧 → 875밧</strong>이 됨(하한 1,650밧). 이후 <strong>2029년 20,000밧(1,000밧) → 2032년 23,000밧(1,150밧)</strong>으로 단계 인상 예정.<br>보장 급여 7종(상병·출산·장애·사망·아동수당·노령연금·실업급여). <strong>근로자보상기금(WCF)</strong>은 업무상 재해 전용으로 <strong>사용자가 전액 부담</strong>(업종별 0.2~1.0%).<br>퇴직연금 성격의 <strong>프로비던트 펀드(Provident Fund)</strong>는 <strong>임의</strong> 제도로 설정 시에만 노사 각 2~15% 적립"
+        },
+        "thirteenthMonth": {
+          "value": "❌ <strong>법정 의무가 아님</strong> - 노동보호법에 13개월급여·연말상여 규정이 없음. 다만 취업규칙·근로계약·단체협약에 지급 기준이 정해져 있거나 <strong>관행으로 확립</strong>되면 그 범위에서 지급 의무가 발생하며, 일방적으로 폐지·감액하면 <strong>근로조건 불이익 변경</strong>으로 다투어짐.<br>실무상 12월 또는 송끄란(4월) 전에 기본급 1~2개월분을 지급하는 것이 일반적이며, 실적 연동형으로 운영하는 기업이 많음",
+          "legal": "법정 규정 없음 / 취업규칙 기재: Labour Protection Act §108"
+        },
+        "bonus": {
+          "value": "상여·수당이 <strong>노동의 대가로 정기적으로 지급</strong>되면 '임금(wages)'에 해당하여 <strong>해고수당·연장근로수당·연차수당 산정 기초</strong>에 산입됨(제5조 정의). 반대로 <strong>실적·재량에 따라 변동</strong>하는 상여, 복리후생 성격의 지급(식대·차량 유지비 등 실비 보전)은 임금이 아님.<br>⚠️ 태국은 <strong>해고수당이 최대 400일분</strong>에 이르므로, 어떤 항목이 임금에 산입되는지가 퇴직 비용에 직결됨 → 급여 항목을 <strong>기본급 / 임금성 수당 / 비임금성 실비</strong>로 명확히 구분해 설계할 것",
+          "legal": "Labour Protection Act §5 (임금의 정의)·§118"
+        },
+        "severance": {
+          "value": "<strong>해고수당(severance pay)은 근속 기간에 따라 자동 발생</strong>하며 태국 인건비의 핵심 리스크 요소.<br><strong>근속 120일 이상 1년 미만 → 30일분</strong> / <strong>1년 이상 3년 미만 → 90일분</strong> / <strong>3년 이상 6년 미만 → 180일분</strong> / <strong>6년 이상 10년 미만 → 240일분</strong> / <strong>10년 이상 20년 미만 → 300일분</strong> / <strong>20년 이상 → 400일분</strong>(2019년 개정으로 신설).<br>기준은 <strong>최종 임금률</strong>이며, 정년퇴직도 '해고'로 보아 해고수당 지급 대상(제118/1조). 제119조 사유에 해당하면 지급 의무가 없음.<br>⚠️ 별도로 <strong>사업장 이전(제120조)</strong>과 <strong>기계·기술 도입에 의한 감원(제121·122조)</strong>에는 <strong>특별해고수당</strong>이 추가로 발생함. 세제상 해고수당은 최종 <strong>400일분·60만 밧</strong>까지 비과세(2025년 확대)",
+          "legal": "Labour Protection Act §118·§118/1·§119·§120·§121·§122"
+        }
+      },
       "annualLeave": {
         "statutory": "1년 근속 연 6일 (법정 최저) - Labor Protection Act §30",
         "grantRule": "1년 근속 필수. 이후 근속 증가에 따른 가산은 사용자 재량 (관행 10~15일)",
         "compensation": {
           "required": true,
           "formula": "해당 연도 미사용분 × 일급 환산 지급 의무 - LPA §67. 근로자 자발 미사용도 환산 의무",
-          "note": "주요 기업은 15~20일 제공 관행"
+          "note": "주요 기업은 15~20일 제공 관행",
+          "legal": "Labour Protection Act §67 (계약 종료 시 미사용 연차의 임금 환산 지급 의무)·§30"
         },
         "carryover": {
           "allowed": true,
           "maxYears": "1년 (사용자-근로자 합의 시)",
-          "detail": "법 명시 없음. 관행상 다음 연도까지 사용 가능"
+          "detail": "법 명시 없음. 관행상 다음 연도까지 사용 가능",
+          "legal": "Labour Protection Act §30 (노사 합의로 이월·합산 사용 가능)"
         },
         "consent": "이월 시 서면 합의 권장",
         "specialObligation": "외자·대기업은 본국 왕복 교통비와 연계된 추가 연차 7~10일을 계약·사규에 명시하는 관행",
@@ -6180,18 +6416,136 @@ window.DASHBOARD_DATA = {
           "url": "https://jtksm.mohr.gov.my/"
         }
       ],
+      "employmentType": {
+        "contractType": {
+          "value": "고용법(Employment Act 1955)은 <strong>2023.1.1부터 급여와 무관하게 모든 근로자에게 적용</strong>됨(종전 월 RM2,000 이하 등으로 한정). 다만 <strong>월 급여 RM4,000 초과</strong> 근로자에게는 연장근로 할증(§60A(3))·휴식일 할증(§60(3))·교대수당(§60C(2A))·공휴일 할증(§60D(3)·(4))과 <strong>해고·일시휴직 수당(§60J)</strong>이 <strong>적용되지 않음</strong>.<br>계약 형태(무기·기간제)에 대한 법정 제한은 없으나, ⚠️ 해고의 정당성은 <strong>노사관계법(Industrial Relations Act 1967) 제20조</strong>가 별도로 규율하여 <strong>급여 수준과 무관하게 모든 근로자</strong>가 '정당한 사유와 이유(just cause or excuse)' 없는 해고에 대해 복직을 신청할 수 있음",
+          "legal": "Employment Act 1955 및 Employment (Amendment) Act 2022 / Employment (Amendment of First Schedule) Order 2022 / Industrial Relations Act 1967 §20"
+        },
+        "probation": {
+          "value": "<strong>법정 수습기간 규정이 없음</strong>(관행 1~6개월, 연장 조항을 두는 경우가 많음).<br>⚠️ <strong>수습 근로자도 노사관계법 제20조의 보호를 받음</strong> - 산업법원 판례는 수습 근로자의 해고에도 <strong>정당한 사유와 이유</strong>가 필요하다고 보며, 다만 정규 근로자보다 사용자의 재량을 넓게 인정함. 수습기간을 <strong>자동 연장으로 방치</strong>하면 정규직으로 확정된 것으로 간주될 수 있으므로 만료 전에 <strong>서면으로 확정·연장·종료 통지</strong>를 할 것",
+          "legal": "법정 규정 없음 / 해고 보호: Industrial Relations Act 1967 §20 (산업법원 판례 법리)"
+        },
+        "fixedTermMax": {
+          "value": "법정 상한 <strong>없음</strong>. 다만 산업법원은 <strong>실질(genuine fixed-term)</strong> 여부를 심사하여, 계속적 업무에 반복 갱신한 기간제는 <strong>영구직으로 재성격화(reclassification)</strong>하고 갱신 거절을 해고로 취급함. 판단 요소: 업무의 계속성, 갱신 횟수와 총 기간, 갱신에 대한 합리적 기대, 계약서 문언의 실질 부합 여부",
+          "legal": "법정 규정 없음 / Industrial Relations Act 1967 §20 (산업법원 판례 법리)"
+        },
+        "foreignerLimit": {
+          "value": "외국인 고용은 <strong>고용허가(Employment Pass, EP)</strong> 또는 직종별 취업허가가 필요하며, EP는 급여 수준에 따라 <strong>Category I(월 RM10,000 이상)·II·III</strong>으로 구분됨. 제조·건설·농업·서비스 등 <strong>블루칼라 직종은 업종별 고용 비율 상한과 인력 쿼터</strong>가 적용되고 사전 승인 절차를 거침.<br>⚠️ <strong>외국인 근로자를 해고(감원)할 때는 인력부(JTKSM)에 통지</strong>해야 하며, 정리해고 시 <strong>외국인을 내국인보다 먼저</strong> 감원해야 한다는 지침이 적용됨",
+          "legal": "Employment Act 1955 §60K·§60L (외국인 근로자 고용·해고 통지) / 이민법 및 인력부 지침"
+        }
+      },
+      "leavePolicyExtended": {
+        "maternity": {
+          "value": "<strong>98일 연속</strong>(휴일·공휴일 포함) - 2022년 개정으로 60일 → 98일로 확대(2023.1.1 시행). <strong>생존 자녀 5명까지</strong> 유급이며, 출산 전 9개월 중 <strong>90일 이상 근무</strong> 요건을 충족해야 출산수당(maternity allowance) 지급 대상.<br>출산 예정일 <strong>30일 전부터</strong> 개시할 수 있으나 출산 후 <strong>60일 이상</strong>은 반드시 사용해야 함. ⚠️ <strong>임신 중 또는 출산휴가 중인 여성 근로자는 해고할 수 없으며</strong>(중대한 비위·폐업 등 제외), 위반 시 형사처벌 대상",
+          "legal": "Employment Act 1955 §37·§40·§41A (Employment (Amendment) Act 2022)"
+        },
+        "paternity": {
+          "value": "<strong>7일 연속</strong> 유급(2022년 개정으로 신설, 2023.1.1 시행) - 요건: <strong>법률상 혼인 관계</strong>에 있고 출산 직전 <strong>12개월 이상 계속 근무</strong>했으며 출산 예정일 최소 <strong>30일 전(또는 출산 후 가능한 한 빨리)</strong> 사용자에게 통지할 것. <strong>출산 1회당 7일</strong>이며 <strong>생존 자녀 5명까지</strong> 적용",
+          "legal": "Employment Act 1955 §60FA (Employment (Amendment) Act 2022)"
+        },
+        "healthLeave": {
+          "value": "❌ 생리휴가 제도는 없음. 여성 보호는 <strong>야간근로 제한</strong> 방식 - 농업·산업 부문 여성 근로자는 <strong>22:00~05:00</strong> 근로가 원칙적으로 금지되며(인력부 면제 시 예외), 야간근로 종료 후 <strong>11시간 이상</strong>의 휴식을 보장해야 함.<br>2022년 개정으로 <strong>직장 내 성희롱 고지·조사 의무</strong>가 신설되어 사용자는 성희롱 금지 안내문을 <strong>사업장에 상시 게시</strong>하고 신고를 접수하면 조사해야 함",
+          "legal": "Employment Act 1955 §34~§36 (여성 야간근로) / §81A~§81G (성희롱, 2022년 개정)"
+        },
+        "sick": {
+          "value": "<strong>입원하지 않는 경우</strong>: 근속 <strong>2년 미만 연 14일 / 2년 이상 5년 미만 연 18일 / 5년 이상 연 22일</strong>. <strong>입원이 필요한 경우</strong>: 위 일수와 별도로 <strong>연 60일</strong>(합산 시 최대 60일 + 위 일수).<br>회사가 지정한 의사(없으면 등록 의사)의 진단을 받아야 하며, 유급 병가 기간에는 통상임금을 지급해야 함. ⚠️ <strong>유급 병가 기간 중 해고 금지</strong>는 명문화되어 있지 않으나, 병가 중 해고는 산업법원에서 <strong>부당해고로 판단될 위험</strong>이 큼",
+          "legal": "Employment Act 1955 §60F"
+        },
+        "parental": {
+          "value": "❌ <strong>육아휴직 제도가 없음</strong> - 출산휴가 98일·부성휴가 7일 외에 별도의 육아휴직 규정이 없음. 수유시간에 관한 법정 규정도 없어 회사 규정 사항.<br>대신 2022년 개정으로 <strong>유연근무 요청권(flexible working arrangement)</strong>이 신설되어 근로자는 근무 시간·일수·장소의 변경을 <strong>서면으로 신청</strong>할 수 있고, 사용자는 <strong>60일 이내에 서면으로 승인 또는 거부(거부 시 사유 명시)</strong>해야 함",
+          "legal": "법정 육아휴직 규정 없음 / 유연근무: Employment Act 1955 §60P·§60Q (2022년 개정)"
+        },
+        "parentalFixedTerm": {
+          "value": "기간제 근로자도 근속·근무일수 요건을 충족하면 출산휴가 98일·부성휴가 7일·병가가 <strong>동일하게 적용</strong>됨(출산수당은 출산 전 9개월 중 90일 이상 근무, 부성휴가는 12개월 이상 계속 근무 요건).<br>⚠️ <strong>임신 중·출산휴가 중 해고 금지</strong>는 계약 형태와 무관하게 적용되므로, 임신을 이유로 한 갱신 거절은 <strong>제41A조 위반 및 부당해고</strong>로 다투어질 수 있음",
+          "legal": "Employment Act 1955 §37·§41A·§60F·§60FA"
+        }
+      },
+      "terminationProcess": {
+        "fixedTermEnd": {
+          "value": "실질적 기간제(genuine fixed-term)라면 기간 만료로 종료되고 <strong>해고수당(§60J) 대상이 아님</strong>. ⚠️ 다만 산업법원이 <strong>계속적 업무에 대한 반복 갱신</strong>으로 판단하면 영구직으로 재성격화하여 갱신 거절을 <strong>해고</strong>로 보고 복직·보상을 명할 수 있음.<br>기간제 계약을 <strong>만료 전에 중도 해지</strong>하는 경우에는 잔여 기간의 임금 상당액을 배상해야 할 수 있음",
+          "legal": "Employment Act 1955 §60J / Industrial Relations Act 1967 §20 (재성격화는 산업법원 판례)"
+        },
+        "regularDismissal": {
+          "value": "⚠️ <strong>말레이시아 해고 규제의 핵심은 고용법이 아니라 노사관계법 제20조</strong> - 해고된 근로자는 <strong>급여 수준과 무관하게</strong> 해고일로부터 <strong>60일 이내</strong>에 인력부(IR국)에 복직 신청을 할 수 있고, 화해가 되지 않으면 <strong>산업법원(Industrial Court)</strong>이 <strong>'정당한 사유와 이유(just cause or excuse)'</strong> 존부를 심사함. <strong>입증책임은 사용자</strong>에게 있음.<br><strong>정리해고(retrenchment)</strong>는 실질적인 잉여인력의 존재 + 해고 회피 노력 + <strong>LIFO(후입선출) 원칙</strong>에 따른 합리적 선정 + <strong>외국인 우선 감원</strong>이 요구되며, 감원 <strong>30일 전까지 인력부에 PK 양식(Borang PK)으로 신고</strong>해야 함.<br>구제: <strong>복직 명령</strong> 또는 <strong>보상금</strong>(미지급 임금 최대 24개월분 + 근속 1년당 1개월분)",
+          "legal": "Industrial Relations Act 1967 §20 / Employment (Retrenchment) Notification 2004 / 산업법원 판례 법리"
+        },
+        "voluntaryResignation": {
+          "value": "근로자도 계약에 정한 예고기간, 정함이 없으면 <strong>§12(2)의 법정 예고기간</strong>(근속 2년 미만 4주 / 2년 이상 5년 미만 6주 / 5년 이상 8주)을 지켜 사직할 수 있으며, 예고 대신 <strong>예고기간 상당의 임금</strong>을 지급하고 즉시 사직할 수 있음(§13).<br>사용자가 임금 미지급·근로조건 중대 위반 등으로 계약을 이행하지 않으면 근로자는 <strong>예고 없이 즉시 사직</strong>할 수 있고(§13(2)), 이 경우 <strong>의제해고(constructive dismissal)</strong>로 보아 제20조 복직 신청이 가능함. 최종 급여는 <strong>퇴직일로부터 7일 이내</strong> 지급",
+          "legal": "Employment Act 1955 §12·§13·§20 / 의제해고: Industrial Relations Act 1967 §20"
+        },
+        "dismissalConditions": {
+          "value": "<strong>비위행위(misconduct)</strong>를 이유로 하는 해고는 §14에 따라 <strong>사용자가 사안의 성질상 합리적인 조사(due inquiry)</strong>를 실시한 후에만 가능. 조사 없이 해고하면 사유가 있더라도 <strong>절차 위반으로 부당해고</strong>가 될 수 있음.<br>§14의 조치는 ① <strong>예고 없는 해고</strong> ② <strong>강등</strong> ③ 2주를 넘지 않는 <strong>정직·감봉 등 경징계</strong>. 조사 기간 중에는 <strong>최대 2주까지 정직</strong>시킬 수 있고 그 기간 임금의 <strong>50% 이상</strong>을 지급해야 하며, 조사 결과 비위가 인정되지 않으면 <strong>차감분 전액을 소급 지급</strong>해야 함.<br>근로자가 정당한 사유 없이 <strong>연속 2근무일 이상</strong> 무단결근하고 사용자에게 연락하지 않으면 계약을 파기한 것으로 볼 수 있음(§15(2))",
+          "legal": "Employment Act 1955 §14·§15 / Industrial Relations Act 1967 §20"
+        },
+        "dismissalProcedure": {
+          "value": "① <strong>비위 사유</strong>면 서면 혐의 통지(show-cause letter) → 소명 기회 → <strong>내부 징계조사(domestic inquiry)</strong> 실시 → 결과에 따른 조치 결정 ② <strong>정리해고</strong>면 잉여 사유 문서화 + 회피 노력(배치전환·근로시간 단축 등) + LIFO 등 합리적 선정 기준 + <strong>외국인 우선 감원</strong> + 감원 <strong>30일 전 인력부 PK 양식 신고</strong> ③ 예고기간 부여 또는 예고수당 지급(§12) ④ <strong>해고·일시휴직 수당(§60J)</strong> 산정·지급 - 다만 <strong>월 급여 RM4,000 초과자는 대상 아님</strong> ⑤ 최종 급여는 <strong>퇴직일로부터 7일 이내</strong> 지급(§19) ⑥ 외국인 근로자를 해고한 경우 인력부 통지(§60K·§60L).<br>근로자는 해고일로부터 <strong>60일 이내</strong> 복직 신청 가능하므로 모든 절차를 문서로 남길 것",
+          "legal": "Employment Act 1955 §12·§14·§19·§60J·§60K / Employment (Termination and Lay-Off Benefits) Regulations 1980 / Employment (Retrenchment) Notification 2004"
+        },
+        "noticePeriod": {
+          "value": "계약에 정한 기간이 우선하되, 정함이 없으면 <strong>§12(2)의 법정 최소 기간</strong> - 근속 <strong>2년 미만 4주</strong> / <strong>2년 이상 5년 미만 6주</strong> / <strong>5년 이상 8주</strong>. 노사 어느 쪽이든 예고 대신 <strong>예고기간에 상당하는 임금</strong>을 지급하고 즉시 종료할 수 있음(§13(1)).<br>§14의 비위행위에 의한 해고, 상대방의 계약 위반에 의한 즉시 종료(§13(2))는 예고가 필요 없음",
+          "legal": "Employment Act 1955 §12·§13"
+        },
+        "protectedWorkers": {
+          "value": "<strong>임신 중이거나 출산휴가 중인 여성 근로자는 해고할 수 없음</strong>(§41A, 2022년 개정으로 신설) - 중대한 비위, 폐업 등 법정 예외에 한해 허용되며 <strong>입증책임은 사용자</strong>. 위반 시 형사처벌 대상.<br>또한 <strong>임신 또는 임신 관련 사유로 종료</strong>하는 경우 사용자가 그것이 임신과 무관함을 입증하지 못하면 위법한 해고로 간주됨.<br>그 밖에 <strong>노동조합 가입·활동</strong>을 이유로 한 해고는 부당노동행위(노사관계법 §5), <strong>성희롱 신고</strong>를 이유로 한 불이익 처우 금지(§81A~§81G)",
+          "legal": "Employment Act 1955 §41A·§81A~§81G / Industrial Relations Act 1967 §5·§20"
+        }
+      },
+      "operatingGuide": {
+        "workRulesObligation": {
+          "value": "❌ <strong>취업규칙의 작성·신고 의무가 법정되어 있지 않음</strong>. 다만 사용자는 <strong>임금대장(register)과 근로자 명부를 6년간 보존</strong>해야 하고(§61), 근로계약은 <strong>1개월을 초과하는 경우 서면</strong>으로 체결하며 계약 종료 조항을 반드시 포함해야 함(§10).<br>2022년 개정으로 <strong>성희롱 금지 안내문의 사업장 상시 게시 의무</strong>가 신설됨(§81B). 실무상 Employee Handbook을 두고 <strong>수령 확인 서명</strong>을 받아야 §14 징계조사의 근거로 활용할 수 있음",
+          "legal": "Employment Act 1955 §10·§61·§81B (취업규칙 신고 의무 규정은 없음)"
+        },
+        "fixedTermMaxGuide": {
+          "value": "법정 상한은 없으나 <strong>계속적 업무에 반복 갱신하면 산업법원이 영구직으로 재성격화</strong>함. 진정한 기간제로 인정받으려면 ① 업무 자체가 유한할 것(프로젝트·대체인력 등) ② 갱신 횟수·총 기간이 과도하지 않을 것 ③ 계약 문언과 실제 운영이 일치할 것",
+          "legal": "Industrial Relations Act 1967 §20 (산업법원 판례 법리)"
+        },
+        "probationGuide": {
+          "value": "법정 수습기간 규정이 없으므로 계약서에 <strong>기간·연장 가부·평가 기준</strong>을 명시할 것(관행 1~6개월). ⚠️ <strong>수습 만료일이 지나도록 아무 통지를 하지 않으면 정규직으로 확정</strong>된 것으로 간주될 수 있으므로 만료 전에 반드시 서면 통지. 수습기간에도 EPF·SOCSO·EIS 가입 의무와 고용법이 전면 적용됨",
+          "legal": "법정 규정 없음 / 산업법원 판례 법리"
+        },
+        "terminateDuringProbation": {
+          "value": "⚠️ <strong>수습 근로자도 노사관계법 제20조의 보호를 받음</strong> - 해고에 <strong>정당한 사유와 이유</strong>가 필요하며, 수습 근로자라는 이유만으로 자유롭게 종료할 수 없음. 다만 산업법원은 정규 근로자보다 <strong>사용자의 재량을 넓게</strong> 인정하므로, <strong>업무 능력 평가 기록·지도 이력·개선 기회 부여</strong>를 문서로 남기면 방어가 가능함. 예고는 §12(2)의 법정 기간 또는 계약상 기간을 따름",
+          "legal": "Industrial Relations Act 1967 §20 / Employment Act 1955 §12"
+        },
+        "terminateAfterProbation": {
+          "value": "§12 예고 또는 예고수당 + (해당 시) §60J 해고수당 + 7일 이내 최종 급여 지급 + 비위 사유면 §14 징계조사. <strong>월 급여 RM4,000 초과자는 §60J 해고수당 대상이 아니므로</strong> 계약서에 별도의 퇴직 보상 조항을 두는 것이 일반적. 해고일로부터 <strong>60일 이내</strong> 복직 신청이 가능하다는 점을 전제로 절차를 문서화할 것",
+          "legal": "Employment Act 1955 §12·§14·§19·§60J / Industrial Relations Act 1967 §20"
+        }
+      },
+      "compensation": {
+        "socialInsurance": {
+          "employer": "EPF 13%(월급 RM5,000 이하) 또는 12%(RM5,000 초과) + SOCSO 1.75% + EIS 0.2% + HRD Corp 부담금 1%",
+          "employee": "EPF 11% + SOCSO 0.5% + EIS 0.2%",
+          "legal": "Employees Provident Fund Act 1991 / Employees’ Social Security Act 1969 / Employment Insurance System Act 2017 / Pembangunan Sumber Manusia Berhad Act 2001",
+          "note": "<strong>2026년 기준</strong>. <strong>EPF(직원공제기금)</strong> - 60세 미만 내국인은 사용자 <strong>13%</strong>(월급 RM5,000 이하) 또는 <strong>12%</strong>(RM5,000 초과), 근로자 <strong>11%</strong>. ⚠️ <strong>2025.10.1부터 75세 미만 외국인 근로자도 EPF 가입이 의무화</strong>되었으며 요율은 <strong>노사 각 2%</strong>.<br><strong>SOCSO(PERKESO)</strong> - 업무상 재해 + 장애 보험, 사용자 <strong>1.75%</strong> / 근로자 <strong>0.5%</strong>. <strong>EIS(고용보험)</strong> - 노사 각 <strong>0.2%</strong>. SOCSO·EIS의 <strong>기준임금 상한은 2024.10부터 월 RM6,000</strong>(종전 RM4,000).<br><strong>HRD Corp 인력개발부담금</strong> - 대상 업종에서 상시 근로자 10명 이상이면 월 급여의 <strong>1%</strong>를 사용자가 전액 부담(5~9명은 0.5%)"
+        },
+        "thirteenthMonth": {
+          "value": "❌ <strong>법정 의무가 아님</strong> - 고용법에 13개월급여·연말상여 규정이 없음. 다만 근로계약·단체협약·회사 규정에 지급 기준이 정해져 있거나 <strong>관행으로 확립</strong>되면 그 범위에서 지급 의무가 발생하며, 일방적 폐지는 근로조건 불이익 변경으로 다투어짐.<br>실무상 <strong>연말 또는 하리라야(Hari Raya) 전</strong>에 기본급 1~2개월분을 지급하는 것이 일반적이며, 다민족 사업장에서는 하리라야·설·디파발리 등 <strong>주요 명절마다 분할 지급</strong>하는 형태도 흔함",
+          "legal": "법정 규정 없음 / 계약·단체협약·관행에 근거"
+        },
+        "bonus": {
+          "value": "EPF 산정 기준이 되는 <strong>'임금(wages)'</strong>에는 기본급뿐 아니라 <strong>상여·수당·휴가수당·커미션</strong> 등이 폭넓게 포함되는 반면, <strong>초과근무수당·해고수당·출장 실비·서비스 차지·연간 보너스 중 일부 항목</strong>은 제외됨(EPF법 제2조).<br>⚠️ SOCSO·EIS의 임금 정의는 EPF와 다르므로 항목별로 각각 확인해야 하며, 급여 설계 시 <strong>기본급 / 고정수당 / 변동상여 / 비임금성 실비</strong>를 명확히 구분하지 않으면 기금 납부 누락으로 <strong>가산금·형사처벌</strong> 위험이 있음",
+          "legal": "Employees Provident Fund Act 1991 §2 (임금의 정의) / Employees’ Social Security Act 1969"
+        },
+        "severance": {
+          "value": "<strong>해고·일시휴직 수당(Termination and Lay-Off Benefits)</strong> - 근속 <strong>12개월 이상</strong>인 근로자가 해고(정리해고 포함)되거나 일시휴직되는 경우 지급.<br><strong>근속 2년 미만 → 연 10일분</strong> / <strong>2년 이상 5년 미만 → 연 15일분</strong> / <strong>5년 이상 → 연 20일분</strong>의 임금(1년 미만 잔여 기간은 비례).<br>⚠️ <strong>월 급여 RM4,000을 초과하는 근로자에게는 §60J가 적용되지 않으므로 법정 해고수당 의무가 없음</strong> → 관리직·주재원급은 <strong>계약서에 퇴직 보상 조항을 별도로 두는 것이 일반적</strong>. 근로자가 정당한 사유 없이 사직하거나 정년(계약상)으로 퇴직하는 경우, 재고용 제안을 불합리하게 거절한 경우에는 지급 의무가 없음.<br>말레이시아에는 <strong>법정 퇴직연금이 EPF로 일원화</strong>되어 있어 별도의 퇴직금 제도가 없음",
+          "legal": "Employment Act 1955 §60J / Employment (Termination and Lay-Off Benefits) Regulations 1980 / 적용 제외: Employment (Amendment of First Schedule) Order 2022"
+        }
+      },
       "annualLeave": {
         "statutory": "1~2년 8일 / 2~5년 12일 / 5년+ 16일 - Employment Act §60E (2022 개정 후 전 근로자 적용)",
         "grantRule": "12개월 근속 필수. 월 미달 근속은 비례 지급",
         "compensation": {
           "required": "퇴직 시 의무",
           "formula": "퇴직 시 미사용분 × 일급 환산 (§60E(3)). 근로 중 환산은 관행",
-          "note": "2022 EA 개정으로 Employment Act 적용 범위 확대 (월급 RM 4,000 이상도 포함)"
+          "note": "2022 EA 개정으로 Employment Act 적용 범위 확대 (월급 RM 4,000 이상도 포함)",
+          "legal": "Employment Act 1955 §60E(3) (계약 종료 시 미사용 연차의 임금 환산 지급)"
         },
         "carryover": {
           "allowed": true,
           "maxYears": "법 명시 없음 (통상 1년)",
-          "detail": "계약·사내 규정 자유. Employee Handbook 명시 필요"
+          "detail": "계약·사내 규정 자유. Employee Handbook 명시 필요",
+          "legal": "Employment Act 1955 §60E (연차는 발생 후 12개월 내 사용이 원칙이며, 이월은 노사 합의 사항)"
         },
         "consent": "법정 동의서 없음",
         "specialObligation": "연차 사용 시 사용자 사전 승인 필요 (§60E(1))",
