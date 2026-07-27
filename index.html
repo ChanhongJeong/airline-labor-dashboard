@@ -851,6 +851,14 @@ function render() {
       ? `<span class="trend ${parseFloat(yearChange) > 0 ? 'trend-up' : parseFloat(yearChange) === 0 ? 'trend-flat' : 'trend-down'}">${parseFloat(yearChange) > 0 ? '+' : ''}${yearChange}%</span>`
       : `<span class="trend trend-${c.minWage.trend.dir}">${c.minWage.trend.text}</span>`;
 
+    // 지점 수 배지. 한국은 취항지가 아니라 '본사'이므로 지점 개념이 없어 표시하지 않는다.
+    const regionCount = c.minWageRegional
+      ? c.minWageRegional.regions.reduce((a, r) => a + r.cities.length, 0)
+      : 0;
+    const regionBadge = (!isHistorical && regionCount > 0 && c.code !== 'KR')
+      ? ` · <strong style="color:var(--jju-orange-dark);">🏙️ 지점 ${regionCount}곳</strong>`
+      : '';
+
     const krw = toKRW(wageAmount, c.currency);
     const krwLabel = wageAmount === 0
       ? '<span class="krw-badge" style="background:#999;">PWM 직종별 상이</span>'
@@ -872,7 +880,7 @@ function render() {
         <div class="stat-box">
           <div class="stat-label">💰 최저임금 ${isHistorical ? '(' + selectedYear + '년)' : ''}</div>
           <div class="stat-value">${wageDisplay}${trendLabel}</div>
-          <div class="stat-sub">${isHistorical ? selectedYear + '년 기준 (전년 대비)' : c.minWage.sub}${!isHistorical && c.minWageRegional ? ' · <strong style="color:var(--jju-orange-dark);">🏙️ 지점 ' + c.minWageRegional.regions.reduce((a, r) => a + r.cities.length, 0) + '곳</strong>' : ''}</div>
+          <div class="stat-sub">${isHistorical ? selectedYear + '년 기준 (전년 대비)' : c.minWage.sub}${regionBadge}</div>
           ${krwLabel}
         </div>
         <div class="stat-box">
