@@ -26,11 +26,19 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    /* 설치돼 있으면 Pretendard를 쓰고, 없으면 OS 기본 폰트로 폴백.
+       Windows는 라틴 Segoe UI + 한글 맑은 고딕, macOS는 SF Pro + 애플 SD 산돌고딕네오로 자동 조합됨.
+       외부 CDN 의존을 만들지 않기 위해 웹폰트는 쓰지 않는다. */
+    font-family: "Pretendard Variable", Pretendard, system-ui, -apple-system,
+                 "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     background: var(--bg);
     color: var(--text-main);
-    line-height: 1.5;
+    /* 한글은 네모꼴이라 같은 행간이라도 라틴보다 빽빽해 보임 → 본문 기준 1.6 */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: keep-all;      /* 한글 단어 중간 줄바꿈 방지 */
+    overflow-wrap: break-word;
   }
   header {
     background: linear-gradient(135deg, var(--jju-orange) 0%, #FF8C3A 100%);
@@ -233,7 +241,7 @@
   .trend-flat { background: #EEE; color: var(--chip-flat); }
   .labor-section { margin-bottom: 14px; }
   /* 메인카드 섹션 - 타이틀을 풀폭 막대로 + 솔리드 녹색 #DCE6DC */
-  .card-block { margin-bottom: 14px; }
+  .card-block { margin-bottom: 18px; }
   .card-block .section-title {
     display: block;
     width: 100%;
@@ -243,7 +251,7 @@
     box-shadow: none;
     padding: 6px 12px;
     border-radius: 6px;
-    margin: 0 0 10px;
+    margin: 0 0 12px;
     font-weight: 700;
     text-transform: none;
     letter-spacing: 0;
@@ -264,11 +272,14 @@
     border-bottom: 2px solid rgba(245, 158, 11, 0.7);
     box-shadow: 0 1px 2px rgba(245, 158, 11, 0.15);
   }
-  .labor-list { list-style: none; font-size: 13px; color: #444; }
+  .labor-list { list-style: none; font-size: 13px; line-height: 1.7; color: #444; }
   .labor-list li {
-    padding: 3px 0;
+    padding: 5px 0;
     padding-left: 14px;
     position: relative;
+  }
+  .labor-list li + li {
+    border-top: 1px solid #F2F2F2;   /* 항목 경계를 옅게 그어 덩어리로 읽히지 않게 함 */
   }
   .labor-list li::before {
     content: "•";
@@ -290,8 +301,8 @@
     border-radius: 8px;
     border-left: 3px solid var(--jju-orange);
   }
-  .premium-name { font-weight: 700; color: var(--jju-orange-dark); font-size: 11px; }
-  .premium-formula { color: var(--text-main); font-size: 12px; margin-top: 2px; font-weight: 600; }
+  .premium-name { font-weight: 700; color: var(--jju-orange-dark); font-size: 11px; line-height: 1.5; }
+  .premium-formula { color: var(--text-main); font-size: 12px; line-height: 1.65; margin-top: 3px; font-weight: 600; }
   .card-footer {
     padding-top: 12px;
     border-top: 1px dashed var(--border);
@@ -428,6 +439,7 @@
     grid-template-columns: 160px 1fr;
     gap: 0 16px;
     font-size: 13px;
+    line-height: 1.7;
   }
   .info-grid dt {
     color: var(--text-sub);
@@ -450,10 +462,11 @@
     font-size: 13px;
   }
   .premium-table th, .premium-table td {
-    padding: 10px 12px;
+    padding: 12px 12px;
     text-align: left;
     border-bottom: 1px solid var(--border);
     vertical-align: top;
+    line-height: 1.7;
   }
   .premium-table th {
     background: var(--jju-orange-soft);
@@ -465,11 +478,13 @@
   .premium-table .p-formula {
     font-weight: 500;
     color: var(--text-main);
+    line-height: 1.7;
   }
   .premium-table .p-note {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 1.65;
     color: var(--text-sub);
-    margin-top: 2px;
+    margin-top: 4px;
   }
   /* 필드별 보충 설명 접이식 */
   .p-detail {
@@ -725,7 +740,7 @@ function flagSvg(code) {
 // legal이 있으면 "📖 법조항" chip을 덧붙인다. (회색 톤, 보조 정보로 강조 낮춤)
 function fmtField(obj, fallback) {
   if (obj && typeof obj === 'object' && 'value' in obj) {
-    const legalChip = obj.legal ? ` <span style="display:inline-block;background:#F4F4F4;color:#888;font-size:10px;font-weight:500;padding:1px 6px;border-radius:4px;border:1px solid #E0E0E0;">📖 ${obj.legal}</span>` : '';
+    const legalChip = obj.legal ? ` <span style="display:inline-block;background:#F4F4F4;color:#888;font-size:11px;font-weight:500;padding:1px 6px;border-radius:4px;border:1px solid #E0E0E0;">📖 ${obj.legal}</span>` : '';
     return obj.value + legalChip;
   }
   if (typeof obj === 'string') return obj;
@@ -880,7 +895,7 @@ function render() {
 
       <div class="card-block">
         <div class="section-title">👤 고용형태</div>
-        <ul class="labor-list" style="font-size:12.5px;">
+        <ul class="labor-list">
           <li><span style="color:var(--jju-orange-dark);">계약유형:</span> ${stripStrong(fmtField(c.employmentType?.contractType, c.fixedTermContract.conversion || c.fixedTermContract.max))}</li>
           <li><span style="color:var(--jju-orange-dark);">수습기간:</span> ${stripStrong(fmtField(c.employmentType?.probation, c.detailedLabor?.['수습기간'] || '-'))}</li>
           <li><span style="color:var(--jju-orange-dark);">외국인 고용 제한:</span> ${stripStrong(fmtField(c.employmentType?.foreignerLimit, c.detailedLabor?.['외국인 고용'] || '-'))}</li>
@@ -889,7 +904,7 @@ function render() {
 
       <div class="card-block">
         <div class="section-title">⏰ 근로시간</div>
-        <ul class="labor-list" style="font-size:12.5px;">
+        <ul class="labor-list">
           <li><span style="color:var(--jju-orange-dark);">기준:</span> ${c.workingHours ? `${stripStrong(fmtField(c.workingHours.daily, '-'))} · ${stripStrong(fmtField(c.workingHours.weekly, '-'))}` : stripStrong(c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || NO_DATA)}</li>
           <li><span style="color:var(--jju-orange-dark);">연장근로:</span> ${stripStrong(fmtField(c.workingHours?.overtime, c.detailedLabor?.['최대 연장시간'] || '-'))}</li>
           ${c.workingHours?.dailyRest ? `<li><span style="color:var(--jju-orange-dark);">일간 휴식:</span> ${stripStrong(fmtField(c.workingHours.dailyRest, '-'))}</li>` : ''}
@@ -921,8 +936,8 @@ function render() {
 
       <div class="card-block">
         <div class="section-title">📅 근태·보상</div>
-        <ul class="labor-list" style="font-size:12.5px;">
-          <li><span style="color:var(--jju-orange-dark);">🏖️ 연차기준:</span> <span style="font-size:11.5px;">${stripStrong(c.annualLeave.statutory.length > 70 ? c.annualLeave.statutory.substring(0, 70) + '...' : c.annualLeave.statutory)}</span></li>
+        <ul class="labor-list">
+          <li><span style="color:var(--jju-orange-dark);">🏖️ 연차기준:</span> <span style="font-size:12px;">${stripStrong(c.annualLeave.statutory.length > 70 ? c.annualLeave.statutory.substring(0, 70) + '...' : c.annualLeave.statutory)}</span></li>
           <li><span style="color:var(--jju-orange-dark);">미사용 연차보상 의무:</span> ${c.annualLeave?.compensation?.required === true ? '<span style="color:#C0392B;">✅ 법적 의무</span>' : c.annualLeave?.compensation?.required === false ? '<span style="color:#999;">❌ 법적 의무 없음</span>' : '<span style="color:#F39C12;">⚠️ ' + (c.annualLeave?.compensation?.required || '-') + '</span>'}<span style="color:#666;font-size:11px;"> - ${(c.annualLeave?.compensation?.formula || '').replace(/<[^>]+>/g, '').substring(0, 50)}</span></li>
           <li><span style="color:var(--jju-orange-dark);">퇴직금 지급 의무:</span> ${stripStrong(fmtField(c.workingHours?.severanceObligation, c.detailedLabor?.['퇴직금'] || '-'))}</li>
           <li><span style="color:var(--jju-orange-dark);">대졸 사무직 초임:</span> ${c.graduateSalary.display} <span style="color:#999;font-size:11px;">(${c.graduateSalary.year})</span></li>
@@ -1054,7 +1069,7 @@ function openModal(code) {
           <tbody>
             ${c.minWageRegional.regions.map(r => {
               const regionKrw = toKRW(r.amount, c.currency);
-              const krwText = regionKrw != null ? ` <span style="color:#999;font-size:10px;font-weight:400;">(≈ ${formatKRW(regionKrw)})</span>` : '';
+              const krwText = regionKrw != null ? ` <span style="color:#999;font-size:11px;font-weight:400;">(≈ ${formatKRW(regionKrw)})</span>` : '';
               return `
               <tr>
                 <td><div class="p-formula" style="font-size:12px;">${r.cities.join(' · ')}</div></td>
@@ -1235,7 +1250,7 @@ function openModal(code) {
             <tr>
               <td style="width:150px;">연차 기준</td>
               <td>
-                <div class="p-formula" style="font-size:12px;line-height:1.6;">${c.annualLeave.statutory}</div>
+                <div class="p-formula" style="font-size:12px;line-height:1.7;">${c.annualLeave.statutory}</div>
                 ${c.annualLeave.grantRule ? `<div class="p-note">${c.annualLeave.grantRule}</div>` : ''}
               </td>
             </tr>
@@ -1295,7 +1310,7 @@ function openModal(code) {
             </tr>` : ''}
             <tr>
               <td style="background:#FFF5EC;">💡 실무 팁</td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.annualLeave.tip}</div></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.7;">${c.annualLeave.tip}</div></td>
             </tr>
           </tbody>
         </table>
@@ -1463,7 +1478,7 @@ function openModal(code) {
             <tr>
               <td style="width:150px;">현지 소득신고 항목·의무</td>
               <td>
-                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.localIncomeReport}</div>
+                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.7;">${c.expatriateCompliance.localIncomeReport}</div>
                 ${legalChip(c.expatriateCompliance.localIncomeReportLegal)}
                 <div class="p-note" style="margin-top:6px;"><strong>세금 신고:</strong> ${c.expatriateCompliance.taxFiling}</div>
                 ${legalChip(c.expatriateCompliance.taxFilingLegal)}
@@ -1472,13 +1487,13 @@ function openModal(code) {
             <tr>
               <td>비자</td>
               <td>
-                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.6;">${c.expatriateCompliance.workVisa}</div>
+                <div class="p-formula" style="font-weight:500;font-size:12px;line-height:1.7;">${c.expatriateCompliance.workVisa}</div>
                 ${legalChip(c.expatriateCompliance.workVisaLegal)}
               </td>
             </tr>
             <tr>
               <td style="background:#FFF5EC;">💡 실무 팁</td>
-              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.6;">${c.expatriateCompliance.practicalTip}</div></td>
+              <td style="background:#FFF5EC;"><div class="p-formula" style="color:#C0392B;font-size:12px;line-height:1.7;">${c.expatriateCompliance.practicalTip}</div></td>
             </tr>
           </tbody>
         </table>
