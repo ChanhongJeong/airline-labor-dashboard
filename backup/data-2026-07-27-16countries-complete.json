@@ -1,5 +1,30 @@
-// Auto-updated by GitHub Actions
-window.DASHBOARD_DATA = {
+{
+  "_backup": {
+    "source": "data.js",
+    "backedUpAt": "2026-07-27T04:49:54.203Z",
+    "sourceBytes": 602844,
+    "sourceSha256": "4381b005a41e0bfdd30050118de49d3803119b9f35cb767a8498f30b55891a4f",
+    "countryCount": 16,
+    "countryCodes": [
+      "KR",
+      "CN",
+      "RU",
+      "MN",
+      "TW",
+      "HK",
+      "MO",
+      "SP",
+      "JP",
+      "PH",
+      "VN",
+      "TH",
+      "LA",
+      "MY",
+      "SG",
+      "ID"
+    ],
+    "label": "16countries-complete"
+  },
   "meta": {
     "lastUpdated": "2026-07-20",
     "cpiSource": "IMF WEO API (PCPIPCH, 2025)",
@@ -557,7 +582,7 @@ window.DASHBOARD_DATA = {
         }
       },
       "inflation": {
-        "rate": 0.0,
+        "rate": 0,
         "year": 2025,
         "display": "+0.0%",
         "trend": {
@@ -7949,4 +7974,4 @@ window.DASHBOARD_DATA = {
       ]
     }
   ]
-};
+}
