@@ -1060,7 +1060,7 @@ function openModal(code) {
             <tr>
               <td style="width:150px;">기준</td>
               <td>
-                <div class="p-formula">${c.workingHours?.daily?.value || '일 8시간'} · ${c.workingHours?.weekly?.value || '주 40시간'}</div>
+                <div class="p-formula">${c.workingHours ? `${c.workingHours.daily?.value || '-'} · ${c.workingHours.weekly?.value || '-'}` : (c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || '-')}</div>
                 ${legalChip(c.workingHours?.daily?.legal || c.workingHours?.weekly?.legal)}
               </td>
             </tr>
