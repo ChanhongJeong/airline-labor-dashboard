@@ -88,22 +88,48 @@ window.DASHBOARD_DATA = {
         "노동조합": "노동조합 및 노동관계조정법. 기업별·산별·직종별 노조 자유 설립. 부당노동행위 금지. 단체교섭 의무",
         "최대 연장시간": "주 12시간 한도 (근로기준법 §53). 특별연장: 재난·사고 등 고용노동부 인가 시 추가 가능"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간 (휴게시간 제외)",
+          "legal": "근로기준법 제50조 제2항"
+        },
+        "weekly": {
+          "value": "주 40시간 (휴게시간 제외)",
+          "legal": "근로기준법 제50조 제1항"
+        },
+        "overtime": {
+          "value": "당사자 간 합의 시 <strong>1주 12시간</strong> 한도 → 주 최대 52시간. 탄력적·선택적 근로시간제 도입 시 정산기간 평균 기준으로 적용. 가산율: 연장 통상임금 50% 이상, 야간(22:00~06:00) 50% 이상, 휴일 8시간 이내 50%·8시간 초과분 100% 이상. ※ 상시 <strong>5인 미만</strong> 사업장은 연장·야간·휴일 가산수당 규정 적용 제외",
+          "legal": "근로기준법 제53조·제56조 (5인 미만 적용 범위: 제11조, 시행령 제7조 별표1)"
+        },
+        "dailyRest": {
+          "value": "근로시간 4시간이면 30분 이상, 8시간이면 1시간 이상의 휴게를 근로시간 도중에 부여 (근로자 자유 이용)",
+          "legal": "근로기준법 제54조"
+        },
+        "weeklyRest": {
+          "value": "1주 평균 1회 이상 유급휴일(주휴일) 보장. 관공서 공휴일 및 대체공휴일도 유급휴일로 보장(상시 5인 이상)",
+          "legal": "근로기준법 제55조, 시행령 제30조"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "통상임금 × 150%",
-          "note": "평일 법정근로(8h) 초과분. 1주 12시간 한도 (§53). 5인 미만 사업장 연장수당 미적용"
+          "note": "평일 법정근로(8h) 초과분. 1주 12시간 한도 (§53). 5인 미만 사업장 연장수당 미적용",
+          "legal": "근로기준법 제56조 제1항 (한도: 제53조)"
         },
         "night": {
           "formula": "통상임금 × 150% (22:00~06:00)",
-          "note": "야간·연장 중복 시 200%. 야간·연장·휴일 3중 시 250%"
+          "note": "야간·연장 중복 시 200%. 야간·연장·휴일 3중 시 250%",
+          "legal": "근로기준법 제56조 제3항"
         },
         "restDay": {
           "formula": "유급 주휴일 근무: 8h 이내 통상임금 × 150%, 8h 초과 × 200%",
-          "note": "주휴수당(8h분)은 별도 지급 원칙. 주휴 근무 = 주휴수당 + 근무수당 + 가산수당"
+          "note": "주휴수당(8h분)은 별도 지급 원칙. 주휴 근무 = 주휴수당 + 근무수당 + 가산수당",
+          "legal": "근로기준법 제55조 제1항·제56조 제2항"
         },
         "publicHoliday": {
           "formula": "관공서 공휴일 근무: 통상임금 × 150% (8h 이내)",
-          "note": "2022~ 5인 이상 사업장 관공서 공휴일 유급 의무화(근로기준법 §55 II). 대체공휴일 포함"
+          "note": "2022~ 5인 이상 사업장 관공서 공휴일 유급 의무화(근로기준법 §55 II). 대체공휴일 포함",
+          "legal": "근로기준법 제55조 제2항, 시행령 제30조 제2항 (2022~ 5인 이상 전면 적용)"
         }
       },
       "contractRequirements": [
@@ -1030,22 +1056,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "취업허가 + 노동허가(패턴트)",
         "최대 연장시간": "2일 연속 4시간·<strong>년 120시간</strong> 한도 (노동법 §99). 근로자 서면 동의 + 노조 의견"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 상한 규정 없음 (주 단위 규제). 야간근무일은 근무시간 1시간 단축",
+          "legal": "노동법전 제91조·제96조"
+        },
+        "weekly": {
+          "value": "주 40시간. 유해·위험 근로조건 주 36시간 이하, 18세 미만·장애인(1·2급) 등은 단축근로 적용",
+          "legal": "노동법전 제91조·제92조"
+        },
+        "overtime": {
+          "value": "근로자 <strong>서면 동의 필수</strong>. <strong>연속 2일간 4시간 이내 + 연 120시간</strong> 한도. 가산율: 최초 2시간 1.5배 이상, 이후 2배 이상. 야간근로(22:00~06:00)는 통상임금 대비 <strong>최소 20% 가산</strong>",
+          "legal": "노동법전 제99조·제152조 / 야간: 제96조·제154조"
+        },
+        "dailyRest": {
+          "value": "근무 중 식사·휴식 휴게 30분 이상 2시간 이내 (근로시간 불산입)",
+          "legal": "노동법전 제108조"
+        },
+        "weeklyRest": {
+          "value": "5일제는 주 2일, 6일제는 주 1일. <strong>연속 42시간 이상</strong>의 주간 휴식 보장",
+          "legal": "노동법전 제110조·제111조"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "첫 2h 시급 × 150%, 이후 시급 × 200%",
-          "note": "연장근로 한도: 2일 연속 4시간 + 연 120시간 (노동법 §99)"
+          "note": "연장근로 한도: 2일 연속 4시간 + 연 120시간 (노동법 §99)",
+          "legal": "노동법전 제152조 (한도: 제99조)"
         },
         "night": {
           "formula": "시급 × 120% 이상",
-          "note": "22:00~06:00, 최소 20% 가산 (단체협약으로 추가)"
+          "note": "22:00~06:00, 최소 20% 가산 (단체협약으로 추가)",
+          "legal": "노동법전 제154조, 정부령 No. 554 (2008) - 최소 20% 가산"
         },
         "restDay": {
           "formula": "일급 × 200%",
-          "note": "주휴일 근무, 대체휴무 시 정상급여"
+          "note": "주휴일 근무, 대체휴무 시 정상급여",
+          "legal": "노동법전 제153조 (주휴일: 제110·111조)"
         },
         "publicHoliday": {
           "formula": "일급 × 200%",
-          "note": "공휴일 근무 시 최소 2배"
+          "note": "공휴일 근무 시 최소 2배",
+          "legal": "노동법전 제153조 (비근로 공휴일: 제112조)"
         }
       },
       "contractRequirements": [
@@ -1765,22 +1817,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "취업허가 + 거류증 필요, 업종 제한",
         "최대 연장시간": "월 46시간 (노동기준법 §32). 노사 합의 시 월 54시간·3개월 138시간 (2018 개정). 일 최대 12시간"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간",
+          "legal": "노동기준법 제30조"
+        },
+        "weekly": {
+          "value": "주 40시간 (2주 80시간). 2주·4주·8주 단위 변형근로시간제 가능",
+          "legal": "노동기준법 제30조·제30조의1"
+        },
+        "overtime": {
+          "value": "연장 포함 <strong>1일 총 12시간</strong> 초과 금지, <strong>월 46시간</strong> 한도. 노사회의 동의 + 노조(없으면 노사회의) 동의 시 월 54시간·3개월 합계 138시간까지 확대 가능. 가산율: 최초 2시간 시급 1⅓배 이상, 이후 1⅔배 이상",
+          "legal": "노동기준법 제32조·제24조"
+        },
+        "dailyRest": {
+          "value": "계속 근로 4시간마다 30분 이상 휴게",
+          "legal": "노동기준법 제35조"
+        },
+        "weeklyRest": {
+          "value": "7일마다 2일 - <strong>예가일(例假日)</strong> 1일(원칙적으로 근무 금지) + <strong>휴식일(休息日)</strong> 1일 ('一例一休')",
+          "legal": "노동기준법 제36조"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "첫 2h 시급 × 134%, 이후 2h 시급 × 167%",
-          "note": "법정근로시간 외 연장근로"
+          "note": "법정근로시간 외 연장근로",
+          "legal": "노동기준법 제24조 제1항 (한도: 제32조)"
         },
         "night": {
           "formula": "별도 법정 가산 없음",
-          "note": "여성·미성년 야간근로 제한 규정"
+          "note": "여성·미성년 야간근로 제한 규정",
+          "legal": "법정 가산 규정 없음 (여성 야간근로 제한: 노동기준법 제49조)"
         },
         "restDay": {
           "formula": "휴식일 2h 이내 시급 × 134%, 이후 × 167%",
-          "note": "주 1회 휴식일(休息日) 근무 시"
+          "note": "주 1회 휴식일(休息日) 근무 시",
+          "legal": "노동기준법 제24조 제2·3항 (휴식일: 제36조)"
         },
         "publicHoliday": {
           "formula": "일급 추가 1일분 × 100% (실질 200%)",
-          "note": "국정공휴일(國定假日) 근무"
+          "note": "국정공휴일(國定假日) 근무",
+          "legal": "노동기준법 제39조 (국정휴가일 근로 시 임금 배액)"
         }
       },
       "contractRequirements": [
@@ -2444,22 +2522,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "외지고용 허가(藍卡) 필수",
         "최대 연장시간": "일 2시간 한도 (Law 7/2008). 연간 총량은 합리적 범위"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간",
+          "legal": "노동관계법(Lei n.º 7/2008) 제33조"
+        },
+        "weekly": {
+          "value": "주 48시간",
+          "legal": "노동관계법 제33조"
+        },
+        "overtime": {
+          "value": "불가항력·중대 손실 우려 시 <strong>1일 총 16시간</strong>, 예측하지 못한 업무량 증가 시 <strong>1일 총 12시간</strong>까지. 보수: 근로자 동의 없이 사용자가 지시한 경우 통상보수 <strong>+50%</strong>, 사용자 요청에 근로자가 동의하거나 근로자가 자발적으로 한 경우 <strong>+20%</strong>. 야간근로·교대근무에 대한 별도 금전 보상 청구권은 그대로 유지됨",
+          "legal": "노동관계법 제36조·제37조"
+        },
+        "dailyRest": {
+          "value": "연속 5시간을 넘겨 근로하지 않도록 <strong>30분 이상 연속 휴게</strong> 부여. 근로일 사이에는 <strong>연속 10시간 이상, 합계 12시간 이상</strong>의 휴식 보장",
+          "legal": "노동관계법 제33조"
+        },
+        "weeklyRest": {
+          "value": "주 1일 유급 휴식일. 휴식일에 근무시킨 경우 30일 이내 보상휴식 지정(3일 전 통지) + 1일분 추가 임금 또는 추가 휴식. 근로자가 자발적으로 근무한 경우에도 30일 이내 보상휴식 필요(서면 기록 의무)",
+          "legal": "노동관계법 제43조"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 120%",
-          "note": "평일 8h 초과 (일 최대 연장 규제)"
+          "note": "평일 8h 초과 (일 최대 연장 규제)",
+          "legal": "노동관계법(Lei n.º 7/2008) 제37조 (요건: 제36조)"
         },
         "night": {
           "formula": "별도 법정 가산 없음",
-          "note": "단체협약·업종 관행"
+          "note": "단체협약·업종 관행",
+          "legal": "법정 가산율 규정 없음 - 다만 야간·교대근무에 대한 별도 금전 보상 청구권은 제37조가 유보"
         },
         "restDay": {
           "formula": "시급 × 200% + 대체휴무",
-          "note": "주휴일(의무 휴식일) 근무"
+          "note": "주휴일(의무 휴식일) 근무",
+          "legal": "노동관계법 제43조 (주휴일 근로)"
         },
         "publicHoliday": {
           "formula": "의무공휴일 시급 × 300%, 일반 × 200%",
-          "note": "강제 공휴일 근무 시 3배"
+          "note": "강제 공휴일 근무 시 3배",
+          "legal": "노동관계법(Lei n.º 7/2008) 강제성 휴가일(強制性假日) 규정"
         }
       },
       "contractRequirements": [
@@ -2799,22 +2903,44 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "CW-1 비자 (CNMI 전용)",
         "최대 연장시간": "FLSA 한도 없음 (40시간 초과분 150%만 규정). CW-1 비자 조건별 제한 가능"
       },
+      "workingHours": {
+        "daily": {
+          "value": "❌ 1일 근로시간 상한 <strong>규정 없음</strong> (연방 FLSA는 주 단위만 규제)",
+          "legal": "FLSA 29 U.S.C. §201 이하 - 성인 근로자 1일 상한 미규정"
+        },
+        "weekly": {
+          "value": "소정근로시간·주 상한 규정 없음. 주 40시간 초과분에 대한 <strong>할증만</strong> 규제",
+          "legal": "FLSA 29 U.S.C. §207"
+        },
+        "overtime": {
+          "value": "주 40시간 초과 근로에 통상임금 <strong>1.5배</strong> 지급 의무. 총 근로시간 자체의 법정 상한은 없음. 관리·행정·전문직(EAP exemption) 요건 충족 시 할증 적용 제외. CNMI는 1938년 FLSA 제정 당시 적용 대상이 아니었으나 2007~2008년 연방법 적용 대상으로 편입",
+          "legal": "FLSA 29 U.S.C. §207·§213 / Consolidated Natural Resources Act of 2008, Commonwealth Employment Act of 2007"
+        },
+        "weeklyRest": {
+          "value": "연방법·CNMI법상 주휴일 부여 의무 규정 없음 → 계약·사규 사항",
+          "legal": "FLSA에 주휴일 조항 없음"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 150%",
-          "note": "FLSA: 주 40h 초과분"
+          "note": "FLSA: 주 40h 초과분",
+          "legal": "FLSA 29 U.S.C. §207(a) (주 40시간 초과분 1.5배)"
         },
         "night": {
           "formula": "연방법상 의무 없음",
-          "note": "단체협약·사내규정"
+          "note": "단체협약·사내규정",
+          "legal": "연방법상 야간 가산 규정 없음 (FLSA 미규정)"
         },
         "restDay": {
           "formula": "연방법상 의무 없음",
-          "note": "주 40h 초과분만 150%"
+          "note": "주 40h 초과분만 150%",
+          "legal": "연방법상 주휴일·휴식일 가산 규정 없음 (주 40시간 초과분만 §207 적용)"
         },
         "publicHoliday": {
           "formula": "연방법상 의무 없음",
-          "note": "사용자 재량·단체협약"
+          "note": "사용자 재량·단체협약",
+          "legal": "연방법상 공휴일 유급·가산 의무 없음 (FLSA 미규정)"
         }
       },
       "contractRequirements": [
@@ -3104,22 +3230,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "취업비자(기술·인문지식·국제업무 등) 필수",
         "최대 연장시간": "월 45시간·년 360시간 (36협정 일반). <strong>특별조항: 월 100시간 미만·년 720시간</strong> (노동기준법 §36). 2~6개월 평균 80시간 이하"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간 (휴게시간 제외)",
+          "legal": "노동기준법 제32조"
+        },
+        "weekly": {
+          "value": "주 40시간 (휴게시간 제외). 1개월·1년 단위 변형근로시간제, 플렉스타임제 가능",
+          "legal": "노동기준법 제32조·제32조의2~제32조의5"
+        },
+        "overtime": {
+          "value": "<strong>36협정(사부로쿠 협정)</strong> 체결·노동기준감독서 신고 필수. 원칙 <strong>월 45시간·연 360시간</strong>. 특별조항을 둔 경우에도 ① 연 720시간 이내 ② 휴일근로 포함 <strong>단월 100시간 미만</strong> ③ 휴일근로 포함 <strong>2~6개월 평균 80시간 이내</strong> ④ 월 45시간 초과는 <strong>연 6회까지</strong>. 가산율: 연장 25% 이상(월 60시간 초과분 50% 이상), 야간(22:00~05:00) 25% 이상, 법정휴일 35% 이상",
+          "legal": "노동기준법 제36조·제37조 (상한 규제 2019.4 대기업·2020.4 중소기업 / 월 60시간 초과 50% 가산은 중소기업 2023.4 적용)"
+        },
+        "dailyRest": {
+          "value": "근로시간이 6시간 초과 시 45분 이상, 8시간 초과 시 1시간 이상의 휴게를 근로시간 도중에 일제히 부여",
+          "legal": "노동기준법 제34조"
+        },
+        "weeklyRest": {
+          "value": "매주 1일 이상 또는 4주간 4일 이상의 휴일(법정휴일)",
+          "legal": "노동기준법 제35조"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 125%",
-          "note": "월 60시간 초과분은 시급 × 150%"
+          "note": "월 60시간 초과분은 시급 × 150%",
+          "legal": "노동기준법 제37조 제1항 (월 60시간 초과 50%: 동항 단서 / 한도: 제36조)"
         },
         "night": {
           "formula": "시급 × 125% (22:00~05:00)",
-          "note": "연장과 중복 시 시급 × 150%"
+          "note": "연장과 중복 시 시급 × 150%",
+          "legal": "노동기준법 제37조 제4항 (22:00~05:00)"
         },
         "restDay": {
           "formula": "시급 × 135% <span style=\"color:#E55A00;font-weight:600;\">*취업규칙 규정 등에 따라 대체휴무 부여 시 수당 미지급</span>",
-          "note": "법정휴일(주휴일 등) 근무 시. 취업규칙·노사협정에 사전 대체휴무(후리카에 휴일) 부여 규정이 명시되어 있고 사전 지정·합의 시, 실제 다른 날 휴무로 보상하면 별도 휴일수당 미지급. 단 사후 대체(다이큐)는 휴일근로가 이미 성립되어 수당 발생"
+          "note": "법정휴일(주휴일 등) 근무 시. 취업규칙·노사협정에 사전 대체휴무(후리카에 휴일) 부여 규정이 명시되어 있고 사전 지정·합의 시, 실제 다른 날 휴무로 보상하면 별도 휴일수당 미지급. 단 사후 대체(다이큐)는 휴일근로가 이미 성립되어 수당 발생",
+          "legal": "노동기준법 제35조·제37조 제1항, 할증임금령(정령 제5호)"
         },
         "publicHoliday": {
           "formula": "시급 × 135% <span style=\"color:#E55A00;font-weight:600;\">*취업규칙 규정 등에 따라 대체휴무 부여 시 수당 미지급</span>",
-          "note": "휴일 + 야간 중복 시 시급 × 160%. 공휴일도 동일하게 사전 대체휴무 지정 가능 - 취업규칙에 명시 + 근로자 사전 합의 시 별도 휴일수당 미지급"
+          "note": "휴일 + 야간 중복 시 시급 × 160%. 공휴일도 동일하게 사전 대체휴무 지정 가능 - 취업규칙에 명시 + 근로자 사전 합의 시 별도 휴일수당 미지급",
+          "legal": "노동기준법 제35조·제37조 제1항 (법정휴일 35%)"
         }
       },
       "contractRequirements": [
@@ -3642,22 +3794,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "AEP(Alien Employment Permit) + 9(g) 비자",
         "최대 연장시간": "법정 연장시간 한도 없음 (Labor Code). 단 야간·위험 업종 별도 제한"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간 (정규 근로시간)",
+          "legal": "Labor Code Art. 83"
+        },
+        "weekly": {
+          "value": "법정 주 상한 조항은 없음 - '1일 8시간 + 주휴일 1일' 구조로 통상 주 6일 48시간",
+          "legal": "Labor Code Art. 83·91"
+        },
+        "overtime": {
+          "value": "8시간 초과 근로에 통상임금 <strong>+25% 이상</strong>. 휴식일·특별휴일 근로는 <strong>+30%</strong>, 그 날 8시간을 초과한 부분은 해당 요율에 다시 +30%. 야간 <strong>22:00~06:00</strong> 근로는 통상임금 <strong>+10% 야간차등(night shift differential)</strong>이 별도로 중첩 가산됨",
+          "legal": "Labor Code Art. 86·87·93"
+        },
+        "dailyRest": {
+          "value": "5시간 연속 근로마다 <strong>60분 이상</strong>의 식사 휴게(무급, 근로시간 불산입)",
+          "legal": "Labor Code Art. 85"
+        },
+        "weeklyRest": {
+          "value": "6일 연속 근로 후 <strong>24시간 연속 휴식일(rest day)</strong> 부여 의무",
+          "legal": "Labor Code Art. 91"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 125%",
-          "note": "평일 8h 초과; 야간(10PM~6AM)과 겹치면 시급 × 137.5%"
+          "note": "평일 8h 초과; 야간(10PM~6AM)과 겹치면 시급 × 137.5%",
+          "legal": "Labor Code Art. 87"
         },
         "night": {
           "formula": "시급 × 110%",
-          "note": "야간차등(Night Shift Differential) 22:00~06:00, 기본의 10% 가산"
+          "note": "야간차등(Night Shift Differential) 22:00~06:00, 기본의 10% 가산",
+          "legal": "Labor Code Art. 86 (Night Shift Differential, 22:00~06:00)"
         },
         "restDay": {
           "formula": "일급 × 130% (첫 8h)",
-          "note": "주휴일 초과분은 시급 × 169%, 공휴일+주휴일 중복 시 50% 추가"
+          "note": "주휴일 초과분은 시급 × 169%, 공휴일+주휴일 중복 시 50% 추가",
+          "legal": "Labor Code Art. 93 (휴식일: Art. 91)"
         },
         "publicHoliday": {
           "formula": "Regular Holiday: 일급 × 200%; Special Non-Working: × 130%",
-          "note": "Regular 초과분 260%, Special 초과분 169%"
+          "note": "Regular 초과분 260%, Special 초과분 169%",
+          "legal": "Labor Code Art. 94 / DOLE Handbook on Workers’ Statutory Monetary Benefits"
         }
       },
       "contractRequirements": [
@@ -4572,22 +4750,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "Work Permit + Non-B 비자 필수",
         "최대 연장시간": "주 36시간 한도 (LPA §24). 위험 업종은 주 총 48시간 포함 연장 금지"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간 (건강·안전에 유해한 업무는 <strong>1일 7시간</strong>)",
+          "legal": "Labour Protection Act B.E. 2541 §23"
+        },
+        "weekly": {
+          "value": "주 48시간 (유해업무는 <strong>주 42시간</strong>)",
+          "legal": "Labour Protection Act §23"
+        },
+        "overtime": {
+          "value": "근로자 <strong>사전 동의 필수</strong> (사업에 손해를 끼치는 긴급·불가피한 업무는 예외). <strong>연장근로 + 휴일근로 합계 주 36시간</strong> 한도(성령). 가산율: 평일 연장 <strong>1.5배</strong>, 휴일 근로 <strong>2배</strong>(유급휴일 미적용 근로자는 1배), 휴일의 연장근로 <strong>3배</strong>",
+          "legal": "Labour Protection Act §24·§26·§61·§62·§63"
+        },
+        "dailyRest": {
+          "value": "5시간 연속 근로 후 <strong>1시간 이상</strong> 휴게. 연장근로가 2시간 이상 예정된 경우 연장 개시 전 20분 이상 휴게",
+          "legal": "Labour Protection Act §27"
+        },
+        "weeklyRest": {
+          "value": "주 1일 이상의 휴일, 휴일 간 간격은 6일을 넘을 수 없음",
+          "legal": "Labour Protection Act §28"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 150%",
-          "note": "평일 8h 초과 연장근로"
+          "note": "평일 8h 초과 연장근로",
+          "legal": "Labour Protection Act B.E. 2541 §61 (한도: §24·§26)"
         },
         "night": {
           "formula": "별도 법정 가산 없음",
-          "note": "위험 업무 야간은 내규·단체협약"
+          "note": "위험 업무 야간은 내규·단체협약",
+          "legal": "법정 가산 규정 없음 (야간근로 가산은 계약·단체협약)"
         },
         "restDay": {
           "formula": "월급제: 일급 × 100% 추가 (200%); 일급제: 일급 × 200%",
-          "note": "주휴일 근무 시 기본 지급액 + 추가분, 8h 초과 시 300%"
+          "note": "주휴일 근무 시 기본 지급액 + 추가분, 8h 초과 시 300%",
+          "legal": "Labour Protection Act §62 (휴일의 연장근로: §63 / 주휴일: §28)"
         },
         "publicHoliday": {
           "formula": "월급제: 추가 일급 1일분; 일급·시급제: 일급 × 200%",
-          "note": "공휴일 근무 시 초과분은 300%"
+          "note": "공휴일 근무 시 초과분은 300%",
+          "legal": "Labour Protection Act §62·§63 (전통 공휴일: §29)"
         }
       },
       "contractRequirements": [
@@ -5386,22 +5590,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "Employment Pass(EP) or Work Permit",
         "최대 연장시간": "월 104시간 한도 (Employment Act §60A). 고용부 승인 시 연장 가능"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간",
+          "legal": "Employment Act 1955 §60A(1)"
+        },
+        "weekly": {
+          "value": "<strong>주 45시간</strong> (2022 개정법으로 48시간 → 45시간, <strong>2023.1.1 시행</strong>)",
+          "legal": "Employment (Amendment) Act 2022 → Employment Act 1955 §60A(1)"
+        },
+        "overtime": {
+          "value": "연속 5시간을 초과해 휴게 없이 근로시킬 수 없음. 연장근로 <strong>월 104시간</strong> 한도. 가산율: 평일 <strong>1.5배</strong>, 휴식일 <strong>2배</strong>, 공휴일 <strong>3배</strong>. ※ 2023.1.1부로 EA는 급여와 무관하게 전 근로자에게 적용되나, <strong>월 급여 RM4,000 초과</strong> 근로자에게는 §60A(3)(연장근로 할증)·§60(3)(휴식일 할증) 등이 적용되지 않음",
+          "legal": "Employment Act 1955 §60A, Employment (Limitation of Overtime Work) Regulations 1980 / 적용 제외: Employment (Amendment of First Schedule) Order 2022"
+        },
+        "dailyRest": {
+          "value": "연속 5시간 근로 후 30분 이상의 휴게",
+          "legal": "Employment Act 1955 §60A(1)(a)"
+        },
+        "weeklyRest": {
+          "value": "주 1일 이상의 휴식일(rest day)",
+          "legal": "Employment Act 1955 §59"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 150%",
-          "note": "평일 법정근로 45h 초과분"
+          "note": "평일 법정근로 45h 초과분",
+          "legal": "Employment Act 1955 §60A(3) (한도: Employment (Limitation of Overtime Work) Regulations 1980)"
         },
         "night": {
           "formula": "법정 가산 없음",
-          "note": "교대수당은 단체협약/사규"
+          "note": "교대수당은 단체협약/사규",
+          "legal": "법정 가산 규정 없음 (교대수당은 계약·단체협약)"
         },
         "restDay": {
           "formula": "반일 이하 1/2일분, 반일 초과 1일분 + 초과분 × 200%",
-          "note": "Rest Day 근무 시 (주 1일 의무 휴식일)"
+          "note": "Rest Day 근무 시 (주 1일 의무 휴식일)",
+          "legal": "Employment Act 1955 §60(3) (휴식일: §59)"
         },
         "publicHoliday": {
           "formula": "일급 × 300% (기본 1일 + 추가 2일분)",
-          "note": "공휴일 근무, 8h 초과분은 시급 × 300%"
+          "note": "공휴일 근무, 8h 초과분은 시급 × 300%",
+          "legal": "Employment Act 1955 §60D(3)"
         }
       },
       "contractRequirements": [
@@ -5732,22 +5962,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "EP/SP/WP 등 비자별 월급·쿼터",
         "최대 연장시간": "월 72시간 한도 (Employment Act §38). MOM 면제 승인 시 추가 가능. Part IV 적용자만"
       },
+      "workingHours": {
+        "daily": {
+          "value": "1일 8시간. 단 <strong>주 5일 이하</strong> 근무 시에는 1일 9시간까지 가능(주 44시간 이내 조건) <strong>(Part IV 적용 근로자에 한함)</strong>",
+          "legal": "Employment Act 1968 제IV부 §38"
+        },
+        "weekly": {
+          "value": "주 44시간 <strong>(Part IV 적용 근로자에 한함)</strong>",
+          "legal": "Employment Act 1968 제IV부 §38"
+        },
+        "overtime": {
+          "value": "⚠️ <strong>Part IV는 관리·집행직(managers & executives)에게 적용되지 않음</strong> - 지점장·주재원 등 관리직은 법정 근로시간·연장수당 규제 대상이 아니며 전적으로 계약으로 정함.<br>적용 대상: 육체근로자(workmen) 월 기본급 <strong>S$4,500 이하</strong> + 비육체 근로자 월 기본급 <strong>S$2,600 이하</strong>(2026년 S$2,500 → S$2,600 상향).<br>적용 시: 연속 6시간 초과 근로 금지, 1일 8시간·주 44시간 초과분에 시간당 기본급 <strong>1.5배</strong>, 연장근로 <strong>월 72시간</strong> 한도",
+          "legal": "Employment Act 1968 제IV부 §38 (2026년 비육체 근로자 기준 S$2,600으로 상향)"
+        },
+        "dailyRest": {
+          "value": "연속 6시간을 초과해 휴게 없이 근로시킬 수 없음 (Part IV 적용 시)",
+          "legal": "Employment Act 1968 제IV부 §38"
+        },
+        "weeklyRest": {
+          "value": "주 1일 휴식일(rest day), 무급이 원칙 (Part IV 적용 시)",
+          "legal": "Employment Act 1968 제IV부 §36"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "시급 × 150%",
-          "note": "Part IV 적용자: 비육체직 월급 ≤ S$2,600, 육체직 ≤ S$4,500"
+          "note": "Part IV 적용자: 비육체직 월급 ≤ S$2,600, 육체직 ≤ S$4,500",
+          "legal": "Employment Act 1968 제IV부 §38(4) (월 72시간 한도)"
         },
         "night": {
           "formula": "법정 의무 없음",
-          "note": "교대수당은 계약·단체협약"
+          "note": "교대수당은 계약·단체협약",
+          "legal": "법정 가산 규정 없음 (교대수당은 계약·단체협약)"
         },
         "restDay": {
           "formula": "반일 이하: 일급 1일분 추가 / 반일 초과: 2일분 추가",
-          "note": "8h 초과분은 시급 × 150% 추가"
+          "note": "8h 초과분은 시급 × 150% 추가",
+          "legal": "Employment Act 1968 제IV부 §37"
         },
         "publicHoliday": {
           "formula": "일급 추가 1일분 + 대체휴무 또는 일급 지급",
-          "note": "공휴일(11일/년) 근무 시"
+          "note": "공휴일(11일/년) 근무 시",
+          "legal": "Employment Act 1968 §88 (Part IV 미적용자에게도 적용)"
         }
       },
       "contractRequirements": [
@@ -6065,22 +6321,48 @@ window.DASHBOARD_DATA = {
         "외국인 고용": "RPTKA 승인 + IMTA + KITAS 필수",
         "최대 연장시간": "일 4시간·주 18시간 한도 (Cipta Kerja PP 35/2021 §78). 근로자 서면 동의 필수"
       },
+      "workingHours": {
+        "daily": {
+          "value": "6일제 1일 7시간 / 5일제 1일 8시간",
+          "legal": "노동법 UU No. 13/2003 제77조 (UU No. 6/2023 Cipta Kerja 개정)"
+        },
+        "weekly": {
+          "value": "주 40시간 (6일제·5일제 공통)",
+          "legal": "노동법 UU No. 13/2003 제77조"
+        },
+        "overtime": {
+          "value": "근로자 <strong>서면 동의</strong> + 사용자 명령 필수. <strong>1일 4시간·주 18시간</strong> 한도 (Cipta Kerja 개정 후 확대, 종전 1일 3시간·주 14시간). 주휴일·공휴일 근로는 6일제 최대 11시간·5일제 최대 12시간. 가산율: 평일 첫 1시간 <strong>1.5배</strong>, 이후 시간 <strong>2배</strong>. 에너지·광업 등 특정 업종은 예외 규정 적용",
+          "legal": "UU No. 6/2023 (Cipta Kerja) / PP No. 35/2021 제26·27·28조"
+        },
+        "dailyRest": {
+          "value": "4시간 연속 근로 후 30분 이상의 휴게 (근로시간 불산입)",
+          "legal": "노동법 UU No. 13/2003 제79조"
+        },
+        "weeklyRest": {
+          "value": "6일제는 주 1일, 5일제는 주 2일의 주휴일",
+          "legal": "노동법 UU No. 13/2003 제79조 (UU No. 6/2023 개정)"
+        }
+      },
       "wagePremiums": {
         "overtime": {
           "formula": "첫 1h 시급 × 150%, 이후 시급 × 200%",
-          "note": "시급 = 월급 / 173"
+          "note": "시급 = 월급 / 173",
+          "legal": "PP No. 35/2021 제31조 (시급 = 월급 ÷ 173 / 한도: 제26조)"
         },
         "night": {
           "formula": "별도 법정 가산 없음",
-          "note": "야간·교대수당은 단체협약/사규"
+          "note": "야간·교대수당은 단체협약/사규",
+          "legal": "법정 가산 규정 없음 (야간·교대수당은 계약·사규)"
         },
         "restDay": {
           "formula": "6일제: 1~7h 200%, 8h 300%, 9~10h 400%",
-          "note": "5일제는 1~8h 200%, 9h 300%, 10~11h 400%"
+          "note": "5일제는 1~8h 200%, 9h 300%, 10~11h 400%",
+          "legal": "PP No. 35/2021 제31조 (주휴일: UU No. 13/2003 제79조)"
         },
         "publicHoliday": {
           "formula": "1~7h 시급 × 200%, 8h × 300%, 9~10h × 400%",
-          "note": "공휴일 근무 시"
+          "note": "공휴일 근무 시",
+          "legal": "PP No. 35/2021 제31조"
         }
       },
       "contractRequirements": [

@@ -700,6 +700,13 @@ function fmtField(obj, fallback) {
   return fallback || '-';
 }
 // 법조항 chip만 단독으로 렌더 (회색 톤)
+// CSV 내보내기용 - HTML 태그(<strong>, <br> 등)를 제거해 평문으로 변환
+const plain = v => v == null ? '' : String(v).replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '');
+
+// 데이터가 등록되지 않은 항목에 쓰는 표시.
+// 여기에 그럴듯한 기본값(예: '일 8시간')을 넣으면 출처 없는 값이 사실처럼 보이므로 절대 넣지 말 것.
+const NO_DATA = '<span style="color:#BBB;">데이터 미등록</span>';
+
 function legalChip(legal) {
   if (!legal) return '';
   return `<div style="margin-top:4px;"><span style="display:inline-block;background:#F4F4F4;color:#888;font-size:11px;font-weight:500;padding:2px 8px;border-radius:6px;border:1px solid #E0E0E0;">📖 ${legal}</span></div>`;
@@ -844,7 +851,7 @@ function render() {
       <div class="card-block">
         <div class="section-title">⏰ 근로시간</div>
         <ul class="labor-list" style="font-size:12.5px;">
-          <li><span style="color:var(--jju-orange-dark);">기준:</span> ${stripStrong(fmtField(c.workingHours?.daily, '일 8시간'))} · ${stripStrong(fmtField(c.workingHours?.weekly, '주 40시간'))}</li>
+          <li><span style="color:var(--jju-orange-dark);">기준:</span> ${c.workingHours ? `${stripStrong(fmtField(c.workingHours.daily, '-'))} · ${stripStrong(fmtField(c.workingHours.weekly, '-'))}` : stripStrong(c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || NO_DATA)}</li>
           <li><span style="color:var(--jju-orange-dark);">연장근로:</span> ${stripStrong(fmtField(c.workingHours?.overtime, c.detailedLabor?.['최대 연장시간'] || '-'))}</li>
           ${c.workingHours?.dailyRest ? `<li><span style="color:var(--jju-orange-dark);">일간 휴식:</span> ${stripStrong(fmtField(c.workingHours.dailyRest, '-'))}</li>` : ''}
           ${c.workingHours?.weeklyRest ? `<li><span style="color:var(--jju-orange-dark);">주휴일:</span> ${stripStrong(fmtField(c.workingHours.weeklyRest, '-'))}</li>` : ''}
@@ -1060,7 +1067,7 @@ function openModal(code) {
             <tr>
               <td style="width:150px;">기준</td>
               <td>
-                <div class="p-formula">${c.workingHours ? `${c.workingHours.daily?.value || '-'} · ${c.workingHours.weekly?.value || '-'}` : (c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || '-')}</div>
+                <div class="p-formula">${c.workingHours ? `${c.workingHours.daily?.value || '-'} · ${c.workingHours.weekly?.value || '-'}` : (c.detailedLabor?.['법정 근로시간'] || c.labor?.[0] || NO_DATA)}</div>
                 ${legalChip(c.workingHours?.daily?.legal || c.workingHours?.weekly?.legal)}
               </td>
             </tr>
@@ -1345,7 +1352,7 @@ function openModal(code) {
             <tr>
               <td style="width:160px;">자발적 퇴사 절차</td>
               <td>
-                <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || '통상 사전 통지 후 근로관계 종료 (기간은 국가별 상이)'}</div>
+                <div class="p-formula">${c.terminationProcess?.voluntaryResignation?.value || NO_DATA}</div>
                 ${legalChip(c.terminationProcess?.voluntaryResignation?.legal)}
               </td>
             </tr>
@@ -1366,7 +1373,7 @@ function openModal(code) {
             <tr>
               <td>해고 조건</td>
               <td>
-                <div class="p-formula">${c.terminationProcess?.dismissalConditions?.value || '정당 사유 필수 (국가별 상이)'}</div>
+                <div class="p-formula">${c.terminationProcess?.dismissalConditions?.value || NO_DATA}</div>
                 ${legalChip(c.terminationProcess?.dismissalConditions?.legal)}
               </td>
             </tr>
@@ -1380,7 +1387,7 @@ function openModal(code) {
             <tr>
               <td>해고 통보기간</td>
               <td>
-                <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || '국가별 상이 - 상세는 해고 절차 참조'}</div>
+                <div class="p-formula">${c.terminationProcess?.noticePeriod?.value || c.detailedLabor?.['해고 절차'] || NO_DATA}</div>
                 ${legalChip(c.terminationProcess?.noticePeriod?.legal)}
               </td>
             </tr>
@@ -1473,7 +1480,7 @@ function exportCSV() {
     '국가코드', '국가명', '영문명', '통화', '지역',
     '최저임금', '최저임금단위', '최저임금기준일', '지점별_최저임금',
     '물가상승률(%)', 'CPI기준년도',
-    '법정근로시간',
+    '법정근로시간_요약', '법정근로시간_일', '법정근로시간_주', '법정근로시간_근거', '연장근로_한도', '연장근로_근거', '일간휴식', '주휴일',
     '연장수당공식', '연장수당비고',
     '야간수당공식', '야간수당비고',
     '휴일수당공식', '휴일수당비고',
@@ -1498,6 +1505,10 @@ function exportCSV() {
     c.minWageRegional ? c.minWageRegional.regions.map(r => r.cities.join('·') + ': ' + r.display + (r.note ? ' (' + r.note + ')' : '')).join(' | ') : '',
     c.inflation.rate, c.inflation.year,
     c.labor[0] || '',
+    plain(c.workingHours?.daily?.value), plain(c.workingHours?.weekly?.value),
+    c.workingHours?.daily?.legal || c.workingHours?.weekly?.legal || '',
+    plain(c.workingHours?.overtime?.value), c.workingHours?.overtime?.legal || '',
+    plain(c.workingHours?.dailyRest?.value), plain(c.workingHours?.weeklyRest?.value),
     c.wagePremiums.overtime.formula, c.wagePremiums.overtime.note,
     c.wagePremiums.night.formula, c.wagePremiums.night.note,
     c.wagePremiums.restDay.formula, c.wagePremiums.restDay.note,
