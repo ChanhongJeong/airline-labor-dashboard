@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-07-28 (화) - 15차 작업
+
+### 요청
+
+상단 제목(`<h1>`) 옆에 붙어 있던 "- by. jychoi" 이름 표기를 삭제할 것. 이후 **모든 작업 내역을 이 history.md에 기록**할 것.
+
+### 작업
+
+- `<title>제주항공 GHR 대시보드 - by. jychoi</title>` → `<title>제주항공 GHR 대시보드</title>`
+- `<h1>✈️ 제주항공 GHR 대시보드 <span ...>- by. jychoi</span></h1>` → `<h1>✈️ 제주항공 GHR 대시보드</h1>`
+- 전체 파일 재검색 결과 "jychoi" 등 이름 표기 잔존 0건 확인
+
+### 결과
+
+- `index.html` 2곳 수정, 커밋 후 `origin/main`에 푸시 → GitHub Pages(https://chanhongjeong.github.io/airline-labor-dashboard/) 반영
+- ⚠️ 이번 건에서 배포 지연의 원인은 **로컬 수정이 커밋되지 않은 상태로 남아 있었던 것** — 앞으로는 작업 완료 시 커밋·푸시까지 마쳐야 실제 배포에 반영됨을 확인
+
+---
+
 ## 2026-07-27 (월) - 14차 작업
 
 ### 요청
