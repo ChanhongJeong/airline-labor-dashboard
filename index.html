@@ -1390,7 +1390,57 @@ function openModal(code) {
         </table>
       </div>
 
-      <!-- 9. 급여명세서 필수항목 -->
+      <!-- 9. 해외 연금제도 -->
+      <div class="modal-section">
+        <div class="modal-section-title">🏦 해외 연금제도</div>
+        ${c.pensionSystem ? (c.pensionSystem.overview ? `
+        <table class="premium-table">
+          <tbody>
+            <tr>
+              <td style="width:150px;">제도 개요</td>
+              <td>
+                <div class="p-formula">${c.pensionSystem.overview.value}</div>
+                ${legalChip(c.pensionSystem.overview.legal)}
+              </td>
+            </tr>
+            <tr>
+              <td>적용 대상</td>
+              <td><div class="p-formula">${c.pensionSystem.coverage.value}</div></td>
+            </tr>
+            <tr>
+              <td>기여율</td>
+              <td>
+                <div class="p-formula"><strong>근로자:</strong> ${c.pensionSystem.contribution.employee}</div>
+                <div class="p-formula" style="margin-top:4px;"><strong>사용자:</strong> ${c.pensionSystem.contribution.employer}</div>
+                <div class="p-formula" style="margin-top:4px;"><strong>정부:</strong> ${c.pensionSystem.contribution.government}</div>
+                ${c.pensionSystem.contribution.note ? `<div class="p-note" style="margin-top:4px;">${c.pensionSystem.contribution.note}</div>` : ''}
+              </td>
+            </tr>
+            <tr>
+              <td>노령급여</td>
+              <td>
+                <div class="p-formula">${c.pensionSystem.oldAgeBenefit.value}</div>
+                ${detailBlock(c.pensionSystem.oldAgeBenefit)}
+              </td>
+            </tr>
+            <tr>
+              <td>장애·유족급여</td>
+              <td><div class="p-formula">${c.pensionSystem.otherBenefits.value}</div></td>
+            </tr>
+            <tr>
+              <td>관리기관</td>
+              <td><div class="p-note">${c.pensionSystem.agency}</div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="p-note" style="margin-top:8px;color:#999;">ℹ️ ${c.pensionSystem.source}</div>
+        ` : `
+        <div class="p-note" style="color:#999;">${c.pensionSystem.value}</div>
+        <div class="p-note" style="margin-top:8px;color:#999;">ℹ️ ${c.pensionSystem.source}</div>
+        `) : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중</div>`}
+      </div>
+
+      <!-- 10. 급여명세서 필수항목 -->
       <div class="modal-section">
         <div class="modal-section-title">🧾 급여명세서 필수 항목</div>
         ${c.payrollStatement ? `
@@ -1406,7 +1456,7 @@ function openModal(code) {
         ` : `<div class="p-note" style="color:#999;">국가별 데이터 수집 중 - 법정 규정 확인 후 업데이트 예정</div>`}
       </div>
 
-      <!-- 10. 퇴직 (자발적 / 계약종료 / 해고) -->
+      <!-- 11. 퇴직 (자발적 / 계약종료 / 해고) -->
       <div class="modal-section">
         <div class="modal-section-title">🚪 퇴직 (자발적·계약종료·해고)</div>
         <table class="premium-table">
@@ -1465,7 +1515,7 @@ function openModal(code) {
         </table>
       </div>
 
-      <!-- 11. 한국인 고용 특이사항 -->
+      <!-- 12. 한국인 고용 특이사항 -->
       <div class="modal-section">
         <div class="modal-section-title"><span style="color:#F1C40F;">⭐</span> 한국인 고용 특이사항</div>
         <dl class="info-grid">
@@ -1478,7 +1528,7 @@ function openModal(code) {
         <div class="visa-box" style="margin-top:12px;"><strong>한국인 비자:</strong> ${c.visa}</div>
       </div>
 
-      <!-- 12. 주재원 파견 특이사항 -->
+      <!-- 13. 주재원 파견 특이사항 -->
       <div class="modal-section">
         <div class="modal-section-title">✈️ 본사 주재원 파견 특이사항</div>
         <table class="premium-table">

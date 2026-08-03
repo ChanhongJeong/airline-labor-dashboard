@@ -2,8 +2,62 @@
 
 > 프로젝트: `airline-labor-dashboard` (제주항공 GHR 대시보드 - 취항 15개국 노동법/최저임금/물가)
 > 파일: `index.html`, `data.js`, `scripts/*`
-> 배포: https://chanhongjeong.github.io/airline-labor-dashboard/
+> 배포: https://ghr-dashboard.github.io/airline-labor-dashboard/ (2026-08-04, 조직 계정 `GHR-dashboard`로 이전 - 이전 주소 `chanhongjeong.github.io`는 더 이상 사용하지 않음)
 > 형식: 날짜 역순 (최신이 위)
+
+---
+
+## 2026-08-04 (화) - 16차 작업
+
+### 요청
+
+1. 저장소를 조직 계정으로 이전(`ChanhongJeong` 개인 계정 → `GHR-dashboard` 조직) - GitHub Pages 주소가 `ghr-dashboard.github.io`로 변경됨
+2. **국민연금공단 「세계의 연금제도」 페이지의 국가별 PDF 내용을 각 국가 모달에 새 항목으로 추가**할 것. 기존 사회보험 항목과는 별도의 독립 블록으로 넣고, 자료 없는 국가(마카오)는 자료없음으로 표시, 한국은 제외
+
+### 사전 작업 - 인프라
+
+- 로컬 환경에 `git push`/`gh` 인증이 안 되어 있어 **GitHub CLI(2.96.0)를 winget으로 설치** → 사용자가 직접 브라우저로 `gh auth login` 진행
+- data.js 편집을 안전하게 검증하기 위해 **Node.js LTS(24.19.0)를 winget으로 설치** (이전에는 이 PC에 node·python 실행 환경이 전혀 없었음 - `python`은 Windows Store 스텁만 존재)
+- ⚠️ 이 세션의 셸 실행 환경이 사용자 로그인 계정(`admin`)과 다른 별도 샌드박스 계정(`adi\2308006`)이라는 것을 확인 - `git push`·`gh auth`처럼 인증이 필요한 작업은 항상 사용자가 본인 터미널에서 직접 실행해야 함
+
+### 작업 1 - 저장소 이전
+
+- 사용자가 GitHub Organization(`GHR-dashboard`)을 생성하고 저장소 소유권을 이전
+- 로컬 `git remote set-url origin`을 새 주소로 갱신, 새 Pages 주소(`https://ghr-dashboard.github.io/airline-labor-dashboard/`) 정상 작동 확인
+
+### 작업 2 - 해외 연금제도 데이터 추가
+
+**출처 확인**: [국민연금공단 「세계의 연금제도」](https://www.nps.or.kr/pnsinfo/ntnpnsregm/getOHAF0121M0.do?menuId=MN24000906) - 국가별 PDF, ISSA(국제사회보장협회) 자료 기반. 대시보드 16개국 중 **14개국**에 PDF가 있었고 **마카오·한국은 목록에 없음**(한국은 자국이라 제외 대상, 마카오는 원천 자료 자체가 없음).
+
+**PDF 처리 방법**: `WebFetch`는 PDF 바이너리 텍스트를 직접 추출하지 못하지만, 결과에 로컬 저장 경로가 남는 것을 확인 → 그 경로를 `Read` 도구로 다시 읽으면 페이지별 전문이 추출됨. 이 2단계 절차(WebFetch → 로컬 저장 → Read)를 13개국에 대해 서브에이전트 13개를 병렬로 실행해 각각 PDF 원문을 읽고 지정된 스키마로 요약하도록 지시(일본 1개국은 직접 처리). 사이판(MP)은 국민연금공단 목록에 별도 항목이 없어 **미국(United States) 편을 사용**(CNMI가 연방 사회보장제도에 편입되어 있다는 11차 작업 확인 사항과 일치).
+
+**데이터 스키마** - 국가별로 `pensionSystem` 블록 신설(9개 핵심 블록에 이어 10번째):
+- `overview` (제도 형태 + 근거법), `coverage` (적용대상), `contribution` (근로자/사용자/정부 부담률), `oldAgeBenefit` (수급요건 + 급여액), `otherBenefits` (장애·유족급여 요약), `agency` (관리기관), `source` (출처·발간연도 + 법적 효력 없는 참고자료임을 명시)
+- 마카오는 `{value, source}`만 있는 축약형으로 자료없음 표시
+- 러시아는 원문 자체가 **2018년 ISSA 자료**로 다른 국가(2024년)보다 오래됨 → `source` 필드에 그 사실을 명시해 사용자가 감안하도록 함
+- 모든 수치·조문·기관명은 **에이전트가 실제로 읽은 PDF 원문에서만** 가져오도록 지시(9차 라오스 작업의 추정 조문번호 오류 전례를 재확인시킴)
+
+**반영 방식**: `data.js`가 매우 큰 JSON이라 전체를 파싱·재직렬화하면 포맷이 흐트러질 위험이 있어(과거 `inject_lib.mjs` 방식과 동일한 이유로), **각 국가의 `annualLeave` 블록 시작 직전에 원본 포맷을 그대로 유지하며 15곳(14개국+마카오)을 순서대로 삽입**. 국가별 조문 인용문처럼 고유한 문자열을 앵커로 사용해 삽입 위치를 정확히 특정.
+
+### 검증
+
+- PowerShell `ConvertFrom-Json`으로 `data.js` 전체 JSON 구문 유효성 확인 (16개국 정상 파싱, `pensionSystem` 보유 15개국 + 미보유 KR 1개국 확인)
+- `node --check data.js` / `node --check` (index.html 인라인 스크립트 추출분) 통과
+- Node 스크립트로 `openModal`의 `pensionSystem` 렌더링 로직을 16개국 전부에 대해 시뮬레이션 실행 - 런타임 에러 0건
+- ⚠️ **실제 브라우저 스크린샷 확인은 못 함** - 이 환경에 `chromium-cli`/헤드리스 브라우저가 없어서 시각적 렌더링(레이아웃·스타일)까지는 검증하지 못했음. 다음에 브라우저로 직접 확인 필요
+- 백업: `backup/data-2026-08-04-before-pension.js.bak`(원본 raw 복사) → `backup/data-2026-08-04-pension-system-added.json`(공식 스크립트 백업, 646.9 KB, sha256 `b62460275dc7…`)
+
+### 결과
+
+- `data.js`에 `pensionSystem` 블록 15개국 신설
+- `index.html`에 모달 9번째 섹션으로 **"🏦 해외 연금제도"** 신설, 이후 섹션 번호(급여명세서~주재원 파견) 10~13으로 순차 조정
+- 국민연금공단 페이지 자체의 안내문("법적인 효력은 없습니다")을 각 국가 `source` 필드에 반영해 참고용 자료임을 명시
+
+### 남은 과제
+
+1. **실제 브라우저에서 시각적 확인** - 레이아웃·스크롤·모바일 반응형 등은 이번에 확인하지 못함
+2. 러시아 자료가 2018년 기준으로 오래됨 - 최신 자료로 교체 필요 시 국민연금공단 페이지 재확인
+3. 마카오 연금제도는 여전히 원천 자료 없음 - 별도 출처(마카오 정부 사회보장기금 등) 확보 시 보강 검토
 
 ---
 
