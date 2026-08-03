@@ -1,7 +1,7 @@
 // Auto-updated by GitHub Actions
 window.DASHBOARD_DATA = {
   "meta": {
-    "lastUpdated": "2026-07-27",
+    "lastUpdated": "2026-08-03",
     "cpiSource": "IMF WEO API (PCPIPCH, 2025)",
     "cpiNote": "World Bank 연간 CPI는 통상 1~2년 lag가 있습니다. 최신 월간 수치는 각국 통계청 링크로 확인하세요.",
     "minWageNote": "최저임금은 공개 API가 없어 수동 업데이트 방식입니다. 각 국가의 minWage.updated 필드에서 최종 갱신일을 확인하세요.",
@@ -36,7 +36,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -589,7 +589,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -1152,7 +1152,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -1602,7 +1602,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -2055,7 +2055,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -2515,7 +2515,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -2994,7 +2994,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -3978,7 +3978,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -4634,7 +4634,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -5213,7 +5213,7 @@ window.DASHBOARD_DATA = {
           "text": "상승",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -5738,7 +5738,7 @@ window.DASHBOARD_DATA = {
           "text": "저물가",
           "dir": "down"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -6251,7 +6251,7 @@ window.DASHBOARD_DATA = {
           "text": "고물가",
           "dir": "up"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -6730,7 +6730,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -7249,7 +7249,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
@@ -7743,7 +7743,7 @@ window.DASHBOARD_DATA = {
           "text": "안정",
           "dir": "flat"
         },
-        "updated": "2026-07-27"
+        "updated": "2026-08-03"
       },
       "minWageHistory": [
         {
